@@ -1,0 +1,65 @@
+<!-- New withdraw Modal -->
+<div class="modal-header">
+	<button type="button" class="close" aria-label="Close" ng-click="$ctrl.cancel ()">
+		<span aria-hidden="true">&times;</span>
+	</button>
+	<h4 class="modal-title" id="myModalLabel" translate>Send</h4>
+</div>
+
+<ul class="nav nav-tabs" role="tablist">
+	<li role="presentation" class="active">
+		<a href="" data-target="#withdraw-send" aria-controls="withdraw-send" role="tab" data-toggle="tab" translate>Send money</a>
+	</li>
+	<li role="presentation" ng-if="$ctrl.wallet.ismultisig">
+		<a href="" data-target="#withdraw-pendingsign" aria-controls="withdraw-pendingsign" role="tab" data-toggle="tab">
+			<translate>Pending</translate>
+			<!--<span class="label label-danger">{{wallet.pendingtxs.length}}</label>-->
+		</a>
+	</li>
+	<li role="presentation">
+		<a href="" data-target="#withdraw-history" aria-controls="withdraw-history" role="tab" data-toggle="tab" translate>History</a>
+	</li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+	<div role="tabpanel" class="tab-pane active" id="withdraw-send">
+		<div ng-if="!$ctrl.wallet.ismultisig" ng-include="'components/dashboard/wallet/withdraw/withdraw-single.html'"></div>
+		<div ng-if="$ctrl.wallet.ismultisig" ng-include="'components/dashboard/wallet/withdraw/withdraw-multisig.html'"></div>
+	</div>
+	<!-- Multisig pending -->
+	<div role="tabpanel" class="tab-pane" id="withdraw-pendingsign" ng-if="$ctrl.wallet.ismultisig">
+		<div class="modal-body">
+			<div class="text-center" ng-if="$ctrl.wallet.pendingtxs.length == 0">
+				<i translate>There are no transactions pending signing</i>
+			</div>
+
+			<table ng-if="$ctrl.wallet.pendingtxs.length != 0" class="table table-compressed">
+				<thead class="separator">
+					<tr>
+						<th class="text-center" translate>Description</th>
+						<th class="text-center" translate>Signatures</th>
+						<th class="text-center" translate>Value</th>
+						<th class="text-center" translate>Date</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tr ng-repeat="tx in $ctrl.wallet.pendingtxs" ng-if="tx.status == 'signing'">
+					<td class="text-center">{{tx.description}}</td>
+					<td class="text-center">{{tx.signers.length}} of {{tx.n}}</td>
+					<td class="text-center">{{tx.value|money:'full'}}</td>
+					<td class="text-center">{{tx.time|date}}</td>
+					<td class="text-center">
+						<button class="btn btn-default btn-sm" request-confirmation text="{{'Are you sure to cancel this pending transaction?'|translate}}" ng-click="$ctrl.removeMultisigTransaction (tx._id)" translate>Cancel</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div role="tabpanel" class="tab-pane" id="withdraw-history">
+		<div class="modal-body">
+			<transaction-list out="true" multisig="$ctrl.wallet.ismultisig" txs="$ctrl.wallet.txs"></transaction-list>
+		</div>
+	</div>
+</div>
+</div>

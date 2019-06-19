@@ -1,0 +1,90 @@
+<wizard name="withdrawMultisig" template="/shared/templates/angular-wizard/wizard.html" indicators-position="top" class="modal-body">
+    <wz-step ng-form name="withdrawMultisig" wz-title="{{ $ctrl.withdrawMultisigModel.step1.title.main }}" wz-heading-title="{{ $ctrl.withdrawMultisigModel.step1.title.heading }}">
+        <div class="row">
+            <div class="col-xs-12">
+                <response-messages message="{{$ctrl.withdrawMultisigModel.step1.error}}"></response-messages>
+            </div>
+        </div>
+
+        <div ng-if="!withdrawMultisig.amount.$valid || $ctrl.values.value <= 0" class="alert alert-danger" role="alert" translate>Invalid amount</div>
+
+        <div class="padding-bottom-15">
+            <currency-selector border="none"></currency-selector>
+        </div>
+
+        <translate>Amount to send</translate> ({{null|money}}):
+        <input ng-pattern="/^[0-9]+(\.[0-9]{1,8})?$/" type="text" class="form-control" ng-disabled="$ctrl.fixedValue" name="amount" ng-model="$ctrl.values.value" money-input value="{{$ctrl.values.value}}" />
+        <br>
+        <a ng-hide="$ctrl.fixedValue" style="font-size: 90%" href="" ng-click="$ctrl.values.value = $ctrl.balance.balance" translate>Click here to select all the available balance of {{$ctrl.balance.balance|money}}.</a>
+        <br>
+        <br>
+        <translate>Transaction description</translate>
+        <i class="fa fa-info-circle" tooltip tooltip-content="{{'Explain where these funds are going; this information will be public.'|translate}}"></i>:
+        <textarea ng-model="$ctrl.values.description" ng-disabled="$ctrl.fixedDescription">
+                {{$ctrl.values.description}}
+            </textarea>
+        <br>
+        <translate>Destination address</translate>:
+        <input type="text" class="form-control" value="$ctrl.values.destination" ng-disabled="$ctrl.fixedDestination" ng-model="$ctrl.values.destination" />
+        <hr>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-lg-right text-md-right text-sm-right text-xs-center">
+                <button type="button" class="btn btn-default btn-xs-block" loading-disabled="!withdrawMultisig.$valid || $ctrl.values.value <= 0" loading="$ctrl.withdrawMultisigModel.step1.loading" ng-click="$ctrl.withdrawFeeDo();" translate>Next</button>
+            </div>
+        </div>
+    </wz-step>
+
+
+    <!-- Fee and confirmation -->
+    <wz-step wz-title="{{ $ctrl.withdrawMultisigModel.step2.title.main }}" wz-heading-title="{{ $ctrl.withdrawMultisigModel.step2.title.heading }}">
+        <div class="row">
+            <div class="col-xs-12">
+                <response-messages message="{{$ctrl.withdrawMultisigModel.step2.error}}"></response-messages>
+            </div>
+        </div>
+
+        <translate>Amount to send</translate>: {{$ctrl.values.vvalue|money}}
+        <br>
+        <span style="font-size: 80%;">
+            <translate>An additional fee of {{$ctrl.values.fee|money}} is automatically added to assure that the transaction will be confirmed.</translate>
+            <translate>The total amount spent will be {{($ctrl.values.vvalue + $ctrl.values.fee)|money}}</translate>
+        </span>
+        <br>
+        <br>
+        <translate>Transaction description</translate>:
+        <span style="font-size: 80%;">{{$ctrl.values.description}}</span>
+        <br>
+        <translate>Destination address</translate>:
+        <span style="font-size: 80%;">{{$ctrl.values.destination}}</span>
+        <br>
+        <hr>
+        <div ng-include="'components/dashboard/wallet/withdraw/fee-selector.html'"></div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-lg-left text-md-left text-sm-left text-xs-center">
+                <button type="button" class="btn btn-danger btn-xs-block" ng-click="$ctrl.withdrawMultisigModel.step2.back()" translate>Go back</button>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-lg-right text-md-right text-sm-right text-xs-center margin-xs-top-5">
+                <button type="button" class="btn btn-default btn-xs-block" loading="$ctrl.withdrawMultisigModel.step2.loading" ng-click="$ctrl.withdrawMultisigModel.step2.withdrawMultisigDo();" translate>Send</button>
+            </div>
+        </div>
+    </wz-step>
+
+
+    <wz-step wz-title="{{ $ctrl.withdrawMultisigModel.step3.title.main }}" wz-heading-title="{{ $ctrl.withdrawMultisigModel.step3.title.heading }}">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center completed-img">
+                <img src="/media/completed-green.png">
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center margin-top-20 completed-text">
+                <p>
+                    <translate>Your transaction has been prepared; the transaction need to be signed by {{$ctrl.wallet.multisig.n}} wallet administrators (an email is sent to them)</translate>.
+                    <br>
+                    <br>
+                </p>
+            </div>
+        </div>
+    </wz-step>
+</wizard>

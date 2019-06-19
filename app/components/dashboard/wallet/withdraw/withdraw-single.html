@@ -1,0 +1,149 @@
+<wizard name="withdrawSingle" template="/shared/templates/angular-wizard/wizard.html" indicators-position="top" class="modal-body">
+    <wz-step wz-title="{{ $ctrl.withdrawModel.step1.title.main }}" wz-heading-title="{{ $ctrl.withdrawModel.step1.title.heading }}">
+        <div ng-if="$ctrl.mtype == 'eventdonation'">
+            <div class="row">
+                <div class="col-xs-12">
+                    <response-messages message="{{$ctrl.withdrawModel.step1.error}}"></response-messages>
+                </div>
+            </div>
+
+            <span>
+                <translate>Donation to</translate>
+                <b>{{$ctrl.distributionn}}</b>
+                <translate>users in the event</translate>
+                <a ng-href="/event/{{$ctrl.event}}">{{$ctrl.event}}</a>
+            </span>
+            <br>
+            <br>
+            <translate>Amount to send</translate>: {{$ctrl.values.value|money}}
+            <br>
+            <hr>
+            <span style="font-size: 80%;">
+                <translate>An additional fee of {{$ctrl.values.fee|money}} is automatically added to assure that the transaction will be confirmed.</translate>
+                <translate>The total amount spent will be {{($ctrl.values.value + $ctrl.values.fee)|money}}</translate>
+            </span>
+            <br>
+            <div ng-include="'components/dashboard/wallet/withdraw/fee-selector.html'"></div>
+            <div ng-if="$ctrl.withdrawModel.values.hardware">
+                <p translate>Connect your hardware wallet, unlock with the pin, enter in the bitcoin application, then press next.</p>
+            </div>
+            <div ng-if="!$ctrl.withdrawModel.values.hardware">
+                <translate>Passphrase</translate>&nbsp;(<translate>Wallet</translate>: <i>{{$ctrl.wallet.label}}</i>):
+                <span ng-init="showpassphrase = true">
+                    <input type="text" ng-attr-type="{{ showpassphrase ? 'text' : 'password' }}" class="form-control" ng-model="$ctrl.withdrawModel.values.mnemonic" value="{{$ctrl.withdrawModel.values.mnemonic}}" />
+                    <div align="right">
+                        <a href="" ng-click="showpassphrase = !showpassphrase">
+                            <span ng-if="showpassphrase" translate>Hide passphrase</span>
+                            <span ng-if="!showpassphrase" translate>Show passphrase</span>
+                        </a>
+                    </div>
+                </span>
+            </div>
+            <hr>
+            <div class="text-lg-right text-md-right text-sm-right text-xs-center">
+                <button type="button" class="btn btn-default btn-xs-block" loading="$ctrl.withdrawModel.step1.loading" ng-click="$ctrl.withdrawModel.step1.eventDonate ();" translate>Next</button>
+            </div>
+        </div>
+
+        <div ng-if="$ctrl.mtype != 'eventdonation'" ng-form name="withdrawSingle">
+            <div class="row">
+                <div class="col-xs-12">
+                    <response-messages message="{{$ctrl.withdrawModel.step1.error}}"></response-messages>
+                </div>
+            </div>
+
+            <div ng-if="!withdrawSingle.amount.$valid || $ctrl.values.value <= 0" class="alert alert-danger" role="alert" translate>Invalid amount</div>
+
+            <div class="padding-bottom-15">
+                <currency-selector border="none"></currency-selector>
+            </div>
+
+            <translate>Amount to send</translate> ({{null|money}}):
+            <input ng-pattern="/^[0-9]+(\.[0-9]{1,8})?$/" type="text" class="form-control" name="amount" ng-model="$ctrl.values.value" ng-disabled="$ctrl.fixedValue" money-input value="{{$ctrl.values.value}}" />
+            <a ng-hide="$ctrl.fixedValue" style="font-size: 80%" href="" ng-click="$ctrl.values.value = $ctrl.balance.balance" translate>Click here to select all the available balance of {{$ctrl.balance.balance|money}}.</a>
+
+            <br>
+            <div ng-if="!$ctrl.withdrawModel.values.hardware">
+                <br>
+                <translate>Passphrase</translate>&nbsp;(<translate>Wallet</translate>: <i>{{$ctrl.wallet.label}}</i>):
+                <span ng-init="showpassphrase = true">
+                    <input type="text" ng-attr-type="{{ showpassphrase ? 'text' : 'password' }}" class="form-control" ng-model="$ctrl.withdrawModel.values.mnemonic" value="{{$ctrl.withdrawModel.values.mnemonic}}" />
+                    <div class="text-right">
+                        <a href="" ng-click="showpassphrase = !showpassphrase">
+                            <span ng-if="showpassphrase" translate>Hide passphrase</span>
+                            <span ng-if="!showpassphrase" translate>Show passphrase</span>
+                        </a>
+                    </div>
+                </span>
+            </div>
+            <br>
+            <translate>Destination address</translate>:
+            <input type="text" class="form-control" value="$ctrl.values.destination" ng-disabled="$ctrl.fixedDestination" ng-model="$ctrl.values.destination" />
+            <hr>
+            <div class="text-lg-right text-md-right text-sm-right text-xs-center">
+                <button type="button" class="btn btn-default btn-xs-block" loading-disabled="!withdrawSingle.$valid || $ctrl.values.value <= 0" loading="$ctrl.withdrawModal.step1.loading" ng-click="$ctrl.withdrawFeeDo();" translate>Next</button>
+            </div>
+        </div>
+    </wz-step>
+
+    <wz-step wz-title="{{ $ctrl.withdrawModel.step2.title.main }}" wz-heading-title="{{ $ctrl.withdrawModel.step2.title.heading }}">
+        <div class="row">
+            <div class="col-xs-12">
+                <response-messages message="{{$ctrl.withdrawModel.step2.error}}"></response-messages>
+            </div>
+        </div>
+
+        <translate>Amount to send</translate>: {{$ctrl.values.vvalue|money}}
+        <br>
+        <span style="font-size: 80%;">
+            <translate>An additional fee of {{$ctrl.values.fee|money}} is automatically added to assure that the transaction will be confirmed.</translate>
+            <translate>The total amount spent will be {{($ctrl.values.vvalue + $ctrl.values.fee)|money}}</translate>
+        </span>
+        <br>
+        <br>
+        <translate>Destination address</translate>:
+        <span style="font-size: 80%;">{{$ctrl.values.destination}}</span>
+        <br>
+        <hr>
+        <div ng-include="'components/dashboard/wallet/withdraw/fee-selector.html'"></div>
+        </div>
+        <div ng-if="$ctrl.withdrawModel.values.hardware">
+            <br>
+            <ledger-wait config="{{ $ctrl.withdrawModel.step2.ledgerWaitStatus }}" exec="$ctrl.withdrawModel.step2.withdrawDo"></ledger-wait>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-lg-left text-md-left text-sm-left text-xs-center">
+                <button type="button" class="btn btn-danger btn-xs-block" ng-click="$ctrl.withdrawModel.step2.back()" translate>Go back</button>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-lg-right text-md-right text-sm-right text-xs-center margin-xs-top-5">
+                <button type="button" class="btn btn-default btn-xs-block" loading="$ctrl.withdrawModel.step2.loading" ng-click="$ctrl.withdrawModel.step2.withdrawDo();" translate>Send</button>
+            </div>
+        </div>
+    </wz-step>
+
+    <!-- Withdrawal do -->
+    <wz-step wz-title="{{ $ctrl.withdrawModel.step3.title.main }}" wz-heading-title="{{ $ctrl.withdrawModel.step3.title.heading }}">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center completed-img">
+                <img src="/media/completed-green.png">
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center margin-top-20 completed-text">
+                <p>
+                    <span ng-if="$ctrl.mtype != 'eventdonation'">
+                        <translate>Your transaction has been sent</translate>.
+                        <br>
+                        <br>
+                    </span>
+                    <span ng-if="$ctrl.mtype == 'eventdonation'">
+                        <translate>Your donation has been sent</translate>:
+                        <a href="/donation/{{$ctrl.values.txid}}">donation page</a>
+                        <br>
+                        <br>
+                    </span>
+                    <input type="text" class="form-control" value="{{$ctrl.values.txid}}" />
+                </p>
+            </div>
+        </div>
+    </wz-step>
+</wizard>

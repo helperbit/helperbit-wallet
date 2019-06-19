@@ -1,0 +1,28 @@
+@media screen {
+    #printSectionNew {
+        display: none;
+    }
+
+}
+
+@media print {
+    body * {
+        visibility:hidden;
+    }
+
+    #printSectionNew, #printSectionNew * {
+        visibility:visible;
+    }
+
+    #printSectionNew {
+		font-family: "Times New Roman", Times, serif !important;
+        position:absolute;
+        left:0;
+        top:0;
+    }
+}
+
+.wallet-type {
+    height: 100px;
+    margin: 0 auto;
+}

@@ -1,0 +1,13 @@
+mnemonic-view {
+
+	.word-box {
+		padding: 5px;
+		border: 1px solid $mediumGray;
+		margin: 2.5px;
+		border-radius: 3px;
+
+		@media screen and (max-width: #{$breakpointSmMax}) {
+			margin: 2.5px 0px;
+		}
+	}
+}
