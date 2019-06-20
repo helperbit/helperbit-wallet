@@ -1,0 +1,11 @@
+.sass-cache
+dist
+node_modules
+npm-debug*
+scripts/geojson2svg/out
+app/css/helperbit.min.css
+app/widgets/donate-button/widget.min.js
+app/widgets/donate-button/button.min.js
+app/widgets/donate-button/button.min.js.map
+app/widgets/donate-button/widget.min.js.map
+app/widgets/merchant-proof/plugin.min.js

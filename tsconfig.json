@@ -1,0 +1,29 @@
+
+
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "experimentalDecorators": true,
+        "sourceMap": true,
+        "declaration": false,
+        "downlevelIteration": true,
+        "emitDecoratorMetadata": true,
+        "noImplicitAny": false,
+        "allowJs": false,
+        "target": "es5",
+        "lib": ["es6", "dom"],
+        "types" : ["node", "angularjs", "bitcoinjs-lib"]
+    },
+    "exclude": ["node_modules"],
+    "paths": {
+        "@shared/*": [
+            "app/shared/*"
+        ],
+        "moment": [
+            "./node_modules/moment/min/moment.min.js"
+        ],
+        "bootstrap": [
+            "./node_modules/bootstrap/dist/js/bootstrap.js"
+        ]
+    }
+}

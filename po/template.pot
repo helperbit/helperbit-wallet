@@ -1,0 +1,6773 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: dashboard/ledger-wait/ledger-wait.html:3
+msgctxt "Ledger-Pair-Procedure"
+msgid "Connect and unlock the <b>Ledger device</b>"
+msgstr ""
+
+#: dashboard/ledger-wait/ledger-wait.html:9
+msgctxt "Ledger-Pair-Procedure"
+msgid "Navigate to the <b>Bitcoin</b> app on your device"
+msgstr ""
+
+#: dashboard/ledger-wait/ledger-wait.html:31
+msgctxt "Ledger-Pair-Procedure"
+msgid "Oops, couldn't connect to device"
+msgstr ""
+
+#: dashboard/ledger-wait/ledger-wait.html:32
+msgctxt "Ledger-Pair-Procedure"
+msgid "The Helperbit platform is unable to connect to the device; please be sure to connect the device, unlock with the pin and select the Bitcoin app."
+msgstr ""
+
+#: dashboard/ledger-wait/ledger-wait.html:20
+msgctxt "Ledger-Pair-Procedure"
+msgid "When asked, press <b>confirm</b> on the device"
+msgstr ""
+
+#: dashboard/verify/providers/npo/admins/admins.html:95
+msgid "(Signature of the Board of Directors)"
+msgstr ""
+
+#: dashboard/verify/providers/npo/admins/admins.html:94
+msgid "(Signature of the person in ​charge of the fundraising sector)"
+msgstr ""
+
+#: auth/signup/signup.js:286
+msgid "(optional)"
+msgstr ""
+
+#: profile/company.html:263
+#: profile/organization.html:326
+msgid "(pending)"
+msgstr ""
+
+#: home/policy/modal.html:40
+msgid "(scroll and read the privacy policy to accept)"
+msgstr ""
+
+#: home/policy/modal.html:21
+msgid "(scroll and read the terms of service to accept)"
+msgstr ""
+
+#: auth/signup/signup.js:406
+#: auth/signup/signup.js:418
+msgid "100% free"
+msgstr ""
+
+#: home/about/sections/faq.html:371
+msgid "<b>Company</b>: after completed the verification process it can send and receive donations using all the supported methods of payment. It can request the approval to create projects."
+msgstr ""
+
+#: home/about/sections/faq.html:365
+msgid "<b>Non profit organizations</b>: after completed the verification process it can send and receive donations using all the supported methods of payment. It can create projects for specific initiatives."
+msgstr ""
+
+#: home/about/sections/faq.html:368
+msgid "<b>Public body</b>: after completed the verification process it can send and receive donations using all the supported methods of payment. It can create projects for specific initiatives."
+msgstr ""
+
+#: home/about/sections/faq.html:362
+msgid "<b>Single user</b>: individuals can donate using all the supported methods of payment. If the user completes the verification process he can receive donations in case of a natural disaster strikes his home area. He can’t create projects."
+msgstr ""
+
+#: home/about/sections/faq.html:359
+msgid "<b>Visitors</b>: a visitor can donate using bitcoin or credit/debit card to direct beneficiaries or to projects. He can’t receive donations nor create projects."
+msgstr ""
+
+#: home/staticpages/staticpages.js:236
+msgid "A Fundraising Campaign is an initiative created for an important occasion. The raised amount is addressed to the cause you care for, in a direct and transparent way."
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.html:153
+#: dashboard/wallet/new/new.html:148
+msgid "A backup file will allow you to restore your funds even if you forgot the passphrase and it is necessary to recover funds without the intervention of Helperbit. Insert a password below to encrypt the backup file."
+msgstr ""
+
+#: home/cookie/cookie.html:12
+msgid "A cookie is a small text file that a website saves on your computer or mobile device when you visit the site. It enables the website to remember your actions and preferences (such as login, language, font size and other display preferences) over a period of time, so you don’t have to keep re-entering them whenever you come back to the site or browse from one page to another."
+msgstr ""
+
+#: home/about/about.html:10
+#: parts/header/header.html:52
+msgid "About"
+msgstr ""
+
+#: parts/header/header.html:57
+#: parts/seofooter/seofooter.html:110
+msgid "About Helperbit"
+msgstr ""
+
+#: dashboard/rors/rors.html:16
+#: dashboard/rors/rors.html:319
+msgid "Accepted"
+msgstr ""
+
+#: home/about/sections/whyhelperbit.html:9
+msgid "According to UN, every year 100.000 people die due to natural disasters and the number of those affected is up to 200 million. By 2030, there could be 325 million people trapped in poverty and exposed to the full range of natural hazards and climate extremes."
+msgstr ""
+
+#: auth/login/login.js:33
+msgid "Account activation"
+msgstr ""
+
+#: dashboard/admin/admin.html:24
+msgid "Account not active."
+msgstr ""
+
+#: dashboard/socialedit/socialedit.js:17
+msgid "Account settings"
+msgstr ""
+
+#: dashboard/verify/providers/npo/npo.html:32
+#: dashboard/verify/providers/npo/npo.html:75
+#: dashboard/verify/providers/npo/npo.js:139
+msgid "Act of Board"
+msgstr ""
+
+#: dashboard/verify/providers/npo/npo.js:142
+msgid "Act of the Board/person in charge stating the list of people that manage the bitcoin wallets."
+msgstr ""
+
+#: campaign/create/create.js:108
+#: dashboard/rors/rors.html:301
+#: dashboard/verify/verify.html:156
+#: dashboard/verify/verify.html:38
+#: project/create/create.js:110
+#: project/create/modal/modal.html:87
+msgid "Actions"
+msgstr ""
+
+#: dashboard/wallet/wallets/settings.html:37
+msgid "Active multisig wallets cannot be deleted"
+msgstr ""
+
+#: project/create/modal/modal.js:58
+msgid "Activities"
+msgstr ""
+
+#: project/create/create.js:38
+msgid "Activity"
+msgstr ""
+
+#: project/create/modal/activity/modal/modal.html:56
+msgid "Activity created!"
+msgstr ""
+
+#: project/create/modal/activity/modal/modal.html:57
+msgid "Activity updated!"
+msgstr ""
+
+#: dashboard/rors/rors.html:41
+msgid "Actual Bitcoin value"
+msgstr ""
+
+#: dashboard/admin/admin.html:47
+msgid "Add"
+msgstr ""
+
+#: dashboard/admin/admin.js:15
+msgid "Add and remove organization administrators"
+msgstr ""
+
+#: auth/signup/signup.js:426
+msgid "Add donation button on your website"
+msgstr ""
+
+#: dashboard/geolocalization/modal/modal.js:28
+#: dashboard/verify/providers/otc/otc.js:25
+#: dashboard/wallet-list/wallet-list.html:15
+#: profile/profile.html:7
+msgid "Address"
+msgstr ""
+
+#: dashboard/verify/providers/npo/admins/admins.js:314
+msgid "Admin"
+msgstr ""
+
+#: dashboard/admin/admin.html:1
+msgid "Admin add"
+msgstr ""
+
+#: dashboard/verify/providers/npo/admins/admins.js:432
+#: dashboard/wallet/wallets/settings.html:14
+msgid "Admins"
+msgstr ""
+
+#: dashboard/verify/providers/npo/admins/admins.html:151
+msgid "Admins Document"
+msgstr ""
+
+#: dashboard/wallet/newmultisig/newmultisig.html:2
+msgid "Admins not verified"
+msgstr ""
+
+#: home/about/sections/faq.html:310
+msgid "Advanced Donation"
+msgstr ""
+
+#: home/staticpages/staticpages.js:251
+#: home/staticpages/staticpages.js:261
+msgid "Advanced Donations"
+msgstr ""
+
+#: event/table/table.js:134
+msgid "Affected Countries"
+msgstr ""
+
+#: event/table/table.js:181
+#: event/table/table.js:80
+#: event/table/table.js:85
+msgid "Affected Population"
+msgstr ""
+
+#: event/event/event.html:54
+#: project/project/project.html:96
+msgid "Affected population"
+msgstr ""
+
+#: ambassador/top-ambassadors/top-ambassadors.js:90
+#: donation/topdonors/topdonors.js:110
+msgid "All Time"
+msgstr ""
+
+#: home/about/sections/faq.html:136
+msgid "All organizations officially approved as non-profit, schools, hospitals, civil protections, municipalities, nature parks and all places of cultural interest can sign up."
+msgstr ""
+
+#: home/old-browser/old-browser.html:35
+#: parts/footer/footer.html:46
+#: parts/footer/footer.html:9
+msgid "All rights reserved"
+msgstr ""
+
+#: dashboard/admin/admin.html:20
+msgid "Already present."
+msgstr ""
+
+#: auth/signup/signup.html:140
+msgid "Already registered?"
+msgstr ""
+
+#: ambassador/top-ambassadors/top-ambassadors.js:20
+#: donation/topdonors/topdonors.js:20
+#: proposednpo/table/table.js:21
+msgid "Amazing prizes!"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.js:19
+#: home/staticpages/staticpages.js:277
+#: home/staticpages/staticpages.js:303
+#: parts/header/header.html:84
+#: parts/seofooter/seofooter.html:78
+msgid "Ambassador"
+msgstr ""
+
+#: utils.js:389
+msgid "Ambassador Badge Locked"
+msgstr ""
+
+#: dashboard/rors/rors.js:266
+msgid "American Dollars"
+msgstr ""
+
+#: dashboard/transaction-list/transaction-list.html:5
+#: donation/graph/graph.html:178
+msgid "Amount"
+msgstr ""
+
+#: project/project/project.html:115
+msgid "Amount already used"
+msgstr ""
+
+#: donation/graph/graph.html:128
+msgid "Amount from {{amountLimits[0]}}<i class=\"fa fa-btc\"></i> to {{amountLimits[1]}}<i class=\"fa fa-btc\"></i>"
+msgstr ""
+
+#: project/project/project.html:119
+msgid "Amount pending usage"
+msgstr ""
+
+#: dashboard/rors/rors.js:181
+#: dashboard/rors/rors.js:200
+#: dashboard/rors/rors.js:219
+msgid "Amount requested"
+msgstr ""
+
+#: dashboard/wallet/withdraw/withdraw-multisig.html:15
+#: dashboard/wallet/withdraw/withdraw-multisig.html:47
+#: dashboard/wallet/withdraw/withdraw-single.html:18
+#: dashboard/wallet/withdraw/withdraw-single.html:61
+#: dashboard/wallet/withdraw/withdraw-single.html:96
+msgid "Amount to send"
+msgstr ""
+
+#: dashboard/verify/providers/company/company.html:62
+#: dashboard/verify/providers/document/document.html:94
+#: dashboard/verify/providers/npo/admins/admins.html:178
+#: dashboard/verify/providers/npo/memorandum/memorandum.html:32
+#: dashboard/verify/providers/npo/npo.html:102
+#: dashboard/verify/providers/npo/statute/statute.html:32
+#: dashboard/verify/providers/residency/residency.html:32
+msgid "An Helperbit staff member will verify your documents soon."
+msgstr ""
+
+#: dashboard/wallet/withdraw/withdraw-multisig.html:50
+#: dashboard/wallet/withdraw/withdraw-single.html:22
+#: dashboard/wallet/withdraw/withdraw-single.html:99
+msgid "An additional fee of {{$ctrl.values.fee|money}} is automatically added to assure that the transaction will be confirmed."
+msgstr ""
+
+#: organizations/organizations.js:413
+msgid "An updated list of verified and trusted non-profit organizations that accept bitcoin, litecoin, ethereum, dash and others cryptocurrencies donations"
+msgstr ""
+
+#: dashboard/edit/edit.js:136
+msgid "Anagraphic"
+msgstr ""
+
+#: campaign/create/modal/modal.js:14
+msgid "Anniversary"
+msgstr ""
+
+#: project/create/create.js:120
+msgid "Approved"
+msgstr ""
+
+#: home/home/home.html:93
+msgid "Are you an NPO and want to raise funds for a particular project? Signup now and create a new project."
+msgstr ""
+
+#: home/about/sections/top.html:5
+msgid "Are you ready for the decentralized transparency revolution?"
+msgstr ""
+
+#: dashboard/wallet/withdraw/withdraw.html:53
+msgid "Are you sure to cancel this pending transaction?"
+msgstr ""
+
+#: campaign/create/create.js:230
+#: dashboard/rors/rors.js:548
+#: dashboard/verify/verify.js:207
+#: dashboard/wallet/wallets/wallets.js:146
+#: project/create/create.js:317
+#: project/create/modal/modal.js:461
+msgid "Are you sure to delete"
+msgstr ""
+
+#: dashboard/edit/edit.js:926
+msgid "Are you sure to delete your avatar image?"
+msgstr ""
+
+#: dashboard/admin/admin.html:34
+msgid "Are you sure to remove this?"
+msgstr ""
+
+#: dashboard/edit/edit.html:10
+msgid "Are you sure?"
+msgstr ""
+
+#: utils.js:199
+msgid "Art"
+msgstr ""
+
+#: home/home/home.html:2
+msgid "As single user you cannot create a project. At the moment only companies, organizations and municipalities can create it"
+msgstr ""
+
+#: dashboard/geolocalization/modal/modal.html:86
+msgid "Autocertified geolocalization done!"
+msgstr ""
+
+#: dashboard/geolocalization/modal/modal.html:87
+msgid "Autocertified geolocalization updated!"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.html:63
+msgid "Available"
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.html:31
+#: dashboard/wallet/new/new.html:22
+msgid "Available only on Chrome browser"
+msgstr ""
+
+#: home/about/about.html:19
+#: parts/header/header.html:67
+msgid "Awards"
+msgstr ""
+
+#: dashboard/verify/providers/document/document.html:67
+#: dashboard/wallet/feedmultisig/feedmultisig.html:137
+#: dashboard/wallet/new/new.html:132
+msgid "Back"
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.js:179
+#: dashboard/wallet/new/new.js:170
+msgid "Backup"
+msgstr ""
+
+#: dashboard/wallet/restore/restore.html:15
+msgid "Backup file"
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.html:155
+#: dashboard/wallet/new/new.html:150
+msgid "Backup file password:"
+msgstr ""
+
+#: dashboard/wallet/restore/restore.html:20
+#: dashboard/wallet/signmultisig/signmultisig.html:129
+msgid "Backup password"
+msgstr ""
+
+#: dashboard/badges/badges.js:19
+#: home/staticpages/staticpages.js:336
+#: home/staticpages/staticpages.js:346
+#: parts/seofooter/seofooter.html:72
+#: profile/single.html:57
+msgid "Badges"
+msgstr ""
+
+#: dashboard/wallet-list/wallet-list.html:23
+msgid "Balance"
+msgstr ""
+
+#: dashboard/wallet-list/wallet-list.html:46
+#: dashboard/wallet-list/wallet-list.html:90
+msgid "Bech32"
+msgstr ""
+
+#: dashboard/socialedit/socialedit.html:36
+msgid "Before you can login again, you have to activate your account with the code sent to your email address. If you did not receive this email, please check your junk/spam folder. If you entered an incorrect email address, you will need to re-register with the correct email address."
+msgstr ""
+
+#: auth/signup/signup.html:128
+msgid "Before you can login, you have to activate your account with the code sent to your email address."
+msgstr ""
+
+#: home/about/about.html:13
+#: parts/header/header.html:60
+msgid "Benefits"
+msgstr ""
+
+#: profile/company.html:154
+#: profile/organization.html:179
+#: profile/single.html:122
+msgid "Bio"
+msgstr ""
+
+#: dashboard/edit/edit.js:643
+msgid "Biography"
+msgstr ""
+
+#: dashboard/edit/edit.js:243
+#: dashboard/verify/verify.js:328
+msgid "Birth Date"
+msgstr ""
+
+#: dashboard/privacy/privacy.js:44
+msgid "Birth date"
+msgstr ""
+
+#: campaign/create/modal/modal.js:19
+msgid "Birthday"
+msgstr ""
+
+#: profile/profile.js:34
+msgid "Bitcoin addresses"
+msgstr ""
+
+#: auth/signup/signup.js:425
+msgid "Bitcoin and over 24+ Altcoins supported"
+msgstr ""
+
+#: insurance/simulation/simulation.html:88
+msgid "Bitcoin deposited in the pool of funds"
+msgstr ""
+
+#: dashboard/rors/rors.html:45
+msgid "Bitcoin value"
+msgstr ""
+
+#: parts/header/header.html:22
+msgid "Blog"
+msgstr ""
+
+#: utils.js:399
+msgid "Bronze Ambassador Badge"
+msgstr ""
+
+#: utils.js:317
+msgid "Bronze Donor Badge"
+msgstr ""
+
+#: utils.js:359
+msgid "Bronze Fundraiser Badge"
+msgstr ""
+
+#: dashboard/verify/providers/company/company.html:35
+#: dashboard/verify/providers/company/company.js:66
+#: dashboard/verify/verify.js:50
+msgid "Business Entity Certificate"
+msgstr ""
+
+#: dashboard/verify/verify.js:493
+msgid "CEO ID Document"
+msgstr ""
+
+#: donation/gift/gift.html:40
+msgid "Campaign Donation"
+msgstr ""
+
+#: dashboard/rors/rors.html:127
+#: dashboard/rors/rors.html:183
+#: dashboard/wallet/withdraw/withdraw.html:53
+msgid "Cancel"
+msgstr ""
+
+#: auth/login/login.html:11
+msgid "Cannot authenticate with your social account."
+msgstr ""
+
+#: campaign/create/create.html:28
+msgid "Celebrate an important occasion like a birthday, a festivity or a personal milestone and promote it through a"
+msgstr ""
+
+#: dashboard/security/security.html:33
+msgid "Change Password"
+msgstr ""
+
+#: dashboard/security/security.html:17
+msgid "Change your password"
+msgstr ""
+
+#: dashboard/controlpanel/controlpanel.js:102
+msgid "Change your password with a stronger one and protect your account from external attackers."
+msgstr ""
+
+#: organizations/organizations.js:412
+msgid "Charities that accept bitcoin and crypto donations"
+msgstr ""
+
+#: auth/signup/signup.js:102
+msgid "Check company advantages!"
+msgstr ""
+
+#: auth/signup/signup.js:96
+msgid "Check municipality advantages!"
+msgstr ""
+
+#: auth/signup/signup.js:90
+msgid "Check organization advantages!"
+msgstr ""
+
+#: auth/signup/signup.js:84
+msgid "Check singleuser advantages!"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.html:40
+msgid "Check the number of invited users and how near are the prizes! Each time that a new referred friend completes the ID verification procedure, your score is increased by 1 point."
+msgstr ""
+
+#: dashboard/controlpanel/controlpanel.js:58
+msgid "Check which non-profit is accepting bitcoin donations and has created a charitable project."
+msgstr ""
+
+#: dashboard/badges/badges.js:20
+msgid "Check your badges"
+msgstr ""
+
+#: donation/charity-pot/charity-pot.html:36
+msgid "Choose a Project"
+msgstr ""
+
+#: campaign/create/modal/modal.js:196
+#: campaign/create/modal/modal.js:200
+msgid "Choose a project"
+msgstr ""
+
+#: dashboard/rors/rors.js:165
+#: dashboard/rors/rors.js:169
+msgid "Choose an NPO"
+msgstr ""
+
+#: dashboard/wallet/new/new.html:14
+msgid "Choose this option if you don't own a Ledger or Trezor hardware wallet. During the procedure, you have to write down the 12-word mnemonic and keep it safe. These words let you access to your wallet and to the funds."
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.html:23
+msgid "Choose this option if you don't own a Ledger or Trezor hardware wallet. During the procedure, you have to write down the 12-word mnemonic and keep it safe. These words let you sign transactions from the wallet of your organization."
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.js:41
+#: dashboard/wallet/new/new.js:38
+msgid "Choose wallet type"
+msgstr ""
+
+#: dashboard/verify/providers/document/document.js:29
+msgid "Choose your document type and insert the information"
+msgstr ""
+
+#: campaign/create/modal/modal.js:24
+msgid "Christmas"
+msgstr ""
+
+#: dashboard/geolocalization/geolocalization.html:31
+#: dashboard/geolocalization/geolocalization.html:60
+#: dashboard/geolocalization/modal/modal.js:117
+#: dashboard/verify/providers/otc/otc.html:27
+#: dashboard/verify/verify.js:441
+msgid "City"
+msgstr ""
+
+#: profile/single.html:175
+msgid "Classification Area"
+msgstr ""
+
+#: home/about/sections/faq.html:347
+msgid "Click <a href=\"https://helperbit.github.io/wallet-recovery/\" target=\"_blank\">here</a> and fill the forms with required information. In case of issues write an email to info@helperbit.com, writing as a subject \"wallet recovery\""
+msgstr ""
+
+#: campaign/create/modal/modal.js:201
+msgid "Click an image to select a project. Check project info by clicking on project name."
+msgstr ""
+
+#: dashboard/rors/rors.js:170
+msgid "Click an image to select an NPO. Check NPO info by clicking on NPO name."
+msgstr ""
+
+#: parts/header/header.html:210
+msgid "Click here"
+msgstr ""
+
+#: dashboard/wallet/withdraw/withdraw-multisig.html:18
+#: dashboard/wallet/withdraw/withdraw-single.html:63
+msgid "Click here to select all the available balance of {{$ctrl.balance.balance|money}}."
+msgstr ""
+
+#: dashboard/rors/rors.html:66
+#: donation/charity-pot/charity-pot.html:103
+msgid "Click to copy"
+msgstr ""
+
+#: dashboard/wallet-list/wallet-list.html:122
+#: dashboard/wallet-list/wallet-list.html:33
+#: dashboard/wallet-list/wallet-list.html:77
+#: dashboard/wallet/signmultisig/signmultisig.html:93
+#: dashboard/wallet/wallets/wallets.html:107
+#: profile/company.html:189
+#: profile/organization.html:214
+#: profile/profile.html:16
+#: profile/single.html:157
+msgid "Click to copy the address"
+msgstr ""
+
+#: campaign/create/create.js:161
+msgid "Click to delete this fundraising campaign."
+msgstr ""
+
+#: project/create/create.js:207
+msgid "Click to delete this project."
+msgstr ""
+
+#: campaign/create/create.js:150
+msgid "Click to edit this fundraising campaign."
+msgstr ""
+
+#: project/create/create.js:196
+msgid "Click to edit this project."
+msgstr ""
+
+#: project/create/create.js:152
+msgid "Click to generate the donation button code of this project."
+msgstr ""
+
+#: campaign/create/create.js:139
+msgid "Click to go to this fundraising campaign."
+msgstr ""
+
+#: project/create/create.js:141
+msgid "Click to go to this project."
+msgstr ""
+
+#: dashboard/alert/alert.html:37
+#: dashboard/alert/alert.html:62
+#: dashboard/wallet/feedmultisig/feedmultisig.html:196
+#: dashboard/wallet/feedmultisig/feedmultisig.html:9
+#: dashboard/wallet/new/new.html:193
+#: dashboard/wallet/newmultisig/newmultisig.html:60
+#: dashboard/wallet/newmultisig/newmultisig.html:81
+#: dashboard/wallet/restore/restore.html:52
+#: dashboard/wallet/signmultisig/signmultisig.html:139
+#: dashboard/wallet/signmultisig/signmultisig.html:163
+#: dashboard/wallet/signmultisig/signmultisig.html:47
+#: parts/widgets/cookie-consent/cookie-consent.html:10
+#: proposednpo/table/table.html:13
+#: proposednpo/table/table.html:30
+msgid "Close"
+msgstr ""
+
+#: campaign/create/create.js:118
+msgid "Closed"
+msgstr ""
+
+#: donation/charity-pot/charity-pot.html:47
+msgid "Closed Round"
+msgstr ""
+
+#: auth/signup/signup.html:44
+#: profile/company.html:104
+msgid "Company"
+msgstr ""
+
+#: dashboard/edit/edit.js:140
+msgid "Company Anagraphic"
+msgstr ""
+
+#: dashboard/verify/verify.js:591
+msgid "Company Documents"
+msgstr ""
+
+#: auth/signup/signup.js:103
+msgid "Company advantages"
+msgstr ""
+
+#: dashboard/verify/verify.html:49
+#: dashboard/verify/verify.html:61
+msgid "Complete"
+msgstr ""
+
+#: auth/login/login.js:56
+#: dashboard/privacy/privacy.js:37
+#: home/about/about.js:31
+#: home/about/about.js:48
+msgid "Complete all fields"
+msgstr ""
+
+#: dashboard/badges/badges.html:16
+msgid "Complete the tasks and achieve digital rewards! Support us to spread the platform all over the world and become our top valuable user."
+msgstr ""
+
+#: dashboard/verify/verify.html:30
+msgid "Complete your profile"
+msgstr ""
+
+#: home/about/sections/faq.html:13
+msgid "Confidence in Bitcoin technology is based on the fact that the system is governed by mathematical laws and protected by encryption algorithms currently used also in the traditional banking system, so it is not required to trust a third party. The authenticity of each transaction is protected by digital signatures that belong to the sender address, allowing all users to have full control of the bitcoin sent from their personal addresses. The code behind the technology is freely available to everyone, so anyone can check the operation of blockchain."
+msgstr ""
+
+#: dashboard/verify/providers/company/company.html:47
+#: dashboard/verify/providers/document/document.html:79
+#: dashboard/verify/providers/npo/admins/admins.html:163
+#: dashboard/verify/providers/npo/memorandum/memorandum.html:15
+#: dashboard/verify/providers/npo/npo.html:87
+#: dashboard/verify/providers/npo/statute/statute.html:15
+#: dashboard/verify/providers/residency/residency.html:15
+#: dashboard/wallet/feedmultisig/feedmultisig.js:151
+#: dashboard/wallet/new/new.js:145
+msgid "Confirm"
+msgstr ""
+
+#: dashboard/verify/providers/otc/otc.html:48
+msgid "Confirm Address"
+msgstr ""
+
+#: dashboard/geolocalization/modal/modal.html:45
+msgid "Confirm Position"
+msgstr ""
+
+#: project/create/modal/modal.js:460
+msgid "Confirm delete activity"
+msgstr ""
+
+#: dashboard/edit/edit.js:925
+msgid "Confirm delete avatar"
+msgstr ""
+
+#: campaign/create/create.js:229
+msgid "Confirm delete campaign"
+msgstr ""
+
+#: project/create/create.js:316
+msgid "Confirm delete project"
+msgstr ""
+
+#: dashboard/rors/rors.js:547
+msgid "Confirm delete ror"
+msgstr ""
+
+#: dashboard/verify/verify.js:206
+msgid "Confirm delete verification"
+msgstr ""
+
+#: dashboard/wallet/wallets/wallets.js:145
+msgid "Confirm delete wallet"
+msgstr ""
+
+#: dashboard/verify/providers/otc/otc.js:26
+msgid "Confirm your address"
+msgstr ""
+
+#: dashboard/transaction-list/transaction-list.html:30
+#: donation/donation/donation.html:19
+#: donation/gift/gift.html:45
+#: donation/transaction/transaction.html:12
+msgid "Confirmed"
+msgstr ""
+
+#: donation/charity-pot/charity-pot.html:102
+msgid "Connect to our node!"
+msgstr ""
+
+#: dashboard/wallet/withdraw/withdraw-single.html:28
+msgid "Connect your hardware wallet, unlock with the pin, enter in the bitcoin application, then press next."
+msgstr ""
+
+#: home/about/about.html:21
+msgid "Contact"
+msgstr ""
+
+#: parts/header/header.html:69
+msgid "Contact Us"
+msgstr ""
+
+#: parts/header/header.html:161
+msgid "Control Panel"
+msgstr ""
+
+#: dashboard/controlpanel/controlpanel.js:17
+msgid "Control panel"
+msgstr ""
+
+#: home/cookie/cookie.html:4
+#: parts/widgets/cookie-consent/cookie-consent.html:5
+msgid "Cookies"
+msgstr ""
+
+#: home/cookie/cookie.js:17
+msgid "Cookies policy"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.html:103
+msgid "Copied! Now share it with your friends."
+msgstr ""
+
+#: ambassador/ambassador/ambassador.html:104
+msgid "Copy your Invitation Link"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.html:102
+msgid "Copy your invite link and share it on social networks. Record a video or write an article to explain the features of the platform; in this way many more people will be interested to join our project!"
+msgstr ""
+
+#: dashboard/geolocalization/geolocalization.html:86
+#: dashboard/geolocalization/modal/modal.js:50
+#: dashboard/verify/verify.js:429
+#: profile/company.html:142
+#: project/create/modal/modal.js:45
+#: project/table/table.js:161
+#: project/table/table.js:49
+#: project/table/table.js:54
+msgid "Countries"
+msgstr ""
+
+#: dashboard/edit/edit.js:331
+#: dashboard/edit/edit.js:423
+#: dashboard/geolocalization/geolocalization.html:29
+#: dashboard/geolocalization/geolocalization.html:52
+#: dashboard/geolocalization/modal/modal.js:83
+#: dashboard/privacy/privacy.js:45
+#: dashboard/verify/providers/otc/otc.html:19
+#: dashboard/verify/verify.js:435
+#: donation/topdonors/topdonors.js:146
+#: donation/topdonors/topdonors.js:50
+#: donation/topdonors/topdonors.js:55
+#: organizations/organizations.js:129
+#: organizations/organizations.js:48
+#: organizations/organizations.js:53
+#: profile/single.html:90
+#: proposednpo/table/table.js:50
+#: proposednpo/table/table.js:55
+#: proposednpo/table/table.js:86
+msgid "Country"
+msgstr ""
+
+#: dashboard/edit/edit.js:176
+msgid "Coverflow"
+msgstr ""
+
+#: dashboard/edit/edit.js:863
+msgid "Coverflow photo deleted successfully"
+msgstr ""
+
+#: dashboard/edit/edit.js:851
+msgid "Coverflow photo updated successfully"
+msgstr ""
+
+#: dashboard/wallet/newmultisig/newmultisig.html:63
+#: dashboard/wallet/newmultisig/newmultisig.js:29
+msgid "Create"
+msgstr ""
+
+#: dashboard/wallet/new/new.html:39
+#: dashboard/wallet/newmultisig/newmultisig.html:54
+msgid "Create a Bech32 segwit native address (bc1...)"
+msgstr ""
+
+#: dashboard/wallet/newmultisig/newmultisig.js:15
+msgid "Create a new multisig wallet to send and receive Bitcoin"
+msgstr ""
+
+#: dashboard/wallet/new/new.js:14
+msgid "Create a new wallet to send and receive Bitcoin"
+msgstr ""
+
+#: home/home/home.html:95
+msgid "Create a project"
+msgstr ""
+
+#: dashboard/rors/rors.html:217
+#: dashboard/rors/rors.html:282
+msgid "Create a refund claim"
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.js:180
+#: dashboard/wallet/new/new.js:171
+msgid "Create a signature backup file"
+msgstr ""
+
+#: home/staticpages/staticpages.js:172
+#: home/staticpages/staticpages.js:178
+#: home/staticpages/staticpages.js:182
+msgid "Create a social project to accept cryptocurrency donations in Helperbit"
+msgstr ""
+
+#: dashboard/wallet-list/wallet-list.html:7
+#: event/eventdonate/eventdonate.html:32
+#: project/create/create.html:8
+msgid "Create a wallet"
+msgstr ""
+
+#: dashboard/wallet/wallets/wallets.html:75
+#: dashboard/wallet/wallets/wallets.html:79
+msgid "Create new address"
+msgstr ""
+
+#: dashboard/wallet/wallets/wallets.html:192
+#: dashboard/wallet/wallets/wallets.html:197
+msgid "Create new wallet"
+msgstr ""
+
+#: campaign/create/create.js:19
+msgid "Create or edit a fundraising campaign"
+msgstr ""
+
+#: project/create/create.js:20
+msgid "Create or edit a project"
+msgstr ""
+
+#: auth/signup/signup.js:36
+#: auth/signup/signup.js:51
+msgid "Create your account"
+msgstr ""
+
+#: dashboard/controlpanel/controlpanel.js:50
+msgid "Create your multisignature wallet and use it to send and receive donations."
+msgstr ""
+
+#: auth/signup/signup.js:438
+msgid "Create your own High Secure Bitcoin Wallet"
+msgstr ""
+
+#: project/project/project.html:67
+msgid "Created by:"
+msgstr ""
+
+#: dashboard/wallet/signmultisig/signmultisig.html:76
+msgid "Creation date"
+msgstr ""
+
+#: auth/signup/signup.js:410
+msgid "Credit/Debit Card and over 24+ Altcoins accepted here"
+msgstr ""
+
+#: donation/donation/donation.html:11
+#: donation/gift/gift.html:36
+msgid "Credit/Debit card"
+msgstr ""
+
+#: home/staticpages/staticpages.js:184
+msgid "Cryptocurrency donations are growing exponentially and it is expected that this payment method will become increasingly important for the entire charity sector. In Helperbit, non-profit organizations can learn more about this new tool and create innovative fundraising campaigns."
+msgstr ""
+
+#: campaign/create/modal/modal.js:163
+#: dashboard/rors/rors.js:251
+#: project/create/modal/modal.js:182
+msgid "Currency"
+msgstr ""
+
+#: campaign/create/modal/modal.js:256
+msgid "Custom Campaign Image Cover"
+msgstr ""
+
+#: dashboard/wallet/wallets/settings.html:20
+msgid "Danger zone"
+msgstr ""
+
+#: dashboard/invoiceable/invoiceable.html:23
+#: dashboard/rors/rors.html:25
+#: dashboard/transaction-list/transaction-list.html:6
+#: dashboard/verify/providers/npo/admins/admins.html:88
+#: dashboard/wallet/signmultisig/signmultisig.html:25
+#: dashboard/wallet/wallets/wallets.html:151
+#: dashboard/wallet/withdraw/withdraw.html:43
+#: donation/donation/donation.html:91
+#: donation/gift/gift.html:101
+#: donation/transaction/transaction.html:52
+#: event/table/table.js:100
+#: event/table/table.js:105
+#: event/table/table.js:231
+#: profile/company.html:257
+#: profile/organization.html:292
+#: profile/organization.html:320
+msgid "Date"
+msgstr ""
+
+#: donation/graph/graph.html:115
+msgid "Date from {{whenMinDate}} to {{whenMaxDate}}"
+msgstr ""
+
+#: profile/single.html:110
+msgid "Date of birth"
+msgstr ""
+
+#: dashboard/verify/providers/npo/admins/admins.html:25
+#: dashboard/verify/providers/npo/admins/admins.html:52
+msgid "Declares that the people in charge ​ of the multisignature wallet created through Helperbit are:"
+msgstr ""
+
+#: dashboard/wallet-list/wallet-list.html:19
+msgid "Default"
+msgstr ""
+
+#: profile/company.html:179
+#: profile/organization.html:204
+#: profile/single.html:147
+msgid "Default Address"
+msgstr ""
+
+#: campaign/create/modal/modal.js:219
+msgid "Default Campaign Image Cover"
+msgstr ""
+
+#: profile/company.html:63
+#: profile/organization.html:75
+#: profile/single.html:28
+msgid "Default Information"
+msgstr ""
+
+#: dashboard/wallet/wallets/wallets.html:66
+msgid "Default wallet"
+msgstr ""
+
+#: campaign/create/modal/modal.js:152
+msgid "Define the amount you would like to reach with this campaign"
+msgstr ""
+
+#: campaign/create/modal/modal.js:29
+msgid "Degree"
+msgstr ""
+
+#: campaign/create/create.js:156
+#: dashboard/verify/verify.html:169
+#: dashboard/verify/verify.html:191
+#: project/create/create.js:202
+msgid "Delete"
+msgstr ""
+
+#: home/policy/modal.html:51
+msgid "Delete account"
+msgstr ""
+
+#: dashboard/geolocalization/geolocalization.html:124
+#: profile/single.html:200
+msgid "Department of italian Civil Protection"
+msgstr ""
+
+#: dashboard/wallet/wallets/deposit.html:22
+msgid "Deposit"
+msgstr ""
+
+#: insurance/simulation/simulation.html:50
+msgid "Depth under the ground of the simulated event"
+msgstr ""
+
+#: dashboard/alert/alert.html:30
+msgid "Describe the event in one word"
+msgstr ""
+
+#: campaign/create/modal/modal.js:57
+msgid "Describe your fundraising campaign"
+msgstr ""
+
+#: campaign/campaign/campaign.html:33
+#: campaign/create/modal/modal.js:139
+#: dashboard/rors/rors.html:49
+#: dashboard/rors/rors.js:277
+#: dashboard/verify/verify.html:154
+#: dashboard/wallet/signmultisig/signmultisig.html:101
+#: dashboard/wallet/withdraw/withdraw.html:40
+#: donation/transaction/transaction.html:56
+#: parts/widgets/feedback/feedback.js:83
+#: profile/company.html:255
+#: profile/organization.html:290
+#: profile/organization.html:318
+msgid "Description"
+msgstr ""
+
+#: project/create/modal/modal.js:141
+msgid "Description (english is required)"
+msgstr ""
+
+#: home/staticpages/staticpages.js:54
+msgid "Description of the bitcoin wallet used in Helperbit and its characteristics for the different types of users."
+msgstr ""
+
+#: dashboard/wallet/wallets/settings.html:28
+msgid "Description should be long at least 4 characters."
+msgstr ""
+
+#: dashboard/wallet/restore/restore.html:25
+#: dashboard/wallet/withdraw/withdraw-multisig.html:27
+#: dashboard/wallet/withdraw/withdraw-multisig.html:58
+#: dashboard/wallet/withdraw/withdraw-single.html:104
+#: dashboard/wallet/withdraw/withdraw-single.html:80
+msgid "Destination address"
+msgstr ""
+
+#: dashboard/wallet/signmultisig/signmultisig.html:37
+#: donation/graph/graph.html:153
+msgid "Details"
+msgstr ""
+
+#: dashboard/verify/verify.js:38
+#: dashboard/verify/verify.js:521
+msgid "Device Geoverification"
+msgstr ""
+
+#: dashboard/edit/edit.html:17
+msgid "Discard changes"
+msgstr ""
+
+#: dashboard/verify/providers/company/company.js:38
+#: dashboard/verify/providers/document/document.js:59
+#: dashboard/verify/providers/npo/admins/admins.js:71
+#: dashboard/verify/providers/npo/npo.html:57
+msgid "Do you confirm your submission?"
+msgstr ""
+
+#: dashboard/rors/rors.html:71
+#: dashboard/verify/providers/npo/admins/admins.js:45
+#: dashboard/verify/verify.js:26
+msgid "Document"
+msgstr ""
+
+#: dashboard/verify/providers/document/document.js:152
+msgid "Document (Back)"
+msgstr ""
+
+#: dashboard/verify/providers/document/document.js:137
+msgid "Document (Front)"
+msgstr ""
+
+#: dashboard/verify/providers/document/document.html:58
+msgid "Document Expiration Date"
+msgstr ""
+
+#: dashboard/verify/providers/document/document.html:57
+msgid "Document ID"
+msgstr ""
+
+#: dashboard/rors/rors.js:289
+#: dashboard/verify/providers/document/document.js:104
+msgid "Document Registration Number"
+msgstr ""
+
+#: dashboard/rors/rors.html:61
+msgid "Document hash"
+msgstr ""
+
+#: donation/transaction/transaction.html:85
+msgid "Document hash (stored immutable in this transaction)"
+msgstr ""
+
+#: dashboard/rors/rors.js:290
+#: dashboard/verify/providers/document/document.js:105
+msgid "Document registration number"
+msgstr ""
+
+#: dashboard/verify/providers/document/document.html:56
+#: dashboard/verify/providers/document/document.js:88
+msgid "Document type"
+msgstr ""
+
+#: dashboard/verify/providers/npo/npo.html:65
+msgid "Documents"
+msgstr ""
+
+#: campaign/campaign/campaign.html:27
+#: event/event/event.html:18
+#: event/eventdonate/eventdonate.html:163
+#: event/eventdonate/eventdonate.html:59
+#: event/eventdonate/eventdonate.html:72
+#: project/project/project.html:29
+msgid "Donate"
+msgstr ""
+
+#: auth/signup/signup.js:408
+msgid "Donate directly to humanitarian causes"
+msgstr ""
+
+#: donation/charity-pot/charity-pot.html:4
+msgid "Donate to your favourite charitable project via lightning network, when the round finishes the non profit that has raised more satoshi collects all the donations"
+msgstr ""
+
+#: stats/stats.html:21
+#: stats/stats.html:37
+msgid "Donated"
+msgstr ""
+
+#: stats/stats.html:10
+msgid "Donated To"
+msgstr ""
+
+#: donation/donation/donation.js:31
+#: donation/gift/gift.js:26
+#: event/eventdonate/eventdonate.html:167
+#: event/eventdonate/eventdonate.html:75
+#: event/table/table.js:206
+#: event/table/table.js:90
+#: event/table/table.js:95
+msgid "Donation"
+msgstr ""
+
+#: project/create/create.js:147
+msgid "Donation Button"
+msgstr ""
+
+#: donation/donation/donation.html:57
+#: donation/gift/gift.html:78
+msgid "Donation ID"
+msgstr ""
+
+#: project/table/table.js:69
+#: project/table/table.js:74
+msgid "Donation Received"
+msgstr ""
+
+#: dashboard/wallet/wallets/wallets.html:15
+#: project/create/create.html:18
+msgid "Donation button"
+msgstr ""
+
+#: parts/header/header.html:39
+msgid "Donation flow"
+msgstr ""
+
+#: event/eventdonate/eventdonate.html:51
+msgid "Donation form"
+msgstr ""
+
+#: donation/graph/graph.js:496
+#: parts/header/header.html:40
+msgid "Donation graph"
+msgstr ""
+
+#: donation/graph/graph.js:488
+msgid "Donation graph for the project"
+msgstr ""
+
+#: donation/graph/graph.js:492
+msgid "Donation graph for the user"
+msgstr ""
+
+#: dashboard/invoiceable/invoiceable.js:15
+msgid "Donation invoices for tax deduction"
+msgstr ""
+
+#: donation/donation/donation.js:32
+#: donation/gift/gift.js:27
+msgid "Donation of {{value}} BTC; click to view more details."
+msgstr ""
+
+#: dashboard/wallet/withdraw/withdraw-single.html:11
+msgid "Donation to"
+msgstr ""
+
+#: donation/gift/gift.html:39
+msgid "Donation to a fundraising campaign"
+msgstr ""
+
+#: donation/donation/donation.html:13
+#: donation/gift/gift.html:38
+msgid "Donation via ' + donation.fromcurrency + ' crypto-currency"
+msgstr ""
+
+#: donation/donation/donation.html:10
+#: donation/gift/gift.html:35
+msgid "Donation via credit/debit card"
+msgstr ""
+
+#: campaign/campaign/campaign.html:64
+#: donation/topdonors/topdonors.js:171
+#: donation/topdonors/topdonors.js:60
+#: donation/topdonors/topdonors.js:65
+#: event/event/event.html:12
+#: event/event/event.html:61
+#: home/home/home.html:108
+#: parts/seofooter/seofooter.html:25
+#: profile/company.html:43
+#: profile/organization.html:43
+#: project/project/project.html:102
+#: project/table/table.js:217
+msgid "Donations"
+msgstr ""
+
+#: campaign/create/create.js:90
+#: project/create/create.js:98
+msgid "Donations Received"
+msgstr ""
+
+#: donation/topdonors/topdonors.js:196
+#: organizations/organizations.js:226
+#: organizations/organizations.js:78
+#: organizations/organizations.js:83
+msgid "Donations Volume"
+msgstr ""
+
+#: dashboard/wallet-list/wallet-list.html:20
+msgid "Donations are received in this address"
+msgstr ""
+
+#: event/event/event.html:58
+#: project/project/project.html:106
+msgid "Donations volume"
+msgstr ""
+
+#: dashboard/admin/admin.html:57
+#: dashboard/wallet/feedmultisig/feedmultisig.js:224
+#: dashboard/wallet/feedmultisig/feedmultisig.js:225
+#: dashboard/wallet/new/new.js:214
+#: dashboard/wallet/new/new.js:215
+#: dashboard/wallet/newmultisig/newmultisig.js:57
+#: dashboard/wallet/newmultisig/newmultisig.js:58
+#: dashboard/wallet/restore/restore.js:146
+#: dashboard/wallet/restore/restore.js:147
+#: dashboard/wallet/signmultisig/signmultisig.js:221
+#: dashboard/wallet/withdraw/withdraw.js:257
+#: dashboard/wallet/withdraw/withdraw.js:67
+#: home/policy/modal.html:55
+#: home/policy/modal.html:56
+msgid "Done"
+msgstr ""
+
+#: donation/topdonors/topdonors.js:121
+#: donation/topdonors/topdonors.js:40
+#: donation/topdonors/topdonors.js:45
+msgid "Donor"
+msgstr ""
+
+#: utils.js:307
+msgid "Donor Badge Locked"
+msgstr ""
+
+#: home/about/sections/whyhelperbit.html:29
+msgid "Donors should be able to decide how their donation is used. Organizations that act properly should not be affected by few bad behaviors. Our aim is to offer tools that allow the system to work with a complete audit of economic flows."
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.html:194
+#: dashboard/wallet/new/new.html:191
+msgid "Download backup"
+msgstr ""
+
+#: dashboard/verify/providers/npo/npo.html:32
+msgid "Download form"
+msgstr ""
+
+#: campaign/create/create.js:119
+#: project/create/create.js:121
+msgid "Draft"
+msgstr ""
+
+#: dashboard/geolocalization/modal/modal.html:29
+msgid "Drag and drop in your precise position"
+msgstr ""
+
+#: insurance/simulation/simulation.html:35
+msgid "Drag the earthquake marker in the map to simulate an earthquake event, and adjust sliders to know your potential gain."
+msgstr ""
+
+#: dashboard/alert/alert.html:23
+#: event/table/table.js:41
+msgid "Drought"
+msgstr ""
+
+#: dashboard/alert/alert.html:18
+#: event/table/table.js:13
+msgid "Earthquake"
+msgstr ""
+
+#: campaign/create/create.js:145
+#: dashboard/verify/verify.html:166
+#: dashboard/verify/verify.html:188
+#: project/create/create.js:191
+#: project/create/modal/modal.html:95
+msgid "Edit"
+msgstr ""
+
+#: dashboard/geolocalization/geolocalization.html:138
+msgid "Edit Geolocalization"
+msgstr ""
+
+#: dashboard/wallet/newmultisig/newmultisig.js:30
+msgid "Edit multisig wallet settings"
+msgstr ""
+
+#: dashboard/wallet/wallets/settings.html:29
+msgid "Edit wallet label"
+msgstr ""
+
+#: dashboard/geolocalization/geolocalization.js:20
+msgid "Edit your account"
+msgstr ""
+
+#: dashboard/edit/edit.js:20
+msgid "Edit your account information"
+msgstr ""
+
+#: dashboard/privacy/privacy.js:20
+msgid "Edit your privacy information"
+msgstr ""
+
+#: dashboard/security/security.js:18
+msgid "Edit your security information"
+msgstr ""
+
+#: utils.js:203
+msgid "Education"
+msgstr ""
+
+#: auth/recovery/recovery.js:98
+#: auth/recovery/recovery.js:99
+#: auth/signup/signup.js:165
+#: auth/signup/signup.js:166
+#: dashboard/admin/admin.html:44
+#: dashboard/edit/edit.js:198
+#: dashboard/edit/edit.js:571
+#: dashboard/socialedit/socialedit.js:63
+#: dashboard/socialedit/socialedit.js:64
+#: dashboard/verify/providers/npo/admins/admins.html:60
+#: dashboard/verify/providers/npo/admins/admins.js:237
+#: dashboard/verify/providers/npo/admins/admins.js:395
+#: dashboard/verify/providers/npo/npo.html:61
+#: home/about/about.js:153
+#: home/about/about.js:154
+#: home/about/about.js:85
+#: home/about/about.js:86
+#: parts/widgets/feedback/feedback.js:95
+#: parts/widgets/feedback/feedback.js:96
+#: profile/company.html:72
+#: profile/organization.html:84
+#: profile/single.html:37
+msgid "Email"
+msgstr ""
+
+#: donation/charity-pot/charity-pot.html:59
+msgid "End"
+msgstr ""
+
+#: campaign/create/create.js:96
+#: campaign/create/modal/modal.js:173
+msgid "End Date"
+msgstr ""
+
+#: proposednpo/table/table.html:115
+#: proposednpo/table/table.html:79
+msgid "Endorse"
+msgstr ""
+
+#: proposednpo/table/table.html:22
+#: proposednpo/table/table.html:5
+msgid "Endorse an organization"
+msgstr ""
+
+#: proposednpo/table/table.js:158
+#: proposednpo/table/table.js:70
+#: proposednpo/table/table.js:75
+msgid "Endorsments"
+msgstr ""
+
+#: auth/signup/signup.js:295
+#: dashboard/edit/edit.js:319
+msgid "English"
+msgstr ""
+
+#: project/create/modal/modal.html:83
+msgid "English Title"
+msgstr ""
+
+#: home/old-browser/old-browser.html:30
+msgid "Enter anyway in the website"
+msgstr ""
+
+#: utils.js:207
+msgid "Environment"
+msgstr ""
+
+#: dashboard/wallet/donate/donate.html:7
+#: parts/error/error.html:7
+msgid "Error"
+msgstr ""
+
+#: dashboard/alert/alert.html:20
+#: event/table/table.js:29
+msgid "Eruption"
+msgstr ""
+
+#: dashboard/rors/rors.js:262
+msgid "Euro"
+msgstr ""
+
+#: donation/donation/donation.html:68
+msgid "Event"
+msgstr ""
+
+#: parts/header/header.html:31
+msgid "Event Map"
+msgstr ""
+
+#: parts/header/header.html:44
+msgid "Event Simulation Tool"
+msgstr ""
+
+#: event/eventdonate/eventdonate.html:10
+msgid "Event donations are not allowed for your user type"
+msgstr ""
+
+#: dashboard/geolocalization/geolocalization.html:106
+#: profile/single.html:182
+#: project/project/project.html:88
+msgid "Event type"
+msgstr ""
+
+#: home/about/sections/benefit.html:77
+msgid "Every cent is relevant when lives are involved: we don't charge any additional fee if you use bitcoin, the method of payment to use is your choice."
+msgstr ""
+
+#: dashboard/verify/providers/document/document.js:121
+msgid "Expiration Date"
+msgstr ""
+
+#: dashboard/wallet/withdraw/withdraw-multisig.html:22
+msgid "Explain where these funds are going; this information will be public."
+msgstr ""
+
+#: home/about/about.html:15
+#: parts/header/header.html:64
+#: parts/seofooter/seofooter.html:131
+msgid "FAQ"
+msgstr ""
+
+#: home/home/top.html:12
+msgid "FREE - No membership fee or hidden costs"
+msgstr ""
+
+#: dashboard/wallet/withdraw/fee-selector.html:5
+msgid "Fastest"
+msgstr ""
+
+#: event/event/event.html:57
+msgid "Fatalities"
+msgstr ""
+
+#: dashboard/wallet/wallets/deposit.html:6
+msgid "Faucet sent"
+msgstr ""
+
+#: dashboard/wallet/signmultisig/signmultisig.html:72
+msgid "Fee"
+msgstr ""
+
+#: parts/widgets/feedback/feedback.html:37
+#: parts/widgets/feedback/feedback.html:5
+msgid "Feedback"
+msgstr ""
+
+#: dashboard/edit/edit.js:263
+msgid "Female"
+msgstr ""
+
+#: dashboard/verify/verify.html:37
+msgid "Fields"
+msgstr ""
+
+#: dashboard/controlpanel/controlpanel.js:70
+msgid "Fill the basic forms and become eligible to complete the ID verification process. This increases the chance to be helped if you are affected by a natural disaster."
+msgstr ""
+
+#: donation/graph/graph.html:108
+msgid "Filters"
+msgstr ""
+
+#: home/about/sections/faq.html:40
+msgid "Finally you can physically buy bitcoins at the vending machine, there are not many of them, but they also allow a fast purchase, fees in this case are highly variable, but still between 5 and 15%."
+msgstr ""
+
+#: auth/recovery/recovery.js:66
+#: auth/signup/signup.js:58
+#: campaign/create/modal/modal.html:73
+#: campaign/create/modal/modal.js:85
+#: dashboard/geolocalization/modal/modal.js:56
+#: dashboard/rors/rors.js:122
+#: dashboard/rors/rors.js:74
+#: dashboard/rors/rors.js:98
+#: dashboard/socialedit/socialedit.js:41
+#: dashboard/verify/providers/company/company.js:43
+#: dashboard/verify/providers/document/document.js:64
+#: dashboard/verify/providers/gps/gps.html:21
+#: dashboard/verify/providers/npo/admins/admins.js:76
+#: dashboard/verify/providers/npo/memorandum/memorandum.js:35
+#: dashboard/verify/providers/npo/npo.html:94
+#: dashboard/verify/providers/npo/statute/statute.js:35
+#: dashboard/verify/providers/otc/otc.js:49
+#: dashboard/verify/providers/residency/residency.js:35
+#: project/create/modal/activity/modal/modal.js:50
+#: project/create/modal/modal.js:99
+msgid "Finish"
+msgstr ""
+
+#: dashboard/edit/edit.js:214
+#: dashboard/edit/edit.js:527
+#: dashboard/privacy/privacy.js:42
+#: dashboard/verify/providers/npo/admins/admins.html:57
+#: dashboard/verify/providers/npo/admins/admins.js:163
+#: dashboard/verify/providers/npo/admins/admins.js:322
+#: dashboard/verify/verify.js:334
+#: home/about/about.js:118
+#: home/about/about.js:119
+msgid "First Name"
+msgstr ""
+
+#: dashboard/alert/alert.html:19
+#: event/table/table.js:17
+msgid "Flood"
+msgstr ""
+
+#: campaign/create/modal/modal.js:140
+msgid "For my birthday i want organise this fundraising for the project..."
+msgstr ""
+
+#: auth/login/login.html:57
+msgid "Forgot your password?"
+msgstr ""
+
+#: dashboard/verify/verify.js:328
+msgid "Foundation Date"
+msgstr ""
+
+#: dashboard/edit/edit.js:410
+#: profile/company.html:126
+#: profile/organization.html:138
+msgid "Foundation date"
+msgstr ""
+
+#: utils.js:259
+msgid "Friend Badge"
+msgstr ""
+
+#: utils.js:250
+msgid "Friend Badge Locked"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.js:28
+msgid "Friends"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.html:38
+msgid "Friends on board"
+msgstr ""
+
+#: dashboard/rors/rors.html:29
+#: dashboard/wallet/signmultisig/signmultisig.html:60
+#: donation/graph/graph.html:171
+msgid "From"
+msgstr ""
+
+#: donation/donation/donation.html:60
+#: donation/gift/gift.html:82
+#: donation/transaction/transaction.html:25
+msgid "From user"
+msgstr ""
+
+#: dashboard/wallet/signmultisig/signmultisig.html:64
+msgid "From wallet"
+msgstr ""
+
+#: dashboard/rors/rors.html:311
+msgid "From:"
+msgstr ""
+
+#: dashboard/verify/providers/document/document.html:63
+msgid "Front"
+msgstr ""
+
+#: dashboard/alert/alert.html:26
+msgid "Frost"
+msgstr ""
+
+#: dashboard/verify/providers/npo/npo.html:60
+#: dashboard/verify/verify.js:352
+#: profile/company.html:71
+#: profile/organization.html:83
+#: profile/single.html:36
+msgid "Full Name"
+msgstr ""
+
+#: donation/graph/graph.html:161
+msgid "Fullname"
+msgstr ""
+
+#: utils.js:349
+msgid "Fundraiser Badge Locked"
+msgstr ""
+
+#: campaign/campaign/campaign.js:81
+#: campaign/create/create.html:28
+#: campaign/create/create.js:18
+#: campaign/create/create.js:27
+msgid "Fundraising Campaign"
+msgstr ""
+
+#: campaign/create/modal/modal.html:86
+msgid "Fundraising Campaign created!"
+msgstr ""
+
+#: campaign/create/modal/modal.html:87
+msgid "Fundraising Campaign updated!"
+msgstr ""
+
+#: parts/seofooter/seofooter.html:37
+msgid "Fundraising Campaigns"
+msgstr ""
+
+#: home/staticpages/staticpages.js:224
+#: home/staticpages/staticpages.js:234
+msgid "Fundraising campaigns, celebrate an important occasion with a charity initiative"
+msgstr ""
+
+#: dashboard/verify/providers/gps/gps.html:8
+msgid "GPS"
+msgstr ""
+
+#: dashboard/edit/edit.js:256
+#: dashboard/privacy/privacy.js:48
+#: dashboard/verify/verify.js:346
+msgid "Gender"
+msgstr ""
+
+#: dashboard/wallet/wallets/settings.html:11
+msgid "General"
+msgstr ""
+
+#: event/event/event.html:8
+msgid "General information"
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.js:65
+#: dashboard/wallet/new/new.js:62
+msgid "Generate a random passphrase"
+msgstr ""
+
+#: parts/error/error.html:16
+msgid "Generic error."
+msgstr ""
+
+#: dashboard/geolocalization/geolocalization.js:28
+#: dashboard/verify/verify.html:55
+#: dashboard/verify/verify.html:61
+#: parts/seofooter/seofooter.html:60
+msgid "Geolocalization"
+msgstr ""
+
+#: dashboard/verify/providers/gps/gps.html:17
+msgid "Geolocalization not supported by your browser"
+msgstr ""
+
+#: insurance/simulation/simulation.html:25
+msgid "Geolocalize"
+msgstr ""
+
+#: dashboard/verify/providers/gps/gps.html:16
+msgid "Geolocalize Now!"
+msgstr ""
+
+#: dashboard/verify/verify.js:453
+msgid "Geolocation"
+msgstr ""
+
+#: home/staticpages/staticpages.js:68
+#: home/staticpages/staticpages.js:78
+msgid "Geolocation as a Verification Process to Receive Humanitarian Aid"
+msgstr ""
+
+#: dashboard/wallet/wallets/deposit.html:55
+msgid "Get faucet"
+msgstr ""
+
+#: event/event/event.html:23
+msgid "Get full control of your donation"
+msgstr ""
+
+#: dashboard/admin/admin.html:54
+msgid "Go Back"
+msgstr ""
+
+#: dashboard/socialedit/socialedit.html:39
+#: dashboard/wallet/feedmultisig/feedmultisig.html:111
+#: dashboard/wallet/feedmultisig/feedmultisig.html:82
+#: dashboard/wallet/new/new.html:106
+#: dashboard/wallet/new/new.html:77
+#: dashboard/wallet/withdraw/withdraw-multisig.html:67
+#: dashboard/wallet/withdraw/withdraw-single.html:117
+#: event/eventdonate/eventdonate.html:53
+#: parts/error/error.html:21
+msgid "Go back"
+msgstr ""
+
+#: campaign/create/create.js:134
+#: project/create/create.js:136
+msgid "Go to"
+msgstr ""
+
+#: campaign/campaign/campaign.html:58
+#: donation/gift/gift.html:27
+msgid "Go to project"
+msgstr ""
+
+#: utils.js:419
+msgid "Gold Ambassador Badge"
+msgstr ""
+
+#: utils.js:337
+msgid "Gold Donor Badge"
+msgstr ""
+
+#: utils.js:379
+msgid "Gold Fundraiser Badge"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.html:72
+msgid "Got it"
+msgstr ""
+
+#: ambassador/top-ambassadors/top-ambassadors.js:158
+#: donation/topdonors/topdonors.js:228
+#: event/table/table.js:284
+#: organizations/organizations.js:258
+#: project/table/table.js:301
+#: proposednpo/table/table.js:234
+msgid "Grid visualization"
+msgstr ""
+
+#: donation/graph/graph.html:142
+msgid "Group"
+msgstr ""
+
+#: dashboard/wallet-list/wallet-list.html:47
+msgid "HW Wallet"
+msgstr ""
+
+#: dashboard/wallet/withdraw/fee-selector.html:7
+msgid "Half hour"
+msgstr ""
+
+#: dashboard/wallet/wallets/wallets.js:30
+#: dashboard/wallet/wallets/wallets.js:44
+msgid "Handle your Bitcoin accounts"
+msgstr ""
+
+#: dashboard/admin/admin.html:28
+msgid "Handle your administrators. To insert a new admin, you should provide the email address of a registered and verified account in Helperbit."
+msgstr ""
+
+#: ambassador/ambassador/ambassador.js:20
+msgid "Handle your invites"
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.js:103
+#: dashboard/wallet/new/new.js:100
+msgid "Hardware Wallet"
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.js:125
+#: dashboard/wallet/new/new.js:121
+msgid "Hardware Wallet successfully paired"
+msgstr ""
+
+#: dashboard/geolocalization/geolocalization.html:107
+#: profile/single.html:183
+msgid "Hazard level"
+msgstr ""
+
+#: utils.js:211
+msgid "Health"
+msgstr ""
+
+#: event/eventdonate/eventdonate.js:17
+#: event/eventdonate/eventdonate.js:209
+msgid "Heavy"
+msgstr ""
+
+#: home/about/sections/faq.html:153
+msgid "Hello I am Bob, I would like to have full control over my donations; in case of an earthquake, I wish to be able to choose to donate to a single individual, a local civil protection, a specific school or to a project. I would also like to know exactly who received money, how much and follow the flow of donations for full transparency."
+msgstr ""
+
+#: home/about/sections/faq.html:166
+msgid "Hello I'm Alice, I live in a seismic area, I would like to flag my position in the platform in order to receive donations if I were in an emergency situation."
+msgstr ""
+
+#: home/about/sections/faq.html:192
+msgid "Hello we are Shovel4Everybody, we produce goods useful in case of natural disasters. Is it possibile to work with you?"
+msgstr ""
+
+#: dashboard/controlpanel/controlpanel.js:26
+msgid "Help your friends to sign up for the platform through your invite link and you can receive t-shirts, sweatshirts and a hardware wallet. Compete also for the 500€ prize."
+msgstr ""
+
+#: home/about/sections/top.html:6
+msgid "Helperbit is a platform that brings transparency in charity and insurance sectors giving back power to people"
+msgstr ""
+
+#: dashboard/verify/providers/otc/otc.html:59
+msgid "Helperbit is going to send you a snail mail with a code in it."
+msgstr ""
+
+#: dashboard/controlpanel/controlpanel.js:78
+#: home/staticpages/staticpages.js:80
+msgid "Helperbit offers different geoverification steps: according to the completed level, when a natural disaster occurs, users can receive direct donations. This does not compromise the user’s privacy, which, on the contrary, is safeguarded through appropriate procedures."
+msgstr ""
+
+#: home/staticpages/staticpages.js:16
+#: home/staticpages/staticpages.js:26
+#: parts/seofooter/seofooter.html:13
+msgid "Helperbit's Manifesto"
+msgstr ""
+
+#: home/home/top.html:4
+msgid "Helperbit: the most innovative way to fundraise"
+msgstr ""
+
+#: dashboard/badges/badges.html:17
+msgid "Here"
+msgstr ""
+
+#: project/create/modal/modal.js:94
+msgid "Here you can insert additional information of your project"
+msgstr ""
+
+#: utils.js:215
+msgid "Heritage"
+msgstr ""
+
+#: home/about/sections/faq.html:205
+msgid "Hi I am Mallory, I would like to create multiple fake users to get donations in case of natural disasters and earn by exploiting the misfortunes of others, how can I do this?"
+msgstr ""
+
+#: home/about/sections/faq.html:179
+msgid "Hi, we are the volunteers that work in Faithful NGO; in case of disaster we would like to receive international help, what can we do?"
+msgstr ""
+
+#: dashboard/wallet/signmultisig/signmultisig.html:118
+#: dashboard/wallet/withdraw/withdraw-single.html:36
+#: dashboard/wallet/withdraw/withdraw-single.html:73
+msgid "Hide passphrase"
+msgstr ""
+
+#: auth/signup/signup.js:411
+msgid "High Secure Bitcoin Wallet"
+msgstr ""
+
+#: dashboard/geolocalization/geolocalization.html:118
+#: profile/single.html:194
+msgid "High risk"
+msgstr ""
+
+#: donation/donation/donation.html:83
+#: donation/gift/gift.html:94
+#: donation/transaction/transaction.html:44
+msgid "Historical value"
+msgstr ""
+
+#: dashboard/wallet/withdraw/withdraw.html:20
+msgid "History"
+msgstr ""
+
+#: parts/header/header.html:20
+msgid "Home"
+msgstr ""
+
+#: dashboard/wallet/withdraw/fee-selector.html:9
+msgid "Hour"
+msgstr ""
+
+#: home/about/sections/faq.html:105
+msgid "How can I be informed about events happening nearby?"
+msgstr ""
+
+#: home/about/sections/faq.html:79
+msgid "How can I be sure that my donation has arrived at the destination?"
+msgstr ""
+
+#: home/about/sections/faq.html:92
+msgid "How can I be sure that the recipient is a person who really needs help?"
+msgstr ""
+
+#: home/cookie/cookie.html:16
+msgid "How do we use cookies?"
+msgstr ""
+
+#: home/about/sections/faq.html:317
+msgid "How the redistribution algorithm of donations works"
+msgstr ""
+
+#: home/about/sections/faq.html:291
+msgid "How to change the password of the account"
+msgstr ""
+
+#: home/about/sections/faq.html:278
+msgid "How to complete the geolocalization"
+msgstr ""
+
+#: home/cookie/cookie.html:28
+msgid "How to control cookies?"
+msgstr ""
+
+#: home/about/sections/faq.html:239
+msgid "How to create a bitcoin wallet"
+msgstr ""
+
+#: home/about/sections/faq.html:304
+msgid "How to donate to those affected by natural disasters (using the redistribution algorithm)"
+msgstr ""
+
+#: home/about/sections/faq.html:330
+msgid "How to follow the traceability of donations"
+msgstr ""
+
+#: home/about/sections/faq.html:21
+msgid "How to get Bitcoin?"
+msgstr ""
+
+#: home/about/sections/faq.html:343
+msgid "How to recover the funds if you lost the passphrase"
+msgstr ""
+
+#: home/about/sections/faq.html:226
+msgid "How to sign up to the platform"
+msgstr ""
+
+#: dashboard/badges/badges.js:28
+msgid "How to unlock this badge?"
+msgstr ""
+
+#: utils.js:219
+msgid "Human Rights"
+msgstr ""
+
+#: dashboard/alert/alert.html:21
+#: event/table/table.js:37
+msgid "Hurricane"
+msgstr ""
+
+#: dashboard/geolocalization/geolocalization.html:126
+#: profile/single.html:202
+msgid "Hydrogeological planning plans"
+msgstr ""
+
+#: parts/widgets/cookie-consent/cookie-consent.html:12
+msgid "I accept"
+msgstr ""
+
+#: home/policy/modal.html:39
+msgid "I accept the Helperbit Privacy Policy"
+msgstr ""
+
+#: home/policy/modal.html:20
+msgid "I accept the Helperbit Terms of Service"
+msgstr ""
+
+#: dashboard/rors/rors.js:342
+msgid "I accept to make this invoice public (optional)"
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.html:76
+#: dashboard/wallet/new/new.html:71
+msgid "I have written down or otherwise securely stored my 12 words passphrase"
+msgstr ""
+
+#: home/about/sections/faq.html:53
+msgid "I lost my password, can I get my bitcoin again?"
+msgstr ""
+
+#: home/about/sections/faq.html:66
+msgid "I lost the password to sign in with my Helperbit’s account, can I get my bitcoin again?"
+msgstr ""
+
+#: dashboard/rors/rors.js:278
+msgid "I need a refund for..."
+msgstr ""
+
+#: proposednpo/table/table.js:35
+msgid "I recommend"
+msgstr ""
+
+#: campaign/campaign/campaign.js:23
+#: campaign/create/create.js:48
+#: campaign/create/modal/modal.js:321
+#: campaign/create/modal/modal.js:91
+msgid "I started a crowdfunding campaign"
+msgstr ""
+
+#: project/project/project.js:28
+msgid "I supported the project"
+msgstr ""
+
+#: dashboard/edit/edit.js:653
+msgid "I'am a carpenter..."
+msgstr ""
+
+#: dashboard/verify/providers/document/document.js:90
+msgid "ID"
+msgstr ""
+
+#: dashboard/verify/verify.js:493
+msgid "ID Document"
+msgstr ""
+
+#: dashboard/edit/edit.js:557
+#: dashboard/verify/providers/npo/admins/admins.html:59
+#: dashboard/verify/providers/npo/admins/admins.js:213
+#: dashboard/verify/providers/npo/admins/admins.js:366
+msgid "ID Number"
+msgstr ""
+
+#: donation/donation/donation.html:126
+msgid "If an user request it, you can print the following invoice, sign it and send the document to the user address for tax-deduction purposes."
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.html:69
+#: dashboard/wallet/new/new.html:64
+msgid "If someone gets your passphrase, they gain access to your wallet"
+msgstr ""
+
+#: auth/signup/signup.html:130
+msgid "If you did not receive this email, please check your junk/spam folder."
+msgstr ""
+
+#: home/about/sections/faq.html:97
+msgid "If you donate directly to single users carefully monitor their level of reliability and be aware that at a low score does not guarantee that it is a real profile. If you donate using the fast procedure, the distribution algorithm takes into account a very high reliability. Only users who have provided the documents (and thus have shown to live in the affected area) can receive your donations. Organizations and government agencies must provide several documents to prove their real existence and activity in the affected area; we also cross check the data regarding the administrators. If you donate through the advanced procedure, you can manually set the beneficiaries and their level of reliability."
+msgstr ""
+
+#: auth/signup/signup.html:131
+msgid "If you entered an incorrect email address, you will need to re-register with the correct email address."
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.html:68
+#: dashboard/wallet/new/new.html:63
+msgid "If you lose this passphrase, you will lose access to your wallet"
+msgstr ""
+
+#: dashboard/wallet/restore/restore.html:14
+#: dashboard/wallet/wallets/settings.html:45
+msgid "If you lose your passphrase, you can restore your funds by uploading the backup file and sending the funds to another address."
+msgstr ""
+
+#: dashboard/wallet/new/new.html:23
+msgid "If you own a Ledger hardware wallet you can create a Bitcoin wallet just pairing the device with the platform. Your Bitcoin private key is kept secured on the offline device and you don't need to write down the 12-word mnemonic. This procedure is simple, secure and fast."
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.html:32
+msgid "If you own a Ledger hardware wallet you can create a Bitcoin wallet just pairing the device with the platform. Your key to sign transactions from the wallet of your organization is kept secured on the offline device and you don't need to write down the 12-word mnemonic. This procedure is simple, secure and fast."
+msgstr ""
+
+#: dashboard/wallet/new/new.html:31
+msgid "If you own a Trezor hardware wallet you can create a Bitcoin wallet just pairing the device with the platform. Your Bitcoin private key is kept secured on the offline device and you don't need to write down the 12-word mnemonic. This procedure is simple, secure and fast."
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.html:40
+msgid "If you own a Trezor hardware wallet you can create a Bitcoin wallet just pairing the device with the platform. Your key to sign transactions from the wallet of your organization is kept secured on the offline device and you don't need to write down the 12-word mnemonic. This procedure is simple, secure and fast."
+msgstr ""
+
+#: profile/company.html:208
+#: profile/organization.html:233
+#: profile/single.html:217
+msgid "In Helperbit since"
+msgstr ""
+
+#: home/about/sections/benefit.html:81
+msgid "In Humanitarian action every day is important: we offer the oppotunity to send donations in less than an hour all around the world."
+msgstr ""
+
+#: home/about/sections/faq.html:118
+msgid "In case of disaster, how can I be helped through Helperbit?"
+msgstr ""
+
+#: dashboard/wallet-list/wallet-list.html:116
+#: dashboard/wallet-list/wallet-list.html:71
+msgid "In progress"
+msgstr ""
+
+#: home/about/sections/faq.html:110
+msgid "In the home page there are the main humanitarian and social projects, while below the \"main events\" section shows the last major events in chronological order."
+msgstr ""
+
+#: parts/widgets/feedback/feedback.js:106
+msgid "Include a capture of the current page"
+msgstr ""
+
+#: auth/signup/signup.js:422
+msgid "Increase your donor base"
+msgstr ""
+
+#: campaign/create/modal/modal.js:56
+msgid "Info"
+msgstr ""
+
+#: dashboard/verify/providers/document/document.js:28
+#: profile/company.html:34
+#: profile/organization.html:34
+#: project/create/modal/activity/modal/modal.js:28
+#: project/create/modal/modal.js:29
+msgid "Information"
+msgstr ""
+
+#: dashboard/geolocalization/geolocalization.html:121
+msgid "Information not provided"
+msgstr ""
+
+#: project/table/table.js:219
+msgid "Information of all donations received"
+msgstr ""
+
+#: dashboard/edit/edit.js:443
+#: dashboard/verify/verify.js:376
+msgid "Inhabitants"
+msgstr ""
+
+#: project/create/modal/modal.js:146
+msgid "Insert"
+msgstr ""
+
+#: dashboard/verify/providers/npo/admins/admins.js:46
+msgid "Insert Admins"
+msgstr ""
+
+#: dashboard/geolocalization/modal/modal.js:163
+#: dashboard/geolocalization/modal/modal.js:164
+#: project/create/modal/modal.js:206
+#: project/create/modal/modal.js:207
+msgid "Insert Country"
+msgstr ""
+
+#: dashboard/verify/providers/otc/otc.js:43
+#: dashboard/verify/verify.html:167
+#: dashboard/verify/verify.html:189
+msgid "Insert OTC"
+msgstr ""
+
+#: dashboard/verify/providers/npo/npo.html:8
+msgid "Insert Referent Information"
+msgstr ""
+
+#: formly-init.js:43
+msgid "Insert a correct email format"
+msgstr ""
+
+#: formly-init.js:47
+msgid "Insert a correct format"
+msgstr ""
+
+#: formly-init.js:51
+msgid "Insert a correct phone number format"
+msgstr ""
+
+#: dashboard/rors/rors.js:358
+msgid "Insert a reason for the rejection"
+msgstr ""
+
+#: formly-init.js:87
+msgid "Insert a valid URL"
+msgstr ""
+
+#: formly-init.js:83
+msgid "Insert a valid Youtube Video URL"
+msgstr ""
+
+#: dashboard/rors/rors.js:239
+msgid "Insert a valid bitcoin value"
+msgstr ""
+
+#: formly-init.js:91
+msgid "Insert a valid number value"
+msgstr ""
+
+#: formly-init.js:55
+msgid "Insert a valid phone number format"
+msgstr ""
+
+#: project/create/modal/activity/modal/modal.js:29
+msgid "Insert default information for this activity"
+msgstr ""
+
+#: project/create/modal/modal.js:30
+msgid "Insert default information for this project"
+msgstr ""
+
+#: dashboard/verify/providers/otc/otc.js:44
+msgid "Insert here the code received through snail mail"
+msgstr ""
+
+#: project/create/modal/modal.js:60
+msgid "Insert one or more activities for this project. One activity with english title is required. Activities are list of goals, products, services that make up your project. Please try to be as accurate as possible. We suggest to upload a document (quote / agreement or other) for each activity. More detailed projects have a greater chance to be approved and receive more donations."
+msgstr ""
+
+#: project/create/modal/activity/modal/modal.js:45
+msgid "Insert some media for this activity"
+msgstr ""
+
+#: project/create/modal/modal.js:59
+msgid "Insert the activities related with your project"
+msgstr ""
+
+#: project/create/modal/modal.js:46
+msgid "Insert the countries related with your project"
+msgstr ""
+
+#: dashboard/wallet/wallets/wallets.html:19
+#: project/create/create.html:21
+msgid "Insert the following HTML code in the <i>head</i> section of your werbsite."
+msgstr ""
+
+#: dashboard/wallet/wallets/wallets.html:26
+#: project/create/create.html:29
+msgid "Insert the following HTML code in your werbsite, where you want to display the donation button."
+msgstr ""
+
+#: campaign/create/modal/modal.js:73
+msgid "Insert the media of your fundraising campaign"
+msgstr ""
+
+#: project/create/modal/modal.js:76
+msgid "Insert the media of your project"
+msgstr ""
+
+#: dashboard/verify/providers/npo/npo.js:149
+msgid "Insert your Act of Board Document"
+msgstr ""
+
+#: dashboard/verify/providers/npo/admins/admins.js:439
+msgid "Insert your Admins Document"
+msgstr ""
+
+#: dashboard/verify/providers/document/document.js:159
+msgid "Insert your Back Document"
+msgstr ""
+
+#: dashboard/verify/providers/company/company.js:73
+msgid "Insert your Business Entity Certificate"
+msgstr ""
+
+#: dashboard/verify/providers/document/document.js:144
+msgid "Insert your Front Document"
+msgstr ""
+
+#: dashboard/verify/providers/npo/memorandum/memorandum.js:64
+#: dashboard/verify/providers/npo/npo.js:131
+msgid "Insert your Memorandum Document"
+msgstr ""
+
+#: dashboard/verify/providers/residency/residency.js:64
+msgid "Insert your Proof of Residency Document"
+msgstr ""
+
+#: dashboard/verify/providers/npo/npo.js:113
+#: dashboard/verify/providers/npo/statute/statute.js:64
+msgid "Insert your Statute Document"
+msgstr ""
+
+#: project/create/modal/activity/modal/modal.js:97
+msgid "Insert your activity media"
+msgstr ""
+
+#: dashboard/geolocalization/modal/modal.js:29
+#: dashboard/geolocalization/modal/modal.js:453
+msgid "Insert your address information"
+msgstr ""
+
+#: campaign/create/modal/modal.js:262
+msgid "Insert your campaign media"
+msgstr ""
+
+#: dashboard/geolocalization/modal/modal.js:453
+msgid "Insert your company address information"
+msgstr ""
+
+#: dashboard/edit/edit.js:619
+msgid "Insert your coverflow photo (max height 150 px)"
+msgstr ""
+
+#: auth/recovery/recovery.js:59
+msgid "Insert your new password."
+msgstr ""
+
+#: dashboard/wallet/signmultisig/signmultisig.html:112
+msgid "Insert your passphrase (or click"
+msgstr ""
+
+#: project/create/modal/modal.js:245
+msgid "Insert your project media"
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.js:14
+msgid "Insert your signature for a new multisig wallet"
+msgstr ""
+
+#: home/staticpages/staticpages.js:28
+msgid "Introduction to the vision that brought to the foundation of Helperbit, the role of the blockchain technology in the donation transparency platform and the ambitions of the startup."
+msgstr ""
+
+#: dashboard/wallet/withdraw/withdraw-multisig.html:9
+#: dashboard/wallet/withdraw/withdraw-single.html:55
+msgid "Invalid amount"
+msgstr ""
+
+#: dashboard/admin/admin.html:25
+msgid "Invalid email."
+msgstr ""
+
+#: dashboard/admin/admin.html:21
+#: dashboard/admin/admin.html:22
+msgid "Invalid user."
+msgstr ""
+
+#: auth/signup/signup.js:229
+msgid "Invitation Code (optional)"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.html:101
+msgid "Invitation link"
+msgstr ""
+
+#: auth/signup/signup.js:412
+msgid "Invite friends and win amazing prizes!"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.html:78
+#: ambassador/top-ambassadors/top-ambassadors.js:126
+msgid "Invited Friends"
+msgstr ""
+
+#: ambassador/top-ambassadors/top-ambassadors.js:50
+#: ambassador/top-ambassadors/top-ambassadors.js:55
+msgid "Invited friends"
+msgstr ""
+
+#: dashboard/rors/rors.html:57
+#: dashboard/rors/rors.js:306
+msgid "Invoice date"
+msgstr ""
+
+#: dashboard/rors/rors.html:53
+msgid "Invoicing company VAT"
+msgstr ""
+
+#: dashboard/verify/providers/otc/otc.html:11
+msgid "Is this address correct? If not, please update your geolocalization information, otherwise click \"confirm\"."
+msgstr ""
+
+#: dashboard/geolocalization/modal/modal.js:393
+msgid "Is this the official position address of the"
+msgstr ""
+
+#: dashboard/geolocalization/modal/modal.js:397
+msgid "Is this the official position address of the Company?"
+msgstr ""
+
+#: dashboard/geolocalization/modal/modal.js:389
+msgid "Is this your living abitual position?"
+msgstr ""
+
+#: dashboard/verify/providers/npo/memorandum/memorandum.js:67
+#: dashboard/verify/providers/npo/npo.js:124
+msgid "It must have the date and signatures of the person in charge, to confirm the authenticity"
+msgstr ""
+
+#: dashboard/verify/verify.js:610
+msgid "It will request to you to confirm your headquarter organization address, Helperbit will send to that address a mail with a code, when you will receive your code you can redeem it online."
+msgstr ""
+
+#: auth/signup/signup.js:292
+#: dashboard/edit/edit.js:316
+msgid "Italian"
+msgstr ""
+
+#: dashboard/verify/providers/company/company.html:11
+msgid "Italian, English, Spanish, French or German."
+msgstr ""
+
+#: dashboard/geolocalization/geolocalization.html:125
+#: profile/single.html:201
+msgid "Japan Seismic Hazard Information Station"
+msgstr ""
+
+#: profile/single.html:78
+msgid "Job"
+msgstr ""
+
+#: parts/header/header.html:73
+msgid "Jobs"
+msgstr ""
+
+#: dashboard/edit/edit.js:215
+#: dashboard/edit/edit.js:528
+msgid "John"
+msgstr ""
+
+#: dashboard/edit/edit.js:462
+msgid "John Smith"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.js:39
+#: home/staticpages/staticpages.js:287
+msgid "Join with me on helperbit.com! Use this link to register"
+msgstr ""
+
+#: dashboard/wallet-list/wallet-list.html:16
+msgid "Label"
+msgstr ""
+
+#: auth/signup/signup.js:286
+#: dashboard/edit/edit.js:306
+msgid "Language"
+msgstr ""
+
+#: ambassador/top-ambassadors/top-ambassadors.js:80
+#: donation/topdonors/topdonors.js:100
+msgid "Last 3 Months"
+msgstr ""
+
+#: home/home/home.html:144
+msgid "Last Badges"
+msgstr ""
+
+#: ambassador/top-ambassadors/top-ambassadors.js:75
+#: donation/topdonors/topdonors.js:95
+msgid "Last Month"
+msgstr ""
+
+#: dashboard/edit/edit.js:229
+#: dashboard/edit/edit.js:542
+#: dashboard/privacy/privacy.js:43
+#: dashboard/verify/providers/npo/admins/admins.html:58
+#: dashboard/verify/providers/npo/admins/admins.js:188
+#: dashboard/verify/providers/npo/admins/admins.js:344
+#: dashboard/verify/verify.js:340
+#: home/about/about.js:136
+#: home/about/about.js:137
+msgid "Last Name"
+msgstr ""
+
+#: home/policy/policy.js:123
+msgid "Last Revised: May 24, 2018"
+msgstr ""
+
+#: home/policy/policy.js:101
+msgid "Last Revised: November 15, 2017"
+msgstr ""
+
+#: ambassador/top-ambassadors/top-ambassadors.js:70
+#: donation/topdonors/topdonors.js:90
+msgid "Last Week"
+msgstr ""
+
+#: ambassador/top-ambassadors/top-ambassadors.js:85
+#: donation/topdonors/topdonors.js:105
+msgid "Last Year"
+msgstr ""
+
+#: home/home/home.html:16
+msgid "Latest projects"
+msgstr ""
+
+#: ambassador/top-ambassadors/top-ambassadors.html:7
+msgid "Learn More"
+msgstr ""
+
+#: parts/widgets/feedback/feedback.js:84
+msgid "Leave us a feedback, suggestion or comments..."
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.html:29
+#: dashboard/wallet/new/new.html:20
+msgid "Ledger Nano"
+msgstr ""
+
+#: dashboard/wallet-list/wallet-list.html:45
+#: dashboard/wallet-list/wallet-list.html:91
+msgid "Legacy"
+msgstr ""
+
+#: auth/signup/signup.js:437
+msgid "Leverage your CSR strategy"
+msgstr ""
+
+#: event/eventdonate/eventdonate.js:17
+#: event/eventdonate/eventdonate.js:209
+msgid "Light"
+msgstr ""
+
+#: donation/charity-pot/charity-pot.html:3
+msgid "Lightning Charity"
+msgstr ""
+
+#: proposednpo/table/table.js:136
+msgid "Link"
+msgstr ""
+
+#: proposednpo/table/table.js:415
+msgid "List of Proposed NPO submitted by users"
+msgstr ""
+
+#: proposednpo/table/table.js:416
+msgid "List of non profit organizations suggested by users that would like to see in Helperbit. You can vote your favorite organization!"
+msgstr ""
+
+#: auth/signup/signup.js:429
+msgid "Live support 24/7"
+msgstr ""
+
+#: ambassador/top-ambassadors/top-ambassadors.html:54
+#: donation/topdonors/topdonors.html:47
+#: event/table/table.html:56
+#: organizations/organizations.html:44
+#: project/table/table.html:40
+#: proposednpo/table/table.html:83
+msgid "Load More"
+msgstr ""
+
+#: dashboard/wallet/signmultisig/signmultisig.html:125
+msgid "Load your backup file (or click"
+msgstr ""
+
+#: auth/login/login.js:19
+msgid "Log into your account"
+msgstr ""
+
+#: auth/login/login.html:51
+#: donation/graph/graph.html:86
+#: event/eventdonate/eventdonate.html:21
+#: insurance/simulation/simulation.html:11
+#: parts/header/header.html:78
+msgid "Login"
+msgstr ""
+
+#: parts/header/header.html:182
+msgid "Logout"
+msgstr ""
+
+#: donation/charity-pot/charity-pot.js:15
+#: utils.js:251
+#: utils.js:260
+#: utils.js:269
+#: utils.js:278
+#: utils.js:289
+#: utils.js:298
+#: utils.js:308
+#: utils.js:318
+#: utils.js:328
+#: utils.js:338
+#: utils.js:350
+#: utils.js:360
+#: utils.js:370
+#: utils.js:380
+#: utils.js:390
+#: utils.js:400
+#: utils.js:410
+#: utils.js:420
+msgid "Lorem Ipsum Dolor Sit Amet"
+msgstr ""
+
+#: donation/charity-pot/charity-pot.js:28
+msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer consequat elementum auctor. Praesent gravida ornare elit, et porta nibh aliquam id. Nulla facilisi. Morbi volutpat feugiat erat ac facilisis. Fusce ac ultrices tellus, nec pellentesque lorem. Sed ultrices, ligula id ornare blandit, quam magna congue metus, vel porttitor quam magna eu ex."
+msgstr ""
+
+#: dashboard/geolocalization/geolocalization.html:116
+#: profile/single.html:192
+msgid "Low risk"
+msgstr ""
+
+#: event/table/table.js:156
+#: event/table/table.js:70
+#: event/table/table.js:75
+#: project/project/project.html:92
+msgid "Magnitude"
+msgstr ""
+
+#: insurance/simulation/simulation.html:43
+msgid "Magnitude of the simulated event"
+msgstr ""
+
+#: parts/header/header.html:32
+msgid "Main Event List"
+msgstr ""
+
+#: home/home/home.html:54
+msgid "Main events"
+msgstr ""
+
+#: home/staticpages/staticpages.js:104
+#: home/staticpages/staticpages.js:94
+msgid "Make a Donation using Helperbit"
+msgstr ""
+
+#: donation/charity-pot/charity-pot.html:31
+msgid "Make a donation without fee!"
+msgstr ""
+
+#: auth/signup/signup.js:423
+msgid "Make stronger the relationship with your supporters"
+msgstr ""
+
+#: dashboard/edit/edit.js:260
+msgid "Male"
+msgstr ""
+
+#: dashboard/verify/verify.js:388
+msgid "Mandate period"
+msgstr ""
+
+#: dashboard/edit/edit.js:474
+msgid "Mandate period end"
+msgstr ""
+
+#: dashboard/verify/verify.js:621
+msgid "Manual Verification by Helperbit"
+msgstr ""
+
+#: dashboard/controlpanel/controlpanel.js:34
+msgid "Many activities have been assigned to you and for each completed activity you receive a digital recognition, available on your profile."
+msgstr ""
+
+#: home/about/sections/benefit.html:73
+msgid "Many times media coverage is unbalanced and many problems are hidden, we offer participatory tools to compare humanitarian needs worldwide."
+msgstr ""
+
+#: home/about/sections/benefit.html:52
+msgid "Many times you will donate to others, but if you complete the verification process and a natural disaster happens in your area you will be eligible to receive direct donations from all around the world"
+msgstr ""
+
+#: dashboard/notifications/notifications.html:15
+msgid "Mark all as read"
+msgstr ""
+
+#: auth/signup/signup.js:436
+msgid "Match your brand with a cause"
+msgstr ""
+
+#: formly-init.js:59
+msgid "Max file size allowed is"
+msgstr ""
+
+#: dashboard/edit/edit.js:156
+msgid "Mayor"
+msgstr ""
+
+#: dashboard/edit/edit.js:461
+msgid "Mayor Full Name"
+msgstr ""
+
+#: dashboard/verify/verify.js:382
+msgid "Mayor full name"
+msgstr ""
+
+#: campaign/create/modal/modal.js:72
+#: project/create/modal/activity/modal/modal.js:44
+#: project/create/modal/activity/modal/modal.js:92
+#: project/create/modal/modal.js:75
+msgid "Media"
+msgstr ""
+
+#: dashboard/geolocalization/geolocalization.html:117
+#: profile/single.html:193
+msgid "Medium risk"
+msgstr ""
+
+#: dashboard/verify/providers/npo/memorandum/memorandum.js:57
+#: dashboard/verify/providers/npo/npo.html:71
+#: dashboard/verify/providers/npo/npo.js:121
+msgid "Memorandum"
+msgstr ""
+
+#: dashboard/verify/providers/npo/memorandum/memorandum.js:67
+#: dashboard/verify/providers/npo/npo.js:124
+msgid "Memorandum of the last assembly that voted for the governing bodies."
+msgstr ""
+
+#: donation/gift/gift.html:15
+#: home/about/about.js:178
+#: home/about/about.js:179
+msgid "Message"
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.html:21
+#: dashboard/wallet/new/new.html:12
+msgid "Mnemonic"
+msgstr ""
+
+#: profile/single.html:111
+msgid "Mobile"
+msgstr ""
+
+#: dashboard/edit/edit.js:278
+#: dashboard/edit/edit.js:382
+#: dashboard/privacy/privacy.js:47
+msgid "Mobile Phone"
+msgstr ""
+
+#: auth/signup/signup.js:409
+msgid "Monitor in real time the path of your donations"
+msgstr ""
+
+#: dashboard/wallet/signmultisig/signmultisig.js:33
+msgid "Multisig transaction to sign"
+msgstr ""
+
+#: home/staticpages/staticpages.js:42
+#: home/staticpages/staticpages.js:52
+#: parts/seofooter/seofooter.html:19
+msgid "Multisignature Bitcoin Wallet"
+msgstr ""
+
+#: auth/signup/signup.html:39
+msgid "Muncipality"
+msgstr ""
+
+#: dashboard/edit/edit.js:144
+msgid "Municipality Anagraphic"
+msgstr ""
+
+#: auth/signup/signup.js:97
+msgid "Municipality advantages"
+msgstr ""
+
+#: parts/header/header.html:170
+msgid "My Campaigns"
+msgstr ""
+
+#: parts/header/header.html:173
+msgid "My Projects"
+msgstr ""
+
+#: parts/header/header.html:164
+msgid "My Settings"
+msgstr ""
+
+#: parts/header/header.html:167
+msgid "My Wallet"
+msgstr ""
+
+#: parts/header/header.html:176
+msgid "My refund claims"
+msgstr ""
+
+#: dashboard/geolocalization/geolocalization.html:121
+#: profile/single.html:195
+msgid "N/A"
+msgstr ""
+
+#: dashboard/verify/verify.js:535
+#: dashboard/verify/verify.js:56
+#: event/eventdonate/eventdonate.html:195
+msgid "NPO"
+msgstr ""
+
+#: dashboard/verify/verify.js:577
+#: dashboard/verify/verify.js:74
+msgid "NPO Admins"
+msgstr ""
+
+#: dashboard/verify/verify.js:563
+#: dashboard/verify/verify.js:68
+msgid "NPO Memorandum"
+msgstr ""
+
+#: dashboard/verify/verify.js:549
+#: dashboard/verify/verify.js:62
+msgid "NPO Statute"
+msgstr ""
+
+#: dashboard/rors/rors.js:166
+msgid "NPO selected:"
+msgstr ""
+
+#: proposednpo/table/table.js:111
+#: proposednpo/table/table.js:60
+#: proposednpo/table/table.js:65
+msgid "Name"
+msgstr ""
+
+#: utils.js:223
+msgid "Natural Disaster Prevention"
+msgstr ""
+
+#: utils.js:227
+msgid "Natural Disaster Recovery"
+msgstr ""
+
+#: donation/charity-pot/charity-pot.html:96
+msgid "Need a wallet?"
+msgstr ""
+
+#: dashboard/verify/verify.html:170
+#: dashboard/verify/verify.html:192
+msgid "New"
+msgstr ""
+
+#: auth/recovery/recovery.js:58
+#: dashboard/security/security.js:71
+#: dashboard/security/security.js:72
+msgid "New Password"
+msgstr ""
+
+#: dashboard/security/security.js:80
+#: dashboard/security/security.js:81
+msgid "New Password Confirm"
+msgstr ""
+
+#: project/create/modal/modal.html:67
+msgid "New activity"
+msgstr ""
+
+#: campaign/create/create.html:39
+msgid "New campaign"
+msgstr ""
+
+#: campaign/create/create.html:47
+#: campaign/create/create.html:50
+msgid "New fundraising campaign"
+msgstr ""
+
+#: project/create/create.html:66
+#: project/create/create.html:69
+#: project/create/create.html:72
+msgid "New project"
+msgstr ""
+
+#: dashboard/verify/providers/npo/admins/admins.html:116
+#: dashboard/verify/providers/npo/npo.html:15
+#: dashboard/verify/providers/npo/npo.html:48
+#: dashboard/wallet/feedmultisig/feedmultisig.html:114
+#: dashboard/wallet/feedmultisig/feedmultisig.html:140
+#: dashboard/wallet/feedmultisig/feedmultisig.html:168
+#: dashboard/wallet/feedmultisig/feedmultisig.html:86
+#: dashboard/wallet/new/new.html:109
+#: dashboard/wallet/new/new.html:135
+#: dashboard/wallet/new/new.html:163
+#: dashboard/wallet/new/new.html:81
+#: dashboard/wallet/withdraw/withdraw-multisig.html:33
+#: dashboard/wallet/withdraw/withdraw-single.html:44
+#: dashboard/wallet/withdraw/withdraw-single.html:84
+msgid "Next"
+msgstr ""
+
+#: project/create/modal/modal.html:74
+msgid "No activities found"
+msgstr ""
+
+#: auth/signup/signup.js:421
+#: auth/signup/signup.js:435
+msgid "No contracts"
+msgstr ""
+
+#: event/table/table.html:104
+msgid "No events found"
+msgstr ""
+
+#: dashboard/wallet/wallets/deposit.html:42
+msgid "No faucet funds"
+msgstr ""
+
+#: donation/charity-pot/charity-pot.html:21
+msgid "No fee!"
+msgstr ""
+
+#: auth/signup/signup.js:420
+msgid "No intermediaries"
+msgstr ""
+
+#: donation/charity-pot/charity-pot.html:73
+msgid "No lightning donations yet"
+msgstr ""
+
+#: auth/signup/signup.js:434
+msgid "No membership fee"
+msgstr ""
+
+#: organizations/organizations.html:82
+msgid "No organizations found"
+msgstr ""
+
+#: project/create/create.html:79
+msgid "No project found"
+msgstr ""
+
+#: donation/charity-pot/charity-pot.html:34
+msgid "No project selected"
+msgstr ""
+
+#: project/table/table.html:71
+msgid "No projects found"
+msgstr ""
+
+#: proposednpo/table/table.html:121
+msgid "No proposed NPO found"
+msgstr ""
+
+#: dashboard/notifications/notifications.html:9
+#: parts/header/header.html:123
+msgid "No unread notifications"
+msgstr ""
+
+#: event/eventdonate/eventdonate.html:2
+msgid "No users"
+msgstr ""
+
+#: ambassador/top-ambassadors/top-ambassadors.html:80
+#: donation/topdonors/topdonors.html:78
+msgid "No users found"
+msgstr ""
+
+#: event/eventdonate/eventdonate.html:4
+msgid "No users selected"
+msgstr ""
+
+#: event/eventdonate/eventdonate.html:27
+#: project/create/create.js:26
+#: project/project/project.js:23
+msgid "No wallet"
+msgstr ""
+
+#: dashboard/verify/verify.js:168
+msgid "Not Applicable"
+msgstr ""
+
+#: dashboard/edit/edit.js:266
+msgid "Not Declared"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.html:93
+msgid "Not Verified"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.js:77
+msgid "Not Verified Friends"
+msgstr ""
+
+#: event/eventdonate/eventdonate.html:8
+msgid "Not allowed"
+msgstr ""
+
+#: donation/charity-pot/charity-pot.html:66
+msgid "Not available yet"
+msgstr ""
+
+#: profile/organization.html:161
+msgid "Not declared"
+msgstr ""
+
+#: insurance/simulation/simulation.html:16
+#: insurance/simulation/simulation.html:19
+msgid "Not geolocalized"
+msgstr ""
+
+#: event/eventdonate/eventdonate.html:14
+#: insurance/simulation/simulation.html:4
+msgid "Not logged"
+msgstr ""
+
+#: auth/login/login.html:60
+msgid "Not registered yet?"
+msgstr ""
+
+#: dashboard/invoiceable/invoiceable.html:16
+msgid "Nothing here yet"
+msgstr ""
+
+#: dashboard/wallet-list/wallet-list.html:6
+msgid "Nothing here yet."
+msgstr ""
+
+#: dashboard/wallet/new/new.html:178
+msgid "Now download the backup file; it will help you to restore the key if you lose the Hardware Wallet and it is necessary to recover funds without the intervention of Helperbit."
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.html:186
+#: dashboard/wallet/new/new.html:183
+msgid "Now download the backup file; it will help you to restore the key if you lose the passphrase and it is necessary to recover funds without the intervention of Helperbit."
+msgstr ""
+
+#: stats/stats.html:23
+msgid "Number of Donations"
+msgstr ""
+
+#: project/table/table.js:247
+msgid "Number of Supporters"
+msgstr ""
+
+#: insurance/simulation/simulation.html:97
+msgid "Number of users affected by the simulated event"
+msgstr ""
+
+#: dashboard/verify/providers/otc/otc.js:72
+msgid "OTC Code"
+msgstr ""
+
+#: dashboard/verify/verify.js:44
+msgid "OTC Verification"
+msgstr ""
+
+#: profile/company.html:125
+#: profile/organization.html:137
+msgid "Office"
+msgstr ""
+
+#: dashboard/security/security.js:62
+#: dashboard/security/security.js:63
+msgid "Old Password"
+msgstr ""
+
+#: home/about/sections/faq.html:84
+msgid "Once you make a donation, you can check that it happened by going to \"donations\" sheet. There you can check the transaction ID and in “Graph” sheet follow the path of the money. By clicking on the transaction ID you can find the same information provided directly by the blockchain."
+msgstr ""
+
+#: dashboard/verify/verify.js:605
+msgid "One Time Code"
+msgstr ""
+
+#: formly-init.js:67
+msgid "Only"
+msgstr ""
+
+#: home/about/sections/faq.html:123
+msgid "Only users that have completed the verification process can benefit from the advantages of the platform. When a natural disaster hits your home area, Helperbit includes you in the affected users group and you become a possible beneficiary."
+msgstr ""
+
+#: home/jobs/jobs.js:25
+msgid "Open job positions"
+msgstr ""
+
+#: home/jobs/jobs.js:26
+msgid "Open job positions: job opportunity to work in Helperbit as a backend developer, frontend developer, designer or sales manager."
+msgstr ""
+
+#: dashboard/controlpanel/controlpanel.js:42
+msgid "Open your Campaign to celebrate an important occasion like a birthday, a festivity or a personal milestone. The beneficiary of the Campaign can not be you or a personal cause, choose the non-profit and support a charitable cause."
+msgstr ""
+
+#: dashboard/geolocalization/geolocalization.html:82
+msgid "Operated Countries:"
+msgstr ""
+
+#: profile/organization.html:167
+msgid "Operating Countries"
+msgstr ""
+
+#: dashboard/verify/verify.js:364
+#: organizations/organizations.js:201
+#: organizations/organizations.js:68
+#: organizations/organizations.js:73
+#: profile/organization.html:111
+msgid "Operators"
+msgstr ""
+
+#: dashboard/edit/edit.js:509
+msgid "Operators Number"
+msgstr ""
+
+#: campaign/create/modal/modal.js:249
+msgid "Or"
+msgstr ""
+
+#: dashboard/wallet/signmultisig/signmultisig.html:20
+msgid "Org."
+msgstr ""
+
+#: auth/signup/signup.html:34
+#: dashboard/wallet/signmultisig/signmultisig.html:19
+#: project/table/table.js:133
+#: project/table/table.js:39
+#: project/table/table.js:44
+msgid "Organization"
+msgstr ""
+
+#: dashboard/edit/edit.js:144
+msgid "Organization Anagraphic"
+msgstr ""
+
+#: parts/header/header.html:33
+msgid "Organization List"
+msgstr ""
+
+#: organizations/organizations.js:105
+#: organizations/organizations.js:38
+#: organizations/organizations.js:43
+msgid "Organization Name"
+msgstr ""
+
+#: profile/company.html:98
+#: profile/organization.html:110
+msgid "Organization Type"
+msgstr ""
+
+#: auth/signup/signup.js:91
+msgid "Organization advantages"
+msgstr ""
+
+#: dashboard/alert/alert.html:27
+#: project/create/modal/modal.js:92
+msgid "Other"
+msgstr ""
+
+#: profile/company.html:91
+#: profile/organization.html:103
+#: profile/single.html:70
+msgid "Other Information"
+msgstr ""
+
+#: project/create/modal/modal.js:93
+msgid "Other information"
+msgstr ""
+
+#: dashboard/wallet/wallets/wallets.html:188
+msgid "Other wallets"
+msgstr ""
+
+#: dashboard/verify/providers/company/company.html:12
+#: dashboard/verify/providers/npo/npo.html:29
+msgid "Otherwise please upload a certified translation in English"
+msgstr ""
+
+#: home/home/top.html:20
+msgid "POWERFULL - Credit/Debit Cards, Bitcoin and Altcoin supported"
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.js:104
+#: dashboard/wallet/new/new.js:101
+msgid "Pair your hardware wallet"
+msgstr ""
+
+#: campaign/create/modal/modal.js:130
+msgid "Paolo Rossi Birthday Fundraising..."
+msgstr ""
+
+#: home/about/about.html:20
+msgid "Partners"
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.js:64
+#: dashboard/wallet/new/new.js:61
+#: dashboard/wallet/withdraw/withdraw-single.html:31
+#: dashboard/wallet/withdraw/withdraw-single.html:68
+msgid "Passphrase"
+msgstr ""
+
+#: dashboard/verify/providers/document/document.js:93
+msgid "Passport"
+msgstr ""
+
+#: auth/login/login.js:103
+#: auth/recovery/recovery.js:126
+#: auth/recovery/recovery.js:127
+#: auth/recovery/recovery.js:57
+#: auth/signup/signup.js:176
+#: auth/signup/signup.js:177
+#: dashboard/socialedit/socialedit.js:74
+#: dashboard/socialedit/socialedit.js:75
+msgid "Password"
+msgstr ""
+
+#: auth/recovery/recovery.js:152
+#: auth/recovery/recovery.js:153
+#: auth/signup/signup.js:203
+#: auth/signup/signup.js:204
+#: dashboard/socialedit/socialedit.js:100
+#: dashboard/socialedit/socialedit.js:101
+msgid "Password Confirm"
+msgstr ""
+
+#: auth/recovery/recovery.js:143
+#: auth/signup/signup.js:194
+msgid "Password cannot contains username"
+msgstr ""
+
+#: dashboard/security/security.js:134
+msgid "Password update with success"
+msgstr ""
+
+#: project/create/create.js:180
+msgid "Pause"
+msgstr ""
+
+#: project/create/create.js:120
+msgid "Paused"
+msgstr ""
+
+#: dashboard/rors/rors.html:14
+#: dashboard/rors/rors.html:317
+#: dashboard/wallet/withdraw/withdraw.html:15
+#: donation/transaction/transaction.html:13
+msgid "Pending"
+msgstr ""
+
+#: dashboard/verify/providers/npo/admins/admins.js:155
+msgid "Person in charge"
+msgstr ""
+
+#: parts/header/header.html:158
+msgid "Personal Page"
+msgstr ""
+
+#: dashboard/verify/providers/npo/npo.html:62
+msgid "Phone Number"
+msgstr ""
+
+#: event/event/event.html:9
+msgid "Photos"
+msgstr ""
+
+#: auth/signup/signup.html:127
+#: dashboard/socialedit/socialedit.html:33
+msgid "Please Activate Your Account."
+msgstr ""
+
+#: dashboard/verify/providers/npo/npo.html:32
+msgid "Please download and complete this form, then upload it in Act of Board area."
+msgstr ""
+
+#: dashboard/wallet/wallets/deposit.html:51
+#: dashboard/wallet/wallets/wallets.html:131
+msgid "Please remember that minimum donation with Helperbit is 0.001 bitcoin, please take it in mind when you top up your wallet."
+msgstr ""
+
+#: event/table/table.js:45
+msgid "Populated Events"
+msgstr ""
+
+#: dashboard/geolocalization/modal/modal.js:34
+msgid "Position"
+msgstr ""
+
+#: insurance/simulation/simulation.html:57
+msgid "Position of the simulated event"
+msgstr ""
+
+#: event/eventdonate/eventdonate.html:238
+msgid "Potential Damage"
+msgstr ""
+
+#: utils.js:231
+msgid "Poverty"
+msgstr ""
+
+#: parts/header/header.html:179
+msgid "Premium"
+msgstr ""
+
+#: home/about/about.html:18
+#: parts/header/header.html:66
+msgid "Press"
+msgstr ""
+
+#: home/about/sections/benefit.html:48
+msgid "Press on one benefit icon to view details"
+msgstr ""
+
+#: auth/signup/signup.html:111
+#: campaign/create/modal/modal.html:42
+#: campaign/create/modal/modal.html:67
+#: dashboard/geolocalization/modal/modal.html:39
+#: dashboard/geolocalization/modal/modal.html:63
+#: dashboard/verify/providers/company/company.html:41
+#: dashboard/verify/providers/document/document.html:36
+#: dashboard/verify/providers/document/document.html:73
+#: dashboard/verify/providers/npo/admins/admins.html:131
+#: dashboard/verify/providers/npo/admins/admins.html:157
+#: dashboard/verify/providers/npo/npo.html:42
+#: dashboard/verify/providers/npo/npo.html:81
+#: project/create/modal/activity/modal/modal.html:33
+#: project/create/modal/modal.html:107
+#: project/create/modal/modal.html:135
+#: project/create/modal/modal.html:164
+#: project/create/modal/modal.html:38
+msgid "Previous"
+msgstr ""
+
+#: home/policy/policy.js:145
+msgid "Previous versions of the privacy policy"
+msgstr ""
+
+#: dashboard/verify/providers/npo/admins/admins.html:111
+msgid "Print Document"
+msgstr ""
+
+#: donation/donation/donation.html:127
+msgid "Print invoice"
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.html:85
+#: dashboard/wallet/new/new.html:80
+msgid "Print the passphrase"
+msgstr ""
+
+#: dashboard/privacy/privacy.js:19
+msgid "Privacy"
+msgstr ""
+
+#: home/about/about.html:16
+#: parts/header/header.html:65
+msgid "Privacy &amp; Terms"
+msgstr ""
+
+#: home/about/sections/privacy.html:4
+msgid "Privacy Policy"
+msgstr ""
+
+#: home/policy/modal.html:5
+msgid "Privacy and Terms"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.html:53
+msgid "Prizes"
+msgstr ""
+
+#: dashboard/rors/rors.html:189
+msgid "Proceed"
+msgstr ""
+
+#: dashboard/verify/verify.html:43
+#: dashboard/verify/verify.html:49
+msgid "Profile"
+msgstr ""
+
+#: dashboard/edit/edit.js:838
+msgid "Profile avatar deleted successfully"
+msgstr ""
+
+#: dashboard/edit/edit.js:825
+msgid "Profile avatar updated successfully"
+msgstr ""
+
+#: dashboard/edit/edit.js:809
+msgid "Profile updated successfully"
+msgstr ""
+
+#: campaign/campaign/campaign.html:51
+#: campaign/create/modal/modal.js:188
+#: donation/charity-pot/charity-pot.html:77
+#: donation/donation/donation.html:115
+#: donation/gift/gift.html:126
+#: project/create/create.js:32
+#: project/project/project.js:106
+msgid "Project"
+msgstr ""
+
+#: parts/header/header.html:34
+msgid "Project List"
+msgstr ""
+
+#: project/create/modal/modal.js:238
+msgid "Project Media"
+msgstr ""
+
+#: project/table/table.js:106
+#: project/table/table.js:29
+#: project/table/table.js:34
+msgid "Project Title"
+msgstr ""
+
+#: project/create/modal/modal.html:187
+msgid "Project created!"
+msgstr ""
+
+#: campaign/create/modal/modal.js:197
+#: donation/charity-pot/charity-pot.html:35
+msgid "Project selected:"
+msgstr ""
+
+#: project/create/modal/modal.html:188
+msgid "Project updated!"
+msgstr ""
+
+#: event/event/event.html:10
+#: parts/seofooter/seofooter.html:31
+#: profile/company.html:37
+#: profile/organization.html:37
+msgid "Projects"
+msgstr ""
+
+#: dashboard/verify/verify.js:32
+#: dashboard/verify/verify.js:507
+msgid "Proof of Residency"
+msgstr ""
+
+#: dashboard/verify/providers/residency/residency.js:57
+msgid "Proof of Residency Document"
+msgstr ""
+
+#: parts/seofooter/seofooter.html:66
+msgid "Propose Non-Profit Organizations"
+msgstr ""
+
+#: home/staticpages/staticpages.js:120
+#: home/staticpages/staticpages.js:126
+#: home/staticpages/staticpages.js:130
+msgid "Propose Your Non-Profit and Encourage it to Accept Crypto Donations"
+msgstr ""
+
+#: parts/header/header.html:35
+msgid "Proposed NPO List"
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.js:152
+#: dashboard/wallet/new/new.js:146
+msgid "Prove you have written down your passphrase"
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.html:105
+#: dashboard/wallet/new/new.html:100
+msgid "Public Key"
+msgstr ""
+
+#: home/about/sections/faq.html:309
+msgid "Quick Donation"
+msgstr ""
+
+#: dashboard/rors/rors.js:23
+msgid "RORS means Request Of Refunds. With this page you can request funds to an NPO. A refund claim can be requested by a company or NPO to an NPO."
+msgstr ""
+
+#: donation/charity-pot/charity-pot.html:26
+#: donation/charity-pot/charity-pot.html:57
+msgid "Raised volume"
+msgstr ""
+
+#: home/home/home.html:130
+#: parts/widgets/cookie-consent/cookie-consent.html:7
+msgid "Read More"
+msgstr ""
+
+#: dashboard/notifications/notifications.js:32
+msgid "Read your profile notifications"
+msgstr ""
+
+#: dashboard/rors/rors.html:297
+#: donation/graph/graph.html:177
+msgid "Receipt"
+msgstr ""
+
+#: dashboard/wallet/wallets/deposit.html:26
+msgid "Receive"
+msgstr ""
+
+#: profile/company.html:171
+#: profile/organization.html:196
+#: profile/single.html:139
+msgid "Receive Address"
+msgstr ""
+
+#: auth/signup/signup.js:407
+msgid "Receive donations if you are in need"
+msgstr ""
+
+#: dashboard/wallet-list/wallet-list.html:53
+#: dashboard/wallet-list/wallet-list.html:97
+msgid "Receive funds"
+msgstr ""
+
+#: campaign/create/create.js:90
+#: profile/profile.html:8
+#: project/create/create.js:98
+#: stats/stats.html:27
+#: stats/stats.html:38
+msgid "Received"
+msgstr ""
+
+#: stats/stats.html:15
+msgid "Received From"
+msgstr ""
+
+#: stats/stats.html:29
+msgid "Received donations"
+msgstr ""
+
+#: event/eventdonate/eventdonate.html:159
+#: event/eventdonate/eventdonate.html:69
+msgid "Recipients"
+msgstr ""
+
+#: home/cookie/cookie.html:22
+msgid "Record your preferences (like currency and language)"
+msgstr ""
+
+#: auth/recovery/recovery.js:17
+msgid "Recover your account credentials"
+msgstr ""
+
+#: dashboard/edit/edit.js:166
+#: dashboard/verify/providers/npo/npo.html:59
+#: dashboard/verify/providers/npo/npo.html:8
+msgid "Referent"
+msgstr ""
+
+#: dashboard/verify/verify.js:418
+msgid "Referent - Email"
+msgstr ""
+
+#: dashboard/verify/verify.js:400
+msgid "Referent - First Name"
+msgstr ""
+
+#: dashboard/verify/verify.js:412
+msgid "Referent - ID Number"
+msgstr ""
+
+#: dashboard/verify/verify.js:406
+msgid "Referent - Last Name"
+msgstr ""
+
+#: utils.js:235
+msgid "Refugees"
+msgstr ""
+
+#: dashboard/rors/rors.html:107
+msgid "Refund claim - Reject"
+msgstr ""
+
+#: dashboard/rors/rors.html:161
+msgid "Refund claim - Send funds"
+msgstr ""
+
+#: dashboard/rors/rors.html:7
+msgid "Refund claim details"
+msgstr ""
+
+#: dashboard/rors/rors.html:252
+msgid "Refund claim successfull created."
+msgstr ""
+
+#: dashboard/rors/rors.html:148
+#: dashboard/rors/rors.html:203
+msgid "Refund claim successfull sent."
+msgstr ""
+
+#: dashboard/rors/rors.js:17
+#: profile/organization.html:46
+msgid "Refund claims"
+msgstr ""
+
+#: dashboard/wallet/signmultisig/signmultisig.html:84
+msgid "Refund invoice"
+msgstr ""
+
+#: dashboard/wallet/signmultisig/signmultisig.html:80
+msgid "Refund to"
+msgstr ""
+
+#: dashboard/wallet/signmultisig/signmultisig.html:143
+msgid "Refuse"
+msgstr ""
+
+#: dashboard/geolocalization/geolocalization.html:30
+#: dashboard/geolocalization/geolocalization.html:56
+#: dashboard/geolocalization/modal/modal.js:104
+#: dashboard/verify/providers/otc/otc.html:23
+#: dashboard/verify/verify.js:471
+msgid "Region"
+msgstr ""
+
+#: auth/login/login.js:55
+#: auth/signup/signup.js:50
+#: home/about/about.js:30
+#: home/about/about.js:47
+msgid "Register"
+msgstr ""
+
+#: dashboard/verify/providers/npo/admins/admins.html:12
+#: dashboard/verify/providers/npo/admins/admins.html:44
+msgid "Registered Charity Number"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.html:10
+msgid "Registration"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.js:78
+msgid "Registration date of your unverified friends."
+msgstr ""
+
+#: ambassador/ambassador/ambassador.js:71
+msgid "Registration date of your verified friends."
+msgstr ""
+
+#: dashboard/rors/rors.html:93
+#: dashboard/rors/rors.js:114
+msgid "Reject"
+msgstr ""
+
+#: dashboard/rors/rors.html:21
+msgid "Reject reason"
+msgstr ""
+
+#: dashboard/rors/rors.html:15
+#: dashboard/rors/rors.html:318
+#: project/create/create.js:120
+msgid "Rejected"
+msgstr ""
+
+#: dashboard/wallet-list/wallet-list.html:142
+msgid "Reload"
+msgstr ""
+
+#: project/create/modal/modal.html:96
+msgid "Remove"
+msgstr ""
+
+#: dashboard/wallet/wallets/settings.html:39
+msgid "Remove wallet"
+msgstr ""
+
+#: dashboard/delete/delete.js:18
+msgid "Remove your account from Helperbit"
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.html:158
+#: dashboard/wallet/new/new.html:153
+msgid "Repeat backup file password:"
+msgstr ""
+
+#: dashboard/invoiceable/invoiceable.html:36
+msgid "Request Invoice"
+msgstr ""
+
+#: dashboard/rors/rors.js:18
+msgid "Request of refund"
+msgstr ""
+
+#: dashboard/invoiceable/invoiceable.html:37
+#: profile/organization.html:301
+msgid "Requested"
+msgstr ""
+
+#: auth/login/login.js:39
+msgid "Resend Account activation"
+msgstr ""
+
+#: auth/recovery/recovery.js:33
+msgid "Reset"
+msgstr ""
+
+#: auth/recovery/recovery.js:42
+msgid "Reset Link Sent"
+msgstr ""
+
+#: auth/recovery/recovery.js:34
+msgid "Reset Password"
+msgstr ""
+
+#: parts/error/error.html:15
+msgid "Resource <i>{{id}}</i> not found."
+msgstr ""
+
+#: parts/error/error.html:6
+msgid "Resource not found"
+msgstr ""
+
+#: dashboard/wallet/wallets/settings.html:47
+msgid "Restore Wallet Procedure"
+msgstr ""
+
+#: dashboard/wallet/restore/restore.js:13
+msgid "Restore a wallet from backup file"
+msgstr ""
+
+#: dashboard/wallet/wallets/settings.html:17
+msgid "Restore from backup"
+msgstr ""
+
+#: dashboard/wallet/restore/restore.html:45
+msgid "Restore transaction sent"
+msgstr ""
+
+#: dashboard/wallet/restore/restore.js:33
+msgid "Restore your funds"
+msgstr ""
+
+#: project/create/create.js:169
+msgid "Resume"
+msgstr ""
+
+#: dashboard/ledger-wait/ledger-wait.html:35
+msgid "Retry"
+msgstr ""
+
+#: dashboard/geolocalization/modal/modal.js:118
+msgid "Rome"
+msgstr ""
+
+#: home/home/top.html:16
+msgid "SECURE - You have full control of your funds with Helperbit Multisig Bitcoin Wallet"
+msgstr ""
+
+#: home/about/sections/faq.html:265
+msgid "Safety of wallet"
+msgstr ""
+
+#: dashboard/geolocalization/modal/modal.js:128
+msgid "Saint Peter Station Street"
+msgstr ""
+
+#: dashboard/edit/edit.html:20
+msgid "Save changes"
+msgstr ""
+
+#: dashboard/rors/rors.js:319
+msgid "Scanned invoice"
+msgstr ""
+
+#: ambassador/top-ambassadors/top-ambassadors.html:22
+msgid "Search ambassador"
+msgstr ""
+
+#: donation/topdonors/topdonors.html:11
+msgid "Search donor"
+msgstr ""
+
+#: event/table/table.html:18
+msgid "Search event by country"
+msgstr ""
+
+#: organizations/organizations.html:9
+msgid "Search organization"
+msgstr ""
+
+#: project/table/table.html:11
+msgid "Search project"
+msgstr ""
+
+#: proposednpo/table/table.html:43
+msgid "Search proposed npo"
+msgstr ""
+
+#: donation/graph/graph.html:112
+msgid "Search:"
+msgstr ""
+
+#: dashboard/verify/verify.html:36
+msgid "Section"
+msgstr ""
+
+#: dashboard/security/security.js:17
+msgid "Security"
+msgstr ""
+
+#: project/create/modal/modal.js:161
+msgid "Select each activity involved in this project"
+msgstr ""
+
+#: dashboard/edit/edit.js:598
+msgid "Select each activity involved in your association"
+msgstr ""
+
+#: dashboard/wallet/newmultisig/newmultisig.html:35
+msgid "Select the administrator that will be able to sign a transaction provided by this wallet ({{$ctrl.newWalletMultisigModel.step1.evaluteMultisigType ()}}):"
+msgstr ""
+
+#: dashboard/verify/providers/residency/residency.js:67
+msgid "Select the file of a document that proof your residency"
+msgstr ""
+
+#: dashboard/wallet/newmultisig/newmultisig.html:29
+msgid "Select the number of minimum signature you want to require for a transfer:"
+msgstr ""
+
+#: campaign/create/modal/modal.js:193
+msgid "Select the project that you want to sustain with your campaign"
+msgstr ""
+
+#: dashboard/rors/rors.js:91
+msgid "Select the wallet from where you want to send the requested funds"
+msgstr ""
+
+#: campaign/create/modal/modal.js:177
+msgid "Select when your campaign will end, the campaign could not be longer than one month"
+msgstr ""
+
+#: auth/signup/signup.js:289
+#: dashboard/edit/edit.js:313
+msgid "Select your language"
+msgstr ""
+
+#: auth/recovery/recovery.js:41
+#: dashboard/rors/rors.html:133
+#: dashboard/rors/rors.html:237
+#: dashboard/rors/rors.js:90
+#: dashboard/wallet/restore/restore.html:32
+#: dashboard/wallet/withdraw/withdraw-multisig.html:70
+#: dashboard/wallet/withdraw/withdraw-single.html:120
+#: dashboard/wallet/withdraw/withdraw.html:6
+#: dashboard/wallet/withdraw/withdraw.js:30
+#: dashboard/wallet/withdraw/withdraw.js:82
+#: home/about/sections/contact.html:17
+msgid "Send"
+msgstr ""
+
+#: project/create/modal/modal.html:117
+msgid "Send Activities"
+msgstr ""
+
+#: dashboard/geolocalization/modal/modal.html:19
+msgid "Send Address"
+msgstr ""
+
+#: dashboard/geolocalization/modal/modal.html:73
+#: project/create/modal/modal.html:48
+msgid "Send Countries"
+msgstr ""
+
+#: dashboard/verify/providers/company/company.html:25
+#: dashboard/verify/providers/document/document.html:46
+#: dashboard/verify/providers/npo/admins/admins.html:141
+msgid "Send Document"
+msgstr ""
+
+#: campaign/create/modal/modal.html:23
+#: dashboard/verify/providers/document/document.html:19
+#: project/create/modal/activity/modal/modal.html:19
+#: project/create/modal/modal.html:19
+msgid "Send Information"
+msgstr ""
+
+#: campaign/create/modal/modal.html:52
+#: project/create/modal/activity/modal/modal.html:43
+#: project/create/modal/modal.html:145
+msgid "Send Media"
+msgstr ""
+
+#: dashboard/verify/providers/otc/otc.js:31
+msgid "Send OTC"
+msgstr ""
+
+#: dashboard/verify/providers/otc/otc.html:71
+msgid "Send Otc Code"
+msgstr ""
+
+#: project/create/modal/modal.html:174
+msgid "Send Other Information"
+msgstr ""
+
+#: event/event/event.html:21
+msgid "Send a donation in few seconds"
+msgstr ""
+
+#: dashboard/alert/alert.html:40
+msgid "Send alert"
+msgstr ""
+
+#: dashboard/alert/alert.html:49
+#: dashboard/alert/alert.html:68
+msgid "Send an alert"
+msgstr ""
+
+#: dashboard/alert/alert.html:5
+msgid "Send an event alert"
+msgstr ""
+
+#: parts/widgets/feedback/feedback.html:15
+msgid "Send feedback"
+msgstr ""
+
+#: dashboard/rors/rors.html:96
+#: dashboard/wallet-list/wallet-list.html:50
+#: dashboard/wallet-list/wallet-list.html:94
+#: dashboard/wallet/wallets/wallets.html:115
+msgid "Send funds"
+msgstr ""
+
+#: dashboard/wallet/withdraw/withdraw.html:11
+msgid "Send money"
+msgstr ""
+
+#: auth/recovery/recovery.html:24
+msgid "Send reset"
+msgstr ""
+
+#: dashboard/wallet/donate/donate.js:30
+msgid "Sending donation"
+msgstr ""
+
+#: dashboard/rors/rors.html:17
+#: dashboard/rors/rors.html:320
+#: profile/organization.html:302
+msgid "Sent"
+msgstr ""
+
+#: parts/error/error.html:8
+msgid "Service unreachable"
+msgstr ""
+
+#: dashboard/socialedit/socialedit.js:18
+msgid "Set an email and password for your account"
+msgstr ""
+
+#: dashboard/wallet-list/wallet-list.html:100
+#: dashboard/wallet-list/wallet-list.html:56
+#: dashboard/wallet/wallets/settings.html:2
+#: dashboard/wallet/wallets/settings.html:6
+#: dashboard/wallet/wallets/wallets.html:120
+msgid "Settings"
+msgstr ""
+
+#: dashboard/rors/rors.js:66
+#: dashboard/socialedit/socialedit.js:33
+msgid "Setup"
+msgstr ""
+
+#: campaign/create/create.js:102
+#: campaign/create/modal/modal.js:79
+#: proposednpo/table/table.js:183
+msgid "Share"
+msgstr ""
+
+#: campaign/create/modal/modal.js:80
+msgid "Share with your friends!"
+msgstr ""
+
+#: ambassador/top-ambassadors/top-ambassadors.js:182
+#: donation/graph/graph.html:142
+#: donation/topdonors/topdonors.js:252
+#: event/table/table.js:308
+#: organizations/organizations.js:282
+#: project/table/table.js:325
+#: proposednpo/table/table.js:258
+msgid "Show"
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.html:162
+#: dashboard/wallet/new/new.html:157
+msgid "Show / Hide backup password"
+msgstr ""
+
+#: donation/graph/graph.html:164
+#: donation/graph/graph.html:198
+#: donation/graph/graph.html:199
+msgid "Show details"
+msgstr ""
+
+#: dashboard/wallet/signmultisig/signmultisig.html:119
+#: dashboard/wallet/withdraw/withdraw-single.html:37
+#: dashboard/wallet/withdraw/withdraw-single.html:74
+msgid "Show passphrase"
+msgstr ""
+
+#: dashboard/wallet/signmultisig/signmultisig.html:146
+#: dashboard/wallet/signmultisig/signmultisig.js:64
+msgid "Sign"
+msgstr ""
+
+#: dashboard/wallet/signmultisig/signmultisig.js:65
+msgid "Sign a transaction"
+msgstr ""
+
+#: dashboard/wallet/signmultisig/signmultisig.html:5
+msgid "Sign now"
+msgstr ""
+
+#: home/about/sections/faq.html:197
+msgid "Sign up as a \"Company\" and provide required information; in case of natural disasters you can supply your products to organizations that will require them."
+msgstr ""
+
+#: home/about/sections/faq.html:184
+msgid "Sign up for Helperbit as “Organization”. You have to complete the verification process, uploading some documents requested to prove your identity. Once this process is completed, you can create a bitcoin wallet and develop projects for charity purposes."
+msgstr ""
+
+#: home/about/sections/faq.html:171
+msgid "Sign up on Helperbit as a “single user” and follow the verification procedure; the completion of this step will be useful in the unfortunate case that your area is affected by an earthquake, because you will be automatically added to the algorithm and you will have more visibility to receive donations."
+msgstr ""
+
+#: home/about/sections/faq.html:158
+msgid "Sign up on Helperbit as a “single user” and start to explore the features provided by the platform."
+msgstr ""
+
+#: home/about/sections/subscribe.html:3
+msgid "Sign up to receive update from the Helperbit Team."
+msgstr ""
+
+#: dashboard/verify/providers/npo/admins/admins.html:92
+msgid "Signature"
+msgstr ""
+
+#: dashboard/wallet/signmultisig/signmultisig.html:97
+#: dashboard/wallet/withdraw/withdraw.html:41
+msgid "Signatures"
+msgstr ""
+
+#: donation/transaction/transaction.html:60
+msgid "Signers"
+msgstr ""
+
+#: insurance/simulation/simulation.html:10
+#: parts/header/header.html:75
+msgid "Signup"
+msgstr ""
+
+#: auth/signup/signup.html:114
+msgid "Signup Now!"
+msgstr ""
+
+#: event/eventdonate/eventdonate.html:19
+#: home/about/sections/whysignup.html:12
+#: home/about/sections/whysignup.html:23
+#: home/about/sections/whysignup.html:34
+#: home/home/top.html:25
+msgid "Signup now"
+msgstr ""
+
+#: auth/login/login.html:87
+#: auth/signup/signup.html:103
+#: auth/signup/signup.html:69
+msgid "Signup with Google"
+msgstr ""
+
+#: auth/login/login.html:81
+#: auth/signup/signup.html:63
+#: auth/signup/signup.html:97
+msgid "Signup with Linkedin"
+msgstr ""
+
+#: auth/login/login.html:75
+#: auth/signup/signup.html:57
+#: auth/signup/signup.html:91
+msgid "Signup with Twitter"
+msgstr ""
+
+#: utils.js:409
+msgid "Silver Ambassador Badge"
+msgstr ""
+
+#: utils.js:327
+msgid "Silver Donor Badge"
+msgstr ""
+
+#: utils.js:369
+msgid "Silver Fundraiser Badge"
+msgstr ""
+
+#: auth/signup/signup.js:428
+msgid "Simplify internal audit and procedure"
+msgstr ""
+
+#: auth/signup/signup.html:29
+msgid "Single User"
+msgstr ""
+
+#: event/eventdonate/eventdonate.html:174
+msgid "Single users"
+msgstr ""
+
+#: auth/signup/signup.js:85
+msgid "Singleuser advantages"
+msgstr ""
+
+#: dashboard/alert/alert.html:25
+#: event/table/table.js:33
+msgid "Slide"
+msgstr ""
+
+#: dashboard/wallet/withdraw/fee-selector.html:11
+msgid "Slowest"
+msgstr ""
+
+#: dashboard/edit/edit.js:230
+#: dashboard/edit/edit.js:543
+msgid "Smith"
+msgstr ""
+
+#: auth/login/login.js:27
+msgid "Social Login"
+msgstr ""
+
+#: dashboard/wallet/newmultisig/newmultisig.html:4
+msgid "Some admins are not registered yet. Please come back when are the admins are verified"
+msgstr ""
+
+#: home/about/sections/benefit.html:69
+msgid "Some times we just want to give directly to the end user, cutting any intermediary or organization. With Helperbit a real P2P donation is finally possible."
+msgstr ""
+
+#: auth/login/login.html:34
+msgid "Sometimes the mail provider will move activation mail to the Spam folder, so please check also there."
+msgstr ""
+
+#: home/about/sections/faq.html:210
+msgid "Sorry, but you are not welcome on our platform. Users are subjected to a verification process and donors have full control over their donations, the wallets are multi signatures, and we don't have access to their money."
+msgstr ""
+
+#: dashboard/geolocalization/geolocalization.html:108
+#: profile/single.html:184
+msgid "Source of information"
+msgstr ""
+
+#: auth/signup/signup.js:298
+#: dashboard/edit/edit.js:322
+msgid "Spanish"
+msgstr ""
+
+#: utils.js:239
+msgid "Sport"
+msgstr ""
+
+#: dashboard/verify/verify.html:164
+#: dashboard/verify/verify.html:186
+#: donation/charity-pot/charity-pot.html:59
+#: project/table/table.js:189
+#: project/table/table.js:59
+#: project/table/table.js:64
+msgid "Start"
+msgstr ""
+
+#: dashboard/geolocalization/geolocalization.html:137
+msgid "Start Geolocalization"
+msgstr ""
+
+#: campaign/create/create.html:37
+msgid "Start a new campaign now"
+msgstr ""
+
+#: dashboard/ledger-wait/ledger-wait.html:16
+msgid "Start procedure"
+msgstr ""
+
+#: auth/signup/signup.js:419
+msgid "Start receive bitcoin donations"
+msgstr ""
+
+#: campaign/create/create.js:118
+msgid "Started"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.html:69
+#: campaign/create/create.js:84
+#: dashboard/rors/rors.html:12
+#: dashboard/rors/rors.html:300
+#: dashboard/verify/verify.html:155
+#: dashboard/verify/verify.html:181
+#: project/create/create.js:92
+msgid "Status"
+msgstr ""
+
+#: dashboard/verify/providers/npo/npo.html:67
+#: dashboard/verify/providers/npo/npo.js:103
+#: dashboard/verify/providers/npo/statute/statute.js:57
+msgid "Statute"
+msgstr ""
+
+#: dashboard/geolocalization/geolocalization.html:32
+#: dashboard/geolocalization/geolocalization.html:64
+#: dashboard/geolocalization/modal/modal.js:127
+#: dashboard/verify/providers/otc/otc.html:35
+#: dashboard/verify/verify.js:459
+msgid "Street"
+msgstr ""
+
+#: dashboard/geolocalization/geolocalization.html:33
+#: dashboard/geolocalization/geolocalization.html:68
+#: dashboard/verify/providers/otc/otc.html:39
+#: dashboard/verify/verify.js:465
+msgid "Street Number"
+msgstr ""
+
+#: dashboard/geolocalization/modal/modal.js:137
+msgid "Street number"
+msgstr ""
+
+#: home/about/about.js:163
+#: home/about/about.js:164
+msgid "Subject"
+msgstr ""
+
+#: project/create/create.js:158
+msgid "Submit"
+msgstr ""
+
+#: project/create/create.js:120
+msgid "Submitted"
+msgstr ""
+
+#: home/about/about.html:17
+msgid "Subscribe"
+msgstr ""
+
+#: home/about/sections/subscribe.html:19
+msgid "Subscribe now!"
+msgstr ""
+
+#: auth/signup/signup.js:317
+msgid "Subscribe to newsletter"
+msgstr ""
+
+#: home/home/home.html:77
+msgid "Suggest an NPO"
+msgstr ""
+
+#: event/eventdonate/eventdonate.html:225
+msgid "Suggest an organization"
+msgstr ""
+
+#: dashboard/verify/providers/company/company.js:37
+#: dashboard/verify/providers/document/document.js:58
+#: dashboard/verify/providers/npo/admins/admins.js:70
+#: dashboard/verify/providers/npo/npo.html:57
+#: dashboard/wallet/withdraw/withdraw.js:162
+#: dashboard/wallet/withdraw/withdraw.js:37
+msgid "Summary"
+msgstr ""
+
+#: utils.js:277
+msgid "Supporter Badge"
+msgstr ""
+
+#: utils.js:268
+msgid "Supporter Badge Locked"
+msgstr ""
+
+#: project/create/create.js:104
+#: project/table/table.js:245
+msgid "Supporters"
+msgstr ""
+
+#: home/home/top.html:8
+msgid "TRANSPARENT - We use Blockchain technology to offer full transparency of economic flows"
+msgstr ""
+
+#: profile/organization.html:51
+msgid "TXs"
+msgstr ""
+
+#: ambassador/top-ambassadors/top-ambassadors.js:162
+#: donation/topdonors/topdonors.js:232
+#: event/table/table.js:288
+#: organizations/organizations.js:262
+#: project/table/table.js:305
+#: proposednpo/table/table.js:238
+msgid "Table visualization"
+msgstr ""
+
+#: dashboard/edit/edit.js:588
+#: dashboard/verify/verify.js:394
+#: organizations/organizations.js:179
+#: profile/organization.html:154
+#: project/create/modal/modal.js:154
+msgid "Tags"
+msgstr ""
+
+#: campaign/create/modal/modal.js:150
+#: donation/charity-pot/charity-pot.html:28
+#: project/create/modal/modal.js:173
+#: project/project/project.html:110
+msgid "Target"
+msgstr ""
+
+#: profile/company.html:99
+msgid "Tax Code"
+msgstr ""
+
+#: dashboard/edit/edit.js:884
+msgid "Tax code"
+msgstr ""
+
+#: home/about/about.html:14
+#: parts/header/header.html:68
+#: parts/seofooter/seofooter.html:138
+msgid "Team"
+msgstr ""
+
+#: dashboard/edit/edit.js:367
+#: profile/company.html:111
+#: profile/organization.html:123
+msgid "Telephone"
+msgstr ""
+
+#: dashboard/rors/rors.html:75
+msgid "Temp transaction"
+msgstr ""
+
+#: donation/transaction/transaction.html:8
+msgid "Temporary ID"
+msgstr ""
+
+#: home/about/sections/privacy.html:3
+msgid "Terms of Service"
+msgstr ""
+
+#: home/about/sections/benefit.html:85
+msgid "Thanks to blockchain technology donors can track their own donations and organizations can show how they use it."
+msgstr ""
+
+#: dashboard/wallet/new/new.html:45
+msgid "The 12-word passphrase have just been created client-side in the box below. These 12 words let you access to your wallet and to the funds"
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.html:48
+msgid "The 12-word passphrase have just been created client-side in the box below. These 12 words let you sign transactions created by the organization"
+msgstr ""
+
+#: home/staticpages/staticpages.js:305
+msgid "The Ambassador Program has been designed to reward the virtuous community of Helperbit. Your help is essential to spread our initiative and for this reason we are happy to thank you with unique prizes!"
+msgstr ""
+
+#: dashboard/verify/providers/npo/admins/admins.js:129
+msgid "The Board of Directors"
+msgstr ""
+
+#: parts/header/header.html:209
+msgid "The Helperbit policy has been updated; please read and accept the new policy, or proceed to delete your account."
+msgstr ""
+
+#: dashboard/edit/edit.html:129
+msgid "The admins of this organization are:"
+msgstr ""
+
+#: campaign/create/create.html:29
+msgid "The beneficiary of the Campaign can not be you or a personal cause, choose the non-profit and support a charitable cause."
+msgstr ""
+
+#: dashboard/verify/providers/npo/admins/admins.html:12
+#: dashboard/verify/providers/npo/admins/admins.html:44
+msgid "The body/association/foundation"
+msgstr ""
+
+#: home/about/sections/faq.html:296
+msgid "The button \"change password\" is available in the dropdown menu \"settings\". Write the old password and then write two times your new password where requested."
+msgstr ""
+
+#: home/about/sections/faq.html:31
+msgid "The cheapest method to buy bitcoins is through an exchange. You sign up to the platform, you will need to provide some personal information and identification documents. After the registration process you can send a bank transfer to the platform, once the money has arrived (usually 24-72h) you can convert them into bitcoin. The procedure is a bit long but exchange costs are extremely low, less than 1%. Here is a list of possible exchange:"
+msgstr ""
+
+#: event/event/event.html:42
+#: event/eventdonate/eventdonate.html:43
+msgid "The contourn map is a Beta Helperbit elaboration"
+msgstr ""
+
+#: project/table/table.js:163
+msgid "The countries where the project operates"
+msgstr ""
+
+#: donation/gift/gift.html:19
+msgid "The donation contributed to this project:"
+msgstr ""
+
+#: home/about/sections/whyhelperbit.html:19
+msgid "The entire charity sector has been damaged by corruption, fraud and in addition the lack of transparency, inefficiency and unfair redistribution of funds bring people to not trust nonprofit organitations and avoid to donate."
+msgstr ""
+
+#: home/about/sections/faq.html:283
+msgid "The geolocalization’s procedure is showed by a message that appears when the user has completed the registration. It is possible to proceed with the operation even in another moment: in the dropdown menu \"settings\" the user can add the country, region and city of residence by clicking on \"geolocalization\". In order to increase the localization score, it is required to complete the One Time Code procedure and write the code provided by snail mail. When this is verified by the system, the user's position is consolidated and it is no longer possible to change the position. This prevents fraudsters to move in an area affected by a natural disaster immediately after an event."
+msgstr ""
+
+#: dashboard/controlpanel/controlpanel.js:18
+msgid "The hub to manage your activies on the platform"
+msgstr ""
+
+#: dashboard/verify/providers/npo/admins/admins.js:381
+msgid "The id number of each admin must be different"
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.html:6
+msgid "The link you are opening is expired or it is not valid or you are trying to access to your single user account while another account is already logged in."
+msgstr ""
+
+#: dashboard/verify/providers/npo/admins/admins.js:254
+#: dashboard/verify/providers/npo/admins/admins.js:409
+msgid "The mail of"
+msgstr ""
+
+#: formly-init.js:79
+msgid "The maximum value of this field is"
+msgstr ""
+
+#: formly-init.js:75
+msgid "The minimum value of this field is"
+msgstr ""
+
+#: utils.js:471
+msgid "The multisig wallet '{{label}}' has been created"
+msgstr ""
+
+#: project/table/table.js:108
+msgid "The name of the project"
+msgstr ""
+
+#: dashboard/wallet/newmultisig/newmultisig.html:75
+msgid "The new multisignature wallet is almost created; the administrators will receive an email with instruction to complete their part of the wallet."
+msgstr ""
+
+#: utils.js:483
+msgid "The one time code letter has been sent to your home address"
+msgstr ""
+
+#: project/table/table.js:135
+msgid "The organization that created the project"
+msgstr ""
+
+#: utils.js:451
+msgid "The organization {{user}} requires your consensus for creating a new wallet '{{label}}'"
+msgstr ""
+
+#: utils.js:507
+msgid "The organization {{user}} wants to send a refund transaction to {{toname}} of {{value}} BTC; sign it now"
+msgstr ""
+
+#: utils.js:455
+msgid "The organization {{user}} wants to send a transaction from '{{label}}'; sign it now"
+msgstr ""
+
+#: home/about/sections/faq.html:322
+msgid "The organizations that are in the redistribution algorithm have the highest trust level and their documents have been verified. Individual users instead are ranked according to the level of reliability and when the first beneficiary reaches the target (5 euro), the following amount is addressed to the next one. At the completion of the list of those affected, the algorithm restarts the cycle again."
+msgstr ""
+
+#: project/project/project.html:4
+msgid "The owner of this project hasn't created a receiving address yet"
+msgstr ""
+
+#: home/about/sections/faq.html:257
+msgid "The passphrase is a sequence of words that allows you access to the wallets generated in the platform. It’s like a password, but it has many more features (works as a digital signature). Only the user has control over the wallet, so you must carefully manage those words."
+msgstr ""
+
+#: project/table/table.js:191
+msgid "The period from how much the project was created"
+msgstr ""
+
+#: dashboard/verify/providers/npo/admins/admins.js:132
+msgid "The person in charge of the fundraising sector"
+msgstr ""
+
+#: home/about/sections/faq.html:58
+msgid "The private key is unique and is associated with one and only one bitcoin address. It is important to keep it carefully, but also to have different backup copies for safety. If you lose the private key, the only way to retrieve the wallet would be the use of passcode seed (which should be kept as private keys), which is another form of backup. In the absence of these elements you will no longer be able to retrieve the wallet in which you have bitcoins. The bitcoins lost remain in the blockchain, but they will never be recovered and spent."
+msgstr ""
+
+#: dashboard/verify/verify.js:539
+msgid "The referent have to upload documents that proof the social aim of the organization, the date of fundation, the name of the people inside the organization that will be authorized at manage the bitcoin wallet and all documents needed at Helperbit to verify the level of trust of the organization."
+msgstr ""
+
+#: dashboard/verify/verify.js:595
+msgid "The referent have to upload documents that prove the existence of the company."
+msgstr ""
+
+#: dashboard/rors/rors.html:14
+#: dashboard/rors/rors.html:317
+msgid "The refund claim is pending for approval"
+msgstr ""
+
+#: dashboard/rors/rors.html:17
+#: dashboard/rors/rors.html:320
+msgid "The refund claim was accepted and the money has sent"
+msgstr ""
+
+#: dashboard/rors/rors.html:16
+#: dashboard/rors/rors.html:319
+msgid "The refund claim was accepted and waiting for admin signatures"
+msgstr ""
+
+#: dashboard/rors/rors.html:15
+#: dashboard/rors/rors.html:318
+msgid "The refund claim was rejected"
+msgstr ""
+
+#: parts/error/error.html:17
+msgid "The service is unreachable; please try again later."
+msgstr ""
+
+#: dashboard/verify/providers/company/company.html:11
+msgid "The submitted documents must be in one of the following languages:"
+msgstr ""
+
+#: dashboard/wallet/withdraw/withdraw-single.html:23
+msgid "The total amount spent will be {{($ctrl.values.value + $ctrl.values.fee)|money}}"
+msgstr ""
+
+#: dashboard/wallet/withdraw/withdraw-multisig.html:51
+#: dashboard/wallet/withdraw/withdraw-single.html:100
+msgid "The total amount spent will be {{($ctrl.values.vvalue + $ctrl.values.fee)|money}}"
+msgstr ""
+
+#: dashboard/wallet/signmultisig/signmultisig.html:158
+msgid "The transaction has been signed."
+msgstr ""
+
+#: donation/transaction/transaction.html:13
+msgid "The transaction is pending for admin signatures"
+msgstr ""
+
+#: home/about/sections/faq.html:335
+msgid "The transparency of donations is available in the page \"donations flow.\" It is possible to see the ID of the transactions, the names and the home country of senders and recipients and other transaction information (the amount, the date). For 100% transparent organizations and companies it is possible to check the quotes and the invoices, whose hash has been written in bitcoin transactions."
+msgstr ""
+
+#: utils.js:515
+msgid "The user {{user}} requested the invoice for a donation you received"
+msgstr ""
+
+#: utils.js:519
+msgid "The user {{user}} signed up using your referral link"
+msgstr ""
+
+#: home/staticpages/staticpages.js:210
+msgid "The verification procedure for non-profit organizations, public and private bodies allows these users to start transparent fundraising and receive bitcoin donations."
+msgstr ""
+
+#: home/staticpages/staticpages.js:158
+msgid "The verification procedure is focused on the identity and geographical location of individual users signed up for Helperbit. This passage allows citizens to be helped in case that they are affected by a natural disaster, receiving direct donations."
+msgstr ""
+
+#: dashboard/wallet/new/new.html:176
+msgid "The wallet is created! Remember to keep safe your Hardware Wallet, this will be necessary to use the wallet."
+msgstr ""
+
+#: dashboard/wallet/new/new.html:181
+msgid "The wallet is created! Remember to store your address passphrase, this will be necessary to use the wallet."
+msgstr ""
+
+#: home/about/sections/faq.html:270
+msgid "The wallets created through Helperbit are multisignatures. The user must write the passphrase each time he makes a donation. The file downloaded by the user during the creation process of the wallet allows to recover the funds. The third key is held by Helperbit, but the wallet is non-custodial and Helperbit can not access to the funds, only the user can do that. This ensures the best reliability and this type of management is the most secure in the market."
+msgstr ""
+
+#: event/eventdonate/eventdonate.html:221
+msgid "There are few users in this area but you can suggest an organization to join Helperbit."
+msgstr ""
+
+#: profile/company.html:219
+#: profile/organization.html:244
+msgid "There are no active projects yet."
+msgstr ""
+
+#: profile/company.html:235
+#: profile/organization.html:260
+msgid "There are no closed projects yet."
+msgstr ""
+
+#: ambassador/ambassador/ambassador.html:82
+msgid "There are no invited users"
+msgstr ""
+
+#: event/event/event.html:120
+msgid "There are no news yet."
+msgstr ""
+
+#: event/event/event.html:93
+msgid "There are no projects related to this event yet."
+msgstr ""
+
+#: profile/organization.html:284
+msgid "There are no request of refunds yet"
+msgstr ""
+
+#: dashboard/transaction-list/transaction-list.html:37
+#: profile/company.html:249
+#: profile/organization.html:312
+msgid "There are no transactions"
+msgstr ""
+
+#: dashboard/wallet/withdraw/withdraw.html:34
+msgid "There are no transactions pending signing"
+msgstr ""
+
+#: event/eventdonate/eventdonate.html:220
+msgid "There are no users yet in this area but you can suggest an organization to join Helperbit."
+msgstr ""
+
+#: home/staticpages/staticpages.js:106
+msgid "There are several ways to make a donation in Helperbit: you can donate using Bitcoin, Litecoin, Ethereum and other 16 cryptocurrencies, but payments by credit, debit and prepaid cards are also accepted."
+msgstr ""
+
+#: home/about/sections/faq.html:26
+msgid "There are two main roads to get bitcoin."
+msgstr ""
+
+#: home/about/sections/faq.html:308
+msgid "There are two types of donation process: the"
+msgstr ""
+
+#: dashboard/wallet/signmultisig/signmultisig.html:14
+msgid "There is 1 transaction to sign."
+msgid_plural "There are {{$count}} transactions to sign."
+msgstr[0] ""
+msgstr[1] ""
+
+#: dashboard/alert/alert.html:9
+msgid "There was a problem, try again later"
+msgstr ""
+
+#: dashboard/wallet/donate/donate.html:10
+msgid "There was an error during the operation."
+msgstr ""
+
+#: profile/profile.html:2
+msgid "These are Bitcoin addresses owned by the user."
+msgstr ""
+
+#: dashboard/verify/providers/npo/npo.js:142
+msgid "They must be at least 3 different people; we suggest the treasurer, the president and an IT expert. The form is provided in the description above."
+msgstr ""
+
+#: dashboard/admin/admin.html:26
+msgid "This admin belongs to a multisig wallet."
+msgstr ""
+
+#: donation/transaction/transaction.html:62
+msgid "This admin has signed the transaction"
+msgstr ""
+
+#: donation/transaction/transaction.html:65
+msgid "This admin hasn't signed the transaction"
+msgstr ""
+
+#: formly-init.js:35
+msgid "This field can contain letters and/or number"
+msgstr ""
+
+#: auth/signup/signup.js:156
+msgid "This field can contain lowercase characters, number and underscore symbol"
+msgstr ""
+
+#: formly-init.js:23
+msgid "This field is required"
+msgstr ""
+
+#: dashboard/security/security.js:94
+msgid "This field must be equal to New Password"
+msgstr ""
+
+#: auth/recovery/recovery.js:167
+#: auth/signup/signup.js:219
+#: dashboard/socialedit/socialedit.js:116
+#: formly-init.js:31
+msgid "This field must be equal to password"
+msgstr ""
+
+#: formly-init.js:27
+msgid "This field must contains at least a capital letter, lowercase letter and a number"
+msgstr ""
+
+#: formly-init.js:39
+msgid "This field must have at least"
+msgstr ""
+
+#: dashboard/wallet/withdraw/fee-selector.html:10
+msgid "This is a super economic fee, transaction can take over 3 or 4 days to be confirmed"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.html:80
+msgid "This is the amount of people that joined Helperbit thanks to your invite link; here you can check how many referred friends completed the ID verification process."
+msgstr ""
+
+#: dashboard/verify/verify.js:525
+msgid "This is the fastest method, you give to the platform the access to your GPS/Browser locator and Helperbit will verify the correspondence with your address. [5 trust point]."
+msgstr ""
+
+#: dashboard/wallet/wallets/settings.html:52
+msgid "This is the list of admins that can sign your transactions; this wallet needs at least {{selectedwallet.multisig.n}} signatures to broadcast a transaction."
+msgstr ""
+
+#: dashboard/verify/verify.js:610
+msgid "This is the slowest verification method but also the one that offer the highest percentage of trust. It will request to you to confirm your address, Helperbit will send to that address a mail with a code, once you will receive your code you can redeem it online and get 15 points of trust."
+msgstr ""
+
+#: dashboard/controlpanel/controlpanel.js:86
+msgid "This passage allows citizens to increase their trust level and be helped in case that they are affected by a natural disaster, receiving direct donations."
+msgstr ""
+
+#: profile/single.html:19
+msgid "This profile is verified up {{$ctrl.userImageConfig.percentage}}%"
+msgstr ""
+
+#: parts/widgets/cookie-consent/cookie-consent.html:6
+msgid "This site uses cookies to deliver its services."
+msgstr ""
+
+#: donation/transaction/transaction.html:77
+msgid "This transaction is a Request of Refund transaction for"
+msgstr ""
+
+#: dashboard/admin/admin.html:23
+msgid "This user is not in the allowed admin list you submitted during verification."
+msgstr ""
+
+#: campaign/campaign/campaign.html:44
+msgid "This user is responsible for the text and graphic material in this Fundraising Campaign. Helperbit denies any responsibility and suggest to contact the platform at info@helperbit.com to notify any form of violation."
+msgstr ""
+
+#: dashboard/wallet-list/wallet-list.html:134
+msgid "This wallet belongs to this organization where you are an admin"
+msgstr ""
+
+#: home/cookie/cookie.html:19
+msgid "This web platform uses cookies to:"
+msgstr ""
+
+#: home/old-browser/old-browser.html:43
+msgid "This website may not work correctly"
+msgstr ""
+
+#: dashboard/alert/alert.html:10
+msgid "This week you have already sent an alert"
+msgstr ""
+
+#: home/staticpages/staticpages.js:132
+msgid "Through the page “Proposed NPO List” you can vote for your favorite organization. Every vote increases the community’s interest in having more and more innovative organizations!"
+msgstr ""
+
+#: dashboard/rors/rors.html:298
+#: donation/graph/graph.html:194
+msgid "Time"
+msgstr ""
+
+#: campaign/create/create.js:78
+#: campaign/create/modal/modal.js:129
+#: parts/widgets/feedback/feedback.js:22
+#: project/create/create.js:86
+msgid "Title"
+msgstr ""
+
+#: project/create/modal/activity/modal/modal.js:76
+#: project/create/modal/modal.js:131
+msgid "Title (english is required)"
+msgstr ""
+
+#: dashboard/invoiceable/invoiceable.html:24
+#: dashboard/rors/rors.html:33
+#: dashboard/rors/rors.js:158
+#: dashboard/wallet/signmultisig/signmultisig.html:88
+#: donation/graph/graph.html:173
+msgid "To"
+msgstr ""
+
+#: home/about/sections/faq.html:244
+msgid "To create a bitcoin wallet click on \"my wallet\" by opening the top right menu. You can see the wallets already created, that in this case are not present. Clicking on the button \"Create new address\" you can follow the wizard. Write the 12 word passphrase that allows you to access to the funds, but pay attention to keep it safely. Rewrite the 3 requested words of your passphrase. Download also the backup, because if you forget the passphrase you will need it to access the wallet. The procedure is completed and you created a new bitcoin wallet."
+msgstr ""
+
+#: project/create/create.js:163
+msgid "To make the project visible in the platform you need to submit it; an Helperbit admin will validate the project and will approve or reject the project. Click to submit."
+msgstr ""
+
+#: home/cookie/cookie.html:6
+msgid "To make this site work properly, we sometimes place small data files called cookies on your device. Most big websites do this too."
+msgstr ""
+
+#: home/old-browser/old-browser.html:8
+msgid "To proceed and use this website we reccomend you to install a more recent browser"
+msgstr ""
+
+#: dashboard/verify/verify.html:31
+msgid "To proceed to verification methods, you must complete these fields:"
+msgstr ""
+
+#: dashboard/delete/delete.html:4
+msgid "To proceed with the deletion procedure, please send an email to info@helperbit.com from the email you used to register your user; the Helperbit team will delete your account."
+msgstr ""
+
+#: home/about/sections/faq.html:231
+msgid "To sign up to the platform: click the button \"sign up\" and select the type of user that you are. In the registration form enter an email, a user name and a password. To continue the registration process, check the box to accept the Terms of Service and the Privacy Policy after having read them. Congratulations, you are now a Helperbit user!"
+msgstr ""
+
+#: home/staticpages/staticpages.js:348
+msgid "To stimulate the use of the platform and its diffusion in a fun way, some challenges are proposed here, in order to guide new users to explore the features offered by Helperbit."
+msgstr ""
+
+#: donation/transaction/transaction.html:32
+msgid "To user"
+msgstr ""
+
+#: dashboard/rors/rors.html:307
+msgid "To:"
+msgstr ""
+
+#: ambassador/top-ambassadors/top-ambassadors.js:65
+#: donation/topdonors/topdonors.js:85
+msgid "Today"
+msgstr ""
+
+#: parts/header/header.html:6
+msgid "Toggle navigation"
+msgstr ""
+
+#: dashboard/privacy/privacy.js:36
+msgid "Toggle the fields to show in your public page"
+msgstr ""
+
+#: parts/error/error.html:9
+msgid "Too many requests"
+msgstr ""
+
+#: parts/error/error.html:18
+msgid "Too many requests; please try again later."
+msgstr ""
+
+#: parts/header/header.html:27
+msgid "Tools"
+msgstr ""
+
+#: parts/header/header.html:42
+msgid "Top Ambassadors"
+msgstr ""
+
+#: parts/header/header.html:43
+msgid "Top Donors"
+msgstr ""
+
+#: project/table/table.js:79
+#: project/table/table.js:84
+msgid "Total Supporters"
+msgstr ""
+
+#: insurance/simulation/simulation.html:79
+msgid "Total number of users in the pool of funds"
+msgstr ""
+
+#: auth/signup/signup.js:427
+msgid "Track Credit/Debit Card donations on blockchain"
+msgstr ""
+
+#: home/cookie/cookie.html:21
+msgid "Track the user traffic in the platform with a third-party service (google analytics)"
+msgstr ""
+
+#: dashboard/rors/rors.html:81
+#: dashboard/wallet/wallets/wallets.html:149
+#: donation/transaction/transaction.js:25
+msgid "Transaction"
+msgstr ""
+
+#: dashboard/wallet/wallets/wallets.html:148
+#: donation/donation/donation.html:7
+#: donation/gift/gift.html:33
+#: donation/transaction/transaction.html:7
+msgid "Transaction ID"
+msgstr ""
+
+#: donation/charity-pot/charity-pot.html:63
+msgid "Transaction Link"
+msgstr ""
+
+#: dashboard/wallet/withdraw/withdraw-multisig.html:21
+#: dashboard/wallet/withdraw/withdraw-multisig.html:55
+msgid "Transaction description"
+msgstr ""
+
+#: dashboard/wallet/wallets/deposit.html:44
+msgid "Transaction not sent"
+msgstr ""
+
+#: donation/transaction/transaction.js:26
+msgid "Transaction of {{value}} BTC; click to view more details."
+msgstr ""
+
+#: dashboard/wallet/signmultisig/signmultisig.js:32
+#: dashboard/wallet/wallets/wallets.html:143
+#: profile/organization.html:50
+msgid "Transactions"
+msgstr ""
+
+#: home/home/home.html:33
+msgid "Trending projects"
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.html:38
+#: dashboard/wallet/new/new.html:29
+msgid "Trezor"
+msgstr ""
+
+#: utils.js:297
+msgid "Trust Badge"
+msgstr ""
+
+#: utils.js:288
+msgid "Trust Badge Locked"
+msgstr ""
+
+#: event/eventdonate/eventdonate.html:93
+msgid "Trust level threshold"
+msgstr ""
+
+#: dashboard/alert/alert.html:22
+#: event/table/table.js:25
+msgid "Tsunami"
+msgstr ""
+
+#: dashboard/invoiceable/invoiceable.html:22
+#: dashboard/transaction-list/transaction-list.html:4
+msgid "Tx"
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.js:40
+#: dashboard/wallet/new/new.js:37
+#: donation/graph/graph.html:159
+#: organizations/organizations.js:154
+#: organizations/organizations.js:58
+#: organizations/organizations.js:63
+msgid "Type"
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.html:127
+#: dashboard/wallet/new/new.html:122
+msgid "Type here the requested words of the passphrase displayed in the previous windows"
+msgstr ""
+
+#: auth/recovery/recovery.js:35
+msgid "Type your email address, a reset link will be sent to that address."
+msgstr ""
+
+#: home/about/sections/faq.html:354
+msgid "Types of users"
+msgstr ""
+
+#: dashboard/transaction-list/transaction-list.html:26
+#: dashboard/wallet/wallets/wallets.html:169
+#: donation/donation/donation.html:18
+#: donation/gift/gift.html:44
+#: donation/transaction/transaction.html:11
+msgid "Unconfirmed"
+msgstr ""
+
+#: dashboard/wallet/wallets/settings.html:31
+msgid "Update"
+msgstr ""
+
+#: project/create/modal/modal.html:118
+msgid "Update Activities"
+msgstr ""
+
+#: dashboard/geolocalization/modal/modal.html:20
+msgid "Update Address"
+msgstr ""
+
+#: dashboard/geolocalization/modal/modal.html:74
+#: project/create/modal/modal.html:49
+msgid "Update Countries"
+msgstr ""
+
+#: dashboard/verify/providers/company/company.html:26
+#: dashboard/verify/providers/document/document.html:47
+#: dashboard/verify/providers/npo/admins/admins.html:142
+msgid "Update Document"
+msgstr ""
+
+#: campaign/create/modal/modal.html:24
+#: dashboard/verify/providers/document/document.html:20
+#: project/create/modal/activity/modal/modal.html:20
+#: project/create/modal/modal.html:20
+msgid "Update Information"
+msgstr ""
+
+#: campaign/create/modal/modal.html:53
+#: project/create/modal/activity/modal/modal.html:44
+#: project/create/modal/modal.html:146
+msgid "Update Media"
+msgstr ""
+
+#: project/create/modal/modal.html:175
+msgid "Update Other Information"
+msgstr ""
+
+#: auth/recovery/recovery.html:53
+msgid "Update Password"
+msgstr ""
+
+#: dashboard/edit/edit.html:145
+#: dashboard/socialedit/socialedit.html:21
+msgid "Update Profile"
+msgstr ""
+
+#: dashboard/verify/providers/company/company.js:28
+#: dashboard/verify/providers/document/document.js:44
+#: dashboard/verify/providers/npo/admins/admins.js:61
+#: dashboard/verify/providers/npo/memorandum/memorandum.js:29
+#: dashboard/verify/providers/npo/npo.html:24
+#: dashboard/verify/providers/npo/statute/statute.js:29
+#: dashboard/verify/providers/residency/residency.js:29
+msgid "Upload"
+msgstr ""
+
+#: dashboard/verify/providers/npo/npo.html:24
+msgid "Upload Documents"
+msgstr ""
+
+#: campaign/create/modal/modal.js:74
+msgid "Upload photos and images linked with your fundraising campaign. Media materials generate powerful emotional reactions in donors and improve your fundraising. You can upload a cover image for your fundraising campaign. Choose between a default image or upload a custom one."
+msgstr ""
+
+#: project/create/modal/modal.js:77
+msgid "Upload photos and images linked with your project. Media materials generate powerful emotional reactions in donors and improve your fundraising"
+msgstr ""
+
+#: dashboard/verify/providers/company/company.html:11
+#: dashboard/verify/providers/document/document.js:46
+msgid "Upload the documents requested below."
+msgstr ""
+
+#: dashboard/verify/providers/npo/npo.html:28
+msgid "Upload the documents requested below. The submitted documents must be in one of the following languages: Italian, English, Spanish, French or German."
+msgstr ""
+
+#: dashboard/verify/providers/npo/admins/admins.js:62
+msgid "Upload the previous document signed"
+msgstr ""
+
+#: dashboard/rors/rors.js:326
+msgid "Upload the scanned invoice"
+msgstr ""
+
+#: dashboard/verify/providers/company/company.js:29
+#: dashboard/verify/providers/document/document.js:45
+msgid "Upload your Document"
+msgstr ""
+
+#: dashboard/verify/providers/npo/memorandum/memorandum.js:30
+msgid "Upload your Memorandum"
+msgstr ""
+
+#: dashboard/verify/providers/residency/residency.js:30
+msgid "Upload your Proof of Residency"
+msgstr ""
+
+#: dashboard/verify/providers/npo/statute/statute.js:30
+msgid "Upload your Statute"
+msgstr ""
+
+#: dashboard/wallet/new/new.html:95
+msgid "Use your Ledger Nano device to create a new Helperbit wallet"
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.html:100
+msgid "Use your Ledger Nano device to create a new Helperbit wallet for the organization"
+msgstr ""
+
+#: profile/profile.js:131
+msgid "User"
+msgstr ""
+
+#: dashboard/edit/edit.js:122
+#: dashboard/edit/edit.js:19
+msgid "User Information"
+msgstr ""
+
+#: auth/signup/signup.js:35
+#: profile/single.html:77
+msgid "User Type"
+msgstr ""
+
+#: home/about/sections/benefit.html:60
+msgid "User can decide to make donation with debit card or directly in bitcoin. Organization can accept bitcoin or local currency."
+msgstr ""
+
+#: dashboard/controlpanel/controlpanel.js:94
+msgid "User privacy is a very important value for us. Each individual can change the settings related to the public visualisation of personal data through the own configuration page. For more information, see the Privacy Policy page."
+msgstr ""
+
+#: donation/donation/donation.html:101
+#: donation/gift/gift.html:110
+msgid "User recipient"
+msgstr ""
+
+#: ambassador/top-ambassadors/top-ambassadors.js:101
+#: ambassador/top-ambassadors/top-ambassadors.js:40
+#: ambassador/top-ambassadors/top-ambassadors.js:45
+#: auth/signup/signup.js:136
+#: auth/signup/signup.js:137
+#: dashboard/edit/edit.js:189
+#: donation/graph/graph.html:160
+#: profile/company.html:70
+#: profile/organization.html:82
+#: profile/single.html:35
+msgid "Username"
+msgstr ""
+
+#: auth/login/login.js:92
+msgid "Username or Email"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.html:122
+msgid "Username:"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.html:60
+msgid "Users requested"
+msgstr ""
+
+#: dashboard/verify/verify.js:358
+msgid "VAT"
+msgstr ""
+
+#: dashboard/invoiceable/invoiceable.html:25
+#: dashboard/rors/rors.html:299
+#: dashboard/rors/rors.html:37
+#: dashboard/wallet/signmultisig/signmultisig.html:23
+#: dashboard/wallet/signmultisig/signmultisig.html:68
+#: dashboard/wallet/wallets/wallets.html:152
+#: dashboard/wallet/withdraw/withdraw.html:42
+#: donation/donation/donation.html:102
+#: donation/donation/donation.html:79
+#: donation/gift/gift.html:112
+#: donation/gift/gift.html:90
+#: donation/graph/graph.html:191
+#: donation/transaction/transaction.html:39
+#: profile/company.html:256
+#: profile/organization.html:291
+#: profile/organization.html:319
+msgid "Value"
+msgstr ""
+
+#: donation/donation/donation.html:84
+#: donation/gift/gift.html:95
+#: donation/transaction/transaction.html:45
+msgid "Value at time of transaction"
+msgstr ""
+
+#: home/staticpages/staticpages.js:146
+#: home/staticpages/staticpages.js:152
+#: home/staticpages/staticpages.js:156
+#: parts/seofooter/seofooter.html:48
+msgid "Verification and Trust Level of a single user"
+msgstr ""
+
+#: dashboard/verify/providers/gps/gps.html:28
+msgid "Verification done."
+msgstr ""
+
+#: home/staticpages/staticpages.js:198
+#: home/staticpages/staticpages.js:204
+#: home/staticpages/staticpages.js:208
+#: parts/seofooter/seofooter.html:54
+msgid "Verification process for a Legal Body"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.html:87
+msgid "Verified"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.js:70
+msgid "Verified Friends"
+msgstr ""
+
+#: dashboard/verify/verify.html:13
+#: dashboard/verify/verify.js:18
+msgid "Verify your account"
+msgstr ""
+
+#: dashboard/verify/providers/gps/gps.html:8
+msgid "Verify your position with device geoverification"
+msgstr ""
+
+#: dashboard/geolocalization/geolocalization.html:119
+#: profile/single.html:196
+msgid "Very high risk"
+msgstr ""
+
+#: dashboard/geolocalization/geolocalization.html:115
+#: dashboard/geolocalization/geolocalization.html:120
+#: profile/single.html:191
+#: profile/single.html:197
+msgid "Very low risk"
+msgstr ""
+
+#: home/home/home.html:110
+#: home/home/home.html:119
+#: home/home/home.html:18
+#: home/home/home.html:35
+#: home/home/home.html:56
+msgid "View all"
+msgstr ""
+
+#: donation/graph/graph.js:489
+msgid "View the complete donation graph and track the money flows from the donors to the project."
+msgstr ""
+
+#: donation/graph/graph.js:493
+msgid "View the complete donation graph and track the money flows from the donors to the user."
+msgstr ""
+
+#: donation/graph/graph.js:497
+msgid "View the complete donation graph and track the money flows of the Helperbit platform."
+msgstr ""
+
+#: ambassador/ambassador/ambassador.html:41
+msgid "Visit"
+msgstr ""
+
+#: donation/charity-pot/charity-pot.html:78
+#: donation/topdonors/topdonors.js:70
+#: donation/topdonors/topdonors.js:75
+msgid "Volume"
+msgstr ""
+
+#: parts/loading/loading.html:8
+msgid "Wait please"
+msgstr ""
+
+#: dashboard/verify/providers/otc/otc.js:32
+msgid "Wait the OTC"
+msgstr ""
+
+#: donation/donation/donation.html:17
+#: donation/gift/gift.html:43
+msgid "Waiting"
+msgstr ""
+
+#: dashboard/wallet/withdraw/withdraw-single.html:31
+#: dashboard/wallet/withdraw/withdraw-single.html:68
+#: project/create/modal/modal.js:191
+msgid "Wallet"
+msgstr ""
+
+#: dashboard/wallet/newmultisig/newmultisig.html:23
+msgid "Wallet description (ie: 'Funds for Haiti flood'):"
+msgstr ""
+
+#: dashboard/wallet/wallets/deposit.html:43
+#: dashboard/wallet/wallets/settings.html:36
+msgid "Wallet not empty"
+msgstr ""
+
+#: home/about/sections/team.html:101
+msgid "We Are Hiring, have a look to the open positions"
+msgstr ""
+
+#: dashboard/edit/edit.js:658
+msgid "We are a Company that operate in these fields..."
+msgstr ""
+
+#: dashboard/edit/edit.js:663
+msgid "We are a Municipality that operate in these fields..."
+msgstr ""
+
+#: dashboard/edit/edit.js:663
+msgid "We are a Non Profit Organization that operate in these fields..."
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.html:70
+#: dashboard/wallet/new/new.html:65
+msgid "We do not store your passphrase and cannot recover it if lost"
+msgstr ""
+
+#: auth/login/login.html:33
+msgid "We have sent a new activation url to your mail address."
+msgstr ""
+
+#: auth/recovery/recovery.html:37
+msgid "We have sent an email to you with a reset link, please check your mail inbox."
+msgstr ""
+
+#: home/about/sections/benefit.html:65
+msgid "We offer a geographic approach for natural disasters, so you know exactly who is in need and you can help knowingly."
+msgstr ""
+
+#: home/about/sections/benefit.html:56
+msgid "We provide multisignature wallet (2of3) to all our users, and a n-of-m multisignature wallet for organizations. This reduce drastically the risk of theft and misuse of the donations."
+msgstr ""
+
+#: auth/signup/signup.js:318
+msgid "We will provide you news and updates about 1 time per month. You may unsubscribe any time by clicking the unsubscribe-link in our newsletter."
+msgstr ""
+
+#: dashboard/verify/providers/npo/admins/admins.js:442
+#: dashboard/verify/providers/npo/npo.js:106
+#: dashboard/verify/providers/npo/statute/statute.js:67
+msgid "We will verify that your NPO is a non profit and the principles are compatible with our TOS"
+msgstr ""
+
+#: dashboard/edit/edit.js:293
+#: dashboard/edit/edit.js:397
+#: dashboard/privacy/privacy.js:46
+#: dashboard/verify/verify.js:370
+#: profile/company.html:110
+#: profile/organization.html:122
+#: profile/single.html:89
+msgid "Website"
+msgstr ""
+
+#: campaign/create/modal/modal.js:34
+msgid "Wedding"
+msgstr ""
+
+#: utils.js:459
+msgid "Welcome to Helperbit!"
+msgstr ""
+
+#: dashboard/rors/rors.js:22
+msgid "What are RORS?"
+msgstr ""
+
+#: dashboard/badges/badges.js:33
+msgid "What are badges?"
+msgstr ""
+
+#: home/cookie/cookie.html:10
+msgid "What are cookies?"
+msgstr ""
+
+#: donation/charity-pot/charity-pot.js:14
+msgid "What is a Charity Pot?"
+msgstr ""
+
+#: campaign/create/create.js:42
+msgid "What is a fundraising campaign?"
+msgstr ""
+
+#: home/about/sections/faq.html:252
+msgid "What is the passphrase"
+msgstr ""
+
+#: home/about/sections/faq.html:131
+msgid "What organizations are there in Helperbit?"
+msgstr ""
+
+#: dashboard/verify/providers/otc/otc.html:60
+msgid "When you got the code come back here and digit the code in the verification page to complete the verification procedure"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.js:33
+msgid "Who is an Ambassador?"
+msgstr ""
+
+#: home/about/about.html:12
+#: parts/header/header.html:59
+#: parts/seofooter/seofooter.html:124
+msgid "Why Helperbit"
+msgstr ""
+
+#: home/about/about.html:11
+#: parts/header/header.html:58
+#: parts/seofooter/seofooter.html:117
+msgid "Why signup"
+msgstr ""
+
+#: home/about/sections/faq.html:8
+msgid "Why trust bitcoin?"
+msgstr ""
+
+#: dashboard/alert/alert.html:24
+#: event/table/table.js:21
+msgid "Wildfire"
+msgstr ""
+
+#: utils.js:243
+msgid "Wildlife"
+msgstr ""
+
+#: auth/signup/signup.js:424
+msgid "Withdraw local currency (EUR,USD)"
+msgstr ""
+
+#: dashboard/geolocalization/geolocalization.js:73
+msgid "World"
+msgstr ""
+
+#: parts/header/header.html:41
+msgid "World Statistics"
+msgstr ""
+
+#: home/about/sections/whysignup.html:10
+msgid "Would you like to have full control over your donations and see how your money are spent?<br>Are you living in an area affected by natural disasters?"
+msgstr ""
+
+#: home/about/sections/whysignup.html:21
+msgid "Would you like to raise more funds globally in a fast and efficient manner?<br>Are you ready to be transparent and accountable for the use of your fundraising?"
+msgstr ""
+
+#: home/about/sections/whysignup.html:32
+msgid "Would you like to sell your humanitarian product globally?<br>Would you like to eliminate any chargeback issue?"
+msgstr ""
+
+#: auth/signup/signup.js:233
+msgid "Write here the code of the user that invite you to signup on Helperbit and get the badge!"
+msgstr ""
+
+#: dashboard/geolocalization/modal/modal.js:51
+msgid "Write the countries where your organization operates"
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.html:63
+#: dashboard/wallet/new/new.html:58
+msgid "Write your passphrase down and keep it safe"
+msgstr ""
+
+#: home/about/sections/faq.html:71
+msgid "Yes, it is necessary to click on <a href=\"/recovery\" target=\"_blank\">this link</a>. Write your email, and a reset link will be sent to that address. Your bitcoins are not in danger, because the passphrase is the unique way to access to the funds."
+msgstr ""
+
+#: utils.js:594
+msgid "You achieved a new badge: {{badge}}"
+msgstr ""
+
+#: dashboard/edit/edit.html:101
+#: dashboard/edit/edit.html:95
+msgid "You are geolocalized"
+msgstr ""
+
+#: dashboard/edit/edit.html:13
+msgid "You are leaving the page but there are unsaved changes"
+msgstr ""
+
+#: dashboard/alert/alert.html:11
+msgid "You are not geolocalized"
+msgstr ""
+
+#: utils.js:435
+msgid "You are not geolocalized yet; set your position to receive donations"
+msgstr ""
+
+#: utils.js:439
+msgid "You are not verified; start the verification process to achieve more trust"
+msgstr ""
+
+#: dashboard/edit/edit.html:89
+msgid "You are not yet geolocalized"
+msgstr ""
+
+#: utils.js:546
+msgid "You are now a fully verified user"
+msgstr ""
+
+#: utils.js:475
+msgid "You are now a verified user"
+msgstr ""
+
+#: utils.js:447
+msgid "You are now admin of {{user}}"
+msgstr ""
+
+#: utils.js:487
+msgid "You are removed from admins of {{user}}"
+msgstr ""
+
+#: home/old-browser/old-browser.html:7
+msgid "You are using an outdated browser and this website may not work correctly"
+msgstr ""
+
+#: formly-init.js:63
+msgid "You can add"
+msgstr ""
+
+#: dashboard/alert/alert.html:57
+msgid "You can also attach a photo of the event:"
+msgstr ""
+
+#: dashboard/badges/badges.html:18
+msgid "You can also become a Helperbit ambassador in few easy steps, click"
+msgstr ""
+
+#: project/create/modal/modal.js:47
+msgid "You can associate the project to an existing event. This is not compulsory, you can create a project that is not associated with an event. If the event you want to associate is not in the list this means that your verified position is far from it. Alternatively select a set of countries where your project will operate."
+msgstr ""
+
+#: ambassador/ambassador/ambassador.js:34
+msgid "You can become an Ambassador by inviting your friends to join Helperbit. Share the invitation link, expand your network and receive digital & physical prizes!"
+msgstr ""
+
+#: dashboard/verify/verify.html:131
+msgid "You can complete all methods to reach the highest level of verification."
+msgstr ""
+
+#: home/cookie/cookie.html:30
+msgid "You can control and/or delete cookies as you wish – for details, see <a href=\"http://www.aboutcookies.org/\">aboutcookies.org</a>. You can delete all cookies that are already on your computer and you can set most browsers to prevent them from being placed. If you do this, however, you may have to manually adjust some preferences every time you visit a site and some services and functionalities may not work."
+msgstr ""
+
+#: campaign/create/create.html:49
+msgid "You can create a new fundraising campaign when the last active fundraising campaign will end"
+msgstr ""
+
+#: dashboard/verify/verify.html:130
+msgid "You can improve your profile verification proceeding with one of the available methods."
+msgstr ""
+
+#: dashboard/wallet/withdraw/fee-selector.html:2
+msgid "You can modify the fee amount for statistically decrease the confirmation delay"
+msgstr ""
+
+#: dashboard/rors/rors.html:89
+msgid "You can reject this request, or approve it and send the requested funds:"
+msgstr ""
+
+#: dashboard/invoiceable/invoiceable.html:12
+msgid "You can request an invoice for tax deduction purpouses for the following donations you sent to an Helperbit NPO."
+msgstr ""
+
+#: dashboard/alert/alert.html:13
+msgid "You can send an event alert to report a problem in your living position; if a certain number of users signal the same problem in an area, an event will be created. You can send only one alert per week."
+msgstr ""
+
+#: home/home/home.html:75
+msgid "You can suggest a specific entity or organization to join the platform."
+msgstr ""
+
+#: dashboard/wallet-list/wallet-list.html:2
+msgid "You decided to convert your donations to local currency, wallet is disabled."
+msgstr ""
+
+#: dashboard/wallet/wallets/wallets.html:72
+msgid "You do not have a wallet yet!"
+msgstr ""
+
+#: proposednpo/table/table.html:27
+msgid "You have already endorsed this organization."
+msgstr ""
+
+#: dashboard/edit/edit.html:82
+msgid "You have an active wallet"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.html:114
+msgid "You have been invited by"
+msgstr ""
+
+#: dashboard/edit/edit.html:76
+msgid "You have not an active wallet"
+msgstr ""
+
+#: utils.js:443
+msgid "You have received a donation of {{amount}} BTC from {{from}}"
+msgstr ""
+
+#: utils.js:570
+msgid "You have received a donation of {{amount}} BTC to your campaign"
+msgstr ""
+
+#: utils.js:491
+msgid "You have received a refund claim from {{from}} of {{value}} {{currency}}"
+msgstr ""
+
+#: dashboard/wallet/signmultisig/signmultisig.html:157
+msgid "You have successfully refused to sign this transaction."
+msgstr ""
+
+#: dashboard/verify/verify.js:553
+msgid "You have to upload the founding document that shows the purposes and governing model of your organization. It allows Helperbit to verify that your nonprofit is apolitical, recognized by your home Country and that you are focused on social causes"
+msgstr ""
+
+#: dashboard/verify/verify.js:567
+msgid "You have to upload the minutes of the last election assembly of the governing body, in order to give to Helperbit the names of the last people in charge of key positions. The document should not be older than 12 months"
+msgstr ""
+
+#: dashboard/wallet/signmultisig/signmultisig.html:4
+msgid "You have {{$ctrl.signMultisigModel.values.transactions.length}} pending transactions to sign."
+msgstr ""
+
+#: dashboard/wallet-list/wallet-list.html:10
+msgid "You have {{$ctrl.wallets.length}} of 10 possible wallets."
+msgstr ""
+
+#: utils.js:431
+msgid "You haven't yet created a wallet; start to receive and donate by creating one"
+msgstr ""
+
+#: formly-init.js:71
+msgid "You must choose at least one tag"
+msgstr ""
+
+#: dashboard/verify/verify.html:132
+msgid "You must complete all verifications to start rising funds."
+msgstr ""
+
+#: project/create/create.html:68
+msgid "You need a new wallet to create another project"
+msgstr ""
+
+#: insurance/simulation/simulation.html:22
+msgid "You need to be geolocalized to access the simulation tool"
+msgstr ""
+
+#: event/eventdonate/eventdonate.html:16
+msgid "You need to be logged in to make a donation through Helperbit"
+msgstr ""
+
+#: insurance/simulation/simulation.html:7
+msgid "You need to be logged in with a geolocalized user to access the simulation tool"
+msgstr ""
+
+#: project/create/create.html:71
+msgid "You need to be verified before creating a project (minimum trust level required is 40)"
+msgstr ""
+
+#: event/eventdonate/eventdonate.html:29
+msgid "You need to have a wallet to make a donation through Helperbit"
+msgstr ""
+
+#: project/create/create.html:4
+msgid "You need to have a wallet to publish a project"
+msgstr ""
+
+#: donation/graph/graph.html:90
+msgid "You need to login to use this feature."
+msgstr ""
+
+#: dashboard/socialedit/socialedit.js:34
+msgid "You need to setup your account email and password to use all the functionalities of Helperbit."
+msgstr ""
+
+#: donation/gift/gift.html:14
+msgid "You received a gift donation from"
+msgstr ""
+
+#: dashboard/wallet/wallets/deposit.html:11
+msgid "You testnet bitcoins will be available in your wallet balance within few seconds."
+msgstr ""
+
+#: dashboard/verify/verify.js:497
+msgid "You will have the possibility to upload the CEO ID card, the Document should be valid and not expired [25 trust points]."
+msgstr ""
+
+#: dashboard/verify/verify.js:497
+msgid "You will have the possibility to upload your ID card, the Document should be valid and not expired [25 trust points]."
+msgstr ""
+
+#: dashboard/verify/verify.js:511
+msgid "You will have to upload a proof of residency, an utility bill that have your name and your address on it, the document shouldn't be older than 6 months [15 trust point]"
+msgstr ""
+
+#: dashboard/verify/verify.js:581
+msgid "You will have to upload the Certification of a Manager who appoints the Administrators of the funds. Helperbit provides you the document with the information; you have to print it, ask the Manager to sign it and then upload the signed document"
+msgstr ""
+
+#: utils.js:590
+msgid "You won a merchandise object!"
+msgstr ""
+
+#: dashboard/edit/edit.html:133
+msgid "You're admin of:"
+msgstr ""
+
+#: dashboard/verify/providers/npo/admins/admins.js:442
+msgid "Your Admins."
+msgstr ""
+
+#: insurance/simulation/simulation.html:70
+msgid "Your Bitcoin deposit in the pool of funds"
+msgstr ""
+
+#: dashboard/verify/providers/npo/npo.js:106
+#: dashboard/verify/providers/npo/statute/statute.js:67
+msgid "Your Statute."
+msgstr ""
+
+#: utils.js:467
+msgid "Your account is active"
+msgstr ""
+
+#: auth/login/login.html:22
+msgid "Your account is active."
+msgstr ""
+
+#: dashboard/edit/edit.html:122
+msgid "Your account is in locked state because you are verified. Remove the verification if you want to edit your account."
+msgstr ""
+
+#: auth/login/login.html:42
+msgid "Your account is not active, check your email or"
+msgstr ""
+
+#: dashboard/edit/edit.html:108
+msgid "Your account is not yet verified"
+msgstr ""
+
+#: dashboard/edit/edit.html:115
+msgid "Your account is verified"
+msgstr ""
+
+#: utils.js:538
+msgid "Your address is now verified"
+msgstr ""
+
+#: dashboard/verify/providers/otc/otc.html:86
+msgid "Your address is now verified!"
+msgstr ""
+
+#: utils.js:566
+msgid "Your admins document is now verified"
+msgstr ""
+
+#: dashboard/alert/alert.html:54
+msgid "Your alert has been sent."
+msgstr ""
+
+#: dashboard/geolocalization/geolocalization.html:25
+msgid "Your are geolocalized here:"
+msgstr ""
+
+#: utils.js:586
+msgid "Your birthday is approaching, celebrate it by creating a fundraising campaign!"
+msgstr ""
+
+#: dashboard/wallet/wallets/deposit.html:46
+msgid "Your bitcoin address is"
+msgstr ""
+
+#: utils.js:582
+msgid "Your campaign has been deleted because it violates terms of service; check your email for more information"
+msgstr ""
+
+#: utils.js:530
+msgid "Your document Id is now verified"
+msgstr ""
+
+#: utils.js:542
+#: utils.js:550
+msgid "Your documents are now verified"
+msgstr ""
+
+#: utils.js:554
+msgid "Your documents has been rejected"
+msgstr ""
+
+#: dashboard/wallet/withdraw/withdraw-single.html:139
+msgid "Your donation has been sent"
+msgstr ""
+
+#: proposednpo/table/table.html:10
+msgid "Your endorsment has been saved."
+msgstr ""
+
+#: parts/widgets/feedback/feedback.html:26
+msgid "Your feedback has been sent."
+msgstr ""
+
+#: dashboard/geolocalization/geolocalization.html:102
+msgid "Your location is an area classified as:"
+msgstr ""
+
+#: utils.js:562
+msgid "Your memorandum document is now verified"
+msgstr ""
+
+#: utils.js:511
+msgid "Your multisig refund transaction has been broadcasted."
+msgstr ""
+
+#: utils.js:479
+msgid "Your multisig transaction has been broadcasted"
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.html:181
+msgid "Your part for the wallet creation is done! Remember to keep safe your Hardware Wallet, this will be necessary to sign transactions created by the organization."
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.html:184
+msgid "Your part for the wallet creation is done! Remember to store your address passphrase, this will be necessary to sign transactions created by the organization."
+msgstr ""
+
+#: auth/recovery/recovery.html:68
+msgid "Your password as been reset."
+msgstr ""
+
+#: utils.js:463
+msgid "Your password has been reset"
+msgstr ""
+
+#: dashboard/verify/verify.html:128
+msgid "Your profile is {{$ctrl.verify.trustlevel}}% complete"
+msgstr ""
+
+#: utils.js:523
+msgid "Your project \"{{title}}\" has been approved by Helperbit and it's now visible"
+msgstr ""
+
+#: utils.js:526
+msgid "Your project \"{{title}}\" has been rejected by Helperbit admin"
+msgstr ""
+
+#: project/create/create.js:185
+msgid "Your project is accepting donations; click to pause it if you want to stop donations for a period."
+msgstr ""
+
+#: project/create/create.js:174
+msgid "Your project is paused, so it doesn't accept donations; click to resume it to receive donations."
+msgstr ""
+
+#: utils.js:534
+msgid "Your proof of residence is now verified"
+msgstr ""
+
+#: utils.js:499
+msgid "Your refund claim to {{to}} of value {{value}} {{currency}} has been accepted"
+msgstr ""
+
+#: utils.js:503
+msgid "Your refund claim to {{to}} of value {{value}} {{currency}} has been accepted and the funds has sent"
+msgstr ""
+
+#: utils.js:495
+msgid "Your refund claim to {{to}} of value {{value}} {{currency}} has been rejected with this reason: \"{{reason}}\""
+msgstr ""
+
+#: dashboard/rors/rors.js:359
+msgid "Your refund claim was reject because..."
+msgstr ""
+
+#: dashboard/verify/providers/company/company.html:61
+#: dashboard/verify/providers/document/document.html:93
+#: dashboard/verify/providers/npo/admins/admins.html:177
+#: dashboard/verify/providers/npo/memorandum/memorandum.html:31
+#: dashboard/verify/providers/npo/npo.html:101
+#: dashboard/verify/providers/npo/statute/statute.html:31
+#: dashboard/verify/providers/residency/residency.html:31
+msgid "Your request is now pending for review and approval."
+msgstr ""
+
+#: utils.js:578
+msgid "Your running campaign is now concluded"
+msgstr ""
+
+#: utils.js:574
+msgid "Your running campaign is now expired"
+msgstr ""
+
+#: utils.js:558
+msgid "Your statute document is now verified"
+msgstr ""
+
+#: dashboard/wallet/withdraw/withdraw-multisig.html:83
+msgid "Your transaction has been prepared; the transaction need to be signed by {{$ctrl.wallet.multisig.n}} wallet administrators (an email is sent to them)"
+msgstr ""
+
+#: dashboard/wallet/withdraw/withdraw-single.html:134
+msgid "Your transaction has been sent"
+msgstr ""
+
+#: dashboard/verify/verify.js:117
+msgid "Your verification is completed!"
+msgstr ""
+
+#: dashboard/verify/verify.js:147
+msgid "Your verification is processing"
+msgstr ""
+
+#: dashboard/verify/verify.js:157
+msgid "Your verification is still a draft. You have to finish and send it to be verified!"
+msgstr ""
+
+#: dashboard/verify/verify.js:127
+msgid "Your verification is waiting to be processed"
+msgstr ""
+
+#: dashboard/verify/verify.js:137
+msgid "Your verification was rejected with this appointment: \"__REPLACE__\". Do you want to create new one?"
+msgstr ""
+
+#: project/create/modal/modal.js:271
+msgid "Youtube Video URL"
+msgstr ""
+
+#: dashboard/geolocalization/geolocalization.html:34
+#: dashboard/geolocalization/geolocalization.html:72
+#: dashboard/geolocalization/modal/modal.js:147
+#: dashboard/verify/providers/otc/otc.html:31
+#: dashboard/verify/verify.js:447
+msgid "ZIP Code"
+msgstr ""
+
+#: dashboard/verify/providers/npo/admins/admins.js:125
+msgid "[select​ the​ right option]"
+msgstr ""
+
+#: article.js:108
+msgid "a deep"
+msgstr ""
+
+#: article.js:108
+msgid "a shallow"
+msgstr ""
+
+#: dashboard/verify/verify.js:116
+msgid "accepted"
+msgstr ""
+
+#: auth/recovery/recovery.js:16
+msgid "account recovery"
+msgstr ""
+
+#: parts/metrics/metrics.js:31
+msgid "active fundraising"
+msgstr ""
+
+#: project/create/modal/modal.js:461
+msgid "activity?"
+msgstr ""
+
+#: dashboard/admin/admin.js:14
+msgid "administrators"
+msgstr ""
+
+#: home/staticpages/staticpages.js:257
+msgid "advanced donations"
+msgstr ""
+
+#: event/event/event.js:88
+msgid "affected"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.js:131
+msgid "already verified"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.js:40
+#: home/staticpages/staticpages.js:283
+#: home/staticpages/staticpages.js:288
+msgid "ambassador"
+msgstr ""
+
+#: dashboard/notifications/notifications.js:50
+#: parts/header/header.js:46
+msgid "an anonymous user"
+msgstr ""
+
+#: article.js:108
+msgid "an intermediate"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.html:41
+msgid "and check you're ranking"
+msgstr ""
+
+#: donation/donation/donation.html:63
+#: donation/gift/gift.html:85
+#: donation/transaction/transaction.html:28
+msgid "anonymous user"
+msgstr ""
+
+#: home/about/sections/benefit.html:20
+msgid "approach"
+msgstr ""
+
+#: home/home/home.html:91
+msgid "are you an NPO?"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.js:186
+msgid "available"
+msgstr ""
+
+#: home/about/sections/award.html:1
+msgid "awards"
+msgstr ""
+
+#: home/staticpages/staticpages.js:342
+msgid "badges"
+msgstr ""
+
+#: dashboard/controlpanel/controlpanel.js:77
+msgid "be geoverified"
+msgstr ""
+
+#: dashboard/controlpanel/controlpanel.js:22
+msgid "be involved"
+msgstr ""
+
+#: dashboard/controlpanel/controlpanel.js:25
+msgid "become an ambassador"
+msgstr ""
+
+#: home/about/sections/benefit.html:1
+msgid "benefit"
+msgstr ""
+
+#: dashboard/controlpanel/controlpanel.js:57
+msgid "browse charity projects"
+msgstr ""
+
+#: campaign/create/create.js:230
+msgid "campaign?"
+msgstr ""
+
+#: formly-init.js:67
+msgid "can be added"
+msgstr ""
+
+#: formly-init.js:39
+msgid "characters"
+msgstr ""
+
+#: home/about/sections/whysignup.html:9
+msgid "citizens"
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.html:51
+#: dashboard/wallet/new/new.html:46
+msgid "click here to generate a new 12 words passphrase"
+msgstr ""
+
+#: dashboard/controlpanel/controlpanel.js:33
+msgid "collect the badges"
+msgstr ""
+
+#: home/about/sections/whysignup.html:31
+msgid "company"
+msgstr ""
+
+#: dashboard/controlpanel/controlpanel.js:69
+msgid "complete your profile"
+msgstr ""
+
+#: home/about/sections/contact.html:1
+msgid "contact us"
+msgstr ""
+
+#: home/cookie/cookie.js:16
+msgid "cookie"
+msgstr ""
+
+#: event/event/event.js:93
+msgid "date"
+msgstr ""
+
+#: dashboard/delete/delete.js:17
+msgid "delete account"
+msgstr ""
+
+#: home/home/home.html:73
+msgid "do you want to donate to a specific entity or organization?"
+msgstr ""
+
+#: campaign/campaign/campaign.js:24
+#: campaign/create/create.js:49
+#: campaign/create/modal/modal.js:322
+#: campaign/create/modal/modal.js:92
+#: project/project/project.js:29
+msgid "donate"
+msgstr ""
+
+#: profile/profile.js:103
+#: profile/profile.js:88
+msgid "donated"
+msgstr ""
+
+#: donation/donation/donation.html:14
+#: donation/donation/donation.js:26
+#: donation/gift/gift.html:38
+msgid "donation"
+msgstr ""
+
+#: donation/donation/invoice.js:19
+msgid "donation invoice printing"
+msgstr ""
+
+#: event/event/event.html:130
+#: home/staticpages/staticpages.js:100
+#: parts/metrics/metrics.js:17
+#: profile/profile.js:83
+msgid "donations"
+msgstr ""
+
+#: home/old-browser/old-browser.html:15
+#: home/old-browser/old-browser.html:20
+#: home/old-browser/old-browser.html:25
+msgid "download"
+msgstr ""
+
+#: dashboard/geolocalization/geolocalization.html:124
+#: dashboard/geolocalization/geolocalization.html:125
+#: profile/single.html:200
+#: profile/single.html:201
+msgid "dpc"
+msgstr ""
+
+#: dashboard/verify/verify.js:156
+msgid "draft"
+msgstr ""
+
+#: home/about/sections/benefit.html:16
+#: home/about/sections/benefit.html:76
+msgid "efficiency"
+msgstr ""
+
+#: campaign/campaign/campaign.js:71
+msgid "end date"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.js:202
+msgid "ended"
+msgstr ""
+
+#: insurance/simulation/simulation.html:34
+msgid "event simulation tool"
+msgstr ""
+
+#: home/about/sections/benefit.html:24
+#: home/about/sections/benefit.html:72
+msgid "fairness"
+msgstr ""
+
+#: home/about/sections/faq.html:1
+msgid "faq"
+msgstr ""
+
+#: home/about/sections/faq.html:146
+msgid "faq - case study"
+msgstr ""
+
+#: home/about/sections/faq.html:220
+msgid "faq - tutorial"
+msgstr ""
+
+#: formly-init.js:63
+msgid "file or less"
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.html:50
+msgid "for the wallet"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.js:131
+msgid "friend"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.js:131
+msgid "friends"
+msgstr ""
+
+#: campaign/campaign/campaign.js:24
+#: campaign/create/create.js:49
+#: campaign/create/modal/modal.js:322
+#: campaign/create/modal/modal.js:92
+msgid "fundraising campaign"
+msgstr ""
+
+#: home/staticpages/staticpages.js:230
+msgid "fundraising campaigns"
+msgstr ""
+
+#: home/about/sections/benefit.html:64
+msgid "geographic approach"
+msgstr ""
+
+#: dashboard/geolocalization/geolocalization.js:19
+msgid "geolocalization"
+msgstr ""
+
+#: dashboard/verify/providers/otc/otc.html:12
+msgid "geolocalization information"
+msgstr ""
+
+#: home/staticpages/staticpages.js:74
+msgid "geolocation as a verification process to receive humanitarian aid"
+msgstr ""
+
+#: donation/gift/gift.js:21
+msgid "gift donation"
+msgstr ""
+
+#: event/table/table.html:98
+msgid "go to event"
+msgstr ""
+
+#: project/table/table.html:65
+msgid "go to project"
+msgstr ""
+
+#: home/about/sections/benefit.html:42
+#: home/about/sections/benefit.html:51
+msgid "help and get helped"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.js:40
+#: campaign/campaign/campaign.js:24
+#: campaign/create/create.js:49
+#: campaign/create/modal/modal.js:322
+#: campaign/create/modal/modal.js:92
+#: dashboard/geolocalization/geolocalization.html:127
+#: event/event/event.js:19
+#: home/staticpages/staticpages.js:288
+#: profile/single.html:203
+#: project/project/project.js:29
+msgid "helperbit"
+msgstr ""
+
+#: dashboard/badges/badges.html:18
+#: dashboard/wallet/signmultisig/signmultisig.html:112
+#: dashboard/wallet/signmultisig/signmultisig.html:125
+msgid "here"
+msgstr ""
+
+#: event/event/event.html:43
+#: event/event/event.js:18
+msgid "in"
+msgstr ""
+
+#: dashboard/verify/verify.js:146
+msgid "in progress"
+msgstr ""
+
+#: article.js:119
+msgid "in the afternoon"
+msgstr ""
+
+#: article.js:122
+msgid "in the evening"
+msgstr ""
+
+#: article.js:116
+msgid "in the morning"
+msgstr ""
+
+#: article.js:113
+msgid "in the night"
+msgstr ""
+
+#: dashboard/invoiceable/invoiceable.js:14
+msgid "invoiceable donations"
+msgstr ""
+
+#: dashboard/edit/edit.js:572
+msgid "johnsmith@email.com"
+msgstr ""
+
+#: event/event/event.html:157
+msgid "last donations"
+msgstr ""
+
+#: auth/login/login.js:18
+msgid "login"
+msgstr ""
+
+#: dashboard/controlpanel/controlpanel.js:49
+msgid "manage your bitcoin wallet"
+msgstr ""
+
+#: home/staticpages/staticpages.js:22
+msgid "manifesto"
+msgstr ""
+
+#: home/old-browser/old-browser.html:44
+msgid "more info"
+msgstr ""
+
+#: home/about/sections/benefit.html:34
+#: home/about/sections/benefit.html:59
+msgid "multi currency"
+msgstr ""
+
+#: home/about/sections/benefit.html:38
+msgid "multisig wallet"
+msgstr ""
+
+#: dashboard/wallet/newmultisig/newmultisig.js:14
+msgid "multisig wallet creation"
+msgstr ""
+
+#: dashboard/wallet/feedmultisig/feedmultisig.js:13
+msgid "multisig wallet feed"
+msgstr ""
+
+#: home/about/sections/benefit.html:55
+#: home/staticpages/staticpages.js:48
+msgid "multisignature wallet"
+msgstr ""
+
+#: dashboard/verify/verify.js:167
+msgid "n/a"
+msgstr ""
+
+#: dashboard/controlpanel/controlpanel.html:19
+msgid "new"
+msgstr ""
+
+#: event/event/event.html:103
+msgid "news"
+msgstr ""
+
+#: dashboard/notifications/notifications.js:31
+msgid "notifications"
+msgstr ""
+
+#: home/about/sections/faq.html:310
+msgid "offers the opportunity to manually select the beneficiaries."
+msgstr ""
+
+#: campaign/campaign/campaign.js:23
+#: campaign/create/create.js:48
+#: campaign/create/modal/modal.js:321
+#: campaign/create/modal/modal.js:91
+#: project/project/project.js:28
+msgid "on Helperbit.com"
+msgstr ""
+
+#: home/jobs/jobs.js:17
+msgid "open job positions"
+msgstr ""
+
+#: home/about/sections/whysignup.html:20
+msgid "organizations"
+msgstr ""
+
+#: home/about/sections/whyhelperbit.html:28
+msgid "our vision"
+msgstr ""
+
+#: dashboard/geolocalization/geolocalization.html:126
+#: profile/single.html:202
+msgid "pai"
+msgstr ""
+
+#: home/about/sections/partners.html:1
+msgid "partners"
+msgstr ""
+
+#: dashboard/verify/verify.js:126
+msgid "pending"
+msgstr ""
+
+#: dashboard/verify/providers/npo/admins/admins.js:254
+#: dashboard/verify/providers/npo/admins/admins.js:409
+msgid "person in charge and each admin must be different"
+msgstr ""
+
+#: event/event/event.html:71
+msgid "photos"
+msgstr ""
+
+#: home/about/sections/press.html:1
+msgid "press"
+msgstr ""
+
+#: dashboard/controlpanel/controlpanel.js:93
+msgid "privacy"
+msgstr ""
+
+#: home/about/sections/privacy.html:1
+msgid "privacy and terms"
+msgstr ""
+
+#: home/policy/policy.js:122
+#: home/policy/policy.js:128
+#: home/policy/policy.js:150
+msgid "privacy policy"
+msgstr ""
+
+#: home/policy/policy.js:144
+msgid "privacy policy history"
+msgstr ""
+
+#: dashboard/controlpanel/controlpanel.js:101
+msgid "profile security"
+msgstr ""
+
+#: project/create/create.js:19
+#: project/project/project.js:29
+msgid "project"
+msgstr ""
+
+#: project/create/create.js:317
+msgid "project?"
+msgstr ""
+
+#: event/event/event.html:85
+msgid "projects"
+msgstr ""
+
+#: campaign/campaign/campaign.js:56
+#: event/event/event.js:78
+#: profile/profile.js:106
+#: profile/profile.js:93
+#: project/project/project.js:57
+msgid "received"
+msgstr ""
+
+#: profile/profile.js:98
+msgid "received donations"
+msgstr ""
+
+#: dashboard/verify/providers/npo/npo.js:79
+msgid "referent's email"
+msgstr ""
+
+#: dashboard/verify/providers/npo/npo.js:61
+msgid "referent's full name"
+msgstr ""
+
+#: dashboard/verify/providers/npo/npo.js:87
+msgid "referent's phone number"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.js:186
+msgid "referred friends to receive a"
+msgstr ""
+
+#: ambassador/ambassador/ambassador.js:222
+#: ambassador/ambassador/ambassador.js:236
+#: ambassador/ambassador/ambassador.js:250
+msgid "referred friends to receive the"
+msgstr ""
+
+#: auth/signup/signup.js:18
+msgid "registration form"
+msgstr ""
+
+#: dashboard/verify/verify.js:136
+msgid "rejected"
+msgstr ""
+
+#: auth/login/login.html:42
+msgid "resend"
+msgstr ""
+
+#: dashboard/wallet/restore/restore.js:32
+msgid "restore"
+msgstr ""
+
+#: ambassador/top-ambassadors/top-ambassadors.js:182
+#: donation/topdonors/topdonors.js:252
+#: event/table/table.js:308
+#: organizations/organizations.js:282
+#: project/table/table.js:325
+#: proposednpo/table/table.js:258
+msgid "results"
+msgstr ""
+
+#: dashboard/rors/rors.js:548
+msgid "ror?"
+msgstr ""
+
+#: dashboard/controlpanel/controlpanel.js:66
+msgid "settings"
+msgstr ""
+
+#: profile/company.html:179
+#: profile/organization.html:204
+#: profile/single.html:147
+msgid "show all"
+msgstr ""
+
+#: home/about/sections/benefit.html:12
+#: home/about/sections/benefit.html:80
+msgid "speed"
+msgstr ""
+
+#: project/project/project.js:72
+msgid "start date"
+msgstr ""
+
+#: dashboard/controlpanel/controlpanel.js:41
+msgid "start your fundraising campaign"
+msgstr ""
+
+#: home/about/sections/subscribe.html:1
+msgid "subscribe to newsletter"
+msgstr ""
+
+#: campaign/campaign/campaign.js:61
+#: event/event/event.js:83
+#: project/project/project.js:62
+msgid "supporters"
+msgstr ""
+
+#: campaign/campaign/campaign.js:66
+#: project/project/project.js:67
+msgid "target"
+msgstr ""
+
+#: home/about/sections/team.html:1
+msgid "team"
+msgstr ""
+
+#: home/policy/policy.js:100
+#: home/policy/policy.js:106
+msgid "terms of service"
+msgstr ""
+
+#: dashboard/verify/providers/npo/admins/admins.html:51
+msgid "the Board of Directors,"
+msgstr ""
+
+#: home/about/sections/whyhelperbit.html:8
+msgid "the fact"
+msgstr ""
+
+#: home/about/sections/whyhelperbit.html:18
+msgid "the issue"
+msgstr ""
+
+#: dashboard/verify/providers/npo/admins/admins.html:46
+msgid "the ​person in ​ charge of the fundraising sector:"
+msgstr ""
+
+#: dashboard/badges/badges.html:17
+msgid "there are more info about this initiative."
+msgstr ""
+
+#: donation/transaction/transaction.html:79
+msgid "this transaction has been sent from"
+msgstr ""
+
+#: dashboard/verify/providers/npo/admins/admins.html:12
+#: dashboard/verify/providers/npo/admins/admins.html:44
+msgid "through"
+msgstr ""
+
+#: donation/transaction/transaction.html:81
+msgid "to"
+msgstr ""
+
+#: project/create/modal/modal.js:146
+msgid "to go to the end of the line"
+msgstr ""
+
+#: dashboard/badges/badges.html:18
+msgid "to join our mission."
+msgstr ""
+
+#: proposednpo/table/table.js:35
+msgid "to join the Helperbit transparency revolution!"
+msgstr ""
+
+#: dashboard/wallet/signmultisig/signmultisig.html:113
+msgid "to sign with your backup file)"
+msgstr ""
+
+#: dashboard/wallet/signmultisig/signmultisig.html:126
+msgid "to sign with your passphrase)"
+msgstr ""
+
+#: article.js:117
+#: article.js:120
+msgid "today"
+msgstr ""
+
+#: article.js:114
+#: article.js:123
+msgid "tonight"
+msgstr ""
+
+#: stats/stats.html:8
+msgid "top five nations"
+msgstr ""
+
+#: donation/transaction/transaction.js:18
+msgid "transaction"
+msgstr ""
+
+#: home/about/sections/benefit.html:8
+#: home/about/sections/benefit.html:84
+msgid "transparency"
+msgstr ""
+
+#: donation/graph/graph.html:157
+msgid "user"
+msgstr ""
+
+#: event/table/table.html:90
+#: parts/metrics/metrics.js:38
+#: stats/stats.html:5
+msgid "users"
+msgstr ""
+
+#: dashboard/wallet/withdraw/withdraw-single.html:13
+msgid "users in the event"
+msgstr ""
+
+#: dashboard/verify/verify.js:207
+msgid "verification?"
+msgstr ""
+
+#: dashboard/verify/verify.js:17
+msgid "verify"
+msgstr ""
+
+#: dashboard/controlpanel/controlpanel.js:85
+msgid "verify your identity"
+msgstr ""
+
+#: parts/metrics/metrics.js:24
+msgid "volume"
+msgstr ""
+
+#: dashboard/wallet/wallets/wallets.js:29
+#: dashboard/wallet/wallets/wallets.js:43
+msgid "wallet"
+msgstr ""
+
+#: dashboard/wallet/new/new.js:13
+msgid "wallet creation"
+msgstr ""
+
+#: dashboard/wallet/restore/restore.js:12
+msgid "wallet restore"
+msgstr ""
+
+#: dashboard/wallet/wallets/wallets.js:146
+msgid "wallet?"
+msgstr ""
+
+#: home/jobs/jobs.js:16
+msgid "we are hiring!"
+msgstr ""
+
+#: home/about/sections/faq.html:309
+msgid "where it is required to enter the amount to donate, the % you want to donate to Helperbit (optional) and the passphrase. The distribution algorithm is automatically set and the amount is divided between the involved entities. The"
+msgstr ""
+
+#: home/about/sections/whyhelperbit.html:1
+msgid "why helperbit"
+msgstr ""
+
+#: home/about/sections/whysignup.html:2
+msgid "why signup"
+msgstr ""
+
+#: dashboard/wallet/new/new.html:124
+msgid "word"
+msgstr ""
+
+#: home/home/home.html:70
+#: home/home/home.html:88
+msgid "work in progress"
+msgstr ""
+
+#: dashboard/edit/edit.js:294
+#: dashboard/edit/edit.js:398
+msgid "www.example.com"
+msgstr ""
+
+#: home/about/sections/faq.html:28
+msgid "you can buy from who has them"
+msgstr ""
+
+#: home/about/sections/faq.html:29
+msgid "you can take as a payment for goods or services"
+msgstr ""
+
+#: parts/footer/footer.html:6
+msgid "{{currentRouteName}}"
+msgstr ""
