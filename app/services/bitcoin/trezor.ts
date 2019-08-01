@@ -1,12 +1,14 @@
-import * as common from './common';
+import { BitcoinSignOptions, BitcoinSignService } from "./bitcoin-service";
+import { ConfigService } from "../../app.config";
 
-function BitcoinTrezorService(config, $api) {
-	this.getPublicKey = function() {
-	};
+export default class BitcoinTrezorService implements BitcoinSignService {
+	config: ConfigService;
 
-	this.sign = function (txhex: string, options: common.BitcoinSignOptions): Promise<string> {
-		const self = this;
-	
+	constructor (config) {
+		this.config = config;
+	}
+
+	sign (txhex: string, options: BitcoinSignOptions): Promise<string> {	
 		if (!('n' in options))
 			options.n = 2;
 		if (!('complete' in options))
@@ -17,9 +19,7 @@ function BitcoinTrezorService(config, $api) {
 			segwit = true;
 	
 		return Promise.reject();
-	};
+	}
+
+	static get $inject() { return ['config' ]; }
 }
-
-BitcoinTrezorService.$inject = ['config', '$api'];
-
-export default BitcoinTrezorService;

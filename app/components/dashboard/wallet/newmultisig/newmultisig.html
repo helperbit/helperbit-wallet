@@ -13,31 +13,31 @@
 <div class="page-modalized">
 	<div class="modal-content">
 		<wizard name="newWalletMultisig" template="/shared/templates/angular-wizard/wizard.html" indicators-position="top" class="modal-body">
-			<wz-step wz-title="{{ $ctrl.newWalletMultisigModel.step1.title.main }}" wz-heading-title="{{ $ctrl.newWalletMultisigModel.step1.title.heading }}">
+			<wz-step wz-title="{{ $ctrl.wizard.step1.titles.main }}" wz-heading-title="{{ $ctrl.wizard.step1.titles.heading }}">
 				<div class="row">
 					<div class="col-xs-12">
-						<response-messages message="{{$ctrl.newWalletMultisigModel.step1.error}}"></response-messages>
+						<response-messages message="$ctrl.wizard.step1.responseMessage"></response-messages>
 					</div>
 				</div>
 
 				<p translate>Wallet description (ie: 'Funds for Haiti flood'):</p>
-				<input type="text" class="form-control" ng-model="$ctrl.newWalletMultisigModel.values.label" maxlength="24" value="{{$ctrl.newWalletMultisigModel.values.label}}" />
+				<input type="text" class="form-control" ng-model="$ctrl.wizard.step1.model.label" maxlength="24" value="{{$ctrl.wizard.step1.model.label}}" />
 
 				<br>
 				<br>
 
 				<p translate>Select the number of minimum signature you want to require for a transfer:</p>
-				<input type="number" class="form-control" ng-model="$ctrl.newWalletMultisigModel.values.n" value="{{$ctrl.newWalletMultisigModel.values.n}}" min="3" max="8" />
+				<input type="number" class="form-control" ng-model="$ctrl.wizard.step1.model.n" value="{{$ctrl.wizard.step1.model.n}}" min="3" max="8" />
 
 				<br>
 				<br>
 
-				<p translate>Select the administrator that will be able to sign a transaction provided by this wallet ({{$ctrl.newWalletMultisigModel.step1.evaluteMultisigType ()}}):</p>
+				<p translate>Select the administrator that will be able to sign a transaction provided by this wallet ({{$ctrl.wizard.step1.evaluteMultisigType ()}}):</p>
 				<table class="table">
-					<tr ng-repeat="admin in $ctrl.newWalletMultisigModel.values.admins">
+					<tr ng-repeat="admin in $ctrl.wizard.step1.model.admins">
 						<td>{{admin}}</td>
 						<td>
-							<input type="checkbox" id="ac{{admin}}" ng-model="$ctrl.newWalletMultisigModel.values.adminscheck[admin]">
+							<input type="checkbox" id="ac{{admin}}" ng-model="$ctrl.wizard.step1.model.adminscheck[admin]">
 							<label for="ac{{admin}}"> </label>
 						</td>
 					</tr>
@@ -50,22 +50,22 @@
 
 				<br>
 				<!-- Bech32 activation -->
-				<input type="checkbox" id="bechaddress" ng-true-value="'p2wsh'" ng-false-value="'p2sh-p2wsh'" ng-model="$ctrl.newWalletMultisigModel.values.scripttype">
+				<input type="checkbox" id="bechaddress" ng-true-value="'p2wsh'" ng-false-value="'p2sh-p2wsh'" ng-model="$ctrl.wizard.step1.model.scripttype">
 				<label for="bechaddress" translate>Create a Bech32 segwit native address (bc1...)</label>
 
 				<hr>
 
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-lg-left text-md-left text-sm-left text-xs-center">
-						<a href="" ng-click="$ctrl.backRedirect ('/me/wallet')" class="btn btn-danger btn-xs-block" translate>Close</a>
+						<a href="" ng-click="$ctrl.$utils.backRedirect ('/me/wallet')" class="btn btn-danger btn-xs-block" translate>Close</a>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-lg-right text-md-right text-sm-right text-xs-center margin-xs-top-5">
-						<button type="button" class="btn btn-default btn-xs-block" translate ng-click="$ctrl.newWalletMultisigModel.step1.create()">Create</button>
+						<button type="button" class="btn btn-default btn-xs-block" translate ng-click="$ctrl.wizard.step1.submit()">Create</button>
 					</div>
 				</div>
 			</wz-step>
 
-			<wz-step wz-title="{{ $ctrl.newWalletMultisigModel.step2.title.main }}" wz-heading-title="{{ $ctrl.newWalletMultisigModel.step2.title.heading }}">
+			<wz-step wz-title="{{ $ctrl.wizard.step2.titles.main }}" wz-heading-title="{{ $ctrl.wizard.step2.titles.heading }}">
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center completed-img">
 						<img src="/media/completed-green.png">
@@ -78,7 +78,7 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-top-15 text-center">
-						<button ng-click="$ctrl.backRedirect ('/me/wallet')" class="btn btn-danger btn-xs-block" translate>Close</button>
+						<button ng-click="$ctrl.$utils.backRedirect ('/me/wallet')" class="btn btn-danger btn-xs-block" translate>Close</button>
 					</div>
 				</div>
 			</wz-step>

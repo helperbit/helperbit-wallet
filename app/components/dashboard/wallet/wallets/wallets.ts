@@ -1,205 +1,235 @@
 import * as angular from 'angular';
 import * as $ from 'jquery';
+import { PageHeaderConfig } from '../../../../shared/components/page-header/page-header';
+import { ModalsConfig } from '../../../../shared/components/modal/modal';
+import TranslateService from '../../../../services/translate';
+import { ConfigService } from '../../../../app.config';
+import { WalletListConfig } from '../../wallet-list/wallet-list';
+import { IModalService } from 'angular-ui-bootstrap';
+import WalletService, { WalletTransaction, Wallet } from '../../../../models/wallet';
+import DashboardService, { UserPrivate } from '../../../../models/dashboard';
+import { AnchorScrollService } from '../../../../shared/types/anchor-scroll';
 
 /* User profile /me/wallet */
-function MeWalletCtrl($scope, $location, $cookies, $routeParams, $rootScope, $uibModal, $api, $anchorScroll, $translate) {
-	$scope.rnd = ('' + Math.random()).replace('.', '');
-	$scope.username = $cookies.get('username');
-	$scope.email = $cookies.get('email');
-	$scope.loading = true;
-	$scope.wallets = [];
-	$scope.adminof = [];
-	$scope.faucet = { loading: false, error: '' };
-	$scope.settings = { error: '' };
-	$scope.remove = { loading: false };
-	$scope.receiveaddress = '';
-	$scope.qr = '';
-	$scope.selected = 'wallet';
-	$scope.transactions = [];
-	$scope.defaultwallet = {};
+class MeWalletCtrl {
+	config: ConfigService;
+	$uibModal: IModalService;
+	$location: angular.ILocationService;
+	$translate: TranslateService;
+	$dashboardService: DashboardService;
+	$anchorScroll: AnchorScrollService;
+	$walletService: WalletService;
+	$routeParams: {
+		feed_multisig?: string;
+		organization?: string;
+		label?: string;
+	};
 
-	const self = this;
+	pageHeader: PageHeaderConfig;
+	modals: ModalsConfig;
+	walletList: WalletListConfig;
+	user: UserPrivate;
+	adminof: Wallet[];
+	faucet: { loading: boolean; error: string };
+	remove: { loading: boolean };
+	qr: string;
+	selected: string;
+	transactions: WalletTransaction[];
+	defaultwallet: Wallet;
+	settings: { error: string };
+	selectedwallet: Wallet;
+	backup: any;
 
-	angular.extend(self, {
-		pageHeader: {
+	constructor($location, $routeParams, $walletService, $uibModal, $dashboardService, $anchorScroll, $translate, config) {
+		this.config = config;
+		this.$uibModal = $uibModal;
+		this.$location = $location;
+		this.$walletService = $walletService;
+		this.$routeParams = $routeParams;
+		this.$dashboardService = $dashboardService;
+		this.$anchorScroll = $anchorScroll;
+		this.$translate = $translate;
+
+		this.adminof = [];
+		this.faucet = { loading: false, error: '' };
+		this.settings = { error: '' };
+		this.remove = { loading: false };
+		this.qr = '';
+		this.selected = 'wallet';
+		this.transactions = [];
+		this.defaultwallet = null;
+
+		this.walletList = {
+			wallets: [],
+			footer: true,
+			receiveaddress: '',
+			receive: w => this.receive(w),
+			withdraw: w => this.withdraw(w),
+			deposit: w => this.deposit(w),
+			settings: w => this.walletSettings(w)
+		};
+
+		this.pageHeader = {
 			description: {
 				title: $translate.getString('wallet'),
 				subTitle: $translate.getString('Handle your Bitcoin accounts')
 			}
-		},
-		modals: {
-			createDonationButton: {
-				id: 'createDonationButtonModal'
-			}
-		},
-		walletsModel: {
-		}
-	});
+		};
 
-
-	$scope.pageHeader = {
-		description: {
-			title: $translate.getString('wallet'),
-			subTitle: $translate.getString('Handle your Bitcoin accounts')
-		}
-	};
-
-	$scope.modalConfirmConfig = {
-		modalClass: 'modal-md',
-		hideCloseButton: true,
-		title: null,
-		confirm: {
-			method: null,
-			parameters: null,
-			description: null
-		}
-	};
-
-	self.createDonationButton = function () {
-		$('#' + self.modals.createDonationButton.id).modal('show');
-	};
-
-
-	$scope.scrollTo = function (id) {
-		$anchorScroll(id);
-		$scope.selected = id;
-	};
-
-	$scope.reloadWallet = function () {
-		$rootScope.$emit('reloadWallets', {});
-	};
-
-	$scope.withdraw = function (w) {
-		const modalI = $uibModal.open({
-			component: 'meWalletWithdrawComponent',
-			resolve: {
-				modalData: function () {
-					return {
-						address: w.address
-					};
+		this.modals = {
+			modalConfirmConfig: {
+				id: 'modalConfirm',
+				modalClass: 'modal-md',
+				hideCloseButton: true,
+				title: null,
+				confirm: {
+					method: null,
+					parameters: null,
+					description: null
 				}
 			}
+		};
+	}
+
+	createDonationButton() {
+		$('#createDonationButtonModal').modal('show');
+	}
+
+
+	scrollTo(id) {
+		this.$anchorScroll(id);
+		this.selected = id;
+	}
+
+	reloadWallet() {
+		this.$walletService.emitReload();
+	}
+
+	withdraw(w) {
+		const modalI = this.$uibModal.open({
+			component: 'meWalletWithdrawComponent',
+			size: 'lg',
+			resolve: { modalData: () => ({ address: w.address }) }
 		});
 
-		modalI.result.then(function () {
-			$scope.reloadWallet();
-		}, function () {
-			$scope.reloadWallet();
+		modalI.result.then(() => { this.reloadWallet(); }, () => { this.reloadWallet(); });
+	}
+
+	receive(w) {
+		this.walletList.receiveaddress = w;
+		this.walletList = { ...this.walletList };
+		this.defaultwallet = this.walletList.wallets.filter((w) => { return w.address == this.walletList.receiveaddress; })[0];
+		this.$walletService.updateReceive(w).then(_ => { });
+		this.$walletService.getTransactions(w).then(txs => {
+			this.transactions = txs;
 		});
-	};
+	}
 
-	$rootScope.$on('loadedWallets', function (event, data) {
-		$scope.defaultwallet = data.wallets.filter(function (w) { return w.address == data.receiveaddress; })[0];
-
-		if (data.receiveaddress) {
-			$api.wallet.getTransactions(data.receiveaddress).then(function (res) {
-				$scope.transactions = res.data.txs;
-			});
-		}
-		
-		$scope.wallets = data.wallets;
-		$scope.wallets = $scope.wallets.map(function (w) {
-			const w1 = w;
-			w1.qr = "bitcoin:" + w.address;/*$scope.defaultwallet.address;*/
-			return w1;
-		});
-		$scope.adminof = data.adminof;
-	});
-
-	$api.me.get().then(function (res) {
-		$scope.user = res.data;
-	});
-
-	$scope.reloadWallet();
-
-	/* Update the receiveaddress */
-	$scope.receive = function (w) {
-		$scope.receiveaddress = w;
-		$scope.defaultwallet = $scope.wallets.filter(function (w) { return w.address == $scope.receiveaddress; })[0];
-		$api.wallet.updateReceive(w).then(function (res) { });
-		$api.wallet.getTransactions(w).then(function (res) {
-			$scope.transactions = res.data.txs;
-		});
-	};
-
-	$scope.faucet = function (w) {
-		$scope.faucet.loading = true;
-		$api.wallet.faucet(w.address).then(function (res) {
-			$scope.faucet.loading = false;
-			$scope.reloadWallet();
+	getFaucet(w) {
+		this.faucet.loading = true;
+		this.$walletService.getFaucet(w.address).then(_ => {
+			this.faucet.loading = false;
+			this.reloadWallet();
 			$('#depositModal').modal('hide');
 			$('#faucetDoneModal').modal('show');
-		}).catch(function (res) {
-			$scope.faucet.error = res.data.error;
-			$scope.faucet.loading = false;
+		}).catch((res) => {
+			this.faucet.error = res.data.error;
+			this.faucet.loading = false;
 		});
-	};
+	}
 
-	$scope.openConfirmDeleteWallet = function (wallet) {
-		$scope.modalConfirmConfig.confirm.method = $scope.remove;
-		$scope.modalConfirmConfig.confirm.parameters = [wallet];
-		$scope.modalConfirmConfig.title = $translate.getString('Confirm delete wallet');
-		$scope.modalConfirmConfig.confirm.description = $translate.getString('Are you sure to delete') + ' ' + wallet.address + ' ' + $translate.getString('wallet?');
+	openConfirmDeleteWallet(wallet) {
+		this.modals.modalConfirmConfig.confirm.method = (w) => { this.removeWallet(w); };
+		this.modals.modalConfirmConfig.confirm.parameters = [wallet];
+		this.modals.modalConfirmConfig.title = this.$translate.getString('Confirm delete wallet');
+		this.modals.modalConfirmConfig.confirm.description = this.$translate.getString('Are you sure to delete') + ' ' + wallet.address + ' ' + this.$translate.getString('wallet?');
 
 		$('#modalConfirm').modal('show');
-	};
+	}
 
-	$scope.remove = function (w) {
-		$scope.remove.loading = true;
+	removeWallet(w) {
+		this.remove.loading = true;
 
-		$api.wallet.delete(w.address).then(function (res) {
-			$scope.remove.loading = false;
-			$scope.reloadWallet();
+		this.$walletService.delete(w.address).then(_ => {
+			this.remove.loading = false;
+			this.reloadWallet();
 			$('#settingsModal').modal('hide');
-		}).catch(function (res) {
-			$scope.settings.error = res.data.error;
-			$scope.remove.loading = false;
+		}).catch((res) => {
+			this.settings.error = res.data.error;
+			this.remove.loading = false;
 		});
-	};
+	}
 
-	$scope.update = function (w) {
-		$api.wallet.updateLabel(w.address, w.label).then(function (res) {
-			$scope.reloadWallet();
+	update(w) {
+		this.$walletService.updateLabel(w.address, w.label).then(_ => {
+			this.reloadWallet();
 			$('#settingsModal').modal('hide');
-		}).catch(function (res) {
-			$scope.settings.error = res.data.error;
+		}).catch((res) => {
+			this.settings.error = res.data.error;
 		});
-	};
+	}
 
 
-	$scope.deposit = function (w) {
-		$scope.selectedwallet = w;
-		$scope.faucet.error = '';
-		$scope.qr = 'bitcoin:' + w.address;
+	deposit(w) {
+		this.selectedwallet = w;
+		this.faucet.error = '';
+		this.qr = 'bitcoin:' + w.address;
 
 		$('#depositModal').modal('show');
 
-		$api.wallet.getTransactions(w.address).then(function (res) {
-			w.txs = res.data.txs;
-		});
-	};
-
-
-	$scope.settings = function (w) {
-		$scope.remove.loading = false;
-		$scope.settings.error = '';
-		$scope.selectedwallet = w;
-		$scope.backup = { txid: '', loading: false, file: null, data: null, password: '', destination: '', error: '' };
-		$('#settingsModal').modal('show');
-	};
-
-
-	/* Backward compatibility feed multisig */
-	if ('feed_multisig' in $routeParams) {
-		$location.path('/me/wallet/feed').search({
-			wallet: $routeParams['feed_multisig'],
-			organization: $routeParams['organization'],
-			label: $routeParams['label']
+		this.$walletService.getTransactions(w.address).then(txs => {
+			w.txs = txs;
 		});
 	}
-}
 
-MeWalletCtrl.$inject = ['$scope', '$location', '$cookies', '$routeParams', '$rootScope', '$uibModal', '$api', '$anchorScroll', '$translate'];
+
+	walletSettings(w) {
+		this.remove.loading = false;
+		this.settings.error = '';
+		this.selectedwallet = w;
+		this.backup = { txid: '', loading: false, file: null, data: null, password: '', destination: '', error: '' };
+		$('#settingsModal').modal('show');
+	}
+
+
+	$onInit() {
+		this.$walletService.onLoad(data => {
+			this.defaultwallet = data.wallets.filter((w) => { return w.address == data.receiveaddress; })[0];
+
+			if (data.receiveaddress) {
+				this.$walletService.getTransactions(data.receiveaddress).then((txs) => {
+					this.transactions = txs;
+				});
+			}
+
+			this.walletList.wallets = data.wallets;
+			this.walletList.wallets = this.walletList.wallets.map((w) => {
+				const w1 = w;
+				w1.qr = "bitcoin:" + w.address;/*this.defaultwallet.address;*/
+				return w1;
+			});
+			this.adminof = data.adminof;
+			this.walletList = { ...this.walletList };
+		});
+
+		this.$dashboardService.get().then(user => {
+			this.user = user;
+		});
+
+		this.reloadWallet();
+
+		/* Backward compatibility feed multisig */
+		if ('feed_multisig' in this.$routeParams) {
+			this.$location.path('/me/wallet/feed').search({
+				wallet: this.$routeParams['feed_multisig'],
+				organization: this.$routeParams['organization'],
+				label: this.$routeParams['label']
+			});
+		}
+	}
+
+	static get $inject() { return ['$location', '$routeParams', '$walletService', '$uibModal', '$dashboardService', '$anchorScroll', '$translate', 'config']; }
+}
 
 const MeWalletComponent = {
 	templateUrl: 'components/dashboard/wallet/wallets/wallets.html',

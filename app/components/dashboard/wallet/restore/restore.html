@@ -4,46 +4,46 @@
 	<div class="modal-content">
 		<wizard name="restoreWallet" template="/shared/templates/angular-wizard/wizard.html" indicators-position="top" class="modal-body">
 			<!-- Passphrase generator -->
-			<wz-step wz-title="{{ $ctrl.restoreWalletModel.step1.title.main }}" wz-heading-title="{{ $ctrl.restoreWalletModel.step1.title.heading }}">
+			<wz-step wz-title="{{ $ctrl.wizard.step1.titles.main }}" wz-heading-title="{{ $ctrl.wizard.step1.titles.heading }}">
 				<div class="row">
 					<div class="col-xs-12">
-						<response-messages message="{{$ctrl.restoreWalletModel.values.error}}"></response-messages>
+						<response-messages message="$ctrl.wizard.step1.responseMessage"></response-messages>
 					</div>
 				</div>
 
 				<p translate>If you lose your passphrase, you can restore your funds by uploading the backup file and sending the funds to another address.</p>
 				<translate>Backup file</translate>:
 				<br>
-				<input type="file" accept="application/json" class="upload form-control" ngf-select="$ctrl.restoreWalletModel.step1.loadBackupFile($file);"></input>
+				<input type="file" accept="application/json" class="upload form-control" ngf-select="$ctrl.loadBackupFile($file);"></input>
 
 				<br>
 				<translate>Backup password</translate>:
 				<br>
-				<input type="password" class="form-control" value="" ng-model="$ctrl.restoreWalletModel.values.password" />
+				<input type="password" class="form-control" value="" ng-model="$ctrl.wizard.step1.model.password" />
 
 				<br>
 				<translate>Destination address</translate>:
 				<br>
-				<input type="text" class="form-control" value="" ng-model="$ctrl.restoreWalletModel.values.destination" />
+				<input type="text" class="form-control" value="" ng-model="$ctrl.wizard.step1.model.destination" />
 				<br>
 
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-						<a ng-click="$ctrl.restoreWalletModel.step1.restoreBackup()" loading="$ctrl.restoreWalletModel.values.loading" class="btn btn-xs-block btn-default" translate>Send</a>
+						<a ng-click="$ctrl.wizard.step1.submit()" loading="$ctrl.wizard.step1.loading" class="btn btn-xs-block btn-default" translate>Send</a>
 					</div>
 				</div>
 			</wz-step>
 
 			<!-- Done -->
-			<wz-step wz-title="{{ $ctrl.restoreWalletModel.step2.title.main }}" wz-heading-title="{{ $ctrl.restoreWalletModel.step2.title.heading }}">
+			<wz-step wz-title="{{ $ctrl.wizard.step2.titles.main }}" wz-heading-title="{{ $ctrl.wizard.step2.titles.heading }}">
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center completed-img">
 						<img src="/media/completed-green.png">
 					</div>
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center margin-top-20 completed-text">
 						<p>
-							<translate>Restore transaction sent</translate>: <a href="{{$ctrl.restoreWalletModel.values.txid|explorer}}" target="_blank">View transaction</a>
-							<input type="text" class="form-control" value="{{$ctrl.restoreWalletModel.values.txid}}" />
+							<translate>Restore transaction sent</translate>: <a href="{{$ctrl.txid|explorer}}" target="_blank">View transaction</a>
+							<input type="text" class="form-control" value="{{$ctrl.txid}}" />
 						</p>
 					</div>
 				</div>

@@ -1,72 +1,52 @@
-import * as angular from 'angular';
+export type LedgerWaitConfig = {
+	phase: number;
+	status: string;
+	button?: boolean;
+	exec?: () => void;
+};
 
-function LedgerWaitController () {
-	const self = this;
+class LedgerWaitController {
+	started: boolean;
+	phases: string[];
+	retryShow: boolean;
 
-	/* FIELDS */
+	exec: () => void; // input
+	config: LedgerWaitConfig; // input
 
-	angular.extend(self, {
-		services: {},
-		responseMessage: {},
-		started: false,
-		phases: [ 'wait', 'none', 'none' ],
-		retryShow: false,
-		button: true
-	});
+	constructor() {
+		this.started = false;
+		this.phases = ['wait', 'none', 'none'];
+		this.retryShow = false;
+	}
 
-	/* METHODS */
-	
-	self.retry = () => {
-		self.started = true;
-		self.retryShow = false;
-		self.phases = [ 'wait', 'none', 'none' ];
-		self.exec();
-	};
+	retry() {
+		this.started = true;
+		this.retryShow = false;
+		this.phases = ['wait', 'none', 'none'];
+		this.exec();
+	}
 
-	//bindings change methods
-
-	function updateBindingConfig () {
-		const configParsed = JSON.parse(self.config);
-
-		if ('button' in configParsed)
-			self.button = configParsed.button;
-
-		if (typeof(configParsed.phase) != 'number')
+	$onChanges(changes) {
+		if (!changes.config || !changes.config.currentValue)
 			return;
 
-		for (let i = 0; i < configParsed.phase; i++)
-			self.phases[i] = 'success';
+		for (let i = 0; i < this.config.phase; i++)
+			this.phases[i] = 'success';
 
-		self.phases[configParsed.phase] = configParsed.status;
-		if (configParsed.status == 'error') 
-			self.retryShow = true;
+		this.phases[this.config.phase] = this.config.status;
+		if (this.config.status == 'error')
+			this.retryShow = true;
 
-		for (let i = configParsed.phase + 1; i < self.phases.length; i++)
-			self.phases[i] = 'none';
-	};
-
-	/* EVENTS */
-
-	/* CHANGES */
-
-	self.$onChanges = function (changes) {
-		if(changes.config && changes.config.currentValue && !changes.config.isFirstChange())
-			updateBindingConfig();
-	};
-	
-	/* INITIALIZATION */
-
-	self.$onInit = function () {
-		if(self.config)
-			updateBindingConfig();
-	};
-};
+		for (let i = this.config.phase + 1; i < this.phases.length; i++)
+			this.phases[i] = 'none';
+	}
+}
 
 const LedgerWaitComponent = {
 	templateUrl: 'components/dashboard/ledger-wait/ledger-wait.html',
 	controller: LedgerWaitController,
 	bindings: {
-		config: '@',
+		config: '<',
 		exec: '='
 	}
 };

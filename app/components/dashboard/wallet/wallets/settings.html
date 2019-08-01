@@ -10,10 +10,10 @@
 			<li role="presentation" class="active">
 				<a href="" data-target="#setting-general" aria-controls="setting-general" role="tab" data-toggle="tab" translate>General</a>
 			</li>
-			<li role="presentation" ng-if="selectedwallet.ismultisig">
+			<li role="presentation" ng-if="$ctrl.selectedwallet.ismultisig">
 				<a href="" data-target="#setting-admin" aria-controls="setting-admin" role="tab" data-toggle="tab" translate>Admins</a>
 			</li>
-			<li role="presentation" class="" ng-if="!selectedwallet.ismultisig">
+			<li role="presentation" class="" ng-if="!$ctrl.selectedwallet.ismultisig">
 				<a href="" data-target="#setting-restore" aria-controls="setting-restore" role="tab" data-toggle="tab" translate>Restore from backup</a>
 			</li>
 			<li role="presentation" class="" feature="removewallet">
@@ -25,18 +25,18 @@
 		<div class="tab-content">
 			<div role="tabpanel" class="tab-pane active" id="setting-general">
 				<div class="modal-body">
-					<div ng-if="settings.error == 'E3'" class="alert alert-danger" role="alert" translate>Description should be long at least 4 characters.</div>
-					<translate>Edit wallet label</translate>: <input type="text" class="form-control" maxlength="35" value="{{selectedwallet.label}}" ng-model="selectedwallet.label" />
+					<div ng-if="$ctrl.settings.error == 'E3'" class="alert alert-danger" role="alert" translate>Description should be long at least 4 characters.</div>
+					<translate>Edit wallet label</translate>: <input type="text" class="form-control" maxlength="35" value="{{$ctrl.selectedwallet.label}}" ng-model="$ctrl.selectedwallet.label" />
 					<br>
-					<a ng-click="update (selectedwallet)" class="btn btn-default btn-block" translate>Update</a>
+					<a ng-click="$ctrl.update ($ctrl.selectedwallet)" class="btn btn-default btn-block" translate>Update</a>
 				</div>
 			</div>
 			<div role="tabpanel" class="tab-pane" id="setting-danger" feature="removewallet">
 				<div class="modal-body">
-					<div ng-if="settings.error == 'EF2'" class="alert alert-danger" role="alert" translate>Wallet not empty</div>
-					<div ng-if="settings.error == 'EW12'" class="alert alert-danger" role="alert" translate>Active multisig wallets cannot be deleted</div>
+					<div ng-if="$ctrl.settings.error == 'EF2'" class="alert alert-danger" role="alert" translate>Wallet not empty</div>
+					<div ng-if="$ctrl.settings.error == 'EW12'" class="alert alert-danger" role="alert" translate>Active multisig wallets cannot be deleted</div>
 				    <div class="text-center">
-						<a ng-click="openConfirmDeleteWallet (selectedwallet)" loading="remove.loading" class="btn btn-danger btn-block" translate>Remove wallet</a>
+						<a ng-click="$ctrl.openConfirmDeleteWallet ($ctrl.selectedwallet)" loading="$ctrl.remove.loading" class="btn btn-danger btn-block" translate>Remove wallet</a>
 					</div>
 				</div>
 			</div>
@@ -44,15 +44,15 @@
 				<div class="modal-body">
 					<p translate>If you lose your passphrase, you can restore your funds by uploading the backup file and sending the funds to another address.</p>
 					<br>
-					<a ng-href="/me/wallet/restore/{{selectedwallet.address}}" class="btn btn-default btn-block" translate>Restore Wallet Procedure</a>
+					<a ng-href="/me/wallet/restore/{{$ctrl.selectedwallet.address}}" class="btn btn-default btn-block" translate>Restore Wallet Procedure</a>
 				</div>
 			</div>
 			<div role="tabpanel" class="tab-pane" id="setting-admin">
 				<div class="modal-body">
-					<p translate>This is the list of admins that can sign your transactions; this wallet needs at least {{selectedwallet.multisig.n}} signatures to broadcast a transaction.</p>
+					<p translate>This is the list of admins that can sign your transactions; this wallet needs at least {{$ctrl.selectedwallet.multisig.n}} signatures to broadcast a transaction.</p>
 
 					<table class="table table-compressed table-striped">
-						<tr ng-repeat="admin in selectedwallet.multisig.admins">
+						<tr ng-repeat="admin in $ctrl.selectedwallet.multisig.admins">
 							<td class="text-center"> {{admin}} </td>
 						</tr>
 						<tr> <td class="text-center">Helperbit</td> </tr>

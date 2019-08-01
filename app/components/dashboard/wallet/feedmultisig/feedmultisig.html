@@ -2,7 +2,7 @@
 
 <div class="page-modalized">
 	<div class="modal-content">
-		<div ng-if="$ctrl.feedMultisigModel.values.invalid" class="modal-body" style="color: #000" align="left">
+		<div ng-if="$ctrl.model.invalid" class="modal-body" style="color: #000" align="left">
 			<p translate>The link you are opening is expired or it is not valid or you are trying to access to your single user account while another account is already logged in.</p>
 			<hr>
 			<div align="right">
@@ -10,15 +10,15 @@
 			</div>
 		</div>
 
-		<wizard ng-if="!$ctrl.feedMultisigModel.values.invalid" name="feedMultisig" hide-indicators="$ctrl.hideIndicators" template="/shared/templates/angular-wizard/wizard.html" indicators-position="top" class="modal-body">
-			<wz-step wz-order="1" wz-title="{{ $ctrl.feedMultisigModel.step0.title.main }}" wz-heading-title="{{ $ctrl.feedMultisigModel.step0.title.heading }}">
+		<wizard ng-if="!$ctrl.model.invalid" name="feedMultisig" hide-indicators="$ctrl.hideIndicators" template="/shared/templates/angular-wizard/wizard.html" indicators-position="top" class="modal-body">
+			<wz-step wz-order="1" wz-title="{{ $ctrl.wizard.step0.titles.main }}" wz-heading-title="{{ $ctrl.wizard.step0.titles.heading }}">
 				<div class="row">
 					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 						<div class="padding-top-bottom-15">
 							<!-- TODO wallet-type class è in new.scss di wallet/new -->
 							<img alt="{{'Bitcoin Mnemonic Wallet' | translate}}" src="media/wallet-type/png/mnemonic_256x217.png" class="wallet-type img-responsive" />
 						</div>
-						<button class="btn btn-danger btn-block" ng-click="$ctrl.feedMultisigModel.step0.selectMnemonic()" translate>Mnemonic</button>
+						<button class="btn btn-danger btn-block" ng-click="$ctrl.selectWalletType('mnemonic')" translate>Mnemonic</button>
 						<br>
 						<p translate>Choose this option if you don't own a Ledger or Trezor hardware wallet. During the procedure, you have to write down the 12-word mnemonic and keep it safe. These words let you sign transactions from the wallet of your organization.</p>
 					</div>
@@ -26,16 +26,16 @@
 						<div class="padding-top-bottom-15">
 							<img alt="{{'Bitcoin Ledger Wallet' | translate}}" src="media/wallet-type/png/ledger_256x230.png" class="wallet-type img-responsive" />
 						</div>
-						<button class="btn btn-danger btn-block" ng-disabled="!$ctrl.feedMultisigModel.values.ledgerSupport" ng-click="$ctrl.feedMultisigModel.step0.selectLedger()" translate>Ledger Nano</button>
+						<button class="btn btn-danger btn-block" ng-disabled="!$ctrl.model.ledgerSupport" ng-click="$ctrl.selectWalletType('ledger')" translate>Ledger Nano</button>
 						<br>
-						<div class="alert alert-danger" ng-if="!$ctrl.feedMultisigModel.values.ledgerSupport" translate>Available only on Chrome browser</div>
+						<div class="alert alert-danger" ng-if="!$ctrl.model.ledgerSupport" translate>Available only on Chrome browser</div>
 						<p translate>If you own a Ledger hardware wallet you can create a Bitcoin wallet just pairing the device with the platform. Your key to sign transactions from the wallet of your organization is kept secured on the offline device and you don't need to write down the 12-word mnemonic. This procedure is simple, secure and fast.</p>
 					</div>
 					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 not-available">
 						<div class="padding-top-bottom-15">
 							<img alt="{{'Bitcoin Trezor Wallet' | translate}}" src="media/wallet-type/png/trezor_256x462.png" class="wallet-type img-responsive" />
 						</div>
-						<button class="btn btn-danger btn-block" disabled="disabled" ng-click="$ctrl.feedMultisigModel.step0.selectTrezor()" translate>Trezor</button>
+						<button class="btn btn-danger btn-block" disabled="disabled" ng-click="$ctrl.selectWalletType('trezor')" translate>Trezor</button>
 						<br>
 						<p translate>If you own a Trezor hardware wallet you can create a Bitcoin wallet just pairing the device with the platform. Your key to sign transactions from the wallet of your organization is kept secured on the offline device and you don't need to write down the 12-word mnemonic. This procedure is simple, secure and fast.</p>
 					</div>
@@ -43,17 +43,17 @@
 			</wz-step>
 
 			<!-- Passphrase generator -->
-			<wz-step ng-hide="$ctrl.feedMultisigModel.values.hardwareWallet" wz-disabled="{{$ctrl.feedMultisigModel.values.hardwareWallet}}" wz-title="{{ $ctrl.feedMultisigModel.step1Passphrase.title.main }}" wz-heading-title="{{ $ctrl.feedMultisigModel.step1Passphrase.title.heading }}">
+			<wz-step ng-hide="$ctrl.model.hardwareWallet" wz-disabled="{{$ctrl.model.hardwareWallet}}" wz-title="{{ $ctrl.wizard.step1Passphrase.titles.main }}" wz-heading-title="{{ $ctrl.wizard.step1Passphrase.titles.heading }}">
 				<p>
 					<translate>The 12-word passphrase have just been created client-side in the box below. These 12 words let you sign transactions created by the organization</translate>
-					<a ng-href="/user/{{$ctrl.feedMultisigModel.values.organization}}" target="_blank"><i><b>{{$ctrl.feedMultisigModel.values.organization}}</b></i></a>
-					<translate>for the wallet</translate> <i>"{{$ctrl.feedMultisigModel.values.label}}"</i> </translate>
-					(<a ng-click="$ctrl.feedMultisigModel.step1Passphrase.renewMnemonic ()" href="javascript:void(0)" translate>click here to generate a new 12 words passphrase</a>).
+					<a ng-href="/user/{{$ctrl.model.organization}}" target="_blank"><i><b>{{$ctrl.model.organization}}</b></i></a>
+					<translate>for the wallet</translate> <i>"{{$ctrl.model.label}}"</i> </translate>
+					(<a ng-click="$ctrl.renewMnemonic ()" href="javascript:void(0)" translate>click here to generate a new 12 words passphrase</a>).
 				</p>
-				<mnemonic-view mnemonic="$ctrl.feedMultisigModel.values.mnemonic"></mnemonic-view>
+				<mnemonic-view mnemonic="$ctrl.model.mnemonic"></mnemonic-view>
 
 				<div id="printSectionNew">
-					<mnemonic-view mnemonic="$ctrl.feedMultisigModel.values.mnemonic"></mnemonic-view>
+					<mnemonic-view mnemonic="$ctrl.model.mnemonic"></mnemonic-view>
 				</div>
 				<br>
 				<div class="padding-10 background-red text-color-white">
@@ -72,27 +72,27 @@
 					</div>
 				</div>
 				<br>
-				<input type="checkbox" id="wiaccept" ng-model="$ctrl.feedMultisigModel.values.accept">
+				<input type="checkbox" id="wiaccept" ng-model="$ctrl.model.accept">
 				<label for="wiaccept" translate>I have written down or otherwise securely stored my 12 words passphrase</label>
 
 				<hr>
 
 				<div class="row">
 					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-lg-left text-md-left text-sm-left text-xs-center">
-						<a href="javascript:void(0)" ng-click="$ctrl.feedMultisigModel.step1Passphrase.previous()" class="btn btn-danger btn-xs-block" translate>Go back</a>
+						<a href="javascript:void(0)" ng-click="$ctrl.wizard.step1Passphrase.previous()" class="btn btn-danger btn-xs-block" translate>Go back</a>
 					</div>
 					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 text-lg-right text-md-right text-sm-right text-xs-center margin-xs-top-5">
-						<button type="button" class="btn btn-default btn-xs-block" translate ng-click="$ctrl.feedMultisigModel.step1Passphrase.printMnemonic()">Print the passphrase</button>
-						<button ng-disabled="!$ctrl.feedMultisigModel.values.accept" type="button" class="btn btn-default btn-xs-block margin-xs-top-5" translate ng-click="$ctrl.feedMultisigModel.step1Passphrase.next()">Next</button>
+						<button type="button" class="btn btn-default btn-xs-block" translate ng-click="$ctrl.printMnemonic()">Print the passphrase</button>
+						<button ng-disabled="!$ctrl.model.accept" type="button" class="btn btn-default btn-xs-block margin-xs-top-5" translate ng-click="$ctrl.wizard.step1Passphrase.next()">Next</button>
 					</div>
 				</div>
 			</wz-step>
 
 			<!-- Hardware wallet pairing -->
-			<wz-step wz-order="2" ng-hide="!$ctrl.feedMultisigModel.values.hardwareWallet" wz-disabled="{{!$ctrl.feedMultisigModel.values.hardwareWallet}}" wz-title="{{ $ctrl.feedMultisigModel.step1HardwareWallet.title.main }}" wz-heading-title="{{ $ctrl.feedMultisigModel.step1HardwareWallet.title.heading }}">
+			<wz-step wz-order="2" ng-hide="!$ctrl.model.hardwareWallet" wz-disabled="{{!$ctrl.model.hardwareWallet}}" wz-title="{{ $ctrl.wizard.step1HardwareWallet.titles.main }}" wz-heading-title="{{ $ctrl.wizard.step1HardwareWallet.titles.heading }}">
 				<div class="row">
 					<div class="col-xs-12">
-						<response-messages message="{{$ctrl.feedMultisigModel.step1HardwareWallet.error}}"></response-messages>
+						<response-messages message="$ctrl.wizard.step1HardwareWallet.responseMessage"></response-messages>
 					</div>
 				</div>
 
@@ -100,32 +100,32 @@
 					<translate>Use your Ledger Nano device to create a new Helperbit wallet for the organization</translate>:
 				</p>
 				
-				<ledger-wait config="{{ $ctrl.feedMultisigModel.step1HardwareWallet.ledgerWaitStatus }}" exec="$ctrl.feedMultisigModel.step1HardwareWallet.pairHardwareWallet"></ledger-wait>
+				<ledger-wait config="$ctrl.wizard.step1HardwareWallet.model.ledgerWaitStatus" exec="$ctrl.wizard.step1HardwareWallet.model.exec"></ledger-wait>
 
-				<input class="form-control" type="text" readonly="readonly" placeholder="{{'Public Key'|translate}}" ng-show="$ctrl.feedMultisigModel.values.hardwareWalletPublicKey.length > 3" ng-model="$ctrl.feedMultisigModel.values.hardwareWalletPublicKey">
+				<input class="form-control" type="text" readonly="readonly" placeholder="{{'Public Key'|translate}}" ng-show="$ctrl.model.hardwareWalletPublicKey.length > 3" ng-model="$ctrl.model.hardwareWalletPublicKey">
 
 				<hr>
 
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-lg-left text-md-left text-sm-left text-xs-center">
-						<a href="#" ng-click="$ctrl.feedMultisigModel.step1HardwareWallet.previous()" class="btn btn-danger btn-xs-block" translate>Go back</a>
+						<a href="#" ng-click="$ctrl.wizard.step1HardwareWallet.previous()" class="btn btn-danger btn-xs-block" translate>Go back</a>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-lg-right text-md-right text-sm-right text-xs-center margin-xs-top-5">
-						<button ng-disabled="!$ctrl.feedMultisigModel.values.accept" type="button" class="btn btn-default btn-xs-block" translate ng-click="$ctrl.feedMultisigModel.step1HardwareWallet.next()">Next</button>
+						<button ng-disabled="!$ctrl.model.accept" type="button" class="btn btn-default btn-xs-block" translate ng-click="$ctrl.wizard.step1HardwareWallet.next()">Next</button>
 					</div>
 				</div>
 			</wz-step>
 
 			<!-- Passphrase confirmation -->
-			<wz-step wz-order="3" ng-if="!$ctrl.feedMultisigModel.values.hardwareWallet" ng-hide="$ctrl.feedMultisigModel.values.hardwareWallet" wz-disabled="{{$ctrl.feedMultisigModel.values.hardwareWallet}}" wz-title="{{ $ctrl.feedMultisigModel.step2Passphrase.title.main }}" wz-heading-title="{{ $ctrl.feedMultisigModel.step2Passphrase.title.heading }}">
+			<wz-step wz-order="3" ng-if="!$ctrl.model.hardwareWallet" ng-hide="$ctrl.model.hardwareWallet" wz-disabled="{{$ctrl.model.hardwareWallet}}" wz-title="{{ $ctrl.wizard.step2Passphrase.titles.main }}" wz-heading-title="{{ $ctrl.wizard.step2Passphrase.titles.heading }}">
 				<div class="row">
 					<div class="col-xs-12">
-						<response-messages message="{{$ctrl.feedMultisigModel.step2Passphrase.error}}"></response-messages>
+						<response-messages message="$ctrl.wizard.step2Passphrase.responseMessage"></response-messages>
 					</div>
 				</div>
 
 				<p translate>Type here the requested words of the passphrase displayed in the previous windows</p>
-				<span ng-repeat="v in $ctrl.feedMultisigModel.values.mnemonicConfirmChallenge">
+				<span ng-repeat="v in $ctrl.model.mnemonicConfirmChallenge">
 					<b>{{v.index|ordinal}} word:</b>
 					<input class="form-control" type="text" ng-model="v.insert"></input><br>
 				</span>
@@ -134,53 +134,53 @@
 
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-lg-left text-md-left text-sm-left text-xs-center">
-						<button type="button" class="btn btn-danger btn-xs-block" translate ng-click="$ctrl.feedMultisigModel.step2Passphrase.previous()">Back</button>
+						<button type="button" class="btn btn-danger btn-xs-block" translate ng-click="$ctrl.wizard.step2Passphrase.previous()">Back</button>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-lg-right text-md-right text-sm-right text-xs-center margin-xs-top-5">
-						<button type="button" class="btn btn-default btn-xs-block" ng-click="$ctrl.feedMultisigModel.step2Passphrase.next()" translate>Next</button>
+						<button type="button" class="btn btn-default btn-xs-block" ng-click="$ctrl.wizard.step2Passphrase.next()" translate>Next</button>
 					</div>
 				</div>
 			</wz-step>
 
 			<!-- Backup file password -->
-			<wz-step wz-order="4" ng-if="true" wz-disabled="{{$ctrl.feedMultisigModel.values.hardwareWallet}}" wz-title="{{ $ctrl.feedMultisigModel.step3.title.main }}" wz-heading-title="{{ $ctrl.feedMultisigModel.step3.title.heading }}">
+			<wz-step wz-order="4" ng-if="true" wz-disabled="{{$ctrl.model.hardwareWallet}}" wz-title="{{ $ctrl.wizard.step3.titles.main }}" wz-heading-title="{{ $ctrl.wizard.step3.titles.heading }}">
 				<div class="row">
 					<div class="col-xs-12">
-						<response-messages message="{{$ctrl.feedMultisigModel.step3.error}}"></response-messages>
+						<response-messages message="$ctrl.wizard.step3.responseMessage"></response-messages>
 					</div>
 				</div>
 
 				<p translate>A backup file will allow you to restore your funds even if you forgot the passphrase and it is necessary to recover funds without the intervention of Helperbit. Insert a password below to encrypt the backup file.</p>
 
 				<translate>Backup file password:</translate>
-				<input class="form-control" id="backpass" type="{{$ctrl.feedMultisigModel.step3.passwordVisibility}}" value="" name="{{rnd}}" id="{{rnd}}" autocomplete="new-password" ng-model="$ctrl.feedMultisigModel.values.backupPassword" />
+				<input class="form-control" id="backpass" type="{{$ctrl.wizard.step3.passwordVisibility}}" value="" name="{{$ctrl.rnd}}" id="{{$ctrl.rnd}}" autocomplete="new-password" ng-model="$ctrl.model.backupPassword" />
 				<br>
 				<translate>Repeat backup file password:</translate>
-				<input class="form-control" id="backpass2" type="{{$ctrl.feedMultisigModel.step3.passwordVisibility}}" value="" name="{{rnd}}2" id="{{rnd}}2" autocomplete="new-password2" ng-model="$ctrl.feedMultisigModel.values.backupPasswordRepeat" />
+				<input class="form-control" id="backpass2" type="{{$ctrl.wizard.step3.passwordVisibility}}" value="" name="{{$ctrl.rnd}}2" id="{{$ctrl.rnd}}2" autocomplete="new-password2" ng-model="$ctrl.model.backupPasswordRepeat" />
 				<br>
-				<input type="checkbox" id="wipass" ng-model="$ctrl.feedMultisigModel.step3.passwordVisibility" ng-true-value="'text'" ng-false-value="'password'">
+				<input type="checkbox" id="wipass" ng-model="$ctrl.wizard.step3.passwordVisibility" ng-true-value="'text'" ng-false-value="'password'">
 				<label for="wipass" translate>Show / Hide backup password</label>
 
 				<hr>
 
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-lg-right text-md-right text-sm-right text-xs-center">
-						<button type="button" class="btn btn-default btn-xs-block" loading="$ctrl.feedMultisigModel.step3.loading" ng-disabled="$ctrl.feedMultisigModel.values.backupPassword != $ctrl.feedMultisigModel.values.backupPasswordRepeat" translate ng-click="$ctrl.feedMultisigModel.step3.feed()">Next</button>
+						<button type="button" class="btn btn-default btn-xs-block" loading="$ctrl.wizard.step3.loading" ng-disabled="$ctrl.model.backupPassword != $ctrl.model.backupPasswordRepeat" translate ng-click="$ctrl.wizard.step3.next()">Next</button>
 					</div>
 				</div>
 			</wz-step>
 
 			<!-- Done -->
-			<wz-step wz-order="5" ng-if="true" wz-title="{{ $ctrl.feedMultisigModel.step4.title.main }}" wz-heading-title="{{ $ctrl.feedMultisigModel.step4.title.heading }}">
+			<wz-step wz-order="5" ng-if="true" wz-title="{{ $ctrl.wizard.step4.titles.main }}" wz-heading-title="{{ $ctrl.wizard.step4.titles.heading }}">
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center completed-img">
 						<img src="/media/completed-green.png">
 					</div>
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center margin-top-20 completed-text">
-						<div ng-if="$ctrl.feedMultisigModel.values.hardwareWallet">
+						<div ng-if="$ctrl.model.hardwareWallet">
 							<p translate>Your part for the wallet creation is done! Remember to keep safe your Hardware Wallet, this will be necessary to sign transactions created by the organization.</p>
 						</div>
-						<div ng-if="!$ctrl.feedMultisigModel.values.hardwareWallet">
+						<div ng-if="!$ctrl.model.hardwareWallet">
 							<p translate>Your part for the wallet creation is done! Remember to store your address passphrase, this will be necessary to sign transactions created by the organization.</p>
 							<br>
 							<p translate>Now download the backup file; it will help you to restore the key if you lose the passphrase and it is necessary to recover funds without the intervention of Helperbit.</p>
@@ -189,11 +189,11 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-						<a ng-if="!$ctrl.feedMultisigModel.values.hardwareWallet" type="button" class="btn btn-default btn-xs-block" id="download-backup" download="hbwallet_{{$ctrl.feedMultisigModel.values.organization}}_{{$ctrl.feedMultisigModel.user}}_{{$ctrl.feedMultisigModel.values.labelShort}}.json" ng-click="$ctrl.feedMultisigModel.step4.downloadBackup()" ng-href="data:text/json;charset=utf-8,{{$ctrl.feedMultisigModel.values.file}}">
+						<a ng-if="!$ctrl.model.hardwareWallet" type="button" class="btn btn-default btn-xs-block" id="download-backup" download="hbwallet_{{$ctrl.model.organization}}_{{$ctrl.wizard.user}}_{{$ctrl.model.labelShort}}.json" ng-click="$ctrl.downloadBackup()" ng-href="data:text/json;charset=utf-8,{{$ctrl.model.file}}">
 							<i class="fa fa-download"></i>
 							<translate>Download backup</translate>
 						</a>
-						<a href="/me/wallet" ng-if="$ctrl.feedMultisigModel.values.downloadedBackup || $ctrl.feedMultisigModel.values.hardwareWallet" class="btn btn-danger margin-xs-top-5 btn-xs-block" translate>Close</a>
+						<a href="/me/wallet" ng-if="$ctrl.model.downloadedBackup || $ctrl.model.hardwareWallet" class="btn btn-danger margin-xs-top-5 btn-xs-block" translate>Close</a>
 					</div>
 				</div>
 			</wz-step>

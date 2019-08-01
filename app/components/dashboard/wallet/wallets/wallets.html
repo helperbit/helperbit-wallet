@@ -1,12 +1,12 @@
-<page-header config="pageHeader"></page-header>
+<page-header config="$ctrl.pageHeader"></page-header>
 
 <div ng-include="'components/dashboard/wallet/wallets/deposit.html'"></div>
 <div ng-include="'components/dashboard/wallet/wallets/settings.html'"></div>
 
-<modal mid="modalConfirm" config="modalConfirmConfig"></modal>
+<modal mid="modalConfirm" config="$ctrl.modals.modalConfirmConfig"></modal>
 
 <!-- Create donation button -->
-<modal config="$ctrl.modals.createDonationButton" content="true">
+<modal mid="createDonationButtonModal" content="true">
 	<div class="modal-content">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -18,8 +18,8 @@
 
 			<p class="text-justify" translate>Insert the following HTML code in the <i>head</i> section of your werbsite.</p>
 			<textarea style="font-size: 80%">
-				<link rel="stylesheet" href="{{$ctrl.services.config.baseUrl}}/widgets/donate-button/style.css">
-				<script src="{{$ctrl.services.config.baseUrl}}/widgets/donate-button/button.min.js"></script>
+				<link rel="stylesheet" href="{{$ctrl.config.baseUrl}}/widgets/donate-button/style.css">
+				<script src="{{$ctrl.config.baseUrl}}/widgets/donate-button/button.min.js"></script>
 				<script>helperbit_init('user', '{{$ctrl.user.username}}');</script>
 			</textarea>
 
@@ -55,7 +55,7 @@
 		<!-- </ul>
 		</div> -->
 		<div class="page page-composable">
-			<sidebar-component></sidebar>
+			<sidebar-component></sidebar-component>
 		</div>
 	</div>
 	<!-- <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 page-composable-col"></div> -->
@@ -66,15 +66,15 @@
 			<h3 class="border-bottom border-yellow margin-top-0 margin-bottom-15" translate>Default wallet</h3>
 
 			<!-- no wallet -->
-			<div ng-if="wallets.length == 0">
+			<div ng-if="$ctrl.walletList.wallets.length == 0">
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 						<p translate>You do not have a wallet yet!</p>
-						<a ng-if="user.usertype != 'npo'" href="/me/wallet/new" class="btn btn-default btn-xs-block">
+						<a ng-if="$ctrl.user.usertype != 'npo'" href="/me/wallet/new" class="btn btn-default btn-xs-block">
 							<i class="fa fa-file"></i>
 							<translate>Create new address</translate>
 						</a>
-						<a ng-if="user.usertype == 'npo'" href="/me/wallet/newmultisig" class="btn btn-default btn-xs-block">
+						<a ng-if="$ctrl.user.usertype == 'npo'" href="/me/wallet/newmultisig" class="btn btn-default btn-xs-block">
 							<i class="fa fa-file"></i>
 							<translate>Create new address</translate>
 						</a>
@@ -88,34 +88,34 @@
 			<!-- end no wallet -->
 
 			<!-- wallet -->
-			<div ng-if="wallets.length > 0">
+			<div ng-if="$ctrl.walletList.wallets.length > 0">
 				<!-- Wallet -->
 				<a id="wallet"></a>
-				<div class="wallet-container row" ng-if="defaultwallet">
+				<div class="wallet-container row" ng-if="$ctrl.defaultwallet">
 					<div class="col-lg-2 col-md-4 col-sm-4 hidden-xs">
-						<qr size="130" text="defaultwallet.qr"></qr>
+						<qr size="130" text="$ctrl.defaultwallet.qr"></qr>
 					</div>
 					<div class="col-lg-7 col-md-8 col-sm-8 col-xs-12">
-						<h2 class="margin-top-0 margin-bottom-15"> {{defaultwallet.label}}</h2>
+						<h2 class="margin-top-0 margin-bottom-15"> {{$ctrl.defaultwallet.label}}</h2>
 						<h2 class="margin-bottom-15">
-							<address-balance address="{{defaultwallet.address}}"></address-balance>
+							<address-balance watch-reload="true" address="{{$ctrl.defaultwallet.address}}"></address-balance>
 						</h2>
 						<div class="address-container text-ellipsis">
 							<a
 							href="javascript:void(0)"
 							tooltip
 							tooltip-content="{{ 'Click to copy the address' | translate }}"
-							copy-to-clipboard="{{defaultwallet.address}}">{{defaultwallet.address}}</a>
+							copy-to-clipboard="{{$ctrl.defaultwallet.address}}">{{$ctrl.defaultwallet.address}}</a>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 padding-md-top-15 padding-sm-top-15 padding-xs-top-15 text-md-center text-sm-center text-xs-center">
 						<div class="wallet-actions-container">
-							<button type="button" ng-click="withdraw(defaultwallet)" class="btn btn-default btn-block">
+							<button type="button" ng-click="$ctrl.withdraw($ctrl.defaultwallet)" class="btn btn-default btn-block">
 								<i class="fa fa-sign-out"></i>
 								<translate>Send funds</translate>
 							</button>
 							
-							<button type="button" ng-click="settings(defaultwallet)" class="btn btn-default btn-block">
+							<button type="button" ng-click="$ctrl.walletSettings($ctrl.defaultwallet)" class="btn btn-default btn-block">
 								<i class="fa fa-gear"></i>
 								<translate>Settings</translate>
 							</button>
@@ -126,7 +126,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="row" ng-if="defaultwallet.balance < 0.001">
+				<div class="row" ng-if="$ctrl.defaultwallet.balance < 0.001">
 					<div class="col-xs-12 padding-top-bottom-15">
 						<translate>Please remember that minimum donation with Helperbit is 0.001 bitcoin, please take it in mind when you top up your wallet.</translate>
 					</div>
@@ -138,7 +138,7 @@
 			<me-wallet-sign-multisig-component></me-wallet-sign-multisig-component>
 
 			<!-- Default wallet - transactions -->
-			<div ng-if="transactions.length > 0" class="margin-top-15">
+			<div ng-if="$ctrl.transactions.length > 0" class="margin-top-15">
 				<a id="transactions"></a>
 				<h4 class="border-bottom border-red margin-top-0" translate>Transactions</h4>
 				<table class="table table-compressed margin-bottom-0">
@@ -154,7 +154,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr ng-repeat="m in transactions">
+						<tr ng-repeat="m in $ctrl.transactions">
 							<td class="text-ellipsis" style="max-width: 50px;">
 								<external-link url="{{m.txid|explorer:'tx'}}" text="{{m.txid}}"></external-link>
 							</td>
@@ -183,22 +183,22 @@
 			<!-- END DEFAULT WALLET -->
 
 			<!-- Other wallets -->
-			<div ng-show="wallets.length>0 || adminof.length>0" class="margin-top-30">
+			<div ng-show="$ctrl.walletList.wallets.length>0 || $ctrl.adminof.length>0" class="margin-top-30">
 				<a id="wallets"></a>
 				<h3 class="border-bottom border-yellow margin-top-0" translate>Other wallets</h3>
 				<p class="text-center">
-					<a ng-if="wallets.length < 10 && user.usertype != 'npo'" href="/me/wallet/new" class="btn btn-danger btn-xs-block">
+					<a ng-if="$ctrl.walletList.wallets.length < 10 && $ctrl.user.usertype != 'npo'" href="/me/wallet/new" class="btn btn-danger btn-xs-block">
 						<i class="fa fa-file"></i>
 						<translate>Create new wallet</translate>
 					</a>
 
-					<a ng-if="wallets.length < 10 && user.usertype == 'npo'" href="/me/wallet/newmultisig" class="btn btn-danger btn-xs-block">
+					<a ng-if="$ctrl.walletList.wallets.length < 10 && $ctrl.user.usertype == 'npo'" href="/me/wallet/newmultisig" class="btn btn-danger btn-xs-block">
 						<i class="fa fa-file"></i>
 						<translate>Create new wallet</translate>
 					</a>
 				</p>
 				<div>
-					<wallet-list receiveaddress="receiveaddress" receive="receive" wallets="wallets" withdraw="withdraw" deposit="deposit" settings="settings" footer="true"></wallet-list>
+					<wallet-list config="$ctrl.walletList"></wallet-list>
 				</div>
 			</div>
 

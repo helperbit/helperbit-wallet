@@ -1,71 +1,101 @@
 import * as angular from 'angular';
 import * as $ from 'jquery';
+import TranslateService from '../../../../services/translate';
+import { IModalService } from 'angular-ui-bootstrap';
+import DonationService from '../../../../models/donation';
 
-function MeWalletDonateCtrl($routeParams, $api, $uibModal, $translate, $location) {
-	if ($routeParams.restype == 'project' || $routeParams.restype == 'user') {
-		let additionalParams = '';
-		if ($routeParams.campaign) 
-			additionalParams += `&campaign=${$routeParams.campaign}`;
-		if ($routeParams.giftmessage && $routeParams.giftname) {
-			additionalParams += `&giftmessage=${$routeParams.giftmessage}`;
-			additionalParams += `&giftname=${$routeParams.giftname}`;
-			if(!$routeParams.campaign) {
-				additionalParams += `&giftemail=${$routeParams.giftemail}`;
+class MeWalletDonateCtrl {
+	$donationService: DonationService;
+	$uibModal: IModalService;
+	$translate: TranslateService;
+	$location: angular.ILocationService;
+	$routeParams: {
+		restype: 'user' | 'project' | 'event';
+		resid: string;
+		amount: number;
+		wallet: string;
+
+		giftmessage?: string;
+		giftname?: string;
+		campaign?: string;
+		giftemail?: string;
+		distribution?: string;
+	};
+
+	constructor($routeParams, $donationService, $uibModal, $translate, $location) {
+		this.$routeParams = $routeParams;
+		this.$donationService = $donationService;
+		this.$uibModal = $uibModal;
+		this.$location = $location;
+		this.$translate = $translate;
+	}
+
+	$onInit() {
+		if (this.$routeParams.restype == 'project' || this.$routeParams.restype == 'user') {
+			let additionalParams = '';
+			if (this.$routeParams.campaign)
+				additionalParams += `&campaign=${this.$routeParams.campaign}`;
+			if (this.$routeParams.giftmessage && this.$routeParams.giftname) {
+				additionalParams += `&giftmessage=${this.$routeParams.giftmessage}`;
+				additionalParams += `&giftname=${this.$routeParams.giftname}`;
+				if (!this.$routeParams.campaign) {
+					additionalParams += `&giftemail=${this.$routeParams.giftemail}`;
+				}
 			}
-		}
-		
-		$api.donation.donate($routeParams.restype, $routeParams.resid, $routeParams.amount, additionalParams).then(function (res) {
-			const modalI = $uibModal.open({
+
+			this.$donationService.donate(this.$routeParams.restype, this.$routeParams.resid, this.$routeParams.amount, additionalParams).then(donation => {
+				const modalI = this.$uibModal.open({
+					component: 'meWalletWithdrawComponent',
+					resolve: {
+						modalData: () => {
+							return {
+								address: this.$routeParams.wallet,
+								destination: donation.address,
+								donation: donation.donation,
+								mtype: 'wdonation',
+								value: this.$routeParams.amount,
+								description: this.$translate.getString("Sending donation") 
+							};
+						}
+					}
+				});
+
+				modalI.result.then((txid) => {
+					this.$location.path('/' + this.$routeParams.restype + '/' + this.$routeParams.resid);
+					//$location.path ('/donation/' + txid);
+				}, () => {
+					this.$location.path('/' + this.$routeParams.restype + '/' + this.$routeParams.resid);
+				});
+			}).catch((res) => {
+				$('#errorModal').modal('show');
+			});
+		} else if (this.$routeParams.restype == 'event') {
+			const modalI = this.$uibModal.open({
 				component: 'meWalletWithdrawComponent',
 				resolve: {
-					modalData: function () {
+					modalData: () => {
 						return {
-							address: $routeParams.wallet,
-							destination: res.data.address,
-							donation: res.data.donation,
-							mtype: 'wdonation',
-							value: $routeParams.amount,
-							description: $translate.getString("Sending donation") // to project") + ': \"' + $filter ('stranslate')($scope.toObject.title) + '\"'
+							address: this.$routeParams.wallet,
+							mtype: 'eventdonation',
+							value: this.$routeParams.amount,
+							event: this.$routeParams.resid,
+							distribution: JSON.parse(decodeURIComponent(this.$routeParams.distribution))
 						};
 					}
 				}
 			});
 
-			modalI.result.then(function (txid) {
-				$location.path('/' + $routeParams.restype + '/' + $routeParams.resid);
+			modalI.result.then((txid) => {
+				this.$location.path('/' + this.$routeParams.restype + '/' + this.$routeParams.resid);
 				//$location.path ('/donation/' + txid);
-			}, function () {
-				$location.path('/' + $routeParams.restype + '/' + $routeParams.resid);
+			}, () => {
+				this.$location.path('/' + this.$routeParams.restype + '/' + this.$routeParams.resid);
 			});
-		}).catch(function (res) {
-			$('#errorModal').modal('show');
-		});
-	} else if ($routeParams.restype == 'event') {
-		const modalI = $uibModal.open({
-			component: 'meWalletWithdrawComponent',
-			resolve: {
-				modalData: function () {
-					return {
-						address: $routeParams.wallet,
-						mtype: 'eventdonation',
-						value: $routeParams.amount,
-						event: $routeParams.resid,
-						distribution: JSON.parse(decodeURIComponent($routeParams.distribution))
-					};
-				}
-			}
-		});
-
-		modalI.result.then(function (txid) {
-			$location.path('/' + $routeParams.restype + '/' + $routeParams.resid);
-			//$location.path ('/donation/' + txid);
-		}, function () {
-			$location.path('/' + $routeParams.restype + '/' + $routeParams.resid);
-		});
+		}
 	}
-}
 
-MeWalletDonateCtrl.$inject = ['$routeParams', '$api', '$uibModal', '$translate', '$location'];
+	static get $inject() { return ['$routeParams', '$donationService', '$uibModal', '$translate', '$location']; }
+}
 
 const MeWalletDonateComponent = {
 	templateUrl: 'components/dashboard/wallet/donate/donate.html',

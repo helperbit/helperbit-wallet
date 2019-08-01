@@ -11,7 +11,7 @@
         <i ng-if="$ctrl.phases[1] == 'error'" class="fa fa-times error"></i>
         <i ng-if="$ctrl.phases[1] == 'success'" class="fa fa-check success"></i>
     </li>
-    <li class="list-group-item" ng-show="$ctrl.button && !$ctrl.retryShow && !$ctrl.started">
+    <li class="list-group-item" ng-show="($ctrl.config.button || $ctrl.exec) && !$ctrl.retryShow && !$ctrl.started">
         <div class="text-center">
             <button class="btn btn-default btn-xs-block" ng-click="$ctrl.retry()" translate>Start procedure</button>
         </div>

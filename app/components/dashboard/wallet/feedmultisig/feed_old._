@@ -1,0 +1,326 @@
+import * as angular from 'angular';
+import { BitcoinScriptType } from '../../../../services/bitcoin/bitcoin-service';
+import TranslateService from '../../../../services/translate';
+import BitcoinLedgerService from '../../../../services/bitcoin/ledger';
+import BitcoinService, { createMnemonicChallenge, checkMnemonicChallenge } from '../../../../services/bitcoin/mnemonic';
+import { PageHeaderConfig } from '../../../../shared/components/page-header/page-header';
+import { WizardStep } from '../../../../shared/helpers/wizard-step';
+import { LedgerWaitConfig } from '../../ledger-wait/ledger-wait';
+import BrowserHelperService from '../../../../services/browser-helper';
+import { ICookiesService } from '../../../../shared/types/angular-cookies';
+import WalletService, { Wallet } from '../../../../models/wallet';
+
+class MeWalletFeedMultisigCtrl {
+	$routeParams: {
+		wallet: string;
+		label: string;
+		organization: string;
+	};
+	$rootScope: angular.IRootScopeService;
+	$walletService: WalletService;
+	$browserHelper: BrowserHelperService;
+	$translate: TranslateService;
+	$bitcoinLedger: BitcoinLedgerService;
+	$window: angular.IWindowService;
+	$bitcoin: BitcoinService;
+	$timeout: angular.ITimeoutService;
+	$cookies: ICookiesService;
+	$scope: any;
+
+	hideIndicators: boolean;
+	pageHeader: PageHeaderConfig;
+	username: string;
+	rnd: string;
+	wallet: Wallet;
+
+	model: {
+		ledgerSupport: boolean;
+		accept: boolean;
+		hardwareWallet: boolean;
+		hardwareWalletType: string;
+		hardwareWalletPublicKey: string;
+		mnemonic: string;
+		mnemonicConfirmChallenge: any[];
+		backupPassword: string;
+		backupPasswordRepeat: string;
+		scripttype: BitcoinScriptType;
+		downloadedBackup: boolean;
+		file?: any;
+		address: string;
+		invalid: boolean;
+		label: string;
+		labelShort: string;
+		organization: string;
+	};
+
+	wizard: {
+		step0: WizardStep<void>;
+		step1Passphrase: WizardStep<void>;
+		step1HardwareWallet: WizardStep<{ ledgerWaitStatus: LedgerWaitConfig; exec: () => void }>;
+		step2: WizardStep<void>;
+		step2Passphrase: WizardStep<void>;
+		step3: WizardStep<{ passwordVisibility: string; }>;
+		step4: WizardStep<void>;
+	};
+
+
+	constructor($walletService, $scope, $cookies, $routeParams, $rootScope, $bitcoin, $bitcoinLedger, $window, $translate, WizardHandler, $timeout, $browserHelper) {
+		this.$browserHelper = $browserHelper;
+		this.$walletService = $walletService;
+		this.$routeParams = $routeParams;
+		this.$rootScope = $rootScope;
+		this.$translate = $translate;
+		this.$bitcoinLedger = $bitcoinLedger;
+		this.$bitcoin = $bitcoin;
+		this.$scope = $scope;
+		this.$timeout = $timeout;
+		this.$window = $window;
+		this.$cookies = $cookies;
+
+		this.rnd = 'rnd' + Math.random() + '_';
+
+		this.hideIndicators = false;
+		this.pageHeader = {
+			description: {
+				title: $translate.getString('multisig wallet feed'),
+				subTitle: $translate.getString('Insert your signature for a new multisig wallet')
+			}
+		};
+
+
+		this.wizard = { step0: null, step1Passphrase: null, step1HardwareWallet: null, step2: null, step2Passphrase: null, step3: null, step4: null };
+
+		this.wizard.step0 = new WizardStep('feedMultisig', WizardHandler);
+		this.wizard.step0.setTitles({
+			main: $translate.getString('Type'),
+			heading: $translate.getString('Choose wallet type')
+		});
+
+
+		this.wizard.step1Passphrase = new WizardStep('feedMultisig', WizardHandler);
+		this.wizard.step1Passphrase.setTitles({
+			main: $translate.getString('Passphrase'),
+			heading: $translate.getString('Generate a random passphrase')
+		});
+		this.wizard.step1Passphrase.setNextInterceptor(() => {
+			this.wizard.step2Passphrase.resetResponse();
+			this.model.mnemonicConfirmChallenge = createMnemonicChallenge(this.model.mnemonic);
+			this.wizard.step1Passphrase._next();
+		});
+
+
+
+		this.wizard.step1HardwareWallet = new WizardStep('feedMultisig', WizardHandler);
+		this.wizard.step1HardwareWallet.setTitles({
+			main: $translate.getString('Hardware Wallet'),
+			heading: $translate.getString('Pair your hardware wallet')
+		});
+		this.wizard.step1HardwareWallet.initializeModel({
+			ledgerWaitStatus: {
+				phase: 0,
+				status: 'wait',
+				exec: () => { }
+			},
+			exec: () => { this.pairHardwareWallet(); }
+		});
+		this.wizard.step1HardwareWallet.setNextInterceptor(() => {
+			this.feed();
+		});
+
+
+
+		this.wizard.step2Passphrase = new WizardStep('feedMultisig', WizardHandler);
+		this.wizard.step2Passphrase.setTitles({
+			main: $translate.getString('Confirm'),
+			heading: $translate.getString('Prove you have written down your passphrase')
+		});
+		this.wizard.step2Passphrase.setNextInterceptor(() => {
+			this.wizard.step2Passphrase.resetResponse();
+
+			if (!checkMnemonicChallenge(this.model.mnemonicConfirmChallenge))
+				return $timeout(() => {
+					this.wizard.step2Passphrase.setResponse('error', { error: 'XM1' });
+				});
+
+			this.wizard.step2Passphrase._next();
+		});
+
+
+		this.wizard.step3 = new WizardStep('feedMultisig', WizardHandler);
+		this.wizard.step3.setTitles({
+			main: $translate.getString('Backup'),
+			heading: $translate.getString('Create a signature backup file')
+		});
+		this.wizard.step3.initializeModel({
+			passwordVisibility: 'password'
+		});
+		this.wizard.step3.setNextInterceptor(() => {
+			this.feed();
+		});
+
+
+		this.wizard.step4 = new WizardStep('feedMultisig', WizardHandler);
+		this.wizard.step4.setTitles({
+			main: $translate.getString('Done'),
+			heading: $translate.getString('Done')
+		});
+	}
+
+
+	feed() {
+		this.wizard.step3.loading = true;
+
+		// First key, generated from mnemonic
+		let key1: any = {};
+		if (this.model.hardwareWallet) {
+			key1 = { public: this.model.hardwareWalletPublicKey, private: '' };
+		} else {
+			key1 = this.$bitcoin.mnemonicToKeys(this.model.mnemonic);
+		}
+
+		// Feed the wallet
+		this.$walletService.feedMultisig(this.$routeParams.wallet, key1.public, this.model.hardwareWallet, this.model.hardwareWalletType).then((res) => {
+			this.wizard.step3.resetResponse();
+			this.wizard.step3.loading = false;
+			this.model.downloadedBackup = false;
+
+			if (!this.model.hardwareWallet) {
+				const ee = this.$bitcoin.encryptKeys(key1.private, this.model.backupPassword);
+
+				this.model.file = JSON.stringify({
+					user: this.username,
+					scripttype: this.wallet.scripttype,
+					pubkeysrv: res.data.pubkeysrv,
+					encprivkey: ee,
+					pubkey: key1.public,
+					walletid: this.$routeParams.wallet,
+					label: this.model.label,
+					organization: this.model.organization
+				});
+			}
+
+			this.$rootScope.$emit('notificationUpdate', { from: 'wallet' });
+			this.wizard.step3._next();
+		}).catch((res) => {
+			if (this.model.hardwareWallet)
+				this.wizard.step1HardwareWallet.setResponse('error', res.data);
+			else
+				this.wizard.step3.setResponse('error', res.data);
+		});
+	}
+
+	pairHardwareWallet() {
+		const ledgerWaitCallback = (phase, status) => {
+			this.$timeout(() => {
+				this.wizard.step1HardwareWallet.model.ledgerWaitStatus.phase = phase;
+				this.wizard.step1HardwareWallet.model.ledgerWaitStatus.status = status;
+				this.wizard.step1HardwareWallet.model.ledgerWaitStatus = angular.copy(this.wizard.step1HardwareWallet.model.ledgerWaitStatus);
+			});
+		};
+
+		this.wizard.step1HardwareWallet.loading = true;
+
+		if (this.model.hardwareWalletType == 'ledgernanos') {
+			this.$bitcoinLedger.getPublicKey(ledgerWaitCallback).then(pk => {
+				return this.$timeout(() => {
+					this.wizard.step1HardwareWallet.loading = false;
+					this.model.hardwareWalletPublicKey = pk;
+					this.model.accept = true;
+					this.wizard.step1HardwareWallet.setResponse('success', { text: this.$translate.getString('Hardware Wallet successfully paired') });
+				});
+			}).catch(err => {
+				return this.$timeout(() => {
+					this.model.hardwareWalletPublicKey = null;
+					this.wizard.step1HardwareWallet.loading = false;
+					// this.wizard.step1HardwareWallet.error.error = 'XHW1';
+					// this.wizard.step1HardwareWallet.error.type = 'error';
+					// eslint-disable-next-line no-console
+					console.log('Error:', err);
+				});
+			});
+		} else {
+			this.wizard.step1HardwareWallet.loading = false;
+		}
+	}
+
+	renewMnemonic() {
+		this.model.mnemonic = this.$bitcoin.generateMnemonic();
+	}
+
+	printMnemonic() {
+		const oldtitle = document.title;
+		document.title = 'helperbit_passphrase_' + this.username + '.pdf';
+		this.$window.print();
+		document.title = oldtitle;
+	}
+
+	downloadBackup() {
+		this.model.downloadedBackup = true;
+	}
+
+	selectWalletType(wt: 'ledger' | 'mnemonic') {
+		if (wt == 'ledger') {
+			this.model.hardwareWallet = true;
+			this.model.hardwareWalletType = 'ledgernanos';
+		} else if (wt == 'mnemonic') {
+			this.model.hardwareWallet = false;
+			this.model.hardwareWalletType = 'none';
+		}
+
+		this.model.accept = false;
+
+		this.wizard.step0.reset();
+		this.$timeout(() => { this.wizard.step0.next(); });
+	}
+
+
+	$onInit() {
+		this.username = this.$cookies.get('username');
+		this.model = {
+			ledgerSupport: this.$browserHelper.isLedgerSupported(),
+			invalid: false,
+			accept: false,
+			address: '',
+			hardwareWallet: false,
+			hardwareWalletType: 'none',
+			hardwareWalletPublicKey: null,
+			mnemonic: this.$bitcoin.generateMnemonic(),
+			mnemonicConfirmChallenge: [],
+			backupPassword: '',
+			backupPasswordRepeat: '',
+			scripttype: 'p2sh-p2wsh',
+			downloadedBackup: false,
+			file: null,
+			label: this.$routeParams.label,
+			labelShort: this.$routeParams.label.replace(/ /g, ''),
+			organization: this.$routeParams.organization
+		}
+
+		this.$walletService.getList().then(list => {
+			this.model.invalid = false;
+			this.wallet = list.adminof.filter(w => w._id == this.$routeParams.wallet)[0];
+
+			if (this.wallet == undefined) {
+				this.model.invalid = true;
+			} else if (this.wallet.active || this.wallet.multisig.doneadmins.indexOf(this.$cookies.get('email')) != -1) {
+				this.model.invalid = true;
+			}
+		});
+
+		this.$scope.$on('wizard:stepChanged', (event, args) => {
+			if (args.index == 0)
+				this.hideIndicators = true;
+			else
+				this.hideIndicators = false;
+		});
+	}
+
+	static get $inject() { return ['$walletService', '$scope', '$cookies', '$routeParams', '$rootScope', '$bitcoin', '$bitcoinLedger', '$window', '$translate', 'WizardHandler', '$timeout', '$browserHelper']; }
+}
+
+const MeWalletFeedMultisigComponent = {
+	templateUrl: 'components/dashboard/wallet/feedmultisig/feedmultisig.html',
+	controller: MeWalletFeedMultisigCtrl
+};
+
+export default MeWalletFeedMultisigComponent;

@@ -1,17 +1,37 @@
-import * as common from './common';
 import * as bitcoinjs from 'bitcoinjs-lib';
 import * as LedgerTransport from '@ledgerhq/hw-transport-u2f';
 import * as LedgerAppBtc from '@ledgerhq/hw-app-btc';
+import { BitcoinSignService, BitcoinSignOptions, compressPublicKey, 
+	toHexString, prepareScripts, toByteArray } from './bitcoin-service';
+import { ConfigService } from '../../app.config';
+import { deserializeCall } from '../../models/common';
 
 require("babel-polyfill");
 
 
-function BitcoinLedgerService (config, $api) {
-	const defaultAccount = '7276'; // HB
-	const defaultPath = "44'/" + (config.networkName == 'testnet' ? '1' : '0') + "'/" + defaultAccount + "'/0/0";
-	this.defaultPath = defaultPath;
+export default class BitcoinLedgerService implements BitcoinSignService {
+	config: ConfigService;
+	$http: any;
 
-	this.getPublicKeyFromPath = function (path, ledgerWaitCallback) {
+	defaultAccount: string;
+	defaultPath: string;
+
+	constructor (config: ConfigService, $http) {
+		this.config = config;
+		this.$http = $http;
+		
+		this.defaultAccount = '7276'; // HB
+		this.defaultPath = "44'/" + (config.networkName == 'testnet' ? '1' : '0') + "'/" + this.defaultAccount + "'/0/0";
+	}
+
+	private rawTransactions(hashes: string[]): Promise<{ [txid: string]: string }> {
+		return deserializeCall<{ [txid: string]: string }>(
+			this.$http.post(this.config.apiUrl + '/blockchain/rawtransactions', { hashes: hashes }),
+			'transactions'
+		);
+	}
+
+	private getPublicKeyFromPath (path: string, ledgerWaitCallback) {
 		if(!ledgerWaitCallback)
 			ledgerWaitCallback = (phase, status) => {};
 
@@ -24,7 +44,7 @@ function BitcoinLedgerService (config, $api) {
 				const btc = new LedgerAppBtc.default(transport);
 				ledgerWaitCallback(2, 'wait');
 				btc.getWalletPublicKey(path, false, true).then(result => {
-					const comppk = common.compressPublicKey(result.publicKey);
+					const comppk = compressPublicKey(result.publicKey);
 					ledgerWaitCallback(2, 'success');
 					resolve (comppk);
 				}).catch (err => {
@@ -44,13 +64,11 @@ function BitcoinLedgerService (config, $api) {
 		});
 	};
 
-	this.getPublicKey = function(ledgerWaitCallback) {
-		return this.getPublicKeyFromPath(this.defaultPath, ledgerWaitCallback);
-	};
+	getPublicKey (ledgerWaitCallback?: any) {
+		return (this.getPublicKeyFromPath(this.defaultPath, ledgerWaitCallback) as Promise<string>);
+	}
 
-	this.sign = function (txhex: string, options: common.BitcoinSignOptions, ledgerWaitCallback): Promise<string> {
-		const self = this;
-	
+	sign(txhex: string, options: BitcoinSignOptions, ledgerWaitCallback): Promise<string> {	
 		if(!ledgerWaitCallback)
 			ledgerWaitCallback = (phase, status) => {};
 
@@ -63,13 +81,12 @@ function BitcoinLedgerService (config, $api) {
 		if (options.scripttype != 'p2sh')
 			segwit = true;
 
-		const walletScripts = common.prepareScripts(options.scripttype, options.n, options.pubkeys, config.network);
-		const redeemScriptHex = common.toHexString(walletScripts.p2shRedeem);
+		const walletScripts = prepareScripts(options.scripttype, options.n, options.pubkeys, this.config.network);
+		const redeemScriptHex = toHexString(walletScripts.p2shRedeem);
 		
-
 		return new Promise ((resolve, reject) => {
 			ledgerWaitCallback(1, 'wait');
-			self.getPublicKey().then (publickey => {
+			this.getPublicKey().then ((publickey: string) => {
 				ledgerWaitCallback(1, 'success');
 				ledgerWaitCallback(2, 'wait');
 				LedgerTransport.default.create().then(transport => {
@@ -77,30 +94,30 @@ function BitcoinLedgerService (config, $api) {
 					const btc = new LedgerAppBtc.default(transport);
 
 					/* Download utxo transaction raw */
-					$api.blockchain.rawTransactions(options.utxos.map(utxo => utxo.tx)).then (data => {
+					this.rawTransactions(options.utxos.map(utxo => utxo.tx)).then (transactions => {
 						/* Create inputs and serialized outputs */
 						const inputs = options.utxos.map (utxo => [ 
-							btc.splitTransaction(data.data.transactions[utxo.tx], bitcoinjs.Transaction.fromHex(data.data.transactions[utxo.tx]).hasWitnesses()), 
+							btc.splitTransaction(transactions[utxo.tx], bitcoinjs.Transaction.fromHex(transactions[utxo.tx]).hasWitnesses()), 
 							utxo.n, 
 							walletScripts.p2wshRedeem.toString('hex'),
-							bitcoinjs.Transaction.fromHex(data.data.transactions[utxo.tx]).ins[utxo.n].sequence 
+							bitcoinjs.Transaction.fromHex(transactions[utxo.tx]).ins[utxo.n].sequence 
 						]);
-						const paths = inputs.map(i => self.defaultPath);
+						const paths = inputs.map(i => this.defaultPath);
 						const outshex = btc.serializeTransactionOutputs(btc.splitTransaction(txhex, true)).toString('hex');
 
 						/* Sign the transaction */
 						const tx = bitcoinjs.Transaction.fromHex(txhex);
-						const txb = bitcoinjs.TransactionBuilder.fromTransaction(tx, config.network);
+						const txb = bitcoinjs.TransactionBuilder.fromTransaction(tx, this.config.network);
 
 						btc.signP2SHTransaction(inputs, paths, outshex, 0/*tx.locktime*/, 1 /*SIGHASH_ALL*/, segwit, tx.version).then(signatures => {
 							/* Inject signatures */
 
 							for (let j = 0; j < tx.ins.length; j++) {
 								txb.sign(j, ({
-									network: config.network,
-									publicKey: common.toByteArray(publickey),
+									network: this.config.network,
+									publicKey: toByteArray(publickey),
 									sign: (hash) => 
-										bitcoinjs.script.signature.decode(common.toByteArray(signatures[j])).signature
+										bitcoinjs.script.signature.decode(toByteArray(signatures[j])).signature
 
 								} as bitcoinjs.ECPair), walletScripts.p2shRedeem, null, options.utxos[j].value, walletScripts.p2wshRedeem);
 							}
@@ -117,6 +134,7 @@ function BitcoinLedgerService (config, $api) {
 							return reject(err);
 						});
 					}).catch (err => {
+						// eslint-disable-next-line no-console
 						console.log('Failed acquiring txhashes:', err);
 						return reject(err);
 					});
@@ -125,9 +143,7 @@ function BitcoinLedgerService (config, $api) {
 				reject(err);
 			});
 		});
-	};
+	}
+
+	static get $inject() { return ['config', '$http'] };
 }
-
-BitcoinLedgerService.$inject = ['config', '$api'];
-
-export default BitcoinLedgerService;

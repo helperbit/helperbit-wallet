@@ -1,7 +1,7 @@
-<div ng-if="$ctrl.signMultisigModel.values.transactions.length > 0">
+<div ng-if="$ctrl.model.transactions.length > 0">
 	<br>
 	<div class="alert alert-info">
-		<translate>You have {{$ctrl.signMultisigModel.values.transactions.length}} pending transactions to sign.</translate>
+		<translate>You have {{$ctrl.model.transactions.length}} pending transactions to sign.</translate>
 		<a href="#" ng-click="$ctrl.openModal()" translate>Sign now</a>
 	</div>
 </div>
@@ -10,8 +10,8 @@
 <modal mid="signModal" content="true">
 	<div class="modal-content">
 		<wizard name="signMultisig" template="/shared/templates/angular-wizard/wizard.html" indicators-position="top" class="modal-body">
-			<wz-step wz-title="{{ $ctrl.signMultisigModel.step1.title.main }}" wz-heading-title="{{ $ctrl.signMultisigModel.step1.title.heading }}">
-				<p class="padding-top-bottom-10 text-center" translate translate-n="$ctrl.signMultisigModel.values.transactions.length" translate-plural="There are {{$count}} transactions to sign.">There is 1 transaction to sign.</p>
+			<wz-step wz-title="{{ $ctrl.wizard.step1.titles.main }}" wz-heading-title="{{ $ctrl.wizard.step1.titles.heading }}">
+				<p class="padding-top-bottom-10 text-center" translate translate-n="$ctrl.model.transactions.length" translate-plural="There are {{$count}} transactions to sign.">There is 1 transaction to sign.</p>
 				<table class="table">
 					<thead class="separator">
 						<tr>
@@ -27,12 +27,12 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr ng-repeat="tx in $ctrl.signMultisigModel.values.transactions">
+						<tr ng-repeat="tx in $ctrl.model.transactions">
 							<td class="text-center text-break-all">{{tx.from}}</td>
 							<td class="text-center">{{tx.value|money:'full':false}}</td>
 							<td class="text-center  hidden-xs">{{tx.time|date}}</td>
 							<td class="text-center">
-								<button class="btn btn-sm btn-default" ng-click="$ctrl.signMultisigModel.step1.selectTransaction(tx)">
+								<button class="btn btn-sm btn-default" ng-click="$ctrl.selectTransaction(tx)">
 									<i class="fa fa-pencil"></i>
 									<translate class="hidden-xs">Details</translate>
 								</button>
@@ -48,41 +48,41 @@
 					</div>
 				</div>
 			</wz-step>
-			<wz-step wz-title="{{ $ctrl.signMultisigModel.step2.title.main }}" wz-heading-title="{{ $ctrl.signMultisigModel.step2.title.heading }}">
+			<wz-step wz-title="{{ $ctrl.wizard.step2.titles.main }}" wz-heading-title="{{ $ctrl.wizard.step2.titles.heading }}">
 				<div class="row">
 					<div class="col-xs-12">
-						<response-messages message="{{$ctrl.signMultisigModel.step2.error}}"></response-messages>
+						<response-messages message="$ctrl.wizard.step2.responseMessage"></response-messages>
 					</div>
 				</div>
 
 				<table class="table">
 					<tr>
 						<td translate>From</td>
-						<td class="text-break-all"><a href="/user/{{$ctrl.signMultisigModel.values.selected.from}}" target="_blank">{{$ctrl.signMultisigModel.values.selected.from}}</a></td>
+						<td class="text-break-all"><a href="/user/{{$ctrl.model.selected.from}}" target="_blank">{{$ctrl.model.selected.from}}</a></td>
 					</tr>
 					<tr>
 						<td translate>From wallet</td>
-						<td class="text-break-all">{{$ctrl.signMultisigModel.values.selected.wallet.label}}</td>
+						<td class="text-break-all">{{$ctrl.model.selected.wallet.label}}</td>
 					</tr>
 					<tr>
 						<td translate>Value</td>
-						<td>{{$ctrl.signMultisigModel.values.selected.value|money:'full'}}</td>
+						<td>{{$ctrl.model.selected.value|money:'full'}}</td>
 					</tr>
 					<tr>
 						<td translate>Fee</td>
-						<td>{{$ctrl.signMultisigModel.values.selected.fee|money:'full'}}</td>
+						<td>{{$ctrl.model.selected.fee|money:'full'}}</td>
 					</tr>
 					<tr>
 						<td translate>Creation date</td>
-						<td>{{$ctrl.signMultisigModel.values.selected.time|date:'medium'}}</td>
+						<td>{{$ctrl.model.selected.time|date:'medium'}}</td>
 					</tr>
-					<tr ng-if="$ctrl.signMultisigModel.values.selected.ror != null">
+					<tr ng-if="$ctrl.model.selected.ror != null">
 						<td translate>Refund to</td>
-						<td><a href="/user/{{self.signMultisigModel.values.rors[$ctrl.signMultisigModel.values.selected.ror].from}}" target="_blank">{{self.signMultisigModel.values.rors[$ctrl.signMultisigModel.values.selected.ror].from}}</a></td>
+						<td><a href="/user/{{$ctrl.model.rors[$ctrl.model.selected.ror].from}}" target="_blank">{{$ctrl.model.rors[$ctrl.model.selected.ror].from}}</a></td>
 					</tr>
-					<tr ng-if="$ctrl.signMultisigModel.values.selected.ror != null">
+					<tr ng-if="$ctrl.model.selected.ror != null">
 						<td translate>Refund invoice</td>
-						<td><a href="{{self.signMultisigModel.values.rors[$ctrl.signMultisigModel.values.selected.ror].documents[0]|media}}" target="_blank"><i class="fa fa-external-link"></i> View document</a></td>
+						<td><a href="{{$ctrl.model.rors[$ctrl.model.selected.ror].documents[0]|media}}" target="_blank"><i class="fa fa-external-link"></i> View document</a></td>
 					</tr>
 					<tr>
 						<td translate>To</td>
@@ -91,28 +91,28 @@
 								href="javascript:void(0)"
 								tooltip
 								tooltip-content="{{ 'Click to copy the address' | translate }}"
-								copy-to-clipboard="{{$ctrl.signMultisigModel.values.selected.to}}">{{$ctrl.signMultisigModel.values.selected.to}}</a>
+								copy-to-clipboard="{{$ctrl.model.selected.to}}">{{$ctrl.model.selected.to}}</a>
 					</tr>
 					<tr>
 						<td translate>Signatures</td>
-						<td>{{$ctrl.signMultisigModel.values.selected.signers.length}} of {{$ctrl.signMultisigModel.values.selected.n}}</td>
+						<td>{{$ctrl.model.selected.signers.length}} of {{$ctrl.model.selected.n}}</td>
 					</tr>
 					<tr>
 						<td translate>Description</td>
-						<td class="text-break-all">{{$ctrl.signMultisigModel.values.selected.description}}</td>
+						<td class="text-break-all">{{$ctrl.model.selected.description}}</td>
 					</tr>
 				</table>
-				<div ng-if="$ctrl.signMultisigModel.values.hardware">
+				<div ng-if="$ctrl.model.hardware">
 					<br>
-					<ledger-wait config="{{ $ctrl.signMultisigModel.step2.ledgerWaitStatus }}" exec="$ctrl.signMultisigModel.step2.sign"></ledger-wait>
+					<ledger-wait config="$ctrl.wizard.step2.model.ledgerWaitStatus" exec="$ctrl.wizard.step2.model.exec"></ledger-wait>
 				</div>
-				<div ng-if="!$ctrl.signMultisigModel.values.hardware">
-					<span ng-if="!$ctrl.signMultisigModel.values.useBackup" ng-init="showpassphrase = true">
+				<div ng-if="!$ctrl.model.hardware">
+					<span ng-if="!$ctrl.model.useBackup" ng-init="showpassphrase = true">
 						<p>
-							<translate>Insert your passphrase (or click</translate> <a ng-click="$ctrl.signMultisigModel.values.useBackup = true;" href="" translate>here</a>
+							<translate>Insert your passphrase (or click</translate> <a ng-click="$ctrl.model.useBackup = true;" href="" translate>here</a>
 							<translate>to sign with your backup file)</translate>:
 						</p>
-						<input class="form-control" ng-attr-type="{{ showpassphrase ? 'text' : 'password' }}" ng-model="$ctrl.signMultisigModel.values.mnemonic" value="{{$ctrl.signMultisigModel.values.mnemonic}}" />
+						<input class="form-control" ng-attr-type="{{ showpassphrase ? 'text' : 'password' }}" ng-model="$ctrl.model.mnemonic" value="{{$ctrl.model.mnemonic}}" />
 						<div class="text-right">
 							<a href="" ng-click="showpassphrase = !showpassphrase">
 								<span ng-if="showpassphrase" translate>Hide passphrase</span>
@@ -120,15 +120,15 @@
 							</a>
 						</div>
 					</span>
-					<span ng-if="$ctrl.signMultisigModel.values.useBackup">
+					<span ng-if="$ctrl.model.useBackup">
 						<p>
-							<translate>Load your backup file (or click</translate> <a ng-click="$ctrl.signMultisigModel.values.useBackup = false;" href="" translate>here</a>
+							<translate>Load your backup file (or click</translate> <a ng-click="$ctrl.model.useBackup = false;" href="" translate>here</a>
 							<translate>to sign with your passphrase)</translate>:
 						</p>
-						<input type="file" accept="application/json" class="form-control upload" ngf-select="$ctrl.signMultisigModel.step2.loadBackupFile($file);"></input>
+						<input type="file" accept="application/json" class="form-control upload" ngf-select="$ctrl.loadBackupFile($file);"></input>
 						<translate>Backup password</translate>:
 						<br>
-						<input type="password" class="form-control" value="" ng-model="$ctrl.signMultisigModel.values.backup.password" />
+						<input type="password" class="form-control" value="" ng-model="$ctrl.model.backup.password" />
 					</span>
 				</div>
 
@@ -139,23 +139,23 @@
 						<button type="button" class="btn btn-danger btn-xs-block" data-dismiss="modal" translate>Close</button>
 					</div>
 					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 text-lg-right text-md-right text-sm-right text-xs-center margin-xs-top-5">
-						<button type="button" class="btn btn-danger btn-xs-block" ng-click="$ctrl.signMultisigModel.step2.refuse()"><i class="fa fa-times"></i>
+						<button type="button" class="btn btn-danger btn-xs-block" ng-click="$ctrl.refuse()"><i class="fa fa-times"></i>
 							<translate>Refuse</translate>
 						</button>
-						<button type="button" class="btn btn-default btn-xs-block margin-xs-top-5" loading="$ctrl.signMultisigModel.step2.loading" ng-click="$ctrl.signMultisigModel.step2.sign()"><i class="fa fa-pencil"></i>
+						<button type="button" class="btn btn-default btn-xs-block margin-xs-top-5" loading="$ctrl.wizard.step2.loading" ng-click="$ctrl.sign()"><i class="fa fa-pencil"></i>
 							<translate>Sign</translate>
 						</button>
 					</div>
 				</div>
 			</wz-step>
-			<wz-step wz-title="{{ $ctrl.signMultisigModel.step3.title.main }}" wz-heading-title="{{ $ctrl.signMultisigModel.step3.title.heading }}">
+			<wz-step wz-title="{{ $ctrl.wizard.step3.titles.main }}" wz-heading-title="{{ $ctrl.wizard.step3.titles.heading }}">
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center completed-img">
 						<img src="/media/completed-green.png">
 					</div>
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center margin-top-20 completed-text">
-						<p ng-if="$ctrl.signMultisigModel.values.refused" translate>You have successfully refused to sign this transaction.</p>
-						<p ng-if="!$ctrl.signMultisigModel.values.refused" translate>The transaction has been signed.</p>
+						<p ng-if="$ctrl.model.refused" translate>You have successfully refused to sign this transaction.</p>
+						<p ng-if="!$ctrl.model.refused" translate>The transaction has been signed.</p>
 					</div>
 				</div>
 				<div class="row">
