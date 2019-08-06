@@ -44,23 +44,14 @@
             </div>
         </div>
 
-        <translate>Amount to send</translate>: {{$ctrl.model.vvalue|money}}
-        <br>
-        <span style="font-size: 80%;">
-            <translate>An additional fee of {{$ctrl.model.fee|money}} is automatically added to assure that the transaction will be confirmed.</translate>
-            <translate>The total amount spent will be {{($ctrl.model.vvalue + $ctrl.model.fee)|money}}</translate>
-        </span>
-        <br>
-        <br>
         <translate>Transaction description</translate>:
         <span style="font-size: 80%;">{{$ctrl.model.description}}</span>
         <br>
         <translate>Destination address</translate>:
         <span style="font-size: 80%;">{{$ctrl.model.destination}}</span>
         <br>
-        <hr>
+        <br>
         <div ng-include="'components/dashboard/wallet/withdraw/fee-selector.html'"></div>
-        </div>
         <hr>
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-lg-left text-md-left text-sm-left text-xs-center">

@@ -13,7 +13,7 @@
 			<li role="presentation" ng-if="$ctrl.selectedwallet.ismultisig">
 				<a href="" data-target="#setting-admin" aria-controls="setting-admin" role="tab" data-toggle="tab" translate>Admins</a>
 			</li>
-			<li role="presentation" class="" ng-if="!$ctrl.selectedwallet.ismultisig">
+			<li role="presentation" class="" ng-if="!$ctrl.selectedwallet.ismultisig && $ctrl.selectedwallet.hardware == 'none'">
 				<a href="" data-target="#setting-restore" aria-controls="setting-restore" role="tab" data-toggle="tab" translate>Restore from backup</a>
 			</li>
 			<li role="presentation" class="" feature="removewallet">

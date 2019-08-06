@@ -95,7 +95,6 @@ class MeWalletCtrl {
 		$('#createDonationButtonModal').modal('show');
 	}
 
-
 	scrollTo(id) {
 		this.$anchorScroll(id);
 		this.selected = id;
@@ -169,7 +168,6 @@ class MeWalletCtrl {
 		});
 	}
 
-
 	deposit(w) {
 		this.selectedwallet = w;
 		this.faucet.error = '';
@@ -182,7 +180,6 @@ class MeWalletCtrl {
 		});
 	}
 
-
 	walletSettings(w) {
 		this.remove.loading = false;
 		this.settings.error = '';
@@ -190,7 +187,6 @@ class MeWalletCtrl {
 		this.backup = { txid: '', loading: false, file: null, data: null, password: '', destination: '', error: '' };
 		$('#settingsModal').modal('show');
 	}
-
 
 	$onInit() {
 		this.$walletService.onLoad(data => {

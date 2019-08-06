@@ -64,7 +64,7 @@ const vendorLibs = [
 	'bip39',
 	'crypto-js',
 	'd3/d3',
-	'socket.io-client',
+	// 'socket.io-client',
 	'html2canvas',
 	'safe-buffer'
 ];
@@ -181,7 +181,7 @@ gulp.task('transpile', ['set-env'], () => {
 		detectGlobals: true
 	})
 	.plugin(tsify)
-
+	
 	vendorLibs.forEach(lib => { b.external(lib); });
 	
 	b = b.transform(babelify.configure({ 

@@ -1,12 +1,43 @@
+<style>
+    .summary-table td {
+        text-align: center;
+    }
+</style>
 
-<span style="font-size: 80%"><translate>You can modify the fee amount for statistically decrease the confirmation delay</translate>:</span>
-<select class="form-control" ng-model="$ctrl.model.feeprofile" ng-change="$ctrl.changedFeeProfile ()">
+<table class="table table-compact table-striped summary-table">
+    <tr>
+        <td translate>Value</td>
+        <td>
+            <translate>Network fees</translate>
+            <i class="fa fa-question-circle" tooltip
+                tooltip-content="{{'An additional network fee is automatically added to assure that the transaction will be confirmed.'|translate}}"
+                data-template='<div class="tooltip" role="tooltip" style="padding-bottom: 5px;"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'></i>
+        </td>
+        <td translate>Total value</td>
+    </tr>
+    <tr>
+        <td>{{$ctrl.model.value|money:'full'}}</td>
+        <td>{{$ctrl.model.fee|money:'full'}}</td>
+        <td>{{$ctrl.model.value + $ctrl.model.fee|money:'full'}}</td>
+    </tr>
+</table>
+
+<span style="font-size: 80%">
+    <translate>You can modify the fee amount for statistically decrease the confirmation delay</translate>:
+</span>
+<select class="form-control" ng-model="$ctrl.model.feeprofile" ng-change="$ctrl.changedFeeProfile()">
     <option value="fastest">
-        <translate>Fastest</translate> ({{$ctrl.model.fees.fastest|money:'full'}})</option>
+        <translate>Fastest</translate> ({{$ctrl.model.fees.fastest|money:'full'}})
+    </option>
     <option value="halfhour">
-        <translate>Half hour</translate> ({{$ctrl.model.fees.halfhour|money:'full'}})</option>
+        <translate>Half hour</translate> ({{$ctrl.model.fees.halfhour|money:'full'}})
+    </option>
     <option value="hour">
-        <translate>Hour</translate> ({{$ctrl.model.fees.hour|money:'full'}})</option>
-    <option ng-if="fees.slowest" value="slowest" tooltip-content="{{'This is a super economic fee, transaction can take over 3 or 4 days to be confirmed'|translate}}" tooltip>
-        <translate>Slowest</translate> ({{$ctrl.model.fees.slowest|money:'full'}})</option>
+        <translate>Hour</translate> ({{$ctrl.model.fees.hour|money:'full'}})
+    </option>
+    <option ng-if="fees.slowest" value="slowest"
+        tooltip-content="{{'This is a super economic fee, transaction can take over 3 or 4 days to be confirmed'|translate}}"
+        tooltip>
+        <translate>Slowest</translate> ({{$ctrl.model.fees.slowest|money:'full'}})
+    </option>
 </select>

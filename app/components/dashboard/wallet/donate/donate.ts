@@ -31,6 +31,8 @@ class MeWalletDonateCtrl {
 	}
 
 	$onInit() {
+		const redirect = () => this.$location.path('/' + this.$routeParams.restype + '/' + this.$routeParams.resid);
+
 		if (this.$routeParams.restype == 'project' || this.$routeParams.restype == 'user') {
 			let additionalParams = '';
 			if (this.$routeParams.campaign)
@@ -44,7 +46,7 @@ class MeWalletDonateCtrl {
 			}
 
 			this.$donationService.donate(this.$routeParams.restype, this.$routeParams.resid, this.$routeParams.amount, additionalParams).then(donation => {
-				const modalI = this.$uibModal.open({
+				this.$uibModal.open({
 					component: 'meWalletWithdrawComponent',
 					resolve: {
 						modalData: () => {
@@ -58,19 +60,12 @@ class MeWalletDonateCtrl {
 							};
 						}
 					}
-				});
-
-				modalI.result.then((txid) => {
-					this.$location.path('/' + this.$routeParams.restype + '/' + this.$routeParams.resid);
-					//$location.path ('/donation/' + txid);
-				}, () => {
-					this.$location.path('/' + this.$routeParams.restype + '/' + this.$routeParams.resid);
-				});
+				}).result.then((txid) => redirect(), () => redirect());
 			}).catch((res) => {
 				$('#errorModal').modal('show');
 			});
 		} else if (this.$routeParams.restype == 'event') {
-			const modalI = this.$uibModal.open({
+			this.$uibModal.open({
 				component: 'meWalletWithdrawComponent',
 				resolve: {
 					modalData: () => {
@@ -83,14 +78,7 @@ class MeWalletDonateCtrl {
 						};
 					}
 				}
-			});
-
-			modalI.result.then((txid) => {
-				this.$location.path('/' + this.$routeParams.restype + '/' + this.$routeParams.resid);
-				//$location.path ('/donation/' + txid);
-			}, () => {
-				this.$location.path('/' + this.$routeParams.restype + '/' + this.$routeParams.resid);
-			});
+			}).result.then((txid) => redirect(), () => redirect());
 		}
 	}
 

@@ -95,7 +95,7 @@
 					<translate>Use your Ledger Nano device to create a new Helperbit wallet</translate>:
 				</p>
 
-				<ledger-wait config="$ctrl.wizard.step1HardwareWallet.model.ledgerWaitStatus" exec="$ctrl.wizard.step1HardwareWallet.model.exec"></ledger-wait>
+				<ledger-wait config="$ctrl.wizard.step1HardwareWallet.model.ledgerWaitStatus" exec="$ctrl.wizard.step1HardwareWallet.model.ledgerWaitStatus.exec"></ledger-wait>
 
 				<input class="form-control" type="text" readonly="readonly" placeholder="{{'Public Key'|translate}}" ng-show="$ctrl.model.hardwareWalletPublicKey.length > 3" ng-model="$ctrl.model.hardwareWalletPublicKey">
 

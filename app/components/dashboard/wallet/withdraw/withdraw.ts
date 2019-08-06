@@ -1,16 +1,15 @@
 import * as angular from 'angular';
-import BitcoinService from '../../../../services/bitcoin/mnemonic';
-import BitcoinLedgerService from '../../../../services/bitcoin/ledger';
 import { WizardStep } from '../../../../shared/helpers/wizard-step';
-import { LedgerWaitConfig } from '../../ledger-wait/ledger-wait';
 import WalletService, { Wallet, WalletTransaction, Transaction } from '../../../../models/wallet';
 import NotificationService from '../../../../models/notifications';
+import { SignConfig } from '../sign/sign';
+import ConfigService from '../../../../app.config';
+import { checkBitcoinAddress } from '../../../../services/bitcoin/mnemonic';
 
 class MeWalletWithdrawCtrl {
-	$bitcoin: BitcoinService;
-	$bitcoinLedger: BitcoinLedgerService;
 	$walletService: WalletService;
 	$timeout: angular.ITimeoutService;
+	config: ConfigService;
 
 	resolve: {
 		modalData: {
@@ -30,6 +29,7 @@ class MeWalletWithdrawCtrl {
 
 	mtype: 'withdraw' | 'eventdonation';
 	wallet: Wallet & { txs?: WalletTransaction[]; pendingtxs?: Transaction[] };
+	signConfig: SignConfig;
 	donation: string;
 	fixedDestination: string;
 	fixedValue: string;
@@ -51,23 +51,15 @@ class MeWalletWithdrawCtrl {
 	};
 	multisigWizard: { step1: WizardStep<void>; step2: WizardStep<void>; step3: WizardStep<void> };
 	singleWizard: {
-		step1: WizardStep<{
-			mnemonic: string;
-			hardware: boolean;
-			hardwareType: string;
-		}>;
-		step2: WizardStep<{
-			ledgerWaitStatus: LedgerWaitConfig;
-			exec: () => void;
-		}>;
+		step1: WizardStep<void>;
+		step2: WizardStep<void>;
 		step3: WizardStep<void>;
 	};
 
-	constructor($walletService, $timeout, config, $notificationService: NotificationService, $bitcoin, $bitcoinLedger, WizardHandler, $translate) {
+	constructor($walletService, $timeout, config, $notificationService: NotificationService, WizardHandler, $translate) {
 		this.$timeout = $timeout;
 		this.$walletService = $walletService;
-		this.$bitcoin = $bitcoin;
-		this.$bitcoinLedger = $bitcoinLedger;
+		this.config = config;
 
 		this.mtype = 'withdraw';
 		this.model = {
@@ -76,6 +68,10 @@ class MeWalletWithdrawCtrl {
 			feeprofile: 'fastest',
 			value: config.minDonation,
 			vvalue: 0.0,
+		};
+
+		this.signConfig = {
+			wallet: null
 		};
 
 		this.multisigWizard = { step1: null, step2: null, step3: null };
@@ -117,24 +113,12 @@ class MeWalletWithdrawCtrl {
 
 		this.singleWizard = { step1: null, step2: null, step3: null };
 		this.singleWizard.step1 = new WizardStep('withdrawSingle', WizardHandler);
-		this.singleWizard.step1.initializeModel({
-			mnemonic: '',
-			hardware: false,
-			hardwareType: 'none'
-		});
 		this.singleWizard.step1.setTitles({ main: $translate.getString('Send') });
 
 
 		this.singleWizard.step2 = new WizardStep('withdrawSingle', WizardHandler);
 		this.singleWizard.step2.setTitles({ main: $translate.getString('Summary') });
-		this.singleWizard.step2.initializeModel({
-			ledgerWaitStatus: {
-				phase: 0,
-				status: 'wait',
-				button: false
-			},
-			exec: () => { this.singleWizard.step2.submit() }
-		});
+
 		this.singleWizard.step2.setSubmitHandler((_) => {
 			const sendTransaction = (txhex) => {
 				this.$walletService.sendTransaction(this.wallet.address, txhex, this.donation).then(txid => {
@@ -150,30 +134,8 @@ class MeWalletWithdrawCtrl {
 					});
 				});
 			};
-			
-			const ledgerWaitCallback = (phase, status) => {
-				$timeout(() => {
-					this.singleWizard.step2.model.ledgerWaitStatus = {...this.singleWizard.step2.model.ledgerWaitStatus, ...{
-						phase: phase,
-						status: status
-					}};
-				});
-			};
 
 			this.singleWizard.step2.loading = true;
-
-			let keys = null;
-
-			if (!this.singleWizard.step1.model.hardware) {
-				keys = $bitcoin.mnemonicToKeys(this.singleWizard.step1.model.mnemonic);
-
-				if ($.inArray(keys.public, this.wallet.pubkeys) == -1) {
-					return $timeout(() => {
-						this.singleWizard.step2.setResponse('error', { error: 'XIM' });
-						this.singleWizard.step2.loading = false;
-					});
-				}
-			}
 
 			const wreq = {
 				fee: this.model.fee,
@@ -181,39 +143,13 @@ class MeWalletWithdrawCtrl {
 				destination: this.model.destination
 			};
 
-			this.$walletService.withdraw(this.wallet.address, wreq).then(data=> {
-				if (this.singleWizard.step1.model.hardware && this.singleWizard.step1.model.hardwareType == 'ledgernanos') {
-					$bitcoinLedger.sign(data.txhex, {
-						scripttype: this.wallet.scripttype,
-						utxos: data.utxos,
-						pubkeys: this.wallet.pubkeys
-					}, ledgerWaitCallback).then(txhex => {
-						sendTransaction(txhex);
-					}).catch(err => {
-						// eslint-disable-next-line no-console
-						console.log(err);
-						return $timeout(() => {
-							// this.singleWizard.step2.error.error = 'E';
-							this.singleWizard.step2.loading = false;
-						});
+			this.$walletService.withdraw(this.wallet.address, wreq).then(data => {
+				this.signConfig.sign(data.txhex, data.utxos).then(txhex => sendTransaction(txhex)).catch(err => {
+					return $timeout(() => {
+						this.singleWizard.step2.setResponse('error', { error: err });
+						this.singleWizard.step2.loading = false;
 					});
-				} else if (!this.singleWizard.step1.model.hardware) {
-					$bitcoin.sign(data.txhex, {
-						scripttype: this.wallet.scripttype,
-						seed: this.singleWizard.step1.model.mnemonic,
-						utxos: data.utxos,
-						pubkeys: this.wallet.pubkeys
-					}).then(txhex => { 
-						sendTransaction(txhex);
-					}).catch(err => {
-						// eslint-disable-next-line no-console
-						console.log(err);
-						return $timeout(() => {
-							this.singleWizard.step2.setResponse('error', { error: 'E' });
-							this.singleWizard.step2.loading = false;
-						});
-					});
-				}
+				});
 			}).catch((res) => {
 				this.singleWizard.step2.setResponse('error', res.data);
 				this.singleWizard.step2.loading = false;
@@ -237,15 +173,6 @@ class MeWalletWithdrawCtrl {
 			});
 		};
 
-		const keys = this.$bitcoin.mnemonicToKeys(this.singleWizard.step1.model.mnemonic);
-
-		if ($.inArray(keys.public, this.wallet.pubkeys) == -1) {
-			return this.$timeout(() => {
-				this.singleWizard.step1.setResponse('error', { error: 'XIM' });
-				this.singleWizard.step1.loading = false;
-			});
-		}
-
 		this.singleWizard.step1.loading = true;
 		this.model.value = parseFloat('' + this.model.value);
 
@@ -257,31 +184,10 @@ class MeWalletWithdrawCtrl {
 		};
 
 		this.$walletService.createEventDonation(this.event, donreq).then(data => {
-			if (this.singleWizard.step1.model.hardware) {
-				this.$bitcoinLedger.sign(data.txhex, {
-					scripttype: this.wallet.scripttype,
-					seed: this.singleWizard.step1.model.mnemonic,
-					utxos: data.utxos,
-					pubkeys: this.wallet.pubkeys
-				}, () => { }).then(txhex => {
-					sendDonation(txhex, data.donation);
-				}).catch(err => {
-					// eslint-disable-next-line no-console
-					console.log(err);
-				});
-			} else {
-				this.$bitcoin.sign(data.txhex, {
-					scripttype: this.wallet.scripttype,
-					seed: this.singleWizard.step1.model.mnemonic,
-					utxos: data.utxos,
-					pubkeys: this.wallet.pubkeys
-				}).then(txhex => {
-					sendDonation(txhex, data.donation);
-				}).catch(err => {
-					// eslint-disable-next-line no-console
-					console.log(err);
-				});
-			}
+			this.signConfig.sign(data.txhex, data.utxos).then(txhex => sendDonation(txhex, data.donation)).catch(err => {
+				// eslint-disable-next-line no-console
+				console.log(err);
+			});
 		}).catch((res) => {
 			this.singleWizard.step1.setResponse('error', res.data);
 		});
@@ -304,7 +210,7 @@ class MeWalletWithdrawCtrl {
 			currentStep = this.singleWizard.step1;
 
 
-		if (!this.$bitcoin.checkAddress(this.model.destination)) {
+		if (!checkBitcoinAddress(this.model.destination, this.config)) {
 			return this.$timeout(() => {
 				currentStep.setResponse('error', { error: 'EW2' });
 				this.multisigWizard.step1.setResponse('error', { error: 'EW2' });
@@ -315,17 +221,6 @@ class MeWalletWithdrawCtrl {
 		currentStep.resetResponse();
 
 		this.model.value = parseFloat('' + this.model.value);
-
-		/* Check the mnemonic (for single/company wallets) */
-		if (!this.wallet.ismultisig && !this.wallet.hardware) {
-			const keys = this.$bitcoin.mnemonicToKeys(this.singleWizard.step1.model.mnemonic);
-
-			if ($.inArray(keys.public, this.wallet.pubkeys) == -1) {
-				return this.$timeout(() => {
-					currentStep.setResponse('error', { error: 'XIM' });
-				});
-			}
-		}
 
 		/* Get the fees for this withdraw */
 		this.$walletService.withdrawFees(this.wallet.address, this.model.destination, this.model.value).then(fees => {
@@ -375,12 +270,11 @@ class MeWalletWithdrawCtrl {
 
 		this.$walletService.get(modalData.address).then(wallet => {
 			this.wallet = wallet;
+			this.signConfig.wallet = wallet;
 
 			this.$walletService.getBalance(modalData.address).then(balances => {
 				this.balance = balances;
 			});
-			this.singleWizard.step1.model.hardware = ['ledgernanos'].indexOf(this.wallet.hardware || 'none') != -1;
-			this.singleWizard.step1.model.hardwareType = this.wallet.hardware;
 
 			if ('destination' in modalData)
 				this.fixedDestination = modalData.destination;
@@ -440,7 +334,7 @@ class MeWalletWithdrawCtrl {
 		});
 	}
 
-	static get $inject() { return ['$walletService', '$timeout', 'config', '$notificationService', '$bitcoin', '$bitcoinLedger', 'WizardHandler', '$translate']; }
+	static get $inject() { return ['$walletService', '$timeout', 'config', '$notificationService', 'WizardHandler', '$translate']; }
 }
 
 

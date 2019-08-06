@@ -1,4 +1,25 @@
 import * as bitcoinjs from 'bitcoinjs-lib';
+import * as CryptoJS from 'crypto-js';
+
+export type BackupFileMultisig = {
+	pubkeysrv: string;
+	walletid: string;
+	label: string;
+	organization: string;
+};
+
+export type BackupFileSingle = {
+	address: string;
+	pubkeys: string[];
+};
+
+export type BackupFile = (BackupFileSingle | BackupFileMultisig) & {
+	user: string;
+	scripttype: BitcoinScriptType;
+	encprivkey: string;
+	pubkey: string;
+};
+
 
 export type BitcoinUTXO = { value: number; tx: string; n: number };
 
@@ -14,6 +35,32 @@ export type BitcoinSignOptions = {
 	pubkeys: string[];
 };
 
+
+
+/* Encrypt key */
+export function encryptKeys(privateKey: string, password: string): string {
+	const ence = CryptoJS.AES.encrypt(privateKey, password, { iv: password });
+	return ence.toString();
+}
+
+export function loadBackup(file: File): Promise<BackupFile> {
+	return new Promise((resolve, reject) => {
+		if (file === null)
+			return reject(null);
+
+		const reader = new FileReader();
+
+		reader.onload = (event: any) => {
+			const data = event.target.result;
+			try {
+				resolve(JSON.parse(data));
+			} catch (err) {
+				reject(err);
+			}
+		};
+		reader.readAsText(file);
+	});
+}
 
 export function randomBytes(size: number): Buffer {
 	const Buffer = require('safe-buffer').Buffer

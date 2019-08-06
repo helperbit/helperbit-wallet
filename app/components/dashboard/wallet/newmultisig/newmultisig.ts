@@ -4,10 +4,12 @@ import { WizardStep } from '../../../../shared/helpers/wizard-step';
 import { BitcoinScriptType } from '../../../../services/bitcoin/bitcoin-service';
 import DashboardService from '../../../../models/dashboard';
 import WalletService from '../../../../models/wallet';
+import UtilsService from 'app/services/utils';
 
 class MeWalletNewMultisigCtrl {
 	$walletService: WalletService;
 	$dashboardService: DashboardService;
+	$utils: UtilsService;
 
 	pageHeader: PageHeaderConfig;
 	wizard: {
@@ -21,7 +23,8 @@ class MeWalletNewMultisigCtrl {
 		step2: WizardStep<void>;
 	};
 
-	constructor($dashboardService, $walletService, $translate, WizardHandler) {
+	constructor($dashboardService, $walletService, $translate, WizardHandler, $utils) {
+		this.$utils = $utils;
 		this.$dashboardService = $dashboardService;
 		this.$walletService = $walletService;
 
@@ -81,7 +84,6 @@ class MeWalletNewMultisigCtrl {
 		return n + ' of ' + m;
 	}
 
-
 	$onInit() {
 		this.$dashboardService.getAdminList().then(admins => {
 			if (admins.length === 0)
@@ -95,7 +97,7 @@ class MeWalletNewMultisigCtrl {
 		});
 	}
 
-	static get $inject() { return ['$dashboardService', '$walletService', '$translate', 'WizardHandler']; }
+	static get $inject() { return ['$dashboardService', '$walletService', '$translate', 'WizardHandler', '$utils']; }
 }
 
 const MeWalletNewMultisigComponent = {

@@ -102,35 +102,8 @@
 						<td class="text-break-all">{{$ctrl.model.selected.description}}</td>
 					</tr>
 				</table>
-				<div ng-if="$ctrl.model.hardware">
-					<br>
-					<ledger-wait config="$ctrl.wizard.step2.model.ledgerWaitStatus" exec="$ctrl.wizard.step2.model.exec"></ledger-wait>
-				</div>
-				<div ng-if="!$ctrl.model.hardware">
-					<span ng-if="!$ctrl.model.useBackup" ng-init="showpassphrase = true">
-						<p>
-							<translate>Insert your passphrase (or click</translate> <a ng-click="$ctrl.model.useBackup = true;" href="" translate>here</a>
-							<translate>to sign with your backup file)</translate>:
-						</p>
-						<input class="form-control" ng-attr-type="{{ showpassphrase ? 'text' : 'password' }}" ng-model="$ctrl.model.mnemonic" value="{{$ctrl.model.mnemonic}}" />
-						<div class="text-right">
-							<a href="" ng-click="showpassphrase = !showpassphrase">
-								<span ng-if="showpassphrase" translate>Hide passphrase</span>
-								<span ng-if="!showpassphrase" translate>Show passphrase</span>
-							</a>
-						</div>
-					</span>
-					<span ng-if="$ctrl.model.useBackup">
-						<p>
-							<translate>Load your backup file (or click</translate> <a ng-click="$ctrl.model.useBackup = false;" href="" translate>here</a>
-							<translate>to sign with your passphrase)</translate>:
-						</p>
-						<input type="file" accept="application/json" class="form-control upload" ngf-select="$ctrl.loadBackupFile($file);"></input>
-						<translate>Backup password</translate>:
-						<br>
-						<input type="password" class="form-control" value="" ng-model="$ctrl.model.backup.password" />
-					</span>
-				</div>
+				
+				<wallet-sign sign-config="$ctrl.signConfig"></wallet-sign>
 
 				<hr>
 

@@ -12,19 +12,13 @@
 				</div>
 
 				<p translate>If you lose your passphrase, you can restore your funds by uploading the backup file and sending the funds to another address.</p>
-				<translate>Backup file</translate>:
-				<br>
-				<input type="file" accept="application/json" class="upload form-control" ngf-select="$ctrl.loadBackupFile($file);"></input>
 
-				<br>
-				<translate>Backup password</translate>:
-				<br>
-				<input type="password" class="form-control" value="" ng-model="$ctrl.wizard.step1.model.password" />
-
-				<br>
 				<translate>Destination address</translate>:
 				<br>
 				<input type="text" class="form-control" value="" ng-model="$ctrl.wizard.step1.model.destination" />
+				<br>
+
+				<wallet-sign sign-config="$ctrl.signConfig"></wallet-sign>
 				<br>
 
 				<div class="row">

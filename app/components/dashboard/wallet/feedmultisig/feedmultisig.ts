@@ -1,5 +1,7 @@
 import { Wallet } from '../../../../models/wallet';
 import { CreateWalletController } from '../create-wallet';
+import { BitcoinKeys, generateMnemonic } from '../../../../services/bitcoin/mnemonic';
+import { encryptKeys, BackupFile } from '../../../../services/bitcoin/bitcoin-service';
 
 class MeWalletFeedMultisigCtrl extends CreateWalletController {
 	wallet: Wallet;
@@ -14,23 +16,17 @@ class MeWalletFeedMultisigCtrl extends CreateWalletController {
 			}
 		};
 
-		this.wizard.step1HardwareWallet.setNextInterceptor(() => {
-			this.feed();
-		});
-
-		this.wizard.step3.setNextInterceptor(() => {
-			this.feed();
-		});
+		this.wizard.step1HardwareWallet.setNextInterceptor(() => this.feed());
+		this.wizard.step3.setNextInterceptor(() => this.feed());
 	}
-
 
 	feed() {
 		this.wizard.step3.loading = true;
 
 		// First key, generated from mnemonic
-		let key1: any = {};
+		let key1: BitcoinKeys;
 		if (this.model.hardwareWallet) {
-			key1 = { public: this.model.hardwareWalletPublicKey, private: '' };
+			key1 = { public: this.model.hardwareWalletPublicKey, private: null, pair: null };
 		} else {
 			key1 = this.$bitcoin.mnemonicToKeys(this.model.mnemonic);
 		}
@@ -42,9 +38,8 @@ class MeWalletFeedMultisigCtrl extends CreateWalletController {
 			this.model.downloadedBackup = false;
 
 			if (!this.model.hardwareWallet) {
-				const ee = this.$bitcoin.encryptKeys(key1.private, this.model.backupPassword);
-
-				this.model.file = JSON.stringify({
+				const ee = encryptKeys(key1.private, this.model.backupPassword);
+				const backup: BackupFile = {
 					user: this.username,
 					scripttype: this.wallet.scripttype,
 					pubkeysrv: wallet.pubkeysrv,
@@ -53,19 +48,17 @@ class MeWalletFeedMultisigCtrl extends CreateWalletController {
 					walletid: this.$routeParams.wallet,
 					label: this.model.label,
 					organization: this.model.organization
-				});
+				};
+
+				this.model.file = JSON.stringify(backup);
 			}
 
 			this.$dashboardService.emitNotificationUpdate('wallet');
 			this.wizard.step3._next();
-		}).catch((res) => {
-			if (this.model.hardwareWallet)
-				this.wizard.step1HardwareWallet.setResponse('error', res.data);
-			else
-				this.wizard.step3.setResponse('error', res.data);
-		});
+		}).catch((res) =>
+			(this.model.hardwareWallet ? this.wizard.step1HardwareWallet : this.wizard.step3).setResponse('error', res.data)
+		);
 	}
-
 
 	$onInit() {
 		this.username = this.$cookies.get('username');
@@ -77,7 +70,7 @@ class MeWalletFeedMultisigCtrl extends CreateWalletController {
 			hardwareWallet: false,
 			hardwareWalletType: 'none',
 			hardwareWalletPublicKey: null,
-			mnemonic: this.$bitcoin.generateMnemonic(),
+			mnemonic: generateMnemonic(),
 			mnemonicConfirmChallenge: [],
 			backupPassword: '',
 			backupPasswordRepeat: '',

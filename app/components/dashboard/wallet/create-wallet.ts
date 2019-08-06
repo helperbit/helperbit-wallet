@@ -1,8 +1,8 @@
 import * as angular from 'angular';
-import WalletService from "../../../models/wallet";
+import WalletService, { HardwareWalletType } from "../../../models/wallet";
 import TranslateService from "../../../services/translate";
 import BitcoinLedgerService from "../../../services/bitcoin/ledger";
-import BitcoinService, { createMnemonicChallenge, checkMnemonicChallenge } from "../../../services/bitcoin/mnemonic";
+import BitcoinService, { createMnemonicChallenge, checkMnemonicChallenge, generateMnemonic } from "../../../services/bitcoin/mnemonic";
 import { ICookiesService } from "../../../shared/types/angular-cookies";
 import { PageHeaderConfig } from "../../../shared/components/page-header/page-header";
 import { BitcoinScriptType } from "../../../services/bitcoin/bitcoin-service";
@@ -33,7 +33,7 @@ export class CreateWalletController {
 		ledgerSupport: boolean;
 		accept: boolean;
 		hardwareWallet: boolean;
-		hardwareWalletType: string;
+		hardwareWalletType: HardwareWalletType;
 		hardwareWalletPublicKey: string;
 		mnemonic: string;
 		mnemonicConfirmChallenge: any[];
@@ -53,7 +53,7 @@ export class CreateWalletController {
 	wizard: {
 		step0: WizardStep<void>;
 		step1Passphrase: WizardStep<void>;
-		step1HardwareWallet: WizardStep<{ ledgerWaitStatus: LedgerWaitConfig; exec: () => void }>;
+		step1HardwareWallet: WizardStep<{ ledgerWaitStatus: LedgerWaitConfig }>;
 		step2: WizardStep<void>;
 		step2Passphrase: WizardStep<void>;
 		step3: WizardStep<{ passwordVisibility: string }>;
@@ -74,7 +74,6 @@ export class CreateWalletController {
 		this.$cookies = $cookies;
 
 		this.rnd = 'rnd' + Math.random() + '_';
-
 		this.hideIndicators = false;
 
 		this.model = {
@@ -84,7 +83,7 @@ export class CreateWalletController {
 			hardwareWallet: false,
 			hardwareWalletType: 'none',
 			hardwareWalletPublicKey: null,
-			mnemonic: $bitcoin.generateMnemonic(),
+			mnemonic: generateMnemonic(),
 			mnemonicConfirmChallenge: [],
 			backupPassword: '',
 			backupPasswordRepeat: '',
@@ -124,9 +123,8 @@ export class CreateWalletController {
 			ledgerWaitStatus: {
 				phase: 0,
 				status: 'wait',
-				exec: () => { }
-			},
-			exec: () => { this.pairHardwareWallet(); }
+				exec: () => { this.pairHardwareWallet(); }
+			}
 		});
 		this.wizard.step1HardwareWallet.setNextInterceptor(() => {
 			this.wizard.step1HardwareWallet._next();
@@ -205,7 +203,7 @@ export class CreateWalletController {
 	}
 
 	renewMnemonic() {
-		this.model.mnemonic = this.$bitcoin.generateMnemonic();
+		this.model.mnemonic = generateMnemonic();
 	}
 
 	printMnemonic() {
@@ -214,7 +212,6 @@ export class CreateWalletController {
 		this.$window.print();
 		document.title = oldtitle;
 	}
-
 
 	selectWalletType(wt: 'ledger' | 'mnemonic') {
 		if (wt == 'ledger') {
@@ -226,7 +223,6 @@ export class CreateWalletController {
 		}
 
 		this.model.accept = false;
-
 		this.wizard.step0.reset();
 		this.$timeout(() => { this.wizard.step0.next(); });
 	}

@@ -1,4 +1,6 @@
 import { CreateWalletController } from '../create-wallet';
+import { BitcoinKeys } from '../../../../services/bitcoin/mnemonic';
+import { encryptKeys, BackupFile } from '../../../../services/bitcoin/bitcoin-service';
 
 class MeWalletNewCtrl extends CreateWalletController {
 	constructor($walletService, $scope, $cookies, $routeParams, $bitcoin, $bitcoinLedger, $window, $translate, WizardHandler, $timeout, $browserHelper, $dashboardService) {
@@ -16,29 +18,31 @@ class MeWalletNewCtrl extends CreateWalletController {
 		this.wizard.step3.loading = true;
 
 		// First key, generated from mnemonic
-		let key1: any = {};
+		let key1: BitcoinKeys;
 		if (this.model.hardwareWallet) {
-			key1 = { public: this.model.hardwareWalletPublicKey };
+			key1 = { public: this.model.hardwareWalletPublicKey, private: null, pair: null };
 		} else {
 			key1 = this.$bitcoin.mnemonicToKeys(this.model.mnemonic);
 		}
 
 		// Second key, randomly created
-		const key2 = this.$bitcoin.randomKeys();
+		const key2: BitcoinKeys = this.$bitcoin.randomKeys();
 
 		// Create the wallet		
 		this.$walletService.create(this.model.scripttype, [key1.public, key2.public], this.model.hardwareWallet, this.model.hardwareWalletType).then(wallet => {
 			// Give the encrypted key as backup file
-			const ee = this.$bitcoin.encryptKeys(key2.private, this.model.backupPassword);
-			this.model.address = wallet.address;
-			this.model.file = JSON.stringify({
+			const ee = encryptKeys(key2.private, this.model.backupPassword);
+			const backup: BackupFile = {
 				user: this.username,
 				scripttype: this.model.scripttype,
 				encprivkey: ee,
 				address: wallet.address,
 				pubkey: key2.public,
 				pubkeys: [key1.public, key2.public, wallet.pubkeysrv]
-			});
+			};
+
+			this.model.address = wallet.address;
+			this.model.file = JSON.stringify(backup);
 			this.wizard.step3.loading = false;
 			this.model.downloadedBackup = false;
 
