@@ -135,7 +135,7 @@
     "@turf/boolean-disjoint": "^5.0.4",
     "@turf/boolean-point-in-polygon": "^5.0.4",
     "@turf/combine": "^5.0.4",
-    "angular": "1.5.11",
+    "angular": "1.6.0",
     "angular-animate": "1.5.11",
     "angular-cookies": "1.5.11",
     "angular-formly": "^8.4.1",
