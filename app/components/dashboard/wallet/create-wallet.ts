@@ -53,7 +53,7 @@ export class CreateWalletController {
 	wizard: {
 		step0: WizardStep<void>;
 		step1Passphrase: WizardStep<void>;
-		step1HardwareWallet: WizardStep<{ ledgerWaitStatus: LedgerWaitConfig }>;
+		step1HardwareWallet: WizardStep<{ ledgerWaitStatus: LedgerWaitConfig; exec: () => void }>;
 		step2: WizardStep<void>;
 		step2Passphrase: WizardStep<void>;
 		step3: WizardStep<{ passwordVisibility: string }>;
@@ -122,9 +122,9 @@ export class CreateWalletController {
 		this.wizard.step1HardwareWallet.initializeModel({
 			ledgerWaitStatus: {
 				phase: 0,
-				status: 'wait',
-				exec: () => { this.pairHardwareWallet(); }
-			}
+				status: 'wait'
+			},
+			exec: () => { this.pairHardwareWallet(); }
 		});
 		this.wizard.step1HardwareWallet.setNextInterceptor(() => {
 			this.wizard.step1HardwareWallet._next();

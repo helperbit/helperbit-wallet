@@ -11,8 +11,6 @@ export default class BitcoinTrezorService implements BitcoinSignService {
 	sign (txhex: string, options: BitcoinSignOptions): Promise<string> {	
 		if (!('n' in options))
 			options.n = 2;
-		if (!('complete' in options))
-			options.complete = true;
 
 		let segwit = false;
 		if (options.scripttype != 'p2sh')

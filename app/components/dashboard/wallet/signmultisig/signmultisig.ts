@@ -121,7 +121,7 @@ class MeWalletSignMultisigCtrl {
 	selectTransaction(tx) {
 		this.model.selected = tx;
 		this.model.refused = false;
-		this.signConfig.transaction = this.model.selected;
+		this.signConfig = { transaction: this.model.selected };
 
 		this.wizard.step1.next();
 	}

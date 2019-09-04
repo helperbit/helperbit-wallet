@@ -2,7 +2,6 @@ export type LedgerWaitConfig = {
 	phase: number;
 	status: string;
 	button?: boolean;
-	exec?: () => void;
 };
 
 class LedgerWaitController {
@@ -10,7 +9,7 @@ class LedgerWaitController {
 	phases: string[];
 	retryShow: boolean;
 
-	exec: () => void; // input
+	exec?: () => void; // input
 	config: LedgerWaitConfig; // input
 
 	constructor() {
@@ -26,7 +25,7 @@ class LedgerWaitController {
 		this.exec();
 	}
 
-	$onChanges(changes) {
+	$onChanges(changes) {		
 		if (!changes.config || !changes.config.currentValue)
 			return;
 
@@ -36,6 +35,8 @@ class LedgerWaitController {
 		this.phases[this.config.phase] = this.config.status;
 		if (this.config.status == 'error')
 			this.retryShow = true;
+		else
+			this.retryShow = false;
 
 		for (let i = this.config.phase + 1; i < this.phases.length; i++)
 			this.phases[i] = 'none';

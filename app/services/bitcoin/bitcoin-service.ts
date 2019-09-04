@@ -29,7 +29,6 @@ export type BitcoinSignOptions = {
 	seed?: string;
 	wif?: string;
 	n?: number;
-	complete?: boolean;
 	scripttype: BitcoinScriptType;
 	utxos: BitcoinUTXO[];
 	pubkeys: string[];
@@ -77,7 +76,7 @@ export function randomBytes(size: number): Buffer {
 		crypto.getRandomValues(rawBytes)
 	}
 
-	return new Buffer(rawBytes);
+	return Buffer.from(rawBytes);
 }
 
 export function toHexString(buffer: Buffer) {
@@ -86,7 +85,7 @@ export function toHexString(buffer: Buffer) {
 
 export function toByteArray(hexString: string) {
 	const Buffer = require('safe-buffer').Buffer
-	const result = new Buffer(hexString.length / 2);
+	const result = Buffer.alloc(hexString.length / 2);
 	let i = 0;
 	while (hexString.length >= 2) {
 		result[i] = parseInt(hexString.substring(0, 2), 16);
@@ -103,14 +102,12 @@ export function compressPublicKey(pk: string): string {
 export type Scripts = {
 	address: string;
 	scripttype: BitcoinScriptType;
-	p2sh?: object;
-	p2shRedeem?: Buffer;
-	p2wsh?: object;
-	p2wshRedeem?: Buffer;
+	p2sh?: bitcoinjs.Payment;
+	p2wsh?: bitcoinjs.Payment;
 };
 
 export function prepareScripts(scripttype: BitcoinScriptType, n: number, pubkeys: string[], network: bitcoinjs.Network): Scripts {
-	const pubkeysRaw = pubkeys.map(hex => new Buffer(hex, 'hex'));
+	const pubkeysRaw = pubkeys.map(hex => Buffer.from(hex, 'hex'));
 	const p2ms = bitcoinjs.payments.p2ms({ m: n, pubkeys: pubkeysRaw, network: network });
 
 	switch (scripttype) {
@@ -119,8 +116,7 @@ export function prepareScripts(scripttype: BitcoinScriptType, n: number, pubkeys
 			const res: Scripts = {
 				address: p2sh.address,
 				scripttype: scripttype,
-				p2sh: p2sh,
-				p2shRedeem: p2sh.redeem.output
+				p2sh: p2sh
 			};
 			return res;
 		}
@@ -132,9 +128,7 @@ export function prepareScripts(scripttype: BitcoinScriptType, n: number, pubkeys
 				address: p2sh.address,
 				scripttype: scripttype,
 				p2sh: p2sh,
-				p2shRedeem: p2sh.redeem.output,
-				p2wsh: p2wsh,
-				p2wshRedeem: p2wsh.redeem.output
+				p2wsh: p2wsh
 			};
 			return res;
 		}
@@ -144,8 +138,7 @@ export function prepareScripts(scripttype: BitcoinScriptType, n: number, pubkeys
 			const res: Scripts = {
 				address: p2wsh.address,
 				scripttype: scripttype,
-				p2wsh: p2wsh,
-				p2wshRedeem: p2wsh.redeem.output
+				p2wsh: p2wsh
 			};
 			return res;
 		}
@@ -155,4 +148,16 @@ export function prepareScripts(scripttype: BitcoinScriptType, n: number, pubkeys
 
 export interface BitcoinSignService {
 	sign(txhex: string, options: BitcoinSignOptions, callback?): Promise<string>;
+}
+
+
+export function scriptTypeOfBitcoinScriptType(st: BitcoinScriptType) {
+	switch (st) {
+		case 'p2sh':
+			return 'p2sh-p2pkh';
+		case 'p2sh-p2wsh':
+			return 'p2sh-p2wsh-p2pk';
+		case 'p2wsh':
+			return 'p2wsh-p2pkh';
+	}
 }

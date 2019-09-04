@@ -105,8 +105,9 @@ class MeWalletRestoreCtrl {
 
 	$onInit() {
 		this.$walletService.get(this.$routeParams.address).then(wallet => {
+			wallet.hardware = 'none';
 			this.wallet = wallet;
-			this.signConfig.wallet = wallet;
+			this.signConfig = { ...this.signConfig, ...{ wallet: wallet } };
 
 			this.$walletService.getBalance(this.wallet.address).then(data => {
 				this.wizard.step1.model.balance = data.balance + data.unconfirmed;

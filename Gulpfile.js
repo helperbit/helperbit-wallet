@@ -22,10 +22,14 @@ const persistify = require('persistify');
 const nodeResolve = require('resolve');
 const tsify = require('tsify');
 const imagemin = require('gulp-imagemin');
+const execSync = require('child_process').execSync;
+const replace = require('gulp-string-replace');
+const sriHash = require('gulp-sri-hash');
 
 const vendorLibs = [
 	'bitcoinjs-lib',
 	'bip32',
+	'bip39',
 	'jquery',
 	'angular',
 	'moment',
@@ -33,7 +37,7 @@ const vendorLibs = [
 	'moment/locale/es',
 	'moment/locale/en-gb',
 	'bootstrap/dist/js/bootstrap',
-	'vis',
+	'vis-network/dist/vis-network',
 	'ng-meta',
 	'angular-simple-logger',
 	'angular-route',
@@ -53,18 +57,14 @@ const vendorLibs = [
 	'intl-tel-input/build/js/intlTelInput',
 	'ng-intl-tel-input/dist/ng-intl-tel-input',
 	'angular-ui-bootstrap/dist/ui-bootstrap-tpls',
-	'turf',
 	'leaflet.heat/dist/leaflet-heat',
-	'n3-charts/build/LineChart',
 	'angular-formly',
 	'angular-formly-templates-bootstrap',
 	'angular-messages',
 	'angular-wizard',
 	'ng-tags-input',
-	'bip39',
 	'crypto-js',
-	'd3/d3',
-	// 'socket.io-client',
+	'chart.js',
 	'html2canvas',
 	'safe-buffer'
 ];
@@ -122,18 +122,40 @@ gulp.task('webpack:widget', ['set-env'], (cb) => {
 	});
 });
 
-gulp.task('webpack:distribution', ['set-env'], (cb) => {
-	if (!enableWebpack)
-		return cb();
-
-	exec('./node_modules/.bin/webpack --config app/lib/distribution.webpack.config.js', function (err, stdout, stderr) {
-		console.log(stdout);
-		console.log(stderr);
-		cb(err);
-	});
+gulp.task('lib:distribution', ['set-env'], (cb) => {
+	let b = browserify({ 
+		entries: [ 
+			'./app/lib/distribution.ts', 
+		],
+		debug: process.env.NODE_ENV !== 'production',
+		detectGlobals: true
+	})
+	.plugin(tsify)
+	
+	vendorLibs.forEach(lib => { b.external(lib); });
+	
+	b = b.transform(babelify.configure({ 
+        presets: ["@babel/preset-env"]
+    }))
+		.bundle()
+		.pipe(source('distribution.js'));
+	
+	if (process.env.NODE_ENV === 'production') {
+		return b.pipe(buffer())
+			.pipe(uglify({ mangle: false, compress: { warnings: true } }))
+			.on('error', gutil.log)
+			.on('end', browserSync.reload)
+			.pipe(sourcemaps.write('./'))
+			.pipe(gulp.dest('app/lib'));
+	} else {
+		return b.pipe(buffer())
+			.on('error', gutil.log)
+			.on('end', browserSync.reload)
+			.pipe(gulp.dest('app/lib'));
+	}
 });
 
-gulp.task('webpack', ['set-env', 'webpack:widget', 'webpack:distribution', 'widget:button']);
+gulp.task('webpack', ['set-env', 'webpack:widget', 'lib:distribution', 'widget:button']);
 /**************** WEBPACK END*/
 
 gulp.task('transpile-vendor', ['set-env'], () => {
@@ -209,7 +231,7 @@ gulp.task('transpile', ['set-env'], () => {
 	}
 });
 
-gulp.task('transpileExtend', ['set-env', 'translate:compile', 'webpack:distribution', 'transpile-vendor', 'transpile']);
+gulp.task('transpileExtend', ['set-env', 'translate:compile', 'lib:distribution', 'transpile-vendor', 'transpile', 'sri']);
 
 
 gulp.task('compress', ['transpileExtend'], () => {
@@ -222,19 +244,19 @@ gulp.task('compress', ['transpileExtend'], () => {
 });
 
 gulp.task('vendor', () => {
-	gulp.src([
+	return gulp.src([
 		'node_modules/bootstrap/dist/css/bootstrap.min.css',
 		'node_modules/leaflet/dist/leaflet.css',
 		'node_modules/angular-loading-bar/build/loading-bar.min.css',
 		'node_modules/intl-tel-input/build/css/intlTelInput.css',
-		'node_modules/vis/dist/vis.min.css',
+		'node_modules/vis-network/dist/vis-network.min.css',
 		'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css',
 		'node_modules/bootstrap-slider/dist/css/bootstrap-slider.min.css',
 		'node_modules/bootstrap-social/bootstrap-social.css',
 		'node_modules/cryptocoins-icons/webfont/cryptocoins.css',
 		'node_modules/font-awesome/css/font-awesome.min.css',
 		//'node_modules/leaflet-usermarker/src/leaflet.usermarker.css',
-		'node_modules/n3-charts/build/LineChart.min.css',
+		'node_modules/chart.js/dist/Chart.min.css',
 		'app/assets/fonts/fonts.css',
 		'node_modules/angular-wizard/dist/angular-wizard.min.css',
 		'node_modules/ng-tags-input/build/ng-tags-input.css'
@@ -263,11 +285,11 @@ gulp.task('vendor_static', () => {
 /**************** TRANSLATE START*/
 gulp.task('translate:extract', () => {
 	return gulp.src([
-		'app/components/**/*.html', 'app/components/**/*.js',
-		'app/shared/components/**/*.html', 'app/shared/components/**/*.js',
-		'app/shared/directives/*.js', 'app/shared/filters/*.js', 'app/services/**/*.js',
-		'app/**/*.js', 'app/**/*.ts', 'app/**/*.html', 
-		'app/*.js', 'app/*.ts', 'app/*.html'
+		'app/components/**/*.html', 'app/components/**/*.ts',
+		'app/shared/components/**/*.html', 'app/shared/components/**/*.ts',
+		'app/shared/directives/*.ts', 'app/shared/filters/*.ts', 'app/services/**/*.ts',
+		'app/**/*.ts', 'app/**/*.html', 
+		'app/*.ts', 'app/*.html'
 	])
 		.pipe(babel({ ignore: ['*.html'], presets: ["env"] }))
 		.pipe(gettext.extract('template.pot', {
@@ -397,7 +419,7 @@ gulp.task('copy-only', () => {
 	//}
 });
 
-gulp.task('copy', ['copy-only', 'set-env', 'sass', 'webpack', 'transpileExtend']);
+gulp.task('copy', ['copy-only', 'set-env', 'sass', 'webpack', 'transpileExtend', 'replaceVersion', 'sri']);
 
 
 gulp.task('watch', () => {
@@ -411,25 +433,39 @@ gulp.task('watch', () => {
 
 	gulp.start(['set-env']);
 
-	watch(['app/*.js', 'src/*.ts', 'src/**/*.ts', 'app/**/*.js', 'app/*.ts', 'app/**/*.ts', '!app/config.js', '!app/widgets/donate-button/button*', '!app/lib/*'], () => {
-		gulp.start(['transpile']);
+	watch(['app/*.js', 'src/*.ts', 'src/**/*.ts', 'app/*.ts', 'app/**/*.ts', '!app/config.js', '!app/widgets/donate-button/button*', '!app/lib/*'], () => {
+		gulp.start(['transpile', 'sri']);
 	});
 
 	watch(['app/lib/*'], () => {
-		gulp.start(['set-env', 'webpack:distribution', 'transpile']);
+		gulp.start(['set-env', 'lib:distribution', 'transpile', 'sri']);
 	});
 
 	watch('app/**/*.scss', () => {
-		gulp.start(['sass', 'copy-only']);
+		gulp.start(['sass', 'copy-only', 'sri']);
 		browserSync.reload();
 	});
 
 	watch('app/**/*.html', () => {
-		gulp.start('copy-only');
+		gulp.start('copy-only', 'replaceVersion', 'sri');
 		browserSync.reload();
 	});
 });
 
+gulp.task('sri', () => {
+	if (process.env.NODE_ENV !== 'production') 
+		return;
+
+	return;
+	// TODO: fix
+	return gulp.src('dist/index.html')
+		.pipe(sriHash({
+			algo: 'sha512',
+			selector: 'script[src]',
+			relative: true
+		  }))
+		.pipe(gulp.dest('./dist/'));
+});
 
 gulp.task('watch-secure', () => {
 	browserSync.init({
@@ -443,12 +479,12 @@ gulp.task('watch-secure', () => {
 
 	gulp.start(['set-env']);
 
-	watch(['app/*.js', 'app/**/*.js', 'app/*.ts', 'app/**/*.ts', '!app/config.js', '!app/widgets/donate-button/button*', '!app/lib/*'], () => {
-		gulp.start(['transpile']);
+	watch(['app/*.ts', 'app/**/*.ts', 'app/*.ts', 'app/**/*.ts', '!app/config.js', '!app/widgets/donate-button/button*', '!app/lib/*'], () => {
+		gulp.start(['transpile', 'sri']);
 	});
 
 	watch(['app/lib/*'], () => {
-		gulp.start(['set-env', 'webpack:distribution', 'transpile']);
+		gulp.start(['set-env', 'lib:distribution', 'transpile']);
 	});
 
 	watch('app/**/*.scss', () => {
@@ -457,11 +493,18 @@ gulp.task('watch-secure', () => {
 	});
 
 	watch('app/**/*.html', () => {
-		gulp.start('copy-only');
+		gulp.start('copy-only', 'replaceVersion', 'sri');
 		browserSync.reload();
 	});
 });
 
+gulp.task('replaceVersion', function() {	
+	const code = execSync('git rev-parse HEAD').toString().substring(0, 8);
+
+	return gulp.src(["app/index.html"])
+	  .pipe(replace(/v=[A-Z][A-Z]*/g, 'v=' + code))
+	  .pipe(gulp.dest('./dist/'))
+});
 
 gulp.task('build', [
 	'translate:compile',

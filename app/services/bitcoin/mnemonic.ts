@@ -3,14 +3,14 @@ import * as bip39 from 'bip39';
 import * as bip32 from 'bip32';
 import * as CryptoJS from 'crypto-js';
 import CurrencyService from '../currency';
-import { BitcoinSignService, randomBytes, BitcoinSignOptions, prepareScripts, BitcoinScriptType, BackupFile } from './bitcoin-service';
+import { BitcoinSignService, randomBytes, BitcoinSignOptions, prepareScripts, BitcoinScriptType, BackupFile, scriptTypeOfBitcoinScriptType } from './bitcoin-service';
 import { ConfigService } from '../../app.config';
 
 require("babel-polyfill");
 
 
 export type MnemonicChallenge = { index: number; correct: string; insert: string }[];
-export type BitcoinKeys = { private: string; public: string; pair: bitcoinjs.ECPair };
+export type BitcoinKeys = { private: string; public: string; pair: bitcoinjs.ECPairInterface };
 
 export function checkBitcoinAddress(address: string, config: ConfigService): boolean {
 	try {
@@ -107,7 +107,7 @@ export default class BitcoinService implements BitcoinSignService {
 
 
 	checkAddress(address: string): boolean {
-		return checkBitcoinAddress(address, this.config.network);
+		return checkBitcoinAddress(address, this.config);
 	}
 
 	evaluteFee(inputs, outputs, fast) {
@@ -129,8 +129,8 @@ export default class BitcoinService implements BitcoinSignService {
 				.trim();
 		};
 
-		const seed = bip39.mnemonicToSeed(fixSeed(secret));
-		const hd = bip32.fromSeed(seed, this.config.network);
+		const seed = bip39.mnemonicToSeedSync(fixSeed(secret));
+		const hd = bitcoinjs.ECPair.fromWIF(bip32.fromSeed(seed, this.config.network).toWIF(), this.config.network);
 		const priv1 = hd.toWIF();
 		const pub1 = hd.publicKey.toString('hex');
 		return { private: priv1, public: pub1, pair: hd };
@@ -150,39 +150,13 @@ export default class BitcoinService implements BitcoinSignService {
 	sign(txhex: string, options: BitcoinSignOptions): Promise<string> {
 		if ('seed' in options)
 			options.wif = this.mnemonicToKeys(options.seed).private;
-		if (!('n' in options))
-			options.n = 2;
-		if (!('complete' in options))
-			options.complete = true;
-
-		let segwit = false;
-		if (options.scripttype != 'p2sh')
-			segwit = true;
 
 		return new Promise((resolve, reject) => {
-			const tx = bitcoinjs.Transaction.fromHex(txhex);
-			const txb = bitcoinjs.TransactionBuilder.fromTransaction(tx, this.config.network);
+			const txb = bitcoinjs.Psbt.fromHex(txhex, { network: this.config.network });
 			const upair = bitcoinjs.ECPair.fromWIF(options.wif, this.config.network);
-			const walletScripts = prepareScripts(options.scripttype, options.n, options.pubkeys, this.config.network);
 
-			for (let j = 0; j < tx.ins.length; j++) {
-				switch (options.scripttype) {
-					case 'p2sh-p2wsh':
-						txb.sign(j, upair, walletScripts.p2shRedeem, null, options.utxos[j].value, walletScripts.p2wshRedeem);
-						break;
-					case 'p2wsh':
-						txb.sign(j, upair, null, null, options.utxos[j].value, walletScripts.p2wshRedeem);
-						break;
-					case 'p2sh':
-						txb.sign(j, upair, walletScripts.p2shRedeem);
-						break;
-				}
-			}
-
-			if (options.complete)
-				return resolve(txb.build().toHex());
-			else
-				return resolve(txb.buildIncomplete().toHex());
+			txb.signAllInputs(upair);
+			resolve(txb.toHex());
 		});
 	}
 

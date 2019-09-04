@@ -61,7 +61,6 @@ class WalletSignCtrl {
 		this.ledgerWaitStatus = {
 			phase: 0,
 			status: 'wait',
-			exec: () => { },
 			button: false
 		};
 	}
@@ -82,7 +81,6 @@ class WalletSignCtrl {
 
 			if (this.model.multisig) {
 				bsign.n = this.signConfig.transaction.n;
-				bsign.complete = false;
 			}
 
 			if (this.model.hardware && this.model.hardwareType == 'ledgernanos') {
@@ -97,7 +95,13 @@ class WalletSignCtrl {
 					});
 				};
 
-				this.$bitcoinLedger.sign(txhex, bsign, ledgerWaitCallback).then(txhex => resolve(txhex)).catch(_ => reject('XHW1'));
+				this.$bitcoinLedger.sign(txhex, bsign, ledgerWaitCallback).then(txhex => {
+					resolve(txhex); 
+				}).catch(_ => {
+					// eslint-disable-next-line no-console
+					console.log(_);
+					this.$timeout(() => { reject('XHW1') }); 
+				});
 			} else if (!this.model.hardware && !this.model.useBackup) {
 				const keys: BitcoinKeys = this.$bitcoin.mnemonicToKeys(this.model.mnemonic);
 

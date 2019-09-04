@@ -31,7 +31,7 @@
         <b translate translate-context="Ledger-Pair-Procedure">Oops, couldn't connect to device</b>
         <p translate translate-context="Ledger-Pair-Procedure">The Helperbit platform is unable to connect to the device; please be sure to connect the device, unlock with the pin and select the Bitcoin app.</p>
     </div>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-lg-right text-md-right text-sm-center text-xs-center">
+    <div ng-if="$ctrl.exec" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-lg-right text-md-right text-sm-center text-xs-center">
         <a href="javascript:void(0)" ng-click="$ctrl.retry()" translate>Retry</a>
     </div>
 </div>

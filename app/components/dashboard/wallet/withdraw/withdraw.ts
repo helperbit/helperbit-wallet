@@ -241,7 +241,7 @@ class MeWalletWithdrawCtrl {
 			if ((this.model.vvalue + this.model.fee) > this.balance.balance + this.balance.unconfirmed)
 				this.model.vvalue = this.balance.balance + this.balance.unconfirmed - this.model.fee;
 		}).catch((res) => {
-			currentStep.setResponse('error', res.data);
+			this.$timeout(() => { currentStep.setResponse('error', res.data); });
 			currentStep.loading = false;
 		});
 	}
@@ -270,7 +270,7 @@ class MeWalletWithdrawCtrl {
 
 		this.$walletService.get(modalData.address).then(wallet => {
 			this.wallet = wallet;
-			this.signConfig.wallet = wallet;
+			this.signConfig = {...this.signConfig, ...{ wallet: wallet }};
 
 			this.$walletService.getBalance(modalData.address).then(balances => {
 				this.balance = balances;

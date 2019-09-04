@@ -1,5 +1,3 @@
-
-
 {
     "compilerOptions": {
         "baseUrl": ".",
@@ -11,10 +9,18 @@
         "noImplicitAny": false,
         "allowJs": false,
         "target": "es5",
-        "lib": ["es6", "dom"],
-        "types" : ["node", "angularjs", "bitcoinjs-lib"]
+        "lib": [
+            "es6",
+            "dom"
+        ],
+        "types": [
+            "node",
+            "angularjs"
+        ]
     },
-    "exclude": ["node_modules"],
+    "exclude": [
+        "node_modules"
+    ],
     "paths": {
         "@shared/*": [
             "app/shared/*"
