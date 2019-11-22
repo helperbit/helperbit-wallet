@@ -1,45 +1,42 @@
-me-wallet-component {
+@import "~app/sass/const.scss";
 
-	.default-wallet-container {
-		max-width: 768px;
-		margin: 0 auto;
-		border: 2px solid $yellow;
-		padding: 15px;
-		border-radius: 15px;
-		box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.5);
-	}
+.default-wallet-container {
+	max-width: 768px;
+	margin: 0 auto;
+	border: 2px solid $yellow;
+	padding: 15px;
+	border-radius: 15px;
+	box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.5);
+}
 
-	.address-container {
-
-		span {
-
-			@media screen and (max-width: 399px) {
-				width: 225px;
-				display: inline-block
-			}
+.address-container {
+	span {
+		@media screen and (max-width: 399px) {
+			width: 225px;
+			display: inline-block
 		}
 	}
+}
 
-	.wallet-actions-container {
-		width: 150px;
-		float: right;
+.wallet-actions-container {
+	width: 150px;
+	float: right;
 
-		@media screen and (max-width: #{$breakpointMdMax}) {
+	@media screen and (max-width: #{$breakpointMdMax}) {
+		width: auto;
+		float: none;
+
+		.btn-block {
+			display: inline-block;
+			padding: 6px 12px;
 			width: auto;
-			float: none;
 
-			.btn-block {
-				display: inline-block;
-				padding: 6px 12px;
-				width: auto;
+			@media screen and (max-width: #{$breakpointXsMax}) {
+				width: calc(50% - 2px)
+			}
 
-				@media screen and (max-width: #{$breakpointXsMax}) {
-					width: calc(50% - 2px)
-				}
-
-				& +.btn-block {
-					margin-top: 0;
-				}
+			& +.btn-block {
+				margin-top: 0;
 			}
 		}
 	}

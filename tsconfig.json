@@ -2,31 +2,35 @@
     "compilerOptions": {
         "baseUrl": ".",
         "experimentalDecorators": true,
+        "importHelpers": true,
+        "module": "esnext",
+        "moduleResolution": "node",
         "sourceMap": true,
         "declaration": false,
         "downlevelIteration": true,
         "emitDecoratorMetadata": true,
         "noImplicitAny": false,
         "allowJs": false,
-        "target": "es5",
+        "target": "es2015",
         "lib": [
             "es6",
             "dom"
         ],
         "types": [
-            "node",
-            "angularjs"
+            "node"
         ]
     },
+    "angularCompilerOptions": {
+        "skipTemplateCodegen": false,
+        "enableIvy": false
+    },
     "exclude": [
-        "node_modules"
+        "node_modules",
+        "dist"
     ],
     "paths": {
         "@shared/*": [
             "app/shared/*"
-        ],
-        "moment": [
-            "./node_modules/moment/min/moment.min.js"
         ],
         "bootstrap": [
             "./node_modules/bootstrap/dist/js/bootstrap.js"

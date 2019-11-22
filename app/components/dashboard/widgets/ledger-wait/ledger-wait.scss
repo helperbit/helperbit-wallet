@@ -1,0 +1,23 @@
+@import "~app/sass/const.scss";
+
+li > i {
+    float: right;
+}
+
+li > i.success {
+    color: $green;
+}
+
+li > i.error {
+    color: $red;
+}
+
+.retry {
+    color: $red;
+
+    a {
+        color: $red;
+        text-decoration: underline;
+        font-weight: bold;
+    }
+}

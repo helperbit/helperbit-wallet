@@ -9701,8 +9701,8 @@ msgid "start date"
 msgstr "Fecha de inicio"
 
 #: dashboard/controlpanel/controlpanel.js:41
-msgid "start your fundraising campaign"
-msgstr "Empieza tu campaña fundraising"
+msgid "gather money for charities"
+msgstr "reúna dinero para organizaciones benéficas"
 
 #: home/about/sections/subscribe.html:2
 msgid "subscribe to newsletter"

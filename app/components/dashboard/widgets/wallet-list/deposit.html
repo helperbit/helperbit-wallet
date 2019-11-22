@@ -1,0 +1,49 @@
+<!-- 
+<modal [config]="modals.faucetDone">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+						aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel" translate>Faucet sent</h4>
+			</div>
+			<div class="modal-body">
+				<div align="center"><i class="fa fa-check-circle text-color-green" style="font-size:700%;"></i></div>
+				<br>
+				<p translate>You testnet bitcoins will be available in your wallet balance within few seconds.</p>
+			</div>
+		</div>
+	</modal> -->
+	
+<div class="modal-header">
+	<button type="button" class="close" aria-label="Close" (click)="activeModal.close()">
+		<span aria-hidden="true">&times;</span>
+	</button>
+	<h4 class="modal-title" id="myModalLabel" translate>Receive</h4>
+</div>
+
+<ngb-tabset id="depositTabset" [justify]="'fill'">
+	<ngb-tab [title]="'Receive money'| translate">
+		<ng-template ngbTabContent class="modal-body text-center">
+			<!-- <div *ngIf="faucet.error == 'EF1'" class="alert alert-danger" role="alert" translate>No faucet funds</div>
+			<div *ngIf="faucet.error == 'EF2'" class="alert alert-danger" role="alert" translate>Wallet not empty</div>
+			<div *ngIf="faucet.error == 'EW5'" class="alert alert-danger" role="alert" translate>Transaction not sent</div> -->
+
+			<span translate>Your bitcoin address is</span>: <br>
+			<input type="text" [value]="wallet.address" class="form-control text-center" />
+			<br>
+			<qrcode *ngIf="qr" [size]="150" [qrdata]="qr"></qrcode>
+			<br>
+			<p translate>Please remember that minimum donation with Helperbit is 0.001 bitcoin, please take it in mind when you top up your wallet.</p>
+
+			<!-- <span feature="faucet">
+				<hr>
+				<button class="btn btn-default btn-block" loading="faucet.loading" (click)="getFaucet (wallet)" translate>Get faucet</button>
+			</span> -->
+		</ng-template>
+	</ngb-tab>
+	<ngb-tab [title]="'History'| translate">
+		<ng-template ngbTabContent class="modal-body">
+			<transaction-list [in]="true" [txs]="txs"></transaction-list>
+		</ng-template>
+	</ngb-tab>
+</ngb-tabset>

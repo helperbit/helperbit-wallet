@@ -1,35 +1,37 @@
-<div ng-if="$ctrl.model.hardware && $ctrl.model.hardwareType == 'ledgernanos'">
+<div *ngIf="model.hardware && model.hardwareType == 'ledgernanos'">
 	<br>
-	<ledger-wait config="$ctrl.ledgerWaitStatus"></ledger-wait>
-	<!-- exec="$ctrl.ledgerWaitStatus.exec" -->
+	<ledger-wait [config]="ledgerWaitStatus"></ledger-wait>
+	<!-- exec="ledgerWaitStatus.exec" -->
 </div>
-<div ng-if="!$ctrl.model.hardware && !$ctrl.model.useBackup" ng-init="showpassphrase = true">
+<div *ngIf="!model.hardware && !model.useBackup">
 	<p>
-		<translate>Insert your passphrase (or click</translate> <a ng-click="$ctrl.model.useBackup = true;" href=""
-			translate>here</a>
-		<translate>to sign with your backup file)</translate>:
+		<span translate>Insert your passphrase (or click</span>
+		<a (click)="model.useBackup = true" translate>here</a>
+		<span translate>to sign with your backup file)</span>:
 	</p>
-	<input class="form-control" ng-attr-type="{{ showpassphrase ? 'text' : 'password' }}"
-		ng-model="$ctrl.model.mnemonic" value="{{$ctrl.model.mnemonic}}" />
+	<input class="form-control" [type]="showpassphrase ? 'text' : 'password'" [(ngModel)]="model.mnemonic"
+		[value]="model.mnemonic" />
 	<div class="text-right">
-		<a href="" ng-click="showpassphrase = !showpassphrase">
-			<span ng-if="showpassphrase" translate>Hide passphrase</span>
-			<span ng-if="!showpassphrase" translate>Show passphrase</span>
+		<a (click)="showpassphrase = !showpassphrase">
+			<span *ngIf="showpassphrase" translate>Hide passphrase</span>
+			<span *ngIf="!showpassphrase" translate>Show passphrase</span>
 		</a>
 	</div>
 </div>
-<div ng-if="!$ctrl.model.hardware && $ctrl.model.useBackup">
+<div *ngIf="!model.hardware && model.useBackup">
 	<p>
-		<translate>Load your backup file</translate>
-			<span ng-if="!$ctrl.signConfig.forceBackup">
-				<translate>(or click</translate> <a ng-click="$ctrl.model.useBackup = false;" href="" translate>here</a>
-		<translate>to sign with your passphrase)</translate></span>:
+		<span translate>Load your backup file</span>
+		<span *ngIf="!signConfig.forceBackup">
+			<span translate>(or click</span>
+			<a (click)="model.useBackup = false;" href="#" translate>here</a>
+			<span translate>to sign with your passphrase)</span>
+		</span>:
 	</p>
-	<input type="file" accept="application/json" class="form-control upload"
-		ngf-select="$ctrl.loadBackupFile($file);"></input>
+	<input fileSelect type="file" accept="application/json" class="form-control upload"
+		(select)="loadBackupFile($event);">
 
 	<br>
-	<translate>Backup password</translate>:
+	<span translate>Backup password</span>:
 	<br>
-	<input type="password" class="form-control" value="" ng-model="$ctrl.model.backup.password" />
+	<input type="password" class="form-control" value="" [(ngModel)]="model.backup.password" />
 </div>

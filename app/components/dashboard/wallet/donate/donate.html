@@ -1,5 +1,5 @@
 
-<modal mid="errorModal" content="true">
+<modal [config]="modals.error">
 	<!-- No tx -->
 	<div class="modal-content" >
 		<div class="modal-header">
@@ -7,7 +7,7 @@
             <h4 class="modal-title" id="myModalLabel" translate>Error</h4>
         </div>
 		<div class="modal-body">
-			<translate>There was an error during the operation.</translate>
+			<span translate>There was an error during the operation.</span>
 		</div>
 	</div>
 </modal>

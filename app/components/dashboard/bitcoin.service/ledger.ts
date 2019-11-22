@@ -3,34 +3,29 @@ import TransportU2F from "@ledgerhq/hw-transport-u2f";
 import Btc from "@ledgerhq/hw-app-btc";
 import {
 	BitcoinSignService, BitcoinSignOptions, compressPublicKey,
-	prepareScripts, toByteArray, scriptTypeOfBitcoinScriptType
+	prepareScripts, toByteArray
 } from './bitcoin-service';
-import { ConfigService } from '../../app.config';
-import { deserializeCall } from '../../models/common';
+import { unwrap } from '../../../models/common';
+import AppSettings from '../../../app.settings';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/internal/Observable';
 
-require("babel-polyfill");
 
-
+@Injectable()
 export default class BitcoinLedgerService implements BitcoinSignService {
-	config: ConfigService;
-	$http: any;
-
 	defaultAccount: string;
 	defaultPath: string;
 
-	constructor(config: ConfigService, $http) {
-		this.config = config;
-		this.$http = $http;
 
+	constructor(private http: HttpClient) {
 		this.defaultAccount = '7276'; // HB
-		this.defaultPath = "44'/" + (config.networkName == 'testnet' ? '1' : '0') + "'/" + this.defaultAccount + "'/0/0";
+		this.defaultPath = "44'/" + (AppSettings.networkName == 'testnet' ? '1' : '0') + "'/" + this.defaultAccount + "'/0/0";
 	}
 
-	private rawTransactions(hashes: string[]): Promise<{ [txid: string]: string }> {
-		return deserializeCall<{ [txid: string]: string }>(
-			this.$http.post(this.config.apiUrl + '/blockchain/rawtransactions', { hashes: hashes }),
-			'transactions'
-		);
+	private rawTransactions(hashes: string[]): Observable<{ [txid: string]: string }> {
+		return this.http.post<{ [txid: string]: string }>(AppSettings.apiUrl + '/blockchain/rawtransactions', { hashes: hashes })
+			.pipe(unwrap('transactions'));
 	}
 
 	private getPublicKeyFromPath(path: string, ledgerWaitCallback) {
@@ -81,7 +76,7 @@ export default class BitcoinLedgerService implements BitcoinSignService {
 		if (options.scripttype != 'p2sh')
 			segwit = true;
 
-		const walletScripts = prepareScripts(options.scripttype, options.n, options.pubkeys, this.config.network);
+		const walletScripts = prepareScripts(options.scripttype, options.n, options.pubkeys, AppSettings.network);
 
 		return new Promise((resolve, reject) => {
 			ledgerWaitCallback(1, 'wait');
@@ -92,7 +87,7 @@ export default class BitcoinLedgerService implements BitcoinSignService {
 					const btc = new Btc(transport);
 
 					/* Download utxo transaction raw */
-					this.rawTransactions(options.utxos.map(utxo => utxo.tx)).then(transactions => {
+					this.rawTransactions(options.utxos.map(utxo => utxo.tx)).subscribe(transactions => {
 						/* Create inputs and serialized outputs */
 						const inputs = options.utxos.map(utxo => [
 							btc.splitTransaction(transactions[utxo.tx], bitcoinjs.Transaction.fromHex(transactions[utxo.tx]).hasWitnesses()),
@@ -101,14 +96,14 @@ export default class BitcoinLedgerService implements BitcoinSignService {
 							// bitcoinjs.Transaction.fromHex(transactions[utxo.tx]).outs[utxo.n].sequence
 						]);
 						const paths = inputs.map(i => this.defaultPath);
-						const txb = bitcoinjs.Psbt.fromHex(txhex, { network: this.config.network });
+						const txb = bitcoinjs.Psbt.fromHex(txhex, { network: AppSettings.network });
 						const outshex = btc.serializeTransactionOutputs(btc.splitTransaction((txb as any).__CACHE.__TX.toHex(), true)).toString('hex');
 
 						btc.signP2SHTransaction(inputs, paths, outshex, 0/*tx.locktime*/, 1 /*SIGHASH_ALL*/, segwit, 2).then(signatures => {
 							/* Inject signatures */
 							for (let j = 0; j < txb.inputCount; j++) {
 								txb.signInput(j, {
-									network: this.config.network,
+									network: AppSettings.network,
 									publicKey: toByteArray(publickey),
 									sign: (hash) => bitcoinjs.script.signature.decode(toByteArray(signatures[j])).signature
 								} as bitcoinjs.ECPairInterface);
@@ -122,7 +117,7 @@ export default class BitcoinLedgerService implements BitcoinSignService {
 							ledgerWaitCallback(2, 'error');
 							return reject(err);
 						});
-					}).catch(err => {
+					}, err => {
 						// eslint-disable-next-line no-console
 						console.log('Failed acquiring txhashes:', err);
 						ledgerWaitCallback(2, 'error');
@@ -138,6 +133,4 @@ export default class BitcoinLedgerService implements BitcoinSignService {
 			});
 		});
 	}
-
-	static get $inject() { return ['config', '$http'] };
 }

@@ -1,142 +1,139 @@
-<div ng-if="$ctrl.model.transactions.length > 0">
-	<br>
-	<div class="alert alert-info">
-		<translate>You have {{$ctrl.model.transactions.length}} pending transactions to sign.</translate>
-		<a href="#" ng-click="$ctrl.openModal()" translate>Sign now</a>
-	</div>
-</div>
+<aw-wizard class="modal-body">
+	<aw-wizard-step [stepTitle]="'Transactions' | translate">
+		<h1 class="text-center text-uppercase">{{ 'Multisig transaction to sign' | translate }}</h1>
 
-<!-- Sign modal -->
-<modal mid="signModal" content="true">
-	<div class="modal-content">
-		<wizard name="signMultisig" template="/shared/templates/angular-wizard/wizard.html" indicators-position="top" class="modal-body">
-			<wz-step wz-title="{{ $ctrl.wizard.step1.titles.main }}" wz-heading-title="{{ $ctrl.wizard.step1.titles.heading }}">
-				<p class="padding-top-bottom-10 text-center" translate translate-n="$ctrl.model.transactions.length" translate-plural="There are {{$count}} transactions to sign.">There is 1 transaction to sign.</p>
-				<table class="table">
-					<thead class="separator">
-						<tr>
-							<th class="text-center">
-								<translate class="hidden-xs">Organization</translate>
-								<translate class="hidden-lg hidden-md hidden-sm">Org.</translate>
-							</th>
-							<th class="text-center">
-								<translate>Value</translate> [{{null|money}}]
-							</th>
-							<th class="text-center hidden-xs" translate>Date</th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr ng-repeat="tx in $ctrl.model.transactions">
-							<td class="text-center text-break-all">{{tx.from}}</td>
-							<td class="text-center">{{tx.value|money:'full':false}}</td>
-							<td class="text-center  hidden-xs">{{tx.time|date}}</td>
-							<td class="text-center">
-								<button class="btn btn-sm btn-default" ng-click="$ctrl.selectTransaction(tx)">
-									<i class="fa fa-pencil"></i>
-									<translate class="hidden-xs">Details</translate>
-								</button>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-				<hr>
-
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-						<a type="button" class="btn btn-danger btn-xs-block" data-dismiss="modal" translate>Close</a>
-					</div>
-				</div>
-			</wz-step>
-			<wz-step wz-title="{{ $ctrl.wizard.step2.titles.main }}" wz-heading-title="{{ $ctrl.wizard.step2.titles.heading }}">
-				<div class="row">
-					<div class="col-xs-12">
-						<response-messages message="$ctrl.wizard.step2.responseMessage"></response-messages>
-					</div>
-				</div>
-
-				<table class="table">
-					<tr>
-						<td translate>From</td>
-						<td class="text-break-all"><a href="/user/{{$ctrl.model.selected.from}}" target="_blank">{{$ctrl.model.selected.from}}</a></td>
-					</tr>
-					<tr>
-						<td translate>From wallet</td>
-						<td class="text-break-all">{{$ctrl.model.selected.wallet.label}}</td>
-					</tr>
-					<tr>
-						<td translate>Value</td>
-						<td>{{$ctrl.model.selected.value|money:'full'}}</td>
-					</tr>
-					<tr>
-						<td translate>Fee</td>
-						<td>{{$ctrl.model.selected.fee|money:'full'}}</td>
-					</tr>
-					<tr>
-						<td translate>Creation date</td>
-						<td>{{$ctrl.model.selected.time|date:'medium'}}</td>
-					</tr>
-					<tr ng-if="$ctrl.model.selected.ror != null">
-						<td translate>Refund to</td>
-						<td><a href="/user/{{$ctrl.model.rors[$ctrl.model.selected.ror].from}}" target="_blank">{{$ctrl.model.rors[$ctrl.model.selected.ror].from}}</a></td>
-					</tr>
-					<tr ng-if="$ctrl.model.selected.ror != null">
-						<td translate>Refund invoice</td>
-						<td><a href="{{$ctrl.model.rors[$ctrl.model.selected.ror].documents[0]|media}}" target="_blank"><i class="fa fa-external-link"></i> View document</a></td>
-					</tr>
-					<tr>
-						<td translate>To</td>
-						<td class="text-center text-ellipsis" >
-							<a
-								href="javascript:void(0)"
-								tooltip
-								tooltip-content="{{ 'Click to copy the address' | translate }}"
-								copy-to-clipboard="{{$ctrl.model.selected.to}}">{{$ctrl.model.selected.to}}</a>
-					</tr>
-					<tr>
-						<td translate>Signatures</td>
-						<td>{{$ctrl.model.selected.signers.length}} of {{$ctrl.model.selected.n}}</td>
-					</tr>
-					<tr>
-						<td translate>Description</td>
-						<td class="text-break-all">{{$ctrl.model.selected.description}}</td>
-					</tr>
-				</table>
-				
-				<wallet-sign sign-config="$ctrl.signConfig"></wallet-sign>
-
-				<hr>
-
-				<div class="row">
-					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-lg-left text-md-left text-sm-left text-xs-center">
-						<button type="button" class="btn btn-danger btn-xs-block" data-dismiss="modal" translate>Close</button>
-					</div>
-					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 text-lg-right text-md-right text-sm-right text-xs-center margin-xs-top-5">
-						<button type="button" class="btn btn-danger btn-xs-block" ng-click="$ctrl.refuse()"><i class="fa fa-times"></i>
-							<translate>Refuse</translate>
+		<p *ngIf="transactions.length == 1" translate>There is 1 transaction to sign.</p>
+		<p *ngIf="transactions.length > 1" translate>There are {{transactions.length}} transactions to sign.</p>
+		<table class="table">
+			<thead class="separator">
+				<tr>
+					<th class="text-center">
+						<span translate class="hidden-xs">Organization</span>
+						<span translate class="hidden-lg hidden-md hidden-sm">Org.</span>
+					</th>
+					<th class="text-center">
+						<span translate>Value</span> [{{null|money}}]
+					</th>
+					<th class="text-center hidden-xs" translate>Date</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let tx of transactions">
+					<td class="text-center text-break-all">{{tx.from}}</td>
+					<td class="text-center">{{tx.value|money:'full':false}}</td>
+					<td class="text-center  hidden-xs">{{tx.time|date}}</td>
+					<td class="text-center">
+						<button class="btn btn-sm btn-default" (click)="selectTransaction(tx)">
+							<i class="fa fa-pencil"></i>
+							<span translate class="hidden-xs">Details</span>
 						</button>
-						<button type="button" class="btn btn-default btn-xs-block margin-xs-top-5" loading="$ctrl.wizard.step2.loading" ng-click="$ctrl.sign()"><i class="fa fa-pencil"></i>
-							<translate>Sign</translate>
-						</button>
-					</div>
-				</div>
-			</wz-step>
-			<wz-step wz-title="{{ $ctrl.wizard.step3.titles.main }}" wz-heading-title="{{ $ctrl.wizard.step3.titles.heading }}">
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center completed-img">
-						<img src="/media/completed-green.png">
-					</div>
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center margin-top-20 completed-text">
-						<p ng-if="$ctrl.model.refused" translate>You have successfully refused to sign this transaction.</p>
-						<p ng-if="!$ctrl.model.refused" translate>The transaction has been signed.</p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-						<button type="button" class="btn btn-danger btn-xs-block" data-dismiss="modal" translate>Close</button>
-					</div>
-				</div>
-			</wz-step>
-		</wizard>
-	</div>
-</modal>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr>
+
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+				<a type="button" class="btn btn-danger btn-xs-block" (click)="activeModal.close()" translate>Close</a>
+			</div>
+		</div>
+	</aw-wizard-step>
+	<aw-wizard-step [stepTitle]="'Sign' | translate">
+		<h1 class="text-center text-uppercase">{{ 'Sign a transaction' | translate }}</h1>
+		
+		<div class="row">
+			<div class="col-xs-12">
+				<response-messages [message]="responseMessage"></response-messages>
+			</div>
+		</div>
+
+		<table class="table" *ngIf="model.selected">
+			<tbody>
+				<tr>
+					<td translate>From</td>
+					<td class="text-break-all"><a [routerLink]="'/user/'+model.selected.from" target="_blank">{{model.selected.from}}</a></td>
+				</tr>
+				<tr>
+					<td translate>From wallet</td>
+					<td class="text-break-all">{{model.selected.wallet.label}}</td>
+				</tr>
+				<tr>
+					<td translate>Value</td>
+					<td>{{model.selected.value|money:'full'}}</td>
+				</tr>
+				<tr>
+					<td translate>Fee</td>
+					<td>{{model.selected.fee|money:'full'}}</td>
+				</tr>
+				<tr>
+					<td translate>Creation date</td>
+					<td>{{model.selected.time|date:'medium'}}</td>
+				</tr>
+				<tr *ngIf="model.selected.ror != null">
+					<td translate>Refund to</td>
+					<td><a [routerLink]="'/user/'+rors[model.selected.ror].from" target="_blank">{{rors[model.selected.ror].from}}</a></td>
+				</tr>
+				<tr *ngIf="model.selected.ror != null">
+					<td translate>Refund invoice</td>
+					<td><a [routerLink]="rors[model.selected.ror].documents[0]|media" target="_blank"><i class="fa fa-external-link"></i> View document</a></td>
+				</tr>
+				<tr>
+					<td translate>To</td>
+					<td class="text-center text-ellipsis" >
+						<a
+							href="javascript:void(0)"
+							[tooltip]="'Click to copy the address' | translate"
+							[copyToClipboard]="model.selected.to">{{model.selected.to}}</a>
+				</tr>
+				<tr>
+					<td translate>Signatures</td>
+					<td>{{model.selected.signers.length}} of {{model.selected.n}}</td>
+				</tr>
+				<tr>
+					<td translate>Description</td>
+					<td class="text-break-all">{{model.selected.description}}</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<wallet-sign [config]="signConfig"></wallet-sign>
+
+		<hr>
+
+		<div class="row">
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-lg-left text-md-left text-sm-left text-xs-center">
+				<button type="button" class="btn btn-danger btn-xs-block"  (click)="activeModal.close()" translate>Close</button>
+			</div>
+			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 text-lg-right text-md-right text-sm-right text-xs-center margin-xs-top-5">
+				<button type="button" class="btn btn-danger btn-xs-block" (click)="refuse()"><i class="fa fa-times"></i>
+					<span translate>Refuse</span>
+				</button>
+				&nbsp;
+				<button type="button" class="btn btn-default btn-xs-block margin-xs-top-5" [loading]="isLoading" [disabled]="isLoading" (click)="sign()">
+					<i class="fa fa-pencil"></i>
+					<span translate>Sign</span>
+				</button>
+			</div>
+		</div>
+	</aw-wizard-step>
+	<aw-wizard-step [stepTitle]="'Done' | translate">
+		<h1 class="text-center text-uppercase">{{ 'Done' | translate }}</h1>
+
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center completed-img">
+				<img src="/media/completed-green.png">
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center margin-top-20 completed-text">
+				<p *ngIf="model.refused" translate>You have successfully refused to sign this transaction.</p>
+				<p *ngIf="!model.refused" translate>The transaction has been signed.</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+				<button type="button" class="btn btn-danger btn-xs-block"  (click)="activeModal.close()" translate>Close</button>
+			</div>
+		</div>
+	</aw-wizard-step>
+</aw-wizard>

@@ -1,0 +1,7 @@
+<div class="row padding-right-left-15">
+    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 padding-right-left-0" *ngFor="let word of amnemonic">
+        <div class="word-box">
+            <b>{{amnemonic.indexOf (word) + 1|ordinal}}.</b> {{word}}
+        </div>
+    </div>
+</div>

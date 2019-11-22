@@ -1,126 +1,112 @@
-import * as angular from 'angular';
 import { PageHeaderConfig } from '../../../../shared/components/page-header/page-header';
-import { WizardStep } from '../../../../shared/helpers/wizard-step';
 import WalletService, { Wallet } from '../../../../models/wallet';
-import BitcoinService, { BitcoinKeys } from '../../../../services/bitcoin/mnemonic';
+import BitcoinService from '../../bitcoin.service/mnemonic';
 import { SignConfig } from '../sign/sign';
+import { TranslateService } from '@ngx-translate/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
+import { ResponseMessageConfig, buildErrorResponseMessage } from 'app/shared/components/response-messages/response-messages';
+import { WizardComponent } from 'angular-archwizard';
+import { ActivatedRoute, Router } from '@angular/router';
 
-class MeWalletRestoreCtrl {
-	$timeout: angular.ITimeoutService;
-	$routeParams: { address: string };
-	$location: angular.ILocationService;
-	$walletService: WalletService;
-	$bitcoin: BitcoinService;
+@Component({
+	selector: 'me-wallet-restore-component',
+	templateUrl: 'restore.html',
+})
+export default class MeWalletRestoreComponent implements OnInit {
+	@ViewChild(WizardComponent, { static: false }) public wizardHandler: WizardComponent;
 
 	wallet: Wallet;
 	txid: string;
 	pageHeader: PageHeaderConfig;
 	signConfig: SignConfig;
-	wizard: {
-		step1: WizardStep<{
-			balance: number;
-			destination: string;
-		}>;
-		step2: WizardStep<void>;
+	responseMessage: ResponseMessageConfig;
+	model: {
+		balance: number;
+		destination: string;
 	};
+	loading: boolean;
 
-	constructor($walletService, $location, $bitcoin: BitcoinService, $translate, WizardHandler, $routeParams, $timeout) {
-		this.$walletService = $walletService;
-		this.$timeout = $timeout;
-		this.$location = $location;
-		this.$routeParams = $routeParams;
-		this.$bitcoin = $bitcoin;
-
+	constructor(
+		private walletService: WalletService,
+		private router: Router,
+		private bitcoinService: BitcoinService,
+		translate: TranslateService,
+		private route: ActivatedRoute
+	) {
 		this.pageHeader = {
 			description: {
-				title: $translate.getString('wallet restore'),
-				subTitle: $translate.getString('Restore a wallet from backup file')
+				title: translate.instant('wallet restore'),
+				subTitle: translate.instant('Restore a wallet from backup file')
 			}
 		};
+
+		this.responseMessage = {};
+
+		this.loading = false;
 
 		this.signConfig = {
 			wallet: null,
 			forceBackup: true
 		};
 
-		this.wizard = { step1: null, step2: null };
-
-		this.wizard.step1 = new WizardStep('restoreWallet', WizardHandler);
-		this.wizard.step1.initializeModel({
+		this.model = {
 			destination: '',
 			balance: 0.0
-		});
-		this.wizard.step1.setTitles({
-			main: $translate.getString('restore'),
-			heading: $translate.getString('Restore your funds')
-		});
-
-		this.wizard.step1.setSubmitHandler((model) => {
-			this.wizard.step1.loading = false;
-			this.wizard.step1.resetResponse();
-
-			if (model.balance === 0.0)
-				return this.wizard.step1.setResponse('error', { error: 'XEW' });
-
-			const wreq = {
-				fee: $bitcoin.evaluteFee(2, 1, true),
-				value: model.balance,
-				destination: model.destination
-			};
-
-			wreq.value = wreq.value - wreq.fee - 0.00000001;
-
-			/* Send the refund transaction */
-			this.$walletService.withdraw(this.wallet.address, wreq).then(data => {
-				this.wizard.step1.loading = true;
-				this.signConfig.sign(data.txhex, data.utxos).then(txhex => {
-					this.$walletService.sendTransaction(this.wallet.address, txhex).then(txid => {
-						this.txid = txid;
-
-						/* Delete the empty wallet */
-						/*$http.post (config.apiUrl + '/wallet/' + this.wizard.step1.model.wallet.address + '/update', {delete: true}).success ((data) => {
-							this.wizard.step1.model.loading = false;
-							$scope.reloadWallet ();
-						}).catch ((data)=>{
-							this.wizard.step1.model.error.error = data.error;
-							this.wizard.step1.loading = false;
-						});
-						*/
-						this.wizard.step1.loading = false;
-						this.wizard.step1.next();
-					})
-				}).catch(err => {
-					this.wizard.step1.loading = false;
-					this.wizard.step1.setResponse('error', { error: err });
-				});
-			}).catch(res => this.wizard.step1.setResponse('error', res.data));
-		});
-
-		this.wizard.step2 = new WizardStep('restoreWallet', WizardHandler);
-		this.wizard.step2.setTitles({
-			main: $translate.getString('Done'),
-			heading: $translate.getString('Done')
-		});
+		};
 	}
 
-	$onInit() {
-		this.$walletService.get(this.$routeParams.address).then(wallet => {
+	submit() {
+		this.loading = false;
+		this.responseMessage = {};
+
+		if (this.model.balance === 0.0)
+			return this.responseMessage = buildErrorResponseMessage({ error: 'XEW' });
+
+		const wreq = {
+			fee: this.bitcoinService.evaluteFee(2, 1, true),
+			value: this.model.balance,
+			destination: this.model.destination
+		};
+
+		wreq.value = wreq.value - wreq.fee - 0.00000001;
+
+		/* Send the refund transaction */
+		this.walletService.withdraw(this.wallet.address, wreq).subscribe(data => {
+			this.loading = true;
+			this.signConfig.sign(data.txhex, data.utxos).then(txhex => {
+				this.walletService.sendTransaction(this.wallet.address, txhex).subscribe(txid => {
+					this.txid = txid;
+
+					/* Delete the empty wallet */
+					/*this.http.post (config.apiUrl + '/wallet/' + this.wizard.step1.model.wallet.address + '/update', {delete: true}).success ((data) => {
+						this.wizard.step1.model.loading = false;
+						$scope.reloadWallet ();
+					}, (data)=>{
+						this.wizard.step1.model.error.error = data.error;
+						this.wizard.step1.loading = false;
+					});
+					*/
+					this.loading = false;
+					this.wizardHandler.goToNextStep();
+				})
+			}).catch(err => {
+				this.loading = false;
+				this.responseMessage = buildErrorResponseMessage({ error: err });
+			});
+		}, res => {
+			this.responseMessage = buildErrorResponseMessage(res.error);
+		})
+	}
+
+	ngOnInit() {
+		this.walletService.get(this.route.snapshot.paramMap.get('address')).subscribe(wallet => {
 			wallet.hardware = 'none';
 			this.wallet = wallet;
 			this.signConfig = { ...this.signConfig, ...{ wallet: wallet } };
 
-			this.$walletService.getBalance(this.wallet.address).then(data => {
-				this.wizard.step1.model.balance = data.balance + data.unconfirmed;
+			this.walletService.getBalance(this.wallet.address).subscribe(data => {
+				this.model.balance = data.balance + data.unconfirmed;
 			});
-		}).catch(_ => this.$location.path('/me/wallet'));
+		}, _ => this.router.navigateByUrl('/me/wallet'));
 	}
-
-	static get $inject() { return ['$walletService', '$location', '$bitcoin', '$translate', 'WizardHandler', '$routeParams', '$timeout']; }
 }
-
-const MeWalletRestoreComponent = {
-	templateUrl: 'components/dashboard/wallet/restore/restore.html',
-	controller: MeWalletRestoreCtrl
-};
-
-export default MeWalletRestoreComponent;

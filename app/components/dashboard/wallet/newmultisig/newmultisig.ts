@@ -1,108 +1,108 @@
 import * as $ from 'jquery';
 import { PageHeaderConfig } from '../../../../shared/components/page-header/page-header';
-import { WizardStep } from '../../../../shared/helpers/wizard-step';
-import { BitcoinScriptType } from '../../../../services/bitcoin/bitcoin-service';
+import { WizardComponent } from 'angular-archwizard';
+import { BitcoinScriptType } from '../../bitcoin.service/bitcoin-service';
 import DashboardService from '../../../../models/dashboard';
 import WalletService from '../../../../models/wallet';
 import UtilsService from 'app/services/utils';
+import { TranslateService } from '@ngx-translate/core';
+import { ModalsConfig } from 'app/shared/components/modal/oldModal/modal';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ResponseMessageConfig, buildErrorResponseMessage } from 'app/shared/components/response-messages/response-messages';
 
-class MeWalletNewMultisigCtrl {
-	$walletService: WalletService;
-	$dashboardService: DashboardService;
-	$utils: UtilsService;
+@Component({
+	selector: 'me-wallet-new-multisig-component',
+	templateUrl: 'newmultisig.html'
+})
+export default class MeWalletNewMultisigComponent implements OnInit {
+	@ViewChild(WizardComponent, { static: false }) public wizardHandler: WizardComponent;
 
+	responseMessage: ResponseMessageConfig;
 	pageHeader: PageHeaderConfig;
-	wizard: {
-		step1: WizardStep<{
-			n: number;
-			label: string;
-			admins: string[];
-			adminscheck: { [admin: string]: boolean };
-			scripttype: BitcoinScriptType;
-		}>;
-		step2: WizardStep<void>;
+	modals: ModalsConfig;
+	model: {
+		n: number;
+		label: string;
+		admins: string[];
+		adminscheck: { [admin: string]: boolean };
+		scripttype: BitcoinScriptType;
+		scripttypenative: boolean;
 	};
 
-	constructor($dashboardService, $walletService, $translate, WizardHandler, $utils) {
-		this.$utils = $utils;
-		this.$dashboardService = $dashboardService;
-		this.$walletService = $walletService;
-
+	constructor(
+		private dashboardService: DashboardService,
+		private walletService: WalletService,
+		translate: TranslateService,
+		private utilsService: UtilsService
+	) {
 		this.pageHeader = {
 			description: {
-				title: $translate.getString('multisig wallet creation'),
-				subTitle: $translate.getString('Create a new multisig wallet to send and receive Bitcoin')
+				title: translate.instant('multisig wallet creation'),
+				subTitle: translate.instant('Create a new multisig wallet to send and receive Bitcoin')
 			}
 		};
-
-		this.wizard = { step1: null, step2: null };
-
-		this.wizard.step1 = new WizardStep('newWalletMultisig', WizardHandler);
-		this.wizard.step1.setTitles({
-			main: $translate.getString('Create'),
-			heading: $translate.getString('Edit multisig wallet settings')
-		});
-		this.wizard.step1.initializeModel({
+		this.modals = {
+			noAdmin: {
+				id: 'modalNoAdmin',
+				title: translate.instant('Admins not verified')
+			}
+		};
+		this.model = {
 			n: 3,
 			label: '',
 			admins: [],
 			adminscheck: {},
-			scripttype: 'p2sh-p2wsh'
-		});
-		this.wizard.step1.setSubmitHandler((model) => {
-			const admins = [];
-
-			for (const ad in model.adminscheck)
-				if (model.adminscheck[ad]) admins.push(ad);
-
-			this.$walletService.createMultisig(model.scripttype, model.label, model.n, admins).then(_ => {
-				this.$walletService.emitReload();
-				this.$dashboardService.emitNotificationUpdate('wallet');
-				this.wizard.step1.next();
-			}).catch((res) => {
-				this.wizard.step1.setResponse('error', res.data);
-			});
-		});
+			scripttype: 'p2sh-p2wsh',
+			scripttypenative: false
+		};
+		this.responseMessage = {};
 
 
-		this.wizard.step2 = new WizardStep('newWalletMultisig', WizardHandler);
-		this.wizard.step2.setTitles({
-			main: $translate.getString('Done'),
-			heading: $translate.getString('Done')
+		// TODO: missingheadingtitle
+		// 	heading: translate.instant('Edit multisig wallet settings')
+		// 	heading: translate.instant('Done')
+	}
+
+	submit() {
+		const admins = [];
+
+		for (const ad in this.model.adminscheck)
+			if (this.model.adminscheck[ad]) admins.push(ad);
+
+		this.model.scripttype = this.model.scripttypenative ? 'p2wsh' : 'p2sh-p2wsh';
+
+		this.walletService.createMultisig(this.model.scripttype, this.model.label, this.model.n, admins).subscribe(_ => {
+			this.walletService.onReload.emit();
+			this.dashboardService.emitNotificationUpdate('wallet');
+			this.wizardHandler.goToNextStep();
+		}, (res) => {
+			this.responseMessage = buildErrorResponseMessage(res.error);
 		});
 	}
 
 	evaluteMultisigType() {
 		let m = 1;
 
-		for (const ad in this.wizard.step1.model.adminscheck)
-			if (this.wizard.step1.model.adminscheck[ad])
+		for (const ad in this.model.adminscheck)
+			if (this.model.adminscheck[ad])
 				m++;
 
-		// const n = parseInt(this.wizard.step1.model.n);
-		const n = this.wizard.step1.model.n;
+		// const n = parseInt(this.model.n);
+		const n = this.model.n;
 		return n + ' of ' + m;
 	}
 
-	$onInit() {
-		this.$dashboardService.getAdminList().then(admins => {
+	ngOnInit() {
+		this.dashboardService.getAdminList().subscribe(admins => {
 			if (admins.length === 0)
-				return $('#noadminModal').modal('show');
+				return $('#modalNoAdmin').modal('show');
 
-			this.wizard.step1.model.admins = admins;
+			this.model.admins = admins;
 			for (let i = 0; i < admins.length; i++)
-				this.wizard.step1.model.adminscheck[admins[i]] = true;
+				this.model.adminscheck[admins[i]] = true;
 
-			this.$dashboardService.emitNotificationUpdate('wallet');
+			this.dashboardService.emitNotificationUpdate('wallet');
 		});
 	}
-
-	static get $inject() { return ['$dashboardService', '$walletService', '$translate', 'WizardHandler', '$utils']; }
 }
 
-const MeWalletNewMultisigComponent = {
-	templateUrl: 'components/dashboard/wallet/newmultisig/newmultisig.html',
-	controller: MeWalletNewMultisigCtrl
-};
-
-export default MeWalletNewMultisigComponent;

@@ -1,10 +1,11 @@
-import BitcoinService, { BitcoinKeys } from '../../../../services/bitcoin/mnemonic';
-import BitcoinLedgerService from '../../../../services/bitcoin/ledger';
+import BitcoinService, { BitcoinKeys } from '../../bitcoin.service/mnemonic';
+import BitcoinLedgerService from '../../bitcoin.service/ledger';
 import { Wallet, HardwareWalletType, Transaction } from '../../../../models/wallet';
-import { ICookiesService } from '../../../../shared/types/angular-cookies';
-import { LedgerWaitConfig } from '../../ledger-wait/ledger-wait';
-import { BitcoinUTXO, BitcoinSignOptions, BackupFile, loadBackup } from '../../../../services/bitcoin/bitcoin-service';
+import { CookieService } from 'ngx-cookie-service';
+import { LedgerWaitConfig } from '../../widgets/ledger-wait/ledger-wait';
+import { BitcoinUTXO, BitcoinSignOptions, BackupFile, loadBackup } from '../../bitcoin.service/bitcoin-service';
 import { Async } from '../../../..//shared/helpers/async';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 
 export interface SignConfig {
 	wallet?: Wallet;
@@ -15,14 +16,14 @@ export interface SignConfig {
 	signMany?: (txs: { txhex: string; utxos: BitcoinUTXO[] }[]) => Promise<string[]>;
 }
 
-class WalletSignCtrl {
-	$bitcoin: BitcoinService;
-	$bitcoinLedger: BitcoinLedgerService;
-	$timeout: angular.ITimeoutService;
-	$cookies: ICookiesService;
+@Component({
+	selector: 'wallet-sign',
+	templateUrl: 'sign.html',
+})
+export default class WalletSignComponent implements OnChanges, OnInit {
+	@Input('config') signConfig: SignConfig;
 
-	signConfig: SignConfig;
-
+	showpassphrase: boolean;
 	username: string;
 	email: string;
 	ledgerWaitStatus: LedgerWaitConfig;
@@ -39,12 +40,12 @@ class WalletSignCtrl {
 		};
 	}
 
-	constructor($cookies, $timeout, $bitcoin, $bitcoinLedger) {
-		this.$cookies = $cookies;
-		this.$timeout = $timeout;
-		this.$bitcoin = $bitcoin;
-		this.$bitcoinLedger = $bitcoinLedger;
-
+	constructor(
+		private cookieService: CookieService,
+		private $bitcoin: BitcoinService,
+		private $bitcoinLedger: BitcoinLedgerService
+	) {
+		this.showpassphrase = false;
 		this.model = {
 			multisig: false,
 			hardware: false,
@@ -85,7 +86,7 @@ class WalletSignCtrl {
 
 			if (this.model.hardware && this.model.hardwareType == 'ledgernanos') {
 				const ledgerWaitCallback = (phase, status) => {
-					this.$timeout(() => {
+					setTimeout(() => {
 						this.ledgerWaitStatus = {
 							...this.ledgerWaitStatus, ...{
 								phase: phase,
@@ -96,11 +97,11 @@ class WalletSignCtrl {
 				};
 
 				this.$bitcoinLedger.sign(txhex, bsign, ledgerWaitCallback).then(txhex => {
-					resolve(txhex); 
+					resolve(txhex);
 				}).catch(_ => {
 					// eslint-disable-next-line no-console
 					console.log(_);
-					this.$timeout(() => { reject('XHW1') }); 
+					setTimeout(() => { reject('XHW1') });
 				});
 			} else if (!this.model.hardware && !this.model.useBackup) {
 				const keys: BitcoinKeys = this.$bitcoin.mnemonicToKeys(this.model.mnemonic);
@@ -155,7 +156,7 @@ class WalletSignCtrl {
 		}
 	}
 
-	$onChanges(changes) {
+	ngOnChanges(changes) {
 		if (!changes.signConfig)
 			return;
 
@@ -167,22 +168,8 @@ class WalletSignCtrl {
 		this.signConfig.signMany = (txs) => this.signMany(txs);
 	}
 
-	$onInit() {
-		this.username = this.$cookies.get('username');
-		this.email = this.$cookies.get('email');
+	ngOnInit() {
+		this.username = this.cookieService.get('username');
+		this.email = this.cookieService.get('email');
 	}
-
-	static get $inject() { return ['$cookies', '$timeout', '$bitcoin', '$bitcoinLedger']; }
 }
-
-const WalletSignComponent = {
-	templateUrl: 'components/dashboard/wallet/sign/sign.html',
-	controller: WalletSignCtrl,
-	bindings: {
-		signConfig: '<',
-		// wallet: '<' //TODO da valutare
-		// transaction: '<' //TODO da valutare
-	}
-};
-
-export default WalletSignComponent;

@@ -1,23 +1,54 @@
 import { Wallet } from '../../../../models/wallet';
-import { CreateWalletController } from '../create-wallet';
-import { BitcoinKeys, generateMnemonic } from '../../../../services/bitcoin/mnemonic';
-import { encryptKeys, BackupFile } from '../../../../services/bitcoin/bitcoin-service';
+import { CreateWallet } from '../create-wallet';
+import BitcoinService, { BitcoinKeys, generateMnemonic } from '../../bitcoin.service/mnemonic';
+import { encryptKeys, BackupFile } from '../../bitcoin.service/bitcoin-service';
+import { Component, ViewChild, AfterViewInit, OnInit } from '@angular/core';
+import DashboardService from 'app/models/dashboard';
+import BrowserHelperService from 'app/services/browser-helper';
+import { TranslateService } from '@ngx-translate/core';
+import BitcoinLedgerService from '../../bitcoin.service/ledger';
+import WalletService from 'app/models/wallet';
+import { CookieService } from "ngx-cookie-service";
+import { WizardComponent } from 'angular-archwizard';
+import { DomSanitizer } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 
-class MeWalletFeedMultisigCtrl extends CreateWalletController {
+
+@Component({
+	selector: 'me-wallet-feed-multisig-component',
+	templateUrl: 'feedmultisig.html',
+	styleUrls: ['feedmultisig.scss']
+})
+export default class MeWalletFeedMultisigComponent extends CreateWallet implements OnInit, AfterViewInit {
+	@ViewChild(WizardComponent, { static: false }) public wizardHandler: WizardComponent;
 	wallet: Wallet;
 
-	constructor($walletService, $scope, $cookies, $routeParams, $bitcoin, $bitcoinLedger, $window, $translate, WizardHandler, $timeout, $browserHelper, $dashboardService) {
-		super('feedMultisig', $walletService, $scope, $cookies, $routeParams, $bitcoin, $bitcoinLedger, $window, $translate, WizardHandler, $timeout, $browserHelper, $dashboardService);
+	constructor(
+		protected route: ActivatedRoute,
+		private sanitizer: DomSanitizer,
+		protected walletService: WalletService,
+		protected cookieService: CookieService,
+		protected bitcoinService: BitcoinService,
+		protected bitcoinLedgerService: BitcoinLedgerService,
+		protected translate: TranslateService,
+		protected browserHelperService: BrowserHelperService,
+		protected dashboardService: DashboardService
+	) {
+		super(walletService, cookieService, route, bitcoinService, bitcoinLedgerService, translate, browserHelperService, dashboardService);
 
 		this.pageHeader = {
 			description: {
-				title: $translate.getString('multisig wallet feed'),
-				subTitle: $translate.getString('Insert your signature for a new multisig wallet')
+				title: translate.instant('multisig wallet feed'),
+				subTitle: translate.instant('Insert your signature for a new multisig wallet')
 			}
 		};
 
 		this.wizard.step1HardwareWallet.setNextInterceptor(() => this.feed());
 		this.wizard.step3.setNextInterceptor(() => this.feed());
+	}
+
+	sanitize(url: string) {
+		return this.sanitizer.bypassSecurityTrustUrl(url);
 	}
 
 	feed() {
@@ -28,11 +59,11 @@ class MeWalletFeedMultisigCtrl extends CreateWalletController {
 		if (this.model.hardwareWallet) {
 			key1 = { public: this.model.hardwareWalletPublicKey, private: null, pair: null };
 		} else {
-			key1 = this.$bitcoin.mnemonicToKeys(this.model.mnemonic);
+			key1 = this.bitcoinService.mnemonicToKeys(this.model.mnemonic);
 		}
 
 		// Feed the wallet
-		this.$walletService.feedMultisig(this.$routeParams.wallet, key1.public, this.model.hardwareWallet, this.model.hardwareWalletType).then(wallet => {
+		this.walletService.feedMultisig(this.route.snapshot.queryParamMap.get('wallet'), key1.public, this.model.hardwareWallet, this.model.hardwareWalletType).subscribe(wallet => {
 			this.wizard.step3.resetResponse();
 			this.wizard.step3.loading = false;
 			this.model.downloadedBackup = false;
@@ -45,7 +76,7 @@ class MeWalletFeedMultisigCtrl extends CreateWalletController {
 					pubkeysrv: wallet.pubkeysrv,
 					encprivkey: ee,
 					pubkey: key1.public,
-					walletid: this.$routeParams.wallet,
+					walletid: this.route.snapshot.queryParamMap.get('wallet'),
 					label: this.model.label,
 					organization: this.model.organization
 				};
@@ -53,23 +84,23 @@ class MeWalletFeedMultisigCtrl extends CreateWalletController {
 				this.model.file = JSON.stringify(backup);
 			}
 
-			this.$dashboardService.emitNotificationUpdate('wallet');
+			this.dashboardService.emitNotificationUpdate('wallet');
 			this.wizard.step3._next();
-		}).catch((res) =>
-			(this.model.hardwareWallet ? this.wizard.step1HardwareWallet : this.wizard.step3).setResponse('error', res.data)
+		}, (res) =>
+			(this.model.hardwareWallet ? this.wizard.step1HardwareWallet : this.wizard.step3).setResponse('error', res.error)
 		);
 	}
 
-	$onInit() {
-		this.username = this.$cookies.get('username');
+	ngOnInit() {
+		this.username = this.cookieService.get('username');
 		this.model = {
-			ledgerSupport: this.$browserHelper.isLedgerSupported(),
+			ledgerSupport: this.browserHelperService.isLedgerSupported(),
 			invalid: false,
 			accept: false,
 			address: '',
 			hardwareWallet: false,
 			hardwareWalletType: 'none',
-			hardwareWalletPublicKey: null,
+			hardwareWalletPublicKey: '',
 			mnemonic: generateMnemonic(),
 			mnemonicConfirmChallenge: [],
 			backupPassword: '',
@@ -77,34 +108,30 @@ class MeWalletFeedMultisigCtrl extends CreateWalletController {
 			scripttype: 'p2sh-p2wsh',
 			downloadedBackup: false,
 			file: null,
-			label: this.$routeParams.label,
-			labelShort: this.$routeParams.label.replace(/ /g, ''),
-			organization: this.$routeParams.organization
+			label: this.route.snapshot.queryParamMap.get('label'),
+			labelShort: this.route.snapshot.queryParamMap.get('label').replace(/ /g, ''),
+			organization: this.route.snapshot.queryParamMap.get('organization')
 		}
 
-		this.$walletService.getList().then(list => {
+		this.walletService.getList().subscribe(list => {
 			this.model.invalid = false;
-			this.wallet = list.adminof.filter(w => w._id == this.$routeParams.wallet)[0];
+			this.wallet = list.adminof.filter(w => w._id == this.route.snapshot.queryParamMap.get('wallet'))[0];
 
 			if (this.wallet == undefined) {
 				this.model.invalid = true;
-			} else if (this.wallet.active || this.wallet.multisig.doneadmins.indexOf(this.$cookies.get('email')) != -1) {
+			} else if (this.wallet.active || this.wallet.multisig.doneadmins.indexOf(this.cookieService.get('email')) != -1) {
 				this.model.invalid = true;
 			}
 		});
+	}
 
-		this.$scope.$on('wizard:stepChanged', (event, args) => {
-			if (args.index == 0)
-				this.hideIndicators = true;
-			else
-				this.hideIndicators = false;
-		});
+	ngAfterViewInit() {
+		this.wizard.step0.setHandler(this.wizardHandler);
+		this.wizard.step1HardwareWallet.setHandler(this.wizardHandler);
+		this.wizard.step1Passphrase.setHandler(this.wizardHandler);
+		this.wizard.step2Passphrase.setHandler(this.wizardHandler);
+		this.wizard.step3.setHandler(this.wizardHandler);
+		this.wizard.step4.setHandler(this.wizardHandler);
+		this.wizardHandler.disableNavigationBar = true;
 	}
 }
-
-const MeWalletFeedMultisigComponent = {
-	templateUrl: 'components/dashboard/wallet/feedmultisig/feedmultisig.html',
-	controller: MeWalletFeedMultisigCtrl
-};
-
-export default MeWalletFeedMultisigComponent;

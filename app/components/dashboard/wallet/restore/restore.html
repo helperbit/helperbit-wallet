@@ -1,52 +1,56 @@
-<page-header config="$ctrl.pageHeader"></page-header>
+<page-header [config]="pageHeader"></page-header>
 
 <div class="page-modalized">
 	<div class="modal-content">
-		<wizard name="restoreWallet" template="/shared/templates/angular-wizard/wizard.html" indicators-position="top" class="modal-body">
+		<aw-wizard class="modal-body">
 			<!-- Passphrase generator -->
-			<wz-step wz-title="{{ $ctrl.wizard.step1.titles.main }}" wz-heading-title="{{ $ctrl.wizard.step1.titles.heading }}">
+			<aw-wizard-step [stepTitle]="'restore'|translate">
+				<h1 class="text-center text-uppercase">{{ 'Restore your funds' | translate }}</h1>
+				
 				<div class="row">
 					<div class="col-xs-12">
-						<response-messages message="$ctrl.wizard.step1.responseMessage"></response-messages>
+						<response-messages [message]="responseMessage"></response-messages>
 					</div>
 				</div>
 
 				<p translate>If you lose your passphrase, you can restore your funds by uploading the backup file and sending the funds to another address.</p>
 
-				<translate>Destination address</translate>:
+				<span translate>Destination address</span>:
 				<br>
-				<input type="text" class="form-control" value="" ng-model="$ctrl.wizard.step1.model.destination" />
+				<input type="text" class="form-control" [(ngModel)]="model.destination" />
 				<br>
 
-				<wallet-sign sign-config="$ctrl.signConfig"></wallet-sign>
+				<wallet-sign [config]="signConfig"></wallet-sign>
 				<br>
 
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-						<a ng-click="$ctrl.wizard.step1.submit()" loading="$ctrl.wizard.step1.loading" class="btn btn-xs-block btn-default" translate>Send</a>
+						<button (click)="submit()" [disabled]="loading" class="btn btn-xs-block btn-default" translate>Send</button>
 					</div>
 				</div>
-			</wz-step>
+			</aw-wizard-step>
 
 			<!-- Done -->
-			<wz-step wz-title="{{ $ctrl.wizard.step2.titles.main }}" wz-heading-title="{{ $ctrl.wizard.step2.titles.heading }}">
+			<aw-wizard-step [stepTitle]="'Done'|translate">
+				<h1 class="text-center text-uppercase">{{ 'Done' | translate }}</h1>
+
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center completed-img">
 						<img src="/media/completed-green.png">
 					</div>
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center margin-top-20 completed-text">
 						<p>
-							<translate>Restore transaction sent</translate>: <a href="{{$ctrl.txid|explorer}}" target="_blank">View transaction</a>
-							<input type="text" class="form-control" value="{{$ctrl.txid}}" />
+							<span translate>Restore transaction sent</span>: <a [href]="txid|explorer" target="_blank">View transaction</a>
+							<input type="text" class="form-control" [value]="txid" />
 						</p>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-top-15 text-center">
-						<a href="/me/wallet" class="btn btn-danger btn-xs-block" translate>Close</a>
+						<a routerLink="/me/wallet" class="btn btn-danger btn-xs-block" translate>Close</a>
 					</div>
 				</div>
-			</wz-step>
-		</wizard>
+			</aw-wizard-step>
+		</aw-wizard>
 	</div>
 </div>

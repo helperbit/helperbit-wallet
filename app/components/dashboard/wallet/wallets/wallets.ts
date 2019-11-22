@@ -1,60 +1,52 @@
-import * as angular from 'angular';
 import * as $ from 'jquery';
 import { PageHeaderConfig } from '../../../../shared/components/page-header/page-header';
-import { ModalsConfig } from '../../../../shared/components/modal/modal';
-import TranslateService from '../../../../services/translate';
-import { ConfigService } from '../../../../app.config';
-import { WalletListConfig } from '../../wallet-list/wallet-list';
-import { IModalService } from 'angular-ui-bootstrap';
-import WalletService, { WalletTransaction, Wallet } from '../../../../models/wallet';
+import { ModalsConfig } from '../../../../shared/components/modal/oldModal/modal';
+import { TranslateService } from '@ngx-translate/core';
+import { WalletListConfig } from '../../widgets/wallet-list/wallet-list';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import WalletService, { WalletTransaction, Transaction, Wallet } from '../../../../models/wallet';
 import DashboardService, { UserPrivate } from '../../../../models/dashboard';
-import { AnchorScrollService } from '../../../../shared/types/anchor-scroll';
+import AppSettings from '../../../../app.settings';
+import { Component, OnInit } from '@angular/core';
+import WalletSettingsModal from '../../widgets/wallet-list/settings';
+import RorService, { Ror } from 'app/models/ror';
+import MeWalletSignMultisigModal from '../signmultisig/signmultisig';
+import { CookieService } from 'ngx-cookie-service';
+import MeWalletWithdrawComponent from '../withdraw/withdraw';
 
-/* User profile /me/wallet */
-class MeWalletCtrl {
-	config: ConfigService;
-	$uibModal: IModalService;
-	$location: angular.ILocationService;
-	$translate: TranslateService;
-	$dashboardService: DashboardService;
-	$anchorScroll: AnchorScrollService;
-	$walletService: WalletService;
-	$routeParams: {
-		feed_multisig?: string;
-		organization?: string;
-		label?: string;
-	};
 
+@Component({
+	selector: 'me-wallet-component',
+	templateUrl: 'wallets.html',
+	styleUrls: ['wallets.scss']
+})
+export default class MeWalletComponent implements OnInit {
+	baseUrl: string = AppSettings.baseUrl;
 	pageHeader: PageHeaderConfig;
 	modals: ModalsConfig;
 	walletList: WalletListConfig;
 	user: UserPrivate;
 	adminof: Wallet[];
-	faucet: { loading: boolean; error: string };
-	remove: { loading: boolean };
 	qr: string;
 	selected: string;
 	transactions: WalletTransaction[];
 	defaultwallet: Wallet;
-	settings: { error: string };
-	selectedwallet: Wallet;
 	backup: any;
+	multisigPending: { transactions: Transaction[]; rors: { [id: string]: Ror } };
 
-	constructor($location, $routeParams, $walletService, $uibModal, $dashboardService, $anchorScroll, $translate, config) {
-		this.config = config;
-		this.$uibModal = $uibModal;
-		this.$location = $location;
-		this.$walletService = $walletService;
-		this.$routeParams = $routeParams;
-		this.$dashboardService = $dashboardService;
-		this.$anchorScroll = $anchorScroll;
-		this.$translate = $translate;
-
+	constructor(
+		private walletService: WalletService,
+		private dashboardService: DashboardService,
+		private rorService: RorService,
+		private modalService: NgbModal,
+		translate: TranslateService,
+		private cookieService: CookieService
+	) {
+		this.multisigPending = {
+			transactions: [],
+			rors: {}
+		};
 		this.adminof = [];
-		this.faucet = { loading: false, error: '' };
-		this.settings = { error: '' };
-		this.remove = { loading: false };
-		this.qr = '';
 		this.selected = 'wallet';
 		this.transactions = [];
 		this.defaultwallet = null;
@@ -62,145 +54,99 @@ class MeWalletCtrl {
 		this.walletList = {
 			wallets: [],
 			footer: true,
-			receiveaddress: '',
-			receive: w => this.receive(w),
-			withdraw: w => this.withdraw(w),
-			deposit: w => this.deposit(w),
-			settings: w => this.walletSettings(w)
+			receiveaddress: ''
 		};
 
 		this.pageHeader = {
 			description: {
-				title: $translate.getString('wallet'),
-				subTitle: $translate.getString('Handle your Bitcoin accounts')
+				title: translate.instant('wallet'),
+				subTitle: translate.instant('Handle your Bitcoin accounts')
 			}
 		};
 
 		this.modals = {
-			modalConfirmConfig: {
-				id: 'modalConfirm',
-				modalClass: 'modal-md',
-				hideCloseButton: true,
-				title: null,
-				confirm: {
-					method: null,
-					parameters: null,
-					description: null
-				}
+			createDonationButton: {
+				id: 'modalCreateDonationButton'
 			}
 		};
 	}
-
-	createDonationButton() {
-		$('#createDonationButtonModal').modal('show');
+	
+	withdraw(w: Wallet) {
+		const modalRef = this.modalService.open(MeWalletWithdrawComponent, {
+			size: 'lg'
+		});
+		modalRef.componentInstance.config = { address: w.address };
+		modalRef.result.then((v) => { this.reloadWallet(); }, () => { this.reloadWallet(); });
 	}
 
-	scrollTo(id) {
-		this.$anchorScroll(id);
-		this.selected = id;
+	createDonationButton() {
+		$('#modalCreateDonationButton').modal('show');
 	}
 
 	reloadWallet() {
-		this.$walletService.emitReload();
-	}
+		this.walletService.onReload.emit();
 
-	withdraw(w) {
-		const modalI = this.$uibModal.open({
-			component: 'meWalletWithdrawComponent',
-			size: 'lg',
-			resolve: { modalData: () => ({ address: w.address }) }
+		this.walletService.getMultisigTransactions().subscribe(txs => {
+			const username = this.cookieService.get('username');
+			const email = this.cookieService.get('email');
+
+			this.multisigPending.rors = {};
+
+			this.multisigPending.transactions = txs.filter(tx =>
+				tx.status == 'signing' && username != tx.from && tx.signers.indexOf(email) == -1
+			);
+			this.multisigPending.transactions.forEach(tx => {
+				if (!tx.ror)
+					return;
+
+				this.rorService.get(tx.ror, true).subscribe((ror: Ror) => {
+					this.multisigPending.rors[ror._id] = ror;
+				});
+			});
+
+			if (this.multisigPending.transactions.length > 0)
+				this.openSignMultisigModal();
 		});
-
-		modalI.result.then(() => { this.reloadWallet(); }, () => { this.reloadWallet(); });
 	}
 
-	receive(w) {
+
+	settingsClick(w: Wallet) {
+		const modalRef = this.modalService.open(WalletSettingsModal);
+		modalRef.componentInstance.wallet = w;
+		modalRef.result.then((v) => { this.reloadWallet(); }, () => { this.reloadWallet(); });
+	}
+
+	defaultChange(w: string) {
 		this.walletList.receiveaddress = w;
 		this.walletList = { ...this.walletList };
 		this.defaultwallet = this.walletList.wallets.filter((w) => { return w.address == this.walletList.receiveaddress; })[0];
-		this.$walletService.updateReceive(w).then(_ => { });
-		this.$walletService.getTransactions(w).then(txs => {
+		this.walletService.updateReceive(w).subscribe(_ => { });
+		this.walletService.getTransactions(w).subscribe(txs => {
 			this.transactions = txs;
 		});
 	}
 
-	getFaucet(w) {
-		this.faucet.loading = true;
-		this.$walletService.getFaucet(w.address).then(_ => {
-			this.faucet.loading = false;
-			this.reloadWallet();
-			$('#depositModal').modal('hide');
-			$('#faucetDoneModal').modal('show');
-		}).catch((res) => {
-			this.faucet.error = res.data.error;
-			this.faucet.loading = false;
-		});
+	openSignMultisigModal() {
+		const modalRef = this.modalService.open(MeWalletSignMultisigModal);
+		modalRef.componentInstance.transactions = this.multisigPending.transactions;
+		modalRef.componentInstance.rors = this.multisigPending.rors;
+		modalRef.result.then((v) => { this.reloadWallet(); }, () => { this.reloadWallet(); });
 	}
 
-	openConfirmDeleteWallet(wallet) {
-		this.modals.modalConfirmConfig.confirm.method = (w) => { this.removeWallet(w); };
-		this.modals.modalConfirmConfig.confirm.parameters = [wallet];
-		this.modals.modalConfirmConfig.title = this.$translate.getString('Confirm delete wallet');
-		this.modals.modalConfirmConfig.confirm.description = this.$translate.getString('Are you sure to delete') + ' ' + wallet.address + ' ' + this.$translate.getString('wallet?');
 
-		$('#modalConfirm').modal('show');
-	}
-
-	removeWallet(w) {
-		this.remove.loading = true;
-
-		this.$walletService.delete(w.address).then(_ => {
-			this.remove.loading = false;
-			this.reloadWallet();
-			$('#settingsModal').modal('hide');
-		}).catch((res) => {
-			this.settings.error = res.data.error;
-			this.remove.loading = false;
-		});
-	}
-
-	update(w) {
-		this.$walletService.updateLabel(w.address, w.label).then(_ => {
-			this.reloadWallet();
-			$('#settingsModal').modal('hide');
-		}).catch((res) => {
-			this.settings.error = res.data.error;
-		});
-	}
-
-	deposit(w) {
-		this.selectedwallet = w;
-		this.faucet.error = '';
-		this.qr = 'bitcoin:' + w.address;
-
-		$('#depositModal').modal('show');
-
-		this.$walletService.getTransactions(w.address).then(txs => {
-			w.txs = txs;
-		});
-	}
-
-	walletSettings(w) {
-		this.remove.loading = false;
-		this.settings.error = '';
-		this.selectedwallet = w;
-		this.backup = { txid: '', loading: false, file: null, data: null, password: '', destination: '', error: '' };
-		$('#settingsModal').modal('show');
-	}
-
-	$onInit() {
-		this.$walletService.onLoad(data => {
+	ngOnInit() {
+		this.walletService.onLoad.subscribe(data => {
 			this.defaultwallet = data.wallets.filter((w) => { return w.address == data.receiveaddress; })[0];
 
 			if (data.receiveaddress) {
-				this.$walletService.getTransactions(data.receiveaddress).then((txs) => {
+				this.walletService.getTransactions(data.receiveaddress).subscribe((txs) => {
 					this.transactions = txs;
 				});
 			}
 
 			this.walletList.wallets = data.wallets;
 			this.walletList.wallets = this.walletList.wallets.map((w) => {
-				const w1 = w;
+				const w1: Wallet & { qr?: string } = w;
 				w1.qr = "bitcoin:" + w.address;/*this.defaultwallet.address;*/
 				return w1;
 			});
@@ -208,28 +154,10 @@ class MeWalletCtrl {
 			this.walletList = { ...this.walletList };
 		});
 
-		this.$dashboardService.get().then(user => {
+		this.dashboardService.get().subscribe(user => {
 			this.user = user;
 		});
 
 		this.reloadWallet();
-
-		/* Backward compatibility feed multisig */
-		if ('feed_multisig' in this.$routeParams) {
-			this.$location.path('/me/wallet/feed').search({
-				wallet: this.$routeParams['feed_multisig'],
-				organization: this.$routeParams['organization'],
-				label: this.$routeParams['label']
-			});
-		}
 	}
-
-	static get $inject() { return ['$location', '$routeParams', '$walletService', '$uibModal', '$dashboardService', '$anchorScroll', '$translate', 'config']; }
 }
-
-const MeWalletComponent = {
-	templateUrl: 'components/dashboard/wallet/wallets/wallets.html',
-	controller: MeWalletCtrl
-};
-
-export default MeWalletComponent;

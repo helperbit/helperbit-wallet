@@ -1,0 +1,230 @@
+{
+	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+	"version": 1,
+	"newProjectRoot": "projects",
+	"projects": {
+		"helperbit": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				}
+			},
+			"root": "app",
+			"sourceRoot": "app",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:browser",
+					"options": {
+						"budgets": [
+							{
+								"type": "initial",
+								"maximumWarning": "5mb",
+								"maximumError": "10mb"
+							},
+							{
+								"type": "anyComponentStyle",
+								"maximumWarning": "6kb",
+								"maximumError": "10kb"
+							}
+						],
+						"baseHref": "/",
+						"deployUrl": "/",
+						"outputPath": "dist/",
+						"index": "app/index.html",
+						"main": "app/main.ts",
+						"polyfills": "app/polyfills.ts",
+						"tsConfig": "app/tsconfig.app.json",
+						"aot": false,
+						"assets": [
+							"app/favicon.ico",
+							{
+								"glob": "**/*",
+								"input": "app/assets/",
+								"output": "/"
+							},
+							{
+								"glob": "**/*",
+								"input": "app/widgets/",
+								"output": "/widgets",
+								"ignore": [
+									"node_modules",
+									"**/node_modules",
+									"app/widgets/node_modules"
+								]
+							}
+						],
+						"styles": [
+							"node_modules/bootstrap/dist/css/bootstrap.min.css",
+							"node_modules/leaflet/dist/leaflet.css",
+							"node_modules/intl-tel-input/build/css/intlTelInput.css",
+							"node_modules/bootstrap-slider/dist/css/bootstrap-slider.min.css",
+							"node_modules/bootstrap-social/bootstrap-social.css",
+							"node_modules/cryptocoins-icons/webfont/cryptocoins.css",
+							"node_modules/font-awesome/css/font-awesome.min.css",
+							"app/assets/fonts/fonts.css",
+							"node_modules/ng-bootstrap-to-bootstrap-3/dist/ng-bootstrap-to-bootstrap-3.min.css",
+							"node_modules/angular-archwizard/archwizard.css",
+							"app/styles.scss"
+						],
+						"scripts": [
+							"node_modules/intl-tel-input/build/js/utils.js",
+							"node_modules/intl-tel-input/build/js/intlTelInput.min.js"
+						]
+					},
+					"configurations": {
+						"mainnet": {
+							"fileReplacements": [
+								{
+									"replace": "app/config.js",
+									"with": "app/config/mainnet.js"
+								}
+							],
+							"optimization": true,
+							"outputHashing": "all",
+							"sourceMap": false,
+							"extractCss": false,
+							"namedChunks": true,
+							"aot": false,
+							"extractLicenses": true,
+							"vendorChunk": true,
+							"buildOptimizer": false
+						},
+						"testnet": {
+							"fileReplacements": [
+								{
+									"replace": "app/config.js",
+									"with": "app/config/testnet.js"
+								}
+							],
+							"optimization": true,
+							"outputHashing": "all",
+							"sourceMap": false,
+							"extractCss": false,
+							"namedChunks": true,
+							"vendorSourceMap": false,
+							"aot": false,
+							"extractLicenses": true,
+							"vendorChunk": true,
+							"buildOptimizer": false
+						},
+						"mainnet-staging": {
+							"fileReplacements": [
+								{
+									"replace": "app/config.js",
+									"with": "app/config/mainnet-staging.js"
+								}
+							],
+							"optimization": true,
+							"outputHashing": "all",
+							"sourceMap": false,
+							"extractCss": false,
+							"namedChunks": true,
+							"aot": false,
+							"extractLicenses": true,
+							"vendorChunk": true,
+							"buildOptimizer": false
+						},
+						"dev": {
+							"fileReplacements": [
+								{
+									"replace": "app/config.js",
+									"with": "app/config/dev.js"
+								}
+							],
+							"optimization": false,
+							"outputHashing": "all",
+							"sourceMap": false,
+							"extractCss": false,
+							"vendorSourceMap": false,
+							"namedChunks": true,
+							"aot": false,
+							"extractLicenses": false,
+							"vendorChunk": true,
+							"buildOptimizer": false
+						}
+					}
+				},
+				"serve": {
+					"builder": "@angular-devkit/build-angular:dev-server",
+					"options": {
+						"browserTarget": "helperbit:build"
+					},
+					"configurations": {
+						"dev": {
+							"browserTarget": "helperbit:build:dev"
+						}
+					}
+				},
+				"extract-i18n": {
+					"builder": "@angular-devkit/build-angular:extract-i18n",
+					"options": {
+						"browserTarget": "helperbit:build"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"codeCoverage": true,
+						"main": "app/test.ts",
+						"polyfills": "app/polyfills.ts",
+						"tsConfig": "tsconfig.spec.json",
+						"karmaConfig": "karma.conf.js",
+						"assets": [
+							"app/favicon.ico",
+							"app/assets"
+						],
+						"styles": [
+							"app/styles.scss"
+						],
+						"scripts": []
+					}
+				},
+				"lint": {
+					"builder": "@angular-devkit/build-angular:tslint",
+					"options": {
+						"tsConfig": [
+							"app/tsconfig.app.json",
+							"tsconfig.spec.json",
+							"e2e/tsconfig.json"
+						],
+						"exclude": [
+							"**/node_modules/**"
+						]
+					}
+				},
+				"e2e": {
+					"builder": "@angular-devkit/build-angular:protractor",
+					"options": {
+						"protractorConfig": "e2e/protractor.conf.js",
+						"devServerTarget": "helperbit:serve"
+					},
+					"configurations": {
+						"production": {
+							"devServerTarget": "helperbit:serve:production"
+						}
+					}
+				},
+				"server": {
+					"builder": "@angular-devkit/build-angular:server",
+					"options": {
+						"outputPath": "dist/server",
+						"main": "app/main.server.ts",
+						"tsConfig": "tsconfig.server.json"
+					},
+					"configurations": {
+						"dev": {
+							"sourceMap": false,
+							"optimization": {
+								"scripts": false,
+								"styles": true
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"defaultProject": "helperbit"
+}

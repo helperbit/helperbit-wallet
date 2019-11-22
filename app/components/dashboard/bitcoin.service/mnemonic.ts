@@ -2,9 +2,10 @@ import * as bitcoinjs from 'bitcoinjs-lib';
 import * as bip39 from 'bip39';
 import * as bip32 from 'bip32';
 import * as CryptoJS from 'crypto-js';
-import CurrencyService from '../currency';
-import { BitcoinSignService, randomBytes, BitcoinSignOptions, prepareScripts, BitcoinScriptType, BackupFile, scriptTypeOfBitcoinScriptType } from './bitcoin-service';
-import { ConfigService } from '../../app.config';
+import CurrencyService from '../../../services/currency';
+import { BitcoinSignService, randomBytes, BitcoinSignOptions, BackupFile } from './bitcoin-service';
+import AppSettings from '../../../app.settings';
+import { Injectable } from '@angular/core';
 
 require("babel-polyfill");
 
@@ -12,9 +13,9 @@ require("babel-polyfill");
 export type MnemonicChallenge = { index: number; correct: string; insert: string }[];
 export type BitcoinKeys = { private: string; public: string; pair: bitcoinjs.ECPairInterface };
 
-export function checkBitcoinAddress(address: string, config: ConfigService): boolean {
+export function checkBitcoinAddress(address: string): boolean {
 	try {
-		bitcoinjs.address.toOutputScript(address, config.network);
+		bitcoinjs.address.toOutputScript(address, AppSettings.network);
 		return true;
 	} catch (e) {
 		return false;
@@ -49,15 +50,9 @@ export function generateMnemonic(): string {
 }
 
 
+@Injectable()
 export default class BitcoinService implements BitcoinSignService {
-	config: ConfigService;
-	$currency: CurrencyService;
-
-	constructor(config: ConfigService, $currency: CurrencyService) {
-		this.config = config;
-		this.$currency = $currency;
-	}
-
+	constructor(private currencyService: CurrencyService) {}
 
 	/* Decrypt key */
 	decryptKeys(encpriv: string, password: string): BitcoinKeys | null {
@@ -73,7 +68,7 @@ export default class BitcoinService implements BitcoinSignService {
 
 		let upair = null;
 		try {
-			upair = bitcoinjs.ECPair.fromWIF(privkey, this.config.network);
+			upair = bitcoinjs.ECPair.fromWIF(privkey, AppSettings.network);
 		} catch (e) {
 			return null;
 		}
@@ -107,14 +102,14 @@ export default class BitcoinService implements BitcoinSignService {
 
 
 	checkAddress(address: string): boolean {
-		return checkBitcoinAddress(address, this.config);
+		return checkBitcoinAddress(address);
 	}
 
 	evaluteFee(inputs, outputs, fast) {
 		let speed = 'halfHourFee';
 		if (fast) speed = 'fastestFee';
 
-		return (outputs * 34 + inputs * 180 + 10) * this.$currency.fees[speed] / 100000000.0;
+		return (outputs * 34 + inputs * 180 + 10) * this.currencyService.fees[speed] / 100000000.0;
 	}
 
 
@@ -130,7 +125,7 @@ export default class BitcoinService implements BitcoinSignService {
 		};
 
 		const seed = bip39.mnemonicToSeedSync(fixSeed(secret));
-		const hd = bitcoinjs.ECPair.fromWIF(bip32.fromSeed(seed, this.config.network).toWIF(), this.config.network);
+		const hd = bitcoinjs.ECPair.fromWIF(bip32.fromSeed(seed, AppSettings.network).toWIF(), AppSettings.network);
 		const priv1 = hd.toWIF();
 		const pub1 = hd.publicKey.toString('hex');
 		return { private: priv1, public: pub1, pair: hd };
@@ -139,7 +134,7 @@ export default class BitcoinService implements BitcoinSignService {
 
 	/* Random keypair */
 	randomKeys(): BitcoinKeys {
-		const pair2 = bitcoinjs.ECPair.makeRandom({ network: this.config.network, rng: randomBytes });
+		const pair2 = bitcoinjs.ECPair.makeRandom({ network: AppSettings.network, rng: randomBytes });
 		const priv2 = pair2.toWIF();
 		const pub2 = pair2.publicKey.toString('hex');
 
@@ -152,14 +147,11 @@ export default class BitcoinService implements BitcoinSignService {
 			options.wif = this.mnemonicToKeys(options.seed).private;
 
 		return new Promise((resolve, reject) => {
-			const txb = bitcoinjs.Psbt.fromHex(txhex, { network: this.config.network });
-			const upair = bitcoinjs.ECPair.fromWIF(options.wif, this.config.network);
+			const txb = bitcoinjs.Psbt.fromHex(txhex, { network: AppSettings.network });
+			const upair = bitcoinjs.ECPair.fromWIF(options.wif, AppSettings.network);
 
 			txb.signAllInputs(upair);
 			resolve(txb.toHex());
 		});
 	}
-
-
-	static get $inject() { return ['config', '$currency']; }
 }

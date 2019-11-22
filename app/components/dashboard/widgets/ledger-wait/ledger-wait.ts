@@ -1,16 +1,23 @@
-export type LedgerWaitConfig = {
+import { Component, Input, EventEmitter, OnChanges, Output } from '@angular/core';
+
+export interface LedgerWaitConfig {
 	phase: number;
 	status: string;
 	button?: boolean;
-};
+}
 
-class LedgerWaitController {
+@Component({
+	selector: 'ledger-wait',
+	templateUrl: 'ledger-wait.html',
+	styleUrls: ['ledger-wait.scss']
+})
+export default class LedgerWaitComponent implements OnChanges {
+	@Output() exec: EventEmitter<void> = new EventEmitter();
+	@Input() config: LedgerWaitConfig; // input
+
 	started: boolean;
 	phases: string[];
 	retryShow: boolean;
-
-	exec?: () => void; // input
-	config: LedgerWaitConfig; // input
 
 	constructor() {
 		this.started = false;
@@ -22,10 +29,10 @@ class LedgerWaitController {
 		this.started = true;
 		this.retryShow = false;
 		this.phases = ['wait', 'none', 'none'];
-		this.exec();
+		this.exec.emit();
 	}
 
-	$onChanges(changes) {		
+	ngOnChanges(changes) {
 		if (!changes.config || !changes.config.currentValue)
 			return;
 
@@ -42,14 +49,3 @@ class LedgerWaitController {
 			this.phases[i] = 'none';
 	}
 }
-
-const LedgerWaitComponent = {
-	templateUrl: 'components/dashboard/ledger-wait/ledger-wait.html',
-	controller: LedgerWaitController,
-	bindings: {
-		config: '<',
-		exec: '='
-	}
-};
-
-export default LedgerWaitComponent;

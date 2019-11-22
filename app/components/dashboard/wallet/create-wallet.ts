@@ -1,30 +1,18 @@
-import * as angular from 'angular';
 import WalletService, { HardwareWalletType } from "../../../models/wallet";
-import TranslateService from "../../../services/translate";
-import BitcoinLedgerService from "../../../services/bitcoin/ledger";
-import BitcoinService, { createMnemonicChallenge, checkMnemonicChallenge, generateMnemonic } from "../../../services/bitcoin/mnemonic";
-import { ICookiesService } from "../../../shared/types/angular-cookies";
+import { TranslateService } from '@ngx-translate/core';
+import BitcoinLedgerService from "../bitcoin.service/ledger";
+import BitcoinService, { createMnemonicChallenge, checkMnemonicChallenge, generateMnemonic } from "../bitcoin.service/mnemonic";
+import { CookieService } from "ngx-cookie-service";
 import { PageHeaderConfig } from "../../../shared/components/page-header/page-header";
-import { BitcoinScriptType } from "../../../services/bitcoin/bitcoin-service";
-import { WizardStep } from "../../../shared/helpers/wizard-step";
-import { LedgerWaitConfig } from "../ledger-wait/ledger-wait";
+import { BitcoinScriptType } from "../bitcoin.service/bitcoin-service";
+import { LedgerWaitConfig } from "../widgets/ledger-wait/ledger-wait";
 import BrowserHelperService from '../../../services/browser-helper';
 import DashboardService from '../../../models/dashboard';
+import { NgWizardStep } from '../../../shared/helpers/ng-wizard-step';
+import { ActivatedRoute } from '@angular/router';
 
-export class CreateWalletController {
-	$scope: any;
-	$browserHelper: BrowserHelperService;
-	$routeParams: any;
-	$walletService: WalletService;
-	$translate: TranslateService;
-	$bitcoinLedger: BitcoinLedgerService;
-	$window: angular.IWindowService;
-	$bitcoin: BitcoinService;
-	$timeout: angular.ITimeoutService;
-	$dashboardService: DashboardService;
-	$cookies: ICookiesService;
-
-	hideIndicators: boolean;
+export class CreateWallet {
+	protected onFirstStep: boolean = true;
 	pageHeader: PageHeaderConfig;
 	username: string;
 	rnd: string;
@@ -51,38 +39,33 @@ export class CreateWalletController {
 	};
 
 	wizard: {
-		step0: WizardStep<void>;
-		step1Passphrase: WizardStep<void>;
-		step1HardwareWallet: WizardStep<{ ledgerWaitStatus: LedgerWaitConfig; exec: () => void }>;
-		step2: WizardStep<void>;
-		step2Passphrase: WizardStep<void>;
-		step3: WizardStep<{ passwordVisibility: string }>;
-		step4: WizardStep<void>;
+		step0: NgWizardStep<void>;
+		step1Passphrase: NgWizardStep<void>;
+		step1HardwareWallet: NgWizardStep<{ ledgerWaitStatus: LedgerWaitConfig; exec: () => void }>;
+		step2Passphrase: NgWizardStep<void>;
+		step3: NgWizardStep<{ passwordVisibility: string }>;
+		step4: NgWizardStep<void>;
 	};
 
-	constructor(wizardName, $walletService, $scope, $cookies, $routeParams, $bitcoin, $bitcoinLedger, $window, $translate, WizardHandler, $timeout, $browserHelper, $dashboardService) {
-		this.$walletService = $walletService;
-		this.$browserHelper = $browserHelper;
-		this.$routeParams = $routeParams;
-		this.$translate = $translate;
-		this.$bitcoinLedger = $bitcoinLedger;
-		this.$bitcoin = $bitcoin;
-		this.$timeout = $timeout;
-		this.$scope = $scope;
-		this.$window = $window;
-		this.$dashboardService = $dashboardService;
-		this.$cookies = $cookies;
-
+	constructor(
+		protected walletService: WalletService,
+		protected cookieService: CookieService,
+		protected route: ActivatedRoute,
+		protected bitcoinService: BitcoinService,
+		protected bitcoinLedgerService: BitcoinLedgerService,
+		protected translate: TranslateService,
+		protected browserHelperService: BrowserHelperService,
+		protected dashboardService: DashboardService
+	) {
 		this.rnd = 'rnd' + Math.random() + '_';
-		this.hideIndicators = false;
 
 		this.model = {
 			invalid: false,
-			ledgerSupport: $browserHelper.isLedgerSupported(),
+			ledgerSupport: browserHelperService.isLedgerSupported(),
 			accept: false,
 			hardwareWallet: false,
 			hardwareWalletType: 'none',
-			hardwareWalletPublicKey: null,
+			hardwareWalletPublicKey: '',
 			mnemonic: generateMnemonic(),
 			mnemonicConfirmChallenge: [],
 			backupPassword: '',
@@ -93,19 +76,19 @@ export class CreateWalletController {
 			address: ''
 		};
 
-		this.wizard = { step0: null, step1Passphrase: null, step1HardwareWallet: null, step2: null, step2Passphrase: null, step3: null, step4: null };
+		this.wizard = { step0: null, step1Passphrase: null, step1HardwareWallet: null, step2Passphrase: null, step3: null, step4: null };
 
-		this.wizard.step0 = new WizardStep(wizardName, WizardHandler);
+		this.wizard.step0 = new NgWizardStep();
 		this.wizard.step0.setTitles({
-			main: $translate.getString('Type'),
-			heading: $translate.getString('Choose wallet type')
+			main: this.translate.instant('Type'),
+			heading: this.translate.instant('Choose wallet type')
 		});
 
 
-		this.wizard.step1Passphrase = new WizardStep(wizardName, WizardHandler);
+		this.wizard.step1Passphrase = new NgWizardStep();
 		this.wizard.step1Passphrase.setTitles({
-			main: $translate.getString('Passphrase'),
-			heading: $translate.getString('Generate a random passphrase')
+			main: this.translate.instant('Passphrase'),
+			heading: this.translate.instant('Generate a random passphrase')
 		});
 		this.wizard.step1Passphrase.setNextInterceptor(() => {
 			this.wizard.step2Passphrase.resetResponse();
@@ -114,10 +97,10 @@ export class CreateWalletController {
 		});
 
 
-		this.wizard.step1HardwareWallet = new WizardStep(wizardName, WizardHandler);
+		this.wizard.step1HardwareWallet = new NgWizardStep();
 		this.wizard.step1HardwareWallet.setTitles({
-			main: $translate.getString('Hardware Wallet'),
-			heading: $translate.getString('Pair your hardware wallet')
+			main: this.translate.instant('Hardware Wallet'),
+			heading: this.translate.instant('Pair your hardware wallet')
 		});
 		this.wizard.step1HardwareWallet.initializeModel({
 			ledgerWaitStatus: {
@@ -132,69 +115,69 @@ export class CreateWalletController {
 		});
 
 
-		this.wizard.step2Passphrase = new WizardStep(wizardName, WizardHandler);
+		this.wizard.step2Passphrase = new NgWizardStep();
 		this.wizard.step2Passphrase.setTitles({
-			main: $translate.getString('Confirm'),
-			heading: $translate.getString('Prove you have written down your passphrase')
+			main: this.translate.instant('Confirm'),
+			heading: this.translate.instant('Prove you have written down your passphrase')
 		});
 		this.wizard.step2Passphrase.setNextInterceptor(() => {
 			this.wizard.step2Passphrase.resetResponse();
 
 			if (!checkMnemonicChallenge(this.model.mnemonicConfirmChallenge))
-				return $timeout(() => {
-					this.wizard.step2Passphrase.setResponse('error', { error: 'XM1' });
-				});
+				// return $timeout(() => {
+				this.wizard.step2Passphrase.setResponse('error', { error: 'XM1' });
+			// });
 
 			this.wizard.step2Passphrase._next();
 		});
 
 
-		this.wizard.step3 = new WizardStep(wizardName, WizardHandler);
+		this.wizard.step3 = new NgWizardStep();
 		this.wizard.step3.setTitles({
-			main: $translate.getString('Backup'),
-			heading: $translate.getString('Create a signature backup file')
+			main: this.translate.instant('Backup'),
+			heading: this.translate.instant('Create a signature backup file')
 		});
 		this.wizard.step3.initializeModel({
 			passwordVisibility: 'password'
 		});
 
 
-		this.wizard.step4 = new WizardStep(wizardName, WizardHandler);
+		this.wizard.step4 = new NgWizardStep();
 		this.wizard.step4.setTitles({
-			main: $translate.getString('Done'),
-			heading: $translate.getString('Done')
+			main: this.translate.instant('Done'),
+			heading: this.translate.instant('Done')
 		});
 	}
 
 	pairHardwareWallet() {
 		const ledgerWaitCallback = (phase, status) => {
-			this.$timeout(() => {
-				this.wizard.step1HardwareWallet.model.ledgerWaitStatus = {
-					...this.wizard.step1HardwareWallet.model.ledgerWaitStatus, ...{
-						phase: phase,
-						status: status
-					}
-				};
-			});
+			// this.$timeout(() => {
+			this.wizard.step1HardwareWallet.model.ledgerWaitStatus = {
+				...this.wizard.step1HardwareWallet.model.ledgerWaitStatus, ...{
+					phase: phase,
+					status: status
+				}
+			};
+			// });
 		};
 
 		this.wizard.step1HardwareWallet.loading = true;
 
-		this.$bitcoinLedger.getPublicKey(ledgerWaitCallback).then(pk => {
-			return this.$timeout(() => {
-				this.wizard.step1HardwareWallet.loading = false;
-				this.model.hardwareWalletPublicKey = pk;
-				this.model.accept = true;
-				this.wizard.step1HardwareWallet.setResponse('success', {
-					text: this.$translate.getString('Hardware Wallet successfully paired')
-				});
+		this.bitcoinLedgerService.getPublicKey(ledgerWaitCallback).then(pk => {
+			// return this.$timeout(() => {
+			this.wizard.step1HardwareWallet.loading = false;
+			this.model.hardwareWalletPublicKey = pk;
+			this.model.accept = true;
+			this.wizard.step1HardwareWallet.setResponse('success', {
+				text: this.translate.instant('Hardware Wallet successfully paired')
 			});
+			// });
 		}).catch((err) => {
-			return this.$timeout(() => {
-				this.model.hardwareWalletPublicKey = null;
-				this.wizard.step1HardwareWallet.loading = false;
-				// this.wizard.step1HardwareWallet.setResponse ('error', { error: 'XHW1' });
-			});
+			// return this.$timeout(() => {
+			this.model.hardwareWalletPublicKey = null;
+			this.wizard.step1HardwareWallet.loading = false;
+			// this.wizard.step1HardwareWallet.setResponse ('error', { error: 'XHW1' });
+			// });
 		});
 	}
 
@@ -209,9 +192,10 @@ export class CreateWalletController {
 	printMnemonic() {
 		const oldtitle = document.title;
 		document.title = 'helperbit_passphrase_' + this.username + '.pdf';
-		this.$window.print();
+		window.print();
 		document.title = oldtitle;
 	}
+
 
 	selectWalletType(wt: 'ledger' | 'mnemonic') {
 		if (wt == 'ledger') {
@@ -224,8 +208,8 @@ export class CreateWalletController {
 
 		this.model.accept = false;
 		this.wizard.step0.reset();
-		this.$timeout(() => { this.wizard.step0.next(); });
+		// this.$timeout(() => { 
+		this.wizard.step0.next();
+		// });
 	}
-
-	static get $inject() { return ['$walletService', '$scope', '$cookies', '$routeParams', '$bitcoin', '$bitcoinLedger', '$window', '$translate', 'WizardHandler', '$timeout', '$browserHelper', '$dashboardService']; }
 }

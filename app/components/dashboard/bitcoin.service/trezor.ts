@@ -1,11 +1,9 @@
 import { BitcoinSignOptions, BitcoinSignService } from "./bitcoin-service";
-import { ConfigService } from "../../app.config";
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export default class BitcoinTrezorService implements BitcoinSignService {
-	config: ConfigService;
-
-	constructor (config) {
-		this.config = config;
+	constructor () {
 	}
 
 	sign (txhex: string, options: BitcoinSignOptions): Promise<string> {	
@@ -18,6 +16,4 @@ export default class BitcoinTrezorService implements BitcoinSignService {
 	
 		return Promise.reject();
 	}
-
-	static get $inject() { return ['config' ]; }
 }
