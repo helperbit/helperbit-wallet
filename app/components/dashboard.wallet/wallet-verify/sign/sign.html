@@ -1,0 +1,52 @@
+<div class="modal-header">
+	<button type="button" class="close" aria-label="Close" (click)="activeModal.close()">
+		<span aria-hidden="true">&times;</span>
+	</button>
+	<h4 class="modal-title" id="myModalLabel" translate>Sign Verification</h4>
+</div>
+
+<div class="modal-body">
+	<div class="row">
+		<div class="col-xs-12">
+			<response-messages [message]="responseMessage"></response-messages>
+		</div>
+	</div>
+
+	<table class="table" *ngIf="tx">
+		<tbody>
+			<tr>
+				<td translate>Wallet</td>
+				<td class="text-break-all">{{tx.wallet.label}}</td>
+			</tr>
+			<tr>
+				<td translate>Address</td>
+				<td class="text-break-all">{{tx.wallet.address}}</td>
+			</tr>
+			<tr>
+				<td translate>Date</td>
+				<td>{{tx.time|date:'medium'}}</td>
+			</tr>
+			<tr *ngIf="tx.wallet.ismultisig">
+				<td translate>Signatures</td>
+				<td>{{tx.signers.length}} of {{tx.n}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<wallet-sign [config]="signConfig"></wallet-sign>
+
+
+	<hr>
+
+	<div class="row">
+		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-lg-left text-md-left text-sm-left text-xs-center">
+			<button type="button" class="btn btn-danger btn-xs-block"  (click)="activeModal.close()" translate>Close</button>
+		</div>
+		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 text-lg-right text-md-right text-sm-right text-xs-center margin-xs-top-5">
+			<button type="button" class="btn btn-default btn-xs-block margin-xs-top-5" [loading]="isLoading" [disabled]="isLoading" (click)="sign()">
+				<i class="fa fa-pencil"></i>
+				<span translate>Sign</span>
+			</button>
+		</div>
+	</div>
+</div>

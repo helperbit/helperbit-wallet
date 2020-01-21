@@ -1,0 +1,126 @@
+<page-header [config]="pageHeader"></page-header>
+
+<div class="row">
+	<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 page-composable-col" style="top: 0px; position: sticky;">
+		<div class="page page-composable">
+			<sidebar-component></sidebar-component>
+		</div>
+	</div>
+	<!-- <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 page-composable-col"></div> -->
+	<div class="col-lg-8 col-md-10 col-sm-12 col-xs-12 page-composable-col">
+		<div class="page page-composable profile-wallet" style="padding: 1.5em;">
+
+			<!-- DEFAULT WALLET -->
+			<h3 class="border-bottom border-yellow margin-top-0 margin-bottom-15" translate>Your Wallets</h3>
+
+			<div class="alert alert-warning alert-dismissible" role="alert" *ngFor="let obj of pending">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+						aria-hidden="true">&times;</span></button>
+				<span translate>You have a pending verification to sign for address</span>
+				{{obj.wallet.address + ' (' + obj.wallet.label + ')'}}
+				<button class="btn btn-success btn-sm" (click)="verificationSign(obj)" translate>Verify</button>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="panel-group" id="accordion">
+
+						<div class="panel panel-default" *ngFor="let wallet of wallets">
+							<a data-toggle="collapse" data-parent="#accordion" [href]="'#' + wallet.address"
+								target="_self">
+								<div class="panel-heading">
+									<div class="panel-title">
+										<h4 class="panel-title text-left">
+											{{wallet.label}} <span class="panel-title-address">{{ wallet.address | crop: 32}}</span>
+										</h4>
+									</div>
+									<div class="label label-time">
+										{{wallet.lastverify|timediff}}
+									</div>
+
+									<!-- <div class="margin-bottom-5 label-container">
+										<span class="label label-time">
+											{{wallet.lastverify|timediff}}
+										</span>
+										<span class="label label-warning " *ngIf="wallet.scripttype == 'p2sh'"
+											translate>Legacy</span>
+										<span class="label label-info " *ngIf="wallet.scripttype == 'p2wsh'"
+											translate>Bech32</span>
+										<span class="label label-info" *ngIf="wallet.hardware == 'ledgernanos'"><i
+												class="fa fa-key"></i>
+											<span translate>HW Wallet</span>
+										</span>
+										<span class="state label"
+											[ngClass]="wallet.signed ? 'state-success' : 'state-working'"></span>
+									</div> -->
+									<div class="state label"
+										[ngClass]="wallet.signed ? 'state-success' : 'state-working'"></div>
+								</div>
+							</a>
+							<div [id]="wallet.address" class="panel-collapse collapse padding-0">
+								<!-- <table class="table margin-bottom-0 hidden-xs">
+										<thead class="separator">
+											<tr>
+												<th class="text-center" style="width: 50%" translate>Address</th>
+												<th class="text-center" style="width: 25%" translate>Multisignature</th>
+												<th class="text-center" style="width: 25%" translate>Last Verifify</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td class="text-center" style="width: 50%;">
+													<a href="javascript:void(0)"
+														[tooltip]="'Click to copy the address' | translate"
+														[copyToClipboard]="wallet.address">{{wallet.address}}</a>
+													</td>
+												<td class="text-center" style="width: 25%;">{{wallet.ismultisig}}</td>
+												<td class="text-center" style="width: 25%">{{wallet.lastverify | date : short}}</td>
+											</tr>
+										</tbody>
+									</table> -->
+
+								<div class="row" *ngIf="wallet.creation || wallet.signed">
+									<div class="col-xs-12 text-center padding-bottom-15">
+										<p translate>You can verify your keys in any time by pressing the following button:</p>
+										<br>
+										<button class="btn btn-success" (click)="verificationCreate(wallet)"
+											translate>Verify the wallet</button>
+									</div>
+									<hr>
+								</div>
+
+								<table class="table margin-bottom-0 hidden-xs" *ngIf="wallet.history.length > 0">
+									<thead class="separator">
+										<tr>
+											<th class="text-center" style="width: 50%" translate>Date</th>
+											<th class="text-center" style="width: 30%" translate>Value</th>
+											<th class="text-center" style="width: 20%" translate>Status</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr *ngFor="let obj of wallet.history">
+											<td class="text-center" style="width: 50%;">{{obj.time | date:'medium'}}</td>
+											<td class="text-center" style="width: 25%;">{{obj.value || '-'}}</td>
+											<td class="text-center" style="width: 25%">
+												<div *ngIf="!wallet.ismultisig || obj.status != 'signing'" class="state"
+													[ngClass]="obj.status == 'signed' ? 'state-success' : obj.status == 'signing' ? 'state-working' : 'state-error'">
+												</div>
+												<div *ngIf="wallet.ismultisig && obj.status == 'signing'"
+													[tooltip]="obj.signers + ' ' + ('signs of' | translate) + ' ' + obj.admins"
+													class="state"
+													[ngClass]="obj.status == 'signed' ? 'state-success' : obj.status == 'signing' ? 'state-working' : 'state-error'">
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

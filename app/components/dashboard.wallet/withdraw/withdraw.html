@@ -1,0 +1,346 @@
+<!-- New withdraw Modal -->
+<div class="modal-header">
+	<button type="button" class="close" aria-label="Close" (click)="activeModal.close()">
+		<span aria-hidden="true">&times;</span>
+	</button>
+	<h4 class="modal-title" id="myModalLabel" translate>Send</h4>
+</div>
+
+<ul class="nav nav-tabs" role="tablist" *ngIf="wallet">
+	<li role="presentation" class="active">
+		<a href="javascript:void(0)" data-target="#withdraw-send" aria-controls="withdraw-send" role="tab" data-toggle="tab"
+			translate>Send money</a>
+	</li>
+	<li role="presentation" *ngIf="wallet.ismultisig">
+		<a href="javascript:void(0)" data-target="#withdraw-pendingsign" aria-controls="withdraw-pendingsign" role="tab"
+			data-toggle="tab">
+			<span translate>Pending</span>
+			<!--<span class="label label-danger">{{wallet.pendingtxs.length}}</label>-->
+		</a>
+	</li>
+	<li role="presentation">
+		<a href="javascript:void(0)" data-target="#withdraw-history" aria-controls="withdraw-history" role="tab" data-toggle="tab"
+			translate>History</a>
+	</li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content" *ngIf="wallet">
+	<div role="tabpanel" class="tab-pane active" id="withdraw-send">
+		<aw-wizard #wizardMulti *ngIf="wallet.ismultisig" class="modal-body">
+			<aw-wizard-step [stepTitle]="multisigWizard.step1.titles.main">
+				<!-- ng-form name="withdrawMultisig" -->
+				<h1 class="text-center text-uppercase">{{ multisigWizard.step1.titles.heading }}</h1>
+
+				<div class="row">
+					<div class="col-xs-12">
+						<response-messages [message]="multisigWizard.step1.responseMessage"></response-messages>
+					</div>
+				</div>
+
+				<div *ngIf="model.value <= 0" class="alert alert-danger" role="alert"
+					translate>Invalid amount</div>
+
+				<div class="padding-bottom-15">
+					<currency-selector></currency-selector>
+				</div>
+
+				<span translate>Amount to send</span> ({{null|money}}):
+				<input pattern="^[0-9]+(\.[0-9]{1,8})?$" type="text" class="form-control" [disabled]="fixedValue"
+					name="amount" [(ngModel)]="model.value" moneyInput/>
+				<br>
+				<button class="btn-link" *ngIf="balance && balance.balance > 0" [hidden]="fixedValue" style="font-size: 90%" (click)="model.value = balance.balance">
+					<span translate>Click here to select all the available balance of</span>{{balance.balance|money}}.</button>
+				<br>
+				<br>
+				<span translate>Transaction description</span>
+				<i class="fa fa-info-circle"
+					[tooltip]="'Explain where these funds are going; this information will be public.'|translate"></i>:
+				<textarea [(ngModel)]="model.description" [disabled]="fixedDescription">
+									{{model.description}}
+								</textarea>
+				<br>
+				<span translate>Destination address</span>:
+				<input type="text" class="form-control" [value]="model.destination" [disabled]="fixedDestination"
+					[(ngModel)]="model.destination" />
+				<hr>
+
+				<div class="row">
+					<div
+						class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-lg-right text-md-right text-sm-right text-xs-center">
+						<button type="button" class="btn btn-default btn-xs-block"
+							[disabled]="model.value <= 0 || !model.description || model.description.length < 8"
+							[loading]="multisigWizard.step1.loading" (click)="withdrawFeeDo();" translate>Next</button>
+					</div>
+				</div>
+			</aw-wizard-step>
+
+
+			<!-- Fee and confirmation -->
+			<aw-wizard-step [stepTitle]="multisigWizard.step2.titles.main">
+				<h1 class="text-center text-uppercase">{{ multisigWizard.step2.titles.heading }}</h1>
+
+				<div class="row">
+					<div class="col-xs-12">
+						<response-messages [message]="multisigWizard.step2.responseMessage"></response-messages>
+					</div>
+				</div>
+
+				<span translate>Transaction description</span>:
+				<span style="font-size: 80%;">{{model.description}}</span>
+				<br>
+				<span translate>Destination address</span>:
+				<span style="font-size: 80%;">{{model.destination}}</span>
+				<br>
+				<br>
+				<table class="table table-compact table-striped summary-table">
+					<tr>
+						<td translate>Value</td>
+						<td>
+							<span translate>Network fees</span>
+							<i class="fa fa-question-circle"
+								[tooltip]="'An additional network fee is automatically added to assure that the transaction will be confirmed.'|translate"
+								data-template='<div class="tooltip" role="tooltip" style="padding-bottom: 5px;"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'></i>
+						</td>
+						<td translate>Total value</td>
+					</tr>
+					<tr>
+						<td>{{model.value|money:'full'}}</td>
+						<td>{{model.fee|money:'full'}}</td>
+						<td>{{model.value + model.fee|money:'full'}}</td>
+					</tr>
+				</table>
+				<fee-selector *ngIf="fees" [fees]="fees" (change)="changedFeeProfile($event)"></fee-selector>
+				<hr>
+				<div class="row">
+					<div
+						class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-lg-left text-md-left text-sm-left text-xs-center">
+						<button type="button" class="btn btn-danger btn-xs-block"
+							(click)="multisigWizard.step2.previous()" translate>Go back</button>
+					</div>
+					<div
+						class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-lg-right text-md-right text-sm-right text-xs-center margin-xs-top-5">
+						<button type="button" class="btn btn-default btn-xs-block"
+							[loading]="multisigWizard.step2.loading" (click)="multiSubmit();" translate>Send</button>
+					</div>
+				</div>
+			</aw-wizard-step>
+
+
+			<aw-wizard-step [stepTitle]="multisigWizard.step3.titles.main">
+				<h1 class="text-center text-uppercase">{{ multisigWizard.step3.titles.heading }}</h1>
+
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center completed-img">
+						<img src="/media/completed-green.png">
+					</div>
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center margin-top-20 completed-text">
+						<p>
+							<span translate>Your transaction has been prepared; the transaction need to be signed by
+								{{wallet.multisig.n}} wallet administrators (an email is sent to them)</span>.
+							<br>
+							<br>
+						</p>
+					</div>
+				</div>
+			</aw-wizard-step>
+		</aw-wizard>
+
+
+		<aw-wizard #wizardSingle *ngIf="!wallet.ismultisig" class="modal-body">
+			<aw-wizard-step [stepTitle]="singleWizard.step1.titles.main">
+				<h1 class="text-center text-uppercase">{{ singleWizard.step1.titles.heading }}</h1>
+
+				<div *ngIf="mtype == 'eventdonation'">
+					<div class="row">
+						<div class="col-xs-12">
+							<response-messages [message]="singleWizard.step1.responseMessage"></response-messages>
+						</div>
+					</div>
+
+					<span>
+						<span translate>Donation to</span>
+						<b>{{distributionn}}</b>
+						<span translate>users in the event</span>
+						<a [routerLink]="'/event/'+event">{{event}}</a>
+					</span>
+					<br>
+					<br>
+					<table class="table table-compact table-striped summary-table">
+						<tr>
+							<td translate>Value</td>
+							<td>
+								<span translate>Network fees</span>
+								<i class="fa fa-question-circle"
+									[tooltip]="'An additional network fee is automatically added to assure that the transaction will be confirmed.'|translate"
+									data-template='<div class="tooltip" role="tooltip" style="padding-bottom: 5px;"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'></i>
+							</td>
+							<td translate>Total value</td>
+						</tr>
+						<tr>
+							<td>{{model.value|money:'full'}}</td>
+							<td>{{model.fee|money:'full'}}</td>
+							<td>{{model.value + model.fee|money:'full'}}</td>
+						</tr>
+					</table>
+					<fee-selector *ngIf="fees" [fees]="fees" (change)="changedFeeProfile($event)"></fee-selector>
+
+					<br>
+					<wallet-sign [config]="signConfig"></wallet-sign>
+
+					<hr>
+					<div class="text-lg-right text-md-right text-sm-right text-xs-center">
+						<button type="button" class="btn btn-default btn-xs-block" loading="singleWizard.step1.loading"
+							(click)="singleWizard.step1.eventDonate ();" translate>Next</button>
+					</div>
+				</div>
+
+				<div *ngIf="mtype != 'eventdonation'">
+					<!-- ng-form name="withdrawSingle" -->
+					<div class="row">
+						<div class="col-xs-12">
+							<response-messages [message]="singleWizard.step1.responseMessage"></response-messages>
+						</div>
+					</div>
+
+					<div *ngIf="model.value <= 0" class="alert alert-danger"
+						role="alert" translate>Invalid amount</div>
+
+					<div class="padding-bottom-15">
+						<currency-selector></currency-selector>
+					</div>
+
+					<span translate>Amount to send</span> ({{null|money}}):
+					<input pattern="^[0-9]+(\.[0-9]{1,8})?$" type="text" class="form-control" name="amount"
+						[(ngModel)]="model.value" [disabled]="fixedValue" moneyInput/>
+					<button class="btn-link" *ngIf="balance && balance.balance > 0" [hidden]="fixedValue" style="font-size: 80%" (click)="model.value = balance.balance">
+						<span translate>Click here to select all the available balance of</span>{{balance.balance|money}}.</button>
+					<br>
+					<span translate>Destination address</span>:
+					<input type="text" class="form-control" [value]="model.destination" [disabled]="fixedDestination"
+						[(ngModel)]="model.destination" />
+					<hr>
+					<div class="text-lg-right text-md-right text-sm-right text-xs-center">
+						<button type="button" class="btn btn-default btn-xs-block"
+							[disabled]="model.value <= 0"
+							[loading]="singleWizard.step1.loading" (click)="withdrawFeeDo();" translate>Next</button>
+					</div>
+				</div>
+			</aw-wizard-step>
+
+			<aw-wizard-step [stepTitle]="singleWizard.step2.titles.main">
+				<h1 class="text-center text-uppercase">{{ singleWizard.step2.titles.heading }}</h1>
+
+				<div class="row">
+					<div class="col-xs-12">
+						<response-messages [message]="singleWizard.step2.responseMessage"></response-messages>
+					</div>
+				</div>
+
+				<span translate>Destination address</span>:
+				<span style="font-size: 80%;">{{model.destination}}</span>
+				<br>
+				<br>
+				<table class="table table-compact table-striped summary-table">
+					<tr>
+						<td translate>Value</td>
+						<td>
+							<span translate>Network fees</span>
+							<i class="fa fa-question-circle"
+								[tooltip]="'An additional network fee is automatically added to assure that the transaction will be confirmed.'|translate"
+								data-template='<div class="tooltip" role="tooltip" style="padding-bottom: 5px;"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'></i>
+						</td>
+						<td translate>Total value</td>
+					</tr>
+					<tr>
+						<td>{{model.value|money:'full'}}</td>
+						<td>{{model.fee|money:'full'}}</td>
+						<td>{{model.value + model.fee|money:'full'}}</td>
+					</tr>
+				</table>
+				<fee-selector *ngIf="fees" [fees]="fees" (change)="changedFeeProfile($event)"></fee-selector>
+
+				<br>
+				<wallet-sign [config]="signConfig"></wallet-sign>
+				<hr>
+				<div class="row">
+					<div
+						class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-lg-left text-md-left text-sm-left text-xs-center">
+						<button type="button" class="btn btn-danger btn-xs-block"
+							(click)="singleWizard.step2.previous()" translate>Go back</button>
+					</div>
+					<div
+						class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-lg-right text-md-right text-sm-right text-xs-center margin-xs-top-5">
+						<button type="button" class="btn btn-default btn-xs-block"
+							[loading]="singleWizard.step2.loading" (click)="singleSubmit();" translate>Send</button>
+					</div>
+				</div>
+			</aw-wizard-step>
+
+			<!-- Withdrawal do -->
+			<aw-wizard-step [stepTitle]="singleWizard.step3.titles.main">
+				<h1 class="text-center text-uppercase">{{ singleWizard.step3.titles.heading }}</h1>
+
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center completed-img">
+						<img src="/media/completed-green.png">
+					</div>
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center margin-top-20 completed-text">
+						<p>
+							<span *ngIf="mtype != 'eventdonation'">
+								<span translate>Your transaction has been sent</span>.
+								<br>
+								<br>
+							</span>
+							<span *ngIf="mtype == 'eventdonation'">
+								<span translate>Your donation has been sent</span>:
+								<a [routerLink]="'/donation/' + model.txid" translate>donation page</a>
+								<br>
+								<br>
+							</span>
+							<input type="text" class="form-control" [value]="model.txid" />
+						</p>
+					</div>
+				</div>
+			</aw-wizard-step>
+		</aw-wizard>
+	</div>
+	<!-- Multisig pending -->
+	<div role="tabpanel" class="tab-pane" id="withdraw-pendingsign" *ngIf="wallet.ismultisig">
+		<div class="modal-body">
+			<div class="text-center" *ngIf="wallet.pendingtxs.length == 0">
+				<i translate>There are no transactions pending signing</i>
+			</div>
+
+			<table *ngIf="wallet.pendingtxs.length != 0" class="table table-compressed">
+				<thead class="separator">
+					<tr>
+						<th class="text-center" translate>Description</th>
+						<th class="text-center" translate>Signatures</th>
+						<th class="text-center" translate>Value</th>
+						<th class="text-center" translate>Date</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tr *ngFor="let tx of wallet.pendingtxs" [hidden]="tx.status == 'signing'">
+					<td class="text-center">{{tx.description}}</td>
+					<td class="text-center">{{tx.signers.length}} of {{tx.n}}</td>
+					<td class="text-center">{{tx.value|money:'full'}}</td>
+					<td class="text-center">{{tx.time|date}}</td>
+					<td class="text-center">
+						<button class="btn btn-default btn-sm" (click)="removeMultisigTransaction (tx._id)"
+							translate>Cancel</button>
+						<!-- 
+							request-confirmation
+							text="{{'Are you sure to cancel this pending transaction?'|translate}}" -->
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div role="tabpanel" class="tab-pane" id="withdraw-history">
+		<div class="modal-body">
+			<transaction-list [out]="true" [multisig]="wallet.ismultisig" [txs]="wallet.txs"></transaction-list>
+		</div>
+	</div>
+</div>

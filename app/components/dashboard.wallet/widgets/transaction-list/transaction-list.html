@@ -1,0 +1,38 @@
+<table *ngIf="vtxs.length > 0" class="table">
+	<thead class="separator">
+		<tr>
+			<th class="text-center" translate>Tx</th>
+			<th class="text-center" translate>Amount</th>
+			<th class="text-center" translate>Date</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let tx of vtxs">
+			<td class="text-center text-ellipsis">
+				<!-- <external-link ng-if="!multisig" [url]="tx.txid|explorer" [text]="tx.txid"></external-link>
+				<external-link ng-if="multisig" [url]="'/transaction/'+tx.txid" [text]="tx.txid"></external-link> -->
+				<external-link *ngIf="!multisig" target="_blank" [url]="tx.txid|explorer" [text]="tx.txid"></external-link>
+				<a *ngIf="multisig" target="_blank" [routerLink]="'/transaction/'+tx.txid">
+					{{tx.txid}}
+				</a>
+			</td>
+			<td class="text-center text-break-all">{{tx.value|money:'full'}}</td>
+			<td class="text-center">{{tx.time|date}}</td>
+			<td class="text-center text-center">
+				<span *ngIf="tx.confirmations == 0" class="label label-danger">
+					<i class="fa fa-clock-o"></i>
+					<span class="hidden-xs">{{'Unconfirmed'|translate}}</span>
+				</span>
+				<span *ngIf="tx.confirmations > 0" class="label label-success">
+						<i class="fa fa-check"></i>
+						<span class="hidden-xs">{{'Confirmed'|translate}}</span>
+				</span>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<div *ngIf="vtxs.length == 0" class="text-center">
+	<i translate>There are no transactions</i>
+</div>

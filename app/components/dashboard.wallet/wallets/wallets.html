@@ -1,0 +1,175 @@
+<page-header [config]="pageHeader"></page-header>
+
+
+
+
+
+
+<!-- Create donation button -->
+<modal [config]="modals.createDonationButton" *ngIf="user">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<h4 class="modal-title" id="myModalLabel" translate>Donation button</h4>
+		</div>
+		<div class="modal-body" style="color: #000">
+
+			<p class="text-justify" translate>Insert the following HTML code in the <i>head</i> section of your
+				werbsite.</p>
+			<textarea style="font-size: 80%">
+				<link rel="stylesheet" href="{{baseUrl}}/widgets/donate-button/style.css">
+				<script src="{{baseUrl}}/widgets/donate-button/button.min.js"></script>
+				<script>helperbit_init('user', '{{user.username}}');</script>
+			</textarea>
+
+			<p class="text-justify margin-top-15" translate>Insert the following HTML code in your werbsite, where you
+				want to display the donation button.</p>
+			<textarea style="font-size: 80%">
+				<div class="hbcontainer" id="hbcontainer-user-{{user.username}}">
+					<iframe class="hbdonateframe" id="hbdonateframe-user-{{user.username}}" scrolling="no" href="javascript:void(0)" src=""></iframe>
+				</div>
+				<a id="hbdonatebutton-user-{{user.username}}" class="hbdonatebutton">Donate in Bitcoin</a>
+			</textarea>
+		</div>
+	</div>
+</modal>
+
+<div class="row">
+	<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 page-composable-col" style="top: 0px; position: sticky;">
+		<div class="page page-composable">
+			<sidebar-component></sidebar-component>
+		</div>
+	</div>
+	<!-- <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 page-composable-col"></div> -->
+	<div class="col-lg-8 col-md-10 col-sm-12 col-xs-12 page-composable-col" *ngIf="user">
+		<div class="page page-composable profile-wallet" style="padding: 1.5em;">
+
+			<!-- DEFAULT WALLET -->
+			<h3 class="border-bottom border-yellow margin-top-0 margin-bottom-15" translate>Default wallet</h3>
+
+			<!-- wallet -->
+			<div *ngIf="walletList.wallets.length > 0">
+				<!-- Wallet -->
+				<a id="wallet"></a>
+				<div class="wallet-container row" *ngIf="defaultwallet">
+					<div class="col-lg-2 col-md-4 col-sm-4 hidden-xs" *ngIf="defaultwallet.qr">
+						<qrcode [size]="130" [qrdata]="defaultwallet.qr"></qrcode>
+					</div>
+					<div class="col-lg-7 col-md-8 col-sm-8 col-xs-12">
+						<h2 class="margin-top-0 margin-bottom-15"> {{defaultwallet.label}}</h2>
+						<h2 class="margin-bottom-15">
+							<address-balance [watchReload]="true" [address]="defaultwallet.address">
+							</address-balance>
+						</h2>
+						<div class="address-container text-ellipsis">
+							<a href="javascript:void(0)" [tooltip]="'Click to copy the address' | translate"
+								[copyToClipboard]="defaultwallet.address">{{defaultwallet.address}}</a>
+						</div>
+					</div>
+					<div
+						class="col-lg-3 col-md-12 col-sm-12 col-xs-12 padding-md-top-15 padding-sm-top-15 padding-xs-top-15 text-md-center text-sm-center text-xs-center">
+						<div class="wallet-actions-container">
+							<button type="button" (click)="withdraw(defaultwallet)" class="btn btn-default btn-block">
+								<i class="fa fa-sign-out"></i>
+								<span translate>Send funds</span>
+							</button>
+
+							<button type="button" (click)="settingsClick(defaultwallet)"
+								class="btn btn-default btn-block">
+								<i class="fa fa-gear"></i>
+								<span translate>Settings</span>
+							</button>
+
+							<!-- <button type="button" (click)="createDonationButton ()" class="btn btn-default btn-block">
+								<span translate>Create donation button</span>
+							</button> -->
+						</div>
+					</div>
+				</div>
+				<div class="row" *ngIf="defaultwallet && defaultwallet.balance < 0.001">
+					<div class="col-xs-12 padding-top-bottom-15">
+						<span translate>Please remember that minimum donation with Helperbit is 0.001 bitcoin, please take it in mind when you top up your wallet.</span>
+					</div>
+				</div>
+			</div>
+			<!-- end wallet -->
+
+			<!-- Sign multisig -->
+			<div *ngIf="multisigPending.transactions.length > 0">
+					<br>
+					<div class="alert alert-info">
+						<span translate>You have {{multisigPending.transactions.length}} pending transactions to sign.</span>
+						<a href="javascript:void(0)" (click)="openSignMultisigModal()" translate>Sign now</a>
+					</div>
+				</div>
+
+			<!-- Default wallet - transactions -->
+			<div *ngIf="transactions.length > 0" class="margin-top-15">
+				<a id="transactions"></a>
+				<h4 class="border-bottom border-red margin-top-0" translate>Transactions</h4>
+				<table class="table table-compressed margin-bottom-0">
+					<thead class="separator">
+						<tr>
+							<th class="text-center">
+								<span translate class="hidden-xs">Transaction ID</span>
+								<span translate class="hidden-lg hidden-md hidden-sm">Transaction</span>
+							</th>
+							<th class="text-center" translate>Date</th>
+							<th class="text-center" translate>Value</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let m of transactions">
+							<td class="text-ellipsis" style="max-width: 50px;">
+								<external-link [url]="m.txid|explorer:'tx'" [text]="m.txid"></external-link>
+							</td>
+							<td class="text-center">{{m.time|date:'medium'}}</td>
+							<td class="text-center">
+								{{m.value|money:'auto'}}
+								<i *ngIf="m.in" class="fa fa-arrow-left text-color-green"></i>
+								<i *ngIf="!m.in" class="fa fa-arrow-right text-color-red"></i>
+
+								<span class="hidden-xs label label-warning margin-right-5" *ngIf="m.confirmations == 0">
+									<i class="fa fa-clock-o"></i>
+									<span translate class="hidden-xs">Unconfirmed</span>
+								</span>
+								<div class="hidden-lg hidden-md hidden-sm label-container">
+									<span class="label label-warning" *ngIf="m.confirmations == 0">
+										<i class="fa fa-clock-o"></i>
+									</span>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!-- End default wallet - transactions -->
+
+			<!-- END DEFAULT WALLET -->
+
+			<!-- Other wallets -->
+			<div class="margin-top-30">
+				<a id="wallets"></a>
+				<h3 class="border-bottom border-yellow margin-top-0" translate>Other wallets</h3>
+				<p class="text-center">
+					<a *ngIf="walletList.wallets.length < 10 && user.usertype != 'npo'" routerLink="/me/wallet/new"
+						class="btn btn-danger btn-xs-block">
+						<i class="fa fa-file"></i>
+						<span translate>Create new wallet</span>
+					</a>
+
+					<a *ngIf="walletList.wallets.length < 10 && user.usertype == 'npo'" routerLink="/me/wallet/newmultisig"
+						class="btn btn-danger btn-xs-block">
+						<i class="fa fa-file"></i>
+						<span translate>Create new wallet</span>
+					</a>
+				</p>
+				<div>
+					<wallet-list [config]="walletList" (defaultChange)="defaultChange($event)"></wallet-list>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

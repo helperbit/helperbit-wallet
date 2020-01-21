@@ -5,7 +5,6 @@ const babel = require('gulp-babel');
 const uglify = require('gulp-uglify-es').default;
 const concat = require('gulp-concat');
 const sass = require('gulp-sass');
-const watch = require('gulp-watch');
 const uglifycss = require('gulp-uglifycss');
 const gettext = require('gulp-angular-gettext');
 const browserify = require('browserify');

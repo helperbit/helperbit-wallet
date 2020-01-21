@@ -1,0 +1,81 @@
+<modal-inner [config]="modals.noAdmin">
+	<br>
+	<span translate>Some admins are not registered yet. Please come back when are the admins are verified</span>.<br>
+</modal-inner>
+
+<page-header [config]="pageHeader"></page-header>
+
+<div class="page-modalized">
+	<div class="modal-content">
+		<aw-wizard class="modal-body">
+			<aw-wizard-step [stepTitle]="'multisig wallet creation'|translate">
+				<div class="row">
+					<div class="col-xs-12">
+						<response-messages [message]="responseMessage"></response-messages>
+					</div>
+				</div>
+
+				<p translate>Wallet description (ie: 'Funds for Haiti flood'):</p>
+				<input type="text" class="form-control" [(ngModel)]="model.label" maxlength="24"/>
+
+				<br>
+				<br>
+
+				<p translate>Select the number of minimum signature you want to require for a transfer:</p>
+				<input type="number" class="form-control" [(ngModel)]="model.n" min="3" max="8" />
+
+				<br>
+				<br>
+
+				<p translate>Select the administrator that will be able to sign a transaction provided by this wallet ({{evaluteMultisigType ()}}):</p>
+				<table class="table">
+					<tr *ngFor="let admin of model.admins">
+						<td>{{admin}}</td>
+						<td>
+							<input type="checkbox" [id]="'ac'+admin" [(ngModel)]="model.adminscheck[admin]">
+							<label [for]="'ac'+admi"> </label>
+						</td>
+					</tr>
+					<tr>
+						<td>Helperbit</td>
+						<td>
+						</td>
+					</tr>
+				</table>
+
+				<br>
+				<!-- Bech32 activation -->
+				<input type="checkbox" id="bechaddress" [(ngModel)]="model.scripttypenative">
+				<label for="bechaddress" translate>Create a Bech32 segwit native address (bc1...)</label>
+
+				<hr>
+
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-lg-left text-md-left text-sm-left text-xs-center">
+						<a href="javascript:void(0)" (click)="utilsService.backRedirect ('/me/wallet')" class="btn btn-danger btn-xs-block" translate>Close</a>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-lg-right text-md-right text-sm-right text-xs-center margin-xs-top-5">
+						<button type="button" class="btn btn-default btn-xs-block" translate (click)="submit()">Create</button>
+					</div>
+				</div>
+			</aw-wizard-step>
+			<aw-wizard-step [stepTitle]="'Done'|translate">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center completed-img">
+						<img src="/media/completed-green.png">
+					</div>
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center margin-top-20 completed-text">
+						<p>
+							<span translate>The new multisignature wallet is almost created; the administrators will receive an email with instruction to complete their part of the wallet.</span>
+						</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-top-15 text-center">
+						<button (click)="utilsService.backRedirect ('/me/wallet')" class="btn btn-danger btn-xs-block" translate>Close</button>
+					</div>
+				</div>
+			</aw-wizard-step>
+		</aw-wizard>
+	</div>
+</div>

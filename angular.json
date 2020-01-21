@@ -69,7 +69,6 @@
 							"app/styles.scss"
 						],
 						"scripts": [
-							"node_modules/intl-tel-input/build/js/utils.js",
 							"node_modules/intl-tel-input/build/js/intlTelInput.min.js"
 						]
 					},
@@ -86,10 +85,10 @@
 							"sourceMap": false,
 							"extractCss": false,
 							"namedChunks": true,
-							"aot": false,
+							"aot": true,
 							"extractLicenses": true,
 							"vendorChunk": true,
-							"buildOptimizer": false
+							"buildOptimizer": true
 						},
 						"testnet": {
 							"fileReplacements": [
@@ -104,10 +103,10 @@
 							"extractCss": false,
 							"namedChunks": true,
 							"vendorSourceMap": false,
-							"aot": false,
+							"aot": true,
 							"extractLicenses": true,
 							"vendorChunk": true,
-							"buildOptimizer": false
+							"buildOptimizer": true
 						},
 						"mainnet-staging": {
 							"fileReplacements": [
@@ -121,10 +120,10 @@
 							"sourceMap": false,
 							"extractCss": false,
 							"namedChunks": true,
-							"aot": false,
+							"aot": true,
 							"extractLicenses": true,
 							"vendorChunk": true,
-							"buildOptimizer": false
+							"buildOptimizer": true
 						},
 						"dev": {
 							"fileReplacements": [
@@ -139,7 +138,7 @@
 							"extractCss": false,
 							"vendorSourceMap": false,
 							"namedChunks": true,
-							"aot": false,
+							"aot": true,
 							"extractLicenses": false,
 							"vendorChunk": true,
 							"buildOptimizer": false

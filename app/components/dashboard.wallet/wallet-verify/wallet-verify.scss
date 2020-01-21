@@ -1,0 +1,67 @@
+@import "~app/sass/const.scss";
+@import "~app/sass/extends.scss";
+
+.panel {
+	margin-bottom: 7px !important;
+	a {
+		&, &:hover {
+			text-decoration: none !important;
+		}
+
+		.panel-heading {
+			background-color: #eee !important;
+			color: #000 !important;
+			overflow: auto;
+			display: flex;
+
+			&:hover {
+				@extend %clickable-opacity;
+			}
+
+			.panel-title {
+				display: flex;
+				flex-grow: 1;
+			}
+			.panel-title-address {
+				font-size: 90%;
+				color: #555;
+				margin-left: 5px;
+			}
+
+			.state {
+				display: block;
+			}
+
+			.label-time {
+				margin-right: 5px;
+				margin-top: -2px;
+				background-color: #aaa;
+			}
+		}
+	}
+
+	.panel-collapse {
+		padding: 10px !important;
+	}
+}
+
+.state {
+	border-radius: 50%;
+	height: 15px;
+	width: 15px;
+	margin: 0;
+	background-color: #b0b0b0;
+	display: inline-block;
+}
+
+.state-success {
+	background-color: $green;
+}
+
+.state-working {
+	background-color: $yellow;
+}
+
+.state-error {
+	background-color: $red;
+}

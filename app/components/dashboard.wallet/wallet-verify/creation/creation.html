@@ -1,0 +1,14 @@
+<div class="modal-header">
+	<button type="button" class="close" aria-label="Close" (click)="activeModal.close()">
+		<span aria-hidden="true">&times;</span>
+	</button>
+	<h4 class="modal-title" id="myModalLabel" translate>Create Verification</h4>
+</div>
+
+<div class="modal-body">
+	<p translate>This procedure allow you to verify the consistency of your wallet keys, and to create recovery transactions in case you lose your keys.</p>
+	<hr>
+	<div align="center">
+		<button (click)="startProcedure()" class="btn btn-default" translate>Start procedure</button>
+	</div>
+</div>
