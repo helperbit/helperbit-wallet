@@ -5,7 +5,7 @@ import Btc from "@ledgerhq/hw-app-btc";
 import {
 	BitcoinSignService, BitcoinSignOptions, compressPublicKey,
 	prepareScripts, toByteArray
-} from './bitcoin-service';
+} from './bitcoin-helper';
 import { unwrap } from '../../../models/common';
 import AppSettings from '../../../app.settings';
 import { Injectable } from '@angular/core';
@@ -17,7 +17,6 @@ import { Observable } from 'rxjs/internal/Observable';
 export class BitcoinLedgerService implements BitcoinSignService {
 	defaultAccount: string;
 	defaultPath: string;
-
 
 	constructor(private http: HttpClient) {
 		this.defaultAccount = '7276'; // HB

@@ -8,10 +8,10 @@ import { WithdrawFees } from '../../../models/wallet';
 })
 export class FeeSelectorComponent {
 	@Input() fees: WithdrawFees;
-	@Output() change: EventEmitter<string> = new EventEmitter();
+	@Output() changedProfile: EventEmitter<string> = new EventEmitter();
 	public profile = 'fastest';
 
 	changedFeeProfile() {
-		this.change.emit(this.profile);
+		this.changedProfile.emit(this.profile);
 	}
 }

@@ -14,26 +14,27 @@
 						<response-messages [message]="responseMessage"></response-messages>
 					</div>
 				</div>
-
+				<br>
 				<p translate>Wallet description (ie: 'Funds for Haiti flood'):</p>
 				<input type="text" class="form-control" [(ngModel)]="model.label" maxlength="24"/>
 
 				<br>
 				<br>
 
-				<p translate>Select the number of minimum signature you want to require for a transfer:</p>
+				<!-- <p translate>Select the number of minimum signature you want to require for a transfer:</p>
 				<input type="number" class="form-control" [(ngModel)]="model.n" min="3" max="8" />
-
 				<br>
-				<br>
+				<br> -->
 
 				<p translate>Select the administrator that will be able to sign a transaction provided by this wallet ({{evaluteMultisigType ()}}):</p>
-				<table class="table">
+				<br>
+				<div class="alert alert-danger" role="alert" *ngIf="model.admins.length < 3" translate>You need at least 3 admins to create a new wallet.</div>
+				<table class="table" *ngIf="model.admins.length > 0">
 					<tr *ngFor="let admin of model.admins">
 						<td>{{admin}}</td>
 						<td>
 							<input type="checkbox" [id]="'ac'+admin" [(ngModel)]="model.adminscheck[admin]">
-							<label [for]="'ac'+admi"> </label>
+							<label [for]="'ac'+admin"> </label>
 						</td>
 					</tr>
 					<tr>
@@ -45,8 +46,8 @@
 
 				<br>
 				<!-- Bech32 activation -->
-				<input type="checkbox" id="bechaddress" [(ngModel)]="model.scripttypenative">
-				<label for="bechaddress" translate>Create a Bech32 segwit native address (bc1...)</label>
+				<!-- <input type="checkbox" id="bechaddress" [(ngModel)]="model.scripttypenative">
+				<label for="bechaddress" translate>Create a Bech32 segwit native address (bc1...)</label> -->
 
 				<hr>
 
@@ -55,7 +56,7 @@
 						<a href="javascript:void(0)" (click)="utilsService.backRedirect ('/me/wallet')" class="btn btn-danger btn-xs-block" translate>Close</a>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-lg-right text-md-right text-sm-right text-xs-center margin-xs-top-5">
-						<button type="button" class="btn btn-default btn-xs-block" translate (click)="submit()">Create</button>
+						<button type="button" class="btn btn-default btn-xs-block" [disabled]="model.admins.length < 3" translate (click)="submit()">Create</button>
 					</div>
 				</div>
 			</aw-wizard-step>

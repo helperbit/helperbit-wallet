@@ -1,5 +1,13 @@
 <page-header [config]="pageHeader"></page-header>
 
+<modal-inner [config]="modals.signSuccess">
+	<div align="center">
+		<i class="fa fa-check-circle text-color-green" style="font-size:700%;"></i>
+		<br><br>
+		<p style="font-size: 90%" translate>Verification signed successfully.</p>
+	</div>
+</modal-inner>
+
 <div class="row">
 	<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 page-composable-col" style="top: 0px; position: sticky;">
 		<div class="page page-composable">
@@ -9,19 +17,34 @@
 	<!-- <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 page-composable-col"></div> -->
 	<div class="col-lg-8 col-md-10 col-sm-12 col-xs-12 page-composable-col">
 		<div class="page page-composable profile-wallet" style="padding: 1.5em;">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<info-box [config]="infoBox"></info-box>
+				</div>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<br>
+					<a routerLink="/me/wallet" class="btn btn-danger btn-xs-block"><i class="fa fa-arrow-left"></i><span translate>Back to Wallet</span></a>
+				</div>
+			</div>
+			<br>
+			<h3 class="border-bottom border-yellow margin-top-0 margin-bottom-15" translate>Your Wallets and Verifications</h3>
 
-			<!-- DEFAULT WALLET -->
-			<h3 class="border-bottom border-yellow margin-top-0 margin-bottom-15" translate>Your Wallets</h3>
-
-			<div class="alert alert-warning alert-dismissible" role="alert" *ngFor="let obj of pending">
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-						aria-hidden="true">&times;</span></button>
-				<span translate>You have a pending verification to sign for address</span>
-				{{obj.wallet.address + ' (' + obj.wallet.label + ')'}}
-				<button class="btn btn-success btn-sm" (click)="verificationSign(obj)" translate>Verify</button>
+			<div *ngIf="user && (user.usertype == 'singleuser' || user.usertype == 'company')">
+				<div class="alert alert-warning alert-dismissible" role="alert" *ngFor="let obj of pending">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+							aria-hidden="true">&times;</span></button>
+					<span translate>You have a pending verification to sign for address</span>
+					{{obj.wallet.address + ' (' + obj.wallet.label + ')'}}
+					<button class="btn btn-success btn-sm" (click)="verificationSign(obj)" translate>Verify</button>
+				</div>
 			</div>
 
-			<div class="row">
+			<div *ngIf="wallets && wallets.length == 0" align="center" style="font-size: 120%">
+				<p translate>You do not have a wallet yet!</p>
+				<a routerLink="/me/wallet" class="btn btn-danger" translate>Create a wallet</a>
+			</div>
+
+			<div class="row" *ngIf="wallets">
 				<div class="col-xs-12">
 					<div class="panel-group" id="accordion">
 
@@ -31,7 +54,8 @@
 								<div class="panel-heading">
 									<div class="panel-title">
 										<h4 class="panel-title text-left">
-											{{wallet.label}} <span class="panel-title-address">{{ wallet.address | crop: 32}}</span>
+											{{wallet.label}} <span
+												class="panel-title-address">{{ wallet.address | crop: 32}}</span>
 										</h4>
 									</div>
 									<div class="label label-time">
@@ -79,27 +103,18 @@
 										</tbody>
 									</table> -->
 
-								<div class="row" *ngIf="wallet.creation || wallet.signed">
-									<div class="col-xs-12 text-center padding-bottom-15">
-										<p translate>You can verify your keys in any time by pressing the following button:</p>
-										<br>
-										<button class="btn btn-success" (click)="verificationCreate(wallet)"
-											translate>Verify the wallet</button>
-									</div>
-									<hr>
-								</div>
-
 								<table class="table margin-bottom-0 hidden-xs" *ngIf="wallet.history.length > 0">
 									<thead class="separator">
 										<tr>
 											<th class="text-center" style="width: 50%" translate>Date</th>
-											<th class="text-center" style="width: 30%" translate>Value</th>
+											<th class="text-center" style="width: 30%" translate>Amount secured</th>
 											<th class="text-center" style="width: 20%" translate>Status</th>
 										</tr>
 									</thead>
 									<tbody>
 										<tr *ngFor="let obj of wallet.history">
-											<td class="text-center" style="width: 50%;">{{obj.time | date:'medium'}}</td>
+											<td class="text-center" style="width: 50%;">{{obj.time | date:'medium'}}
+											</td>
 											<td class="text-center" style="width: 25%;">{{obj.value || '-'}}</td>
 											<td class="text-center" style="width: 25%">
 												<div *ngIf="!wallet.ismultisig || obj.status != 'signing'" class="state"
@@ -114,7 +129,9 @@
 										</tr>
 									</tbody>
 								</table>
-
+								<div *ngIf="wallet.creation || wallet.signed" style="margin-top: 6px; text-align: center;">
+									<button class="btn btn-sm btn-success" (click)="verificationCreate(wallet)"><i class="fa fa-key"></i> <span translate>Start a new verification</span></button>
+								</div>
 							</div>
 						</div>
 					</div>

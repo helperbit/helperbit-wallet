@@ -2,9 +2,8 @@ import { WalletService, HardwareWalletType } from "../../models/wallet";
 import { TranslateService } from '@ngx-translate/core';
 import {BitcoinLedgerService} from "./bitcoin.service/ledger";
 import { BitcoinService, createMnemonicChallenge, checkMnemonicChallenge, generateMnemonicPhrase } from "./bitcoin.service/mnemonic";
-import { CookieService } from "ngx-cookie-service";
 import { PageHeaderConfig } from "../../shared/components/page-header/page-header";
-import { BitcoinScriptType } from "./bitcoin.service/bitcoin-service";
+import { BitcoinScriptType } from "./bitcoin.service/bitcoin-helper";
 import { LedgerWaitStatus } from "./widgets/ledger-wait/ledger-wait";
 import { BrowserHelperService } from '../../services/browser-helper';
 import { DashboardService } from '../../models/dashboard';
@@ -49,7 +48,6 @@ export class CreateWallet {
 
 	constructor(
 		protected walletService: WalletService,
-		protected cookieService: CookieService,
 		protected route: ActivatedRoute,
 		protected bitcoinService: BitcoinService,
 		protected bitcoinLedgerService: BitcoinLedgerService,
@@ -123,9 +121,9 @@ export class CreateWallet {
 		this.wizard.step2Passphrase.setNextInterceptor(() => {
 			this.wizard.step2Passphrase.resetResponse();
 
-			if (!checkMnemonicChallenge(this.model.mnemonicConfirmChallenge))
+			if (!checkMnemonicChallenge(this.model.mnemonicConfirmChallenge)) 
 				// return $timeout(() => {
-				this.wizard.step2Passphrase.setResponse('error', { error: 'XM1' });
+				return this.wizard.step2Passphrase.setResponse('error', { error: 'XM1' });
 			// });
 
 			this.wizard.step2Passphrase._next();

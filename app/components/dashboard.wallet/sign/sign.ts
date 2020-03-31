@@ -1,11 +1,11 @@
-import { BitcoinService, BitcoinKeys } from '../bitcoin.service/mnemonic';
+import { BitcoinService, mnemonicToKeys } from '../bitcoin.service/mnemonic';
 import { BitcoinLedgerService } from '../bitcoin.service/ledger';
 import { Wallet, HardwareWalletType, Transaction, TLTransaction } from '../../../models/wallet';
-import { CookieService } from 'ngx-cookie-service';
 import { LedgerWaitStatus } from '../widgets/ledger-wait/ledger-wait';
-import { BitcoinUTXO, BitcoinSignOptions, BackupFile, loadBackup } from '../bitcoin.service/bitcoin-service';
+import { BitcoinUTXO, BitcoinSignOptions, BackupFile, loadBackup, decryptBackup, BitcoinKeys } from '../bitcoin.service/bitcoin-helper';
 import { Async } from '../../../shared/helpers/async';
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { getLocalStorage } from 'app/shared/helpers/utils';
 
 export interface SignConfig {
 	type: 'single' | 'multi' | 'verify';
@@ -41,7 +41,6 @@ export class WalletSignComponent implements OnChanges, OnInit {
 	}
 
 	constructor(
-		private cookieService: CookieService,
 		private bitcoinService: BitcoinService,
 		private bitcoinLedgerService: BitcoinLedgerService
 	) {
@@ -127,7 +126,7 @@ export class WalletSignComponent implements OnChanges, OnInit {
 					setTimeout(() => { reject('XHW1') });
 				});
 			} else if (!this.model.hardware && !this.model.useBackup) {
-				const keys: BitcoinKeys = this.bitcoinService.mnemonicToKeys(this.model.mnemonic);
+				const keys: BitcoinKeys = mnemonicToKeys(this.model.mnemonic);
 
 				if (bsign.pubkeys.indexOf(keys.public) == -1)
 					return reject('XIM');
@@ -143,7 +142,7 @@ export class WalletSignComponent implements OnChanges, OnInit {
 
 				let keys: BitcoinKeys;
 				try {
-					keys = this.bitcoinService.decryptBackup(this.model.backup.data, this.model.backup.password, this.model.multisig);
+					keys = decryptBackup(this.model.backup.data, this.model.backup.password, this.model.multisig);
 					bsign.wif = keys.private;
 				} catch (err) {
 					return reject(err);
@@ -207,7 +206,7 @@ export class WalletSignComponent implements OnChanges, OnInit {
 	}
 
 	ngOnInit() {
-		this.username = this.cookieService.get('username');
-		this.email = this.cookieService.get('email');
+		this.username = getLocalStorage().getItem('username');
+		this.email = getLocalStorage().getItem('email');
 	}
 }

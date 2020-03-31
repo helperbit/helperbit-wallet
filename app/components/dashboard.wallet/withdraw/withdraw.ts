@@ -1,10 +1,10 @@
 import { WalletService, Wallet, WalletTransaction, Transaction } from '../../../models/wallet';
 import { NotificationService } from '../../../models/notifications';
 import { WalletSignComponent, SignConfig } from '../sign/sign';
-import { checkBitcoinAddress } from '../bitcoin.service/mnemonic';
+import { checkBitcoinAddress } from '../bitcoin.service/bitcoin-helper';
 import AppSettings from '../../../app.settings';
 import { TranslateService } from '@ngx-translate/core';
-import { Component, Input, ViewChild, ElementRef, AfterViewInit, OnInit } from '@angular/core';
+import { Component, Input, ViewChild, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { WizardComponent } from 'angular-archwizard';
 import { NgWizardStep } from 'app/shared/helpers/ng-wizard-step';
@@ -30,8 +30,8 @@ export class MeWalletWithdrawComponent implements OnInit {
 	public wizardHandlerMulti: WizardComponent;
 	public wizardHandlerSingle: WizardComponent;
 
-	@ViewChild(WalletSignComponent, { static: false }) public signComponent: WalletSignComponent;
-	@ViewChild('wizardMulti', { static: false }) set contentMulti(content: WizardComponent) {
+	@ViewChild(WalletSignComponent) public signComponent: WalletSignComponent;
+	@ViewChild('wizardMulti') set contentMulti(content: WizardComponent) {
 		this.wizardHandlerMulti = content;
 		this.multisigWizard.step1.setHandler(this.wizardHandlerMulti);
 		this.multisigWizard.step2.setHandler(this.wizardHandlerMulti);
@@ -39,7 +39,7 @@ export class MeWalletWithdrawComponent implements OnInit {
 		this.rorTrigger();
 	}
 
-	@ViewChild('wizardSingle', { static: false }) set contentSingle(content: WizardComponent) {
+	@ViewChild('wizardSingle') set contentSingle(content: WizardComponent) {
 		this.wizardHandlerSingle = content;
 		this.singleWizard.step1.setHandler(this.wizardHandlerSingle);
 		this.singleWizard.step2.setHandler(this.wizardHandlerSingle);
@@ -265,6 +265,7 @@ export class MeWalletWithdrawComponent implements OnInit {
 	}
 
 	changedFeeProfile(value: string) {
+		console.log(value);
 		this.model.feeprofile = value;
 		this.model.fee = this.model.fees[this.model.feeprofile];
 

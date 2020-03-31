@@ -7,14 +7,16 @@ import { Component, ViewChild, OnInit } from '@angular/core';
 import { ResponseMessageConfig, buildErrorResponseMessage } from 'app/shared/components/response-messages/response-messages';
 import { WizardComponent } from 'angular-archwizard';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CurrencyService } from 'app/services/currency';
+import { evaluteFee } from '../bitcoin.service/bitcoin-helper';
 
 @Component({
 	selector: 'me-wallet-restore-component',
 	templateUrl: 'restore.html',
 })
 export class MeWalletRestoreComponent implements OnInit {
-	@ViewChild(WizardComponent, { static: false }) public wizardHandler: WizardComponent;
-	@ViewChild(WalletSignComponent, { static: false }) public signComponent: WalletSignComponent;
+	@ViewChild(WizardComponent) public wizardHandler: WizardComponent;
+	@ViewChild(WalletSignComponent) public signComponent: WalletSignComponent;
 
 	wallet: Wallet;
 	txid: string;
@@ -30,7 +32,7 @@ export class MeWalletRestoreComponent implements OnInit {
 	constructor(
 		private walletService: WalletService,
 		private router: Router,
-		private bitcoinService: BitcoinService,
+		private currencyService: CurrencyService,
 		translate: TranslateService,
 		private route: ActivatedRoute
 	) {
@@ -65,7 +67,7 @@ export class MeWalletRestoreComponent implements OnInit {
 			return this.responseMessage = buildErrorResponseMessage({ error: 'XEW' });
 
 		const wreq = {
-			fee: this.bitcoinService.evaluteFee(2, 1, true),
+			fee: evaluteFee(this.currencyService.fees, 2, 1, true),
 			value: this.model.balance,
 			destination: this.model.destination
 		};

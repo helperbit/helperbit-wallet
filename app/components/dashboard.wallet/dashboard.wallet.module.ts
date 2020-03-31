@@ -196,6 +196,14 @@ import 'babel-polyfill';
 		BitcoinLedgerService,
 		BitcoinService,
 	],
+	entryComponents: [
+		WalletDepositModal,
+		WalletSettingsModal,
+		MeWalletWithdrawComponent,
+		MeWalletSignMultisigModal,
+		MeWalletVerifyCreationComponent,
+		MeWalletVerifySignComponent
+	],
 	declarations: [
 		MnemonicViewComponent,
 		TransactionListComponent,
@@ -216,14 +224,6 @@ import 'babel-polyfill';
 		MeWalletFeedMultisigComponent,
 		FeeSelectorComponent,
 		MeWalletWithdrawComponent,
-	],
-	entryComponents: [
-		WalletDepositModal,
-		WalletSettingsModal,
-		MeWalletWithdrawComponent,
-		MeWalletSignMultisigModal,
-		MeWalletVerifyCreationComponent,
-		MeWalletVerifySignComponent
 	]
 })
 export class DashboardWalletModule {

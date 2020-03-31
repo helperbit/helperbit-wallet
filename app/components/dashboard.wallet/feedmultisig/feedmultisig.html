@@ -37,7 +37,8 @@
 						<div class="padding-top-bottom-15">
 							<img [alt]="'Bitcoin Trezor Wallet' | translate" src="/media/wallet-type/png/trezor_256x462.png" class="wallet-type img-responsive" />
 						</div>
-						<button class="btn btn-danger btn-block" disabled="disabled" (click)="selectWalletType('trezor')" translate>Trezor</button>
+						<button class="btn btn-danger btn-block" disabled="disabled" translate>Trezor</button> 
+						<!-- (click)="selectWalletType('trezor')"  -->
 						<br>
 						<p translate>If you own a Trezor hardware wallet you can create a Bitcoin wallet just pairing the device with the platform. Your key to sign transactions from the wallet of your organization is kept secured on the offline device and you don't need to write down the 12-word mnemonic. This procedure is simple, secure and fast.</p>
 					</div>
@@ -56,7 +57,7 @@
 				</p>
 				<mnemonic-view [mnemonic]="model.mnemonic"></mnemonic-view>
 
-				<div id="printSectionNew">
+				<div id="printSectionFeedMultisig">
 					<mnemonic-view [mnemonic]="model.mnemonic"></mnemonic-view>
 				</div>
 				<br>
@@ -164,12 +165,12 @@
 				<p translate>A backup file will allow you to restore your funds even if you forgot the passphrase and it is necessary to recover funds without the intervention of Helperbit. Insert a password below to encrypt the backup file.</p>
 
 				<span translate>Backup file password:</span>
-				<input class="form-control" id="backpass" [type]="wizard.step3.passwordVisibility" value="" name="{{rnd}}" id="{{rnd}}" autocomplete="new-password" [(ngModel)]="model.backupPassword" />
+				<input class="form-control" id="backpass" [type]="wizard.step3.model.passwordVisibility" value="" name="{{rnd}}" id="{{rnd}}" autocomplete="new-password" [(ngModel)]="model.backupPassword" />
 				<br>
 				<span translate>Repeat backup file password:</span>
-				<input class="form-control" id="backpass2" [type]="wizard.step3.passwordVisibility" value="" name="{{rnd}}2" id="{{rnd}}2" autocomplete="new-password2" [(ngModel)]="model.backupPasswordRepeat" />
+				<input class="form-control" id="backpass2" [type]="wizard.step3.model.passwordVisibility" value="" name="{{rnd}}2" id="{{rnd}}2" autocomplete="new-password2" [(ngModel)]="model.backupPasswordRepeat" />
 				<br>
-				<input type="checkbox" id="wipass" (checked)="wizard.step3.passwordVisibility = $event.target.checked ? 'text' : 'password'">
+				<input type="checkbox" id="wipass" (checked)="wizard.step3.model.passwordVisibility = $event.target.checked ? 'text' : 'password'">
 				<label for="wipass" translate>Show / Hide backup password</label>
 
 				<hr>
@@ -202,7 +203,7 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-						<a *ngIf="!model.hardwareWallet" type="button" class="btn btn-default btn-xs-block" id="download-backup" [download]="'hbwallet_'+model.organization+'_'+wizard.user+'_'+model.labelShort+'.json'" (click)="downloadBackup()" [href]="sanitize('data:text/json;charset=utf-8,'+model.file)">
+						<a *ngIf="!model.hardwareWallet" type="button" class="btn btn-default btn-xs-block" id="download-backup" [download]="'hbwallet_'+model.organization+'_'+username+'_'+model.labelShort+'.json'" (click)="downloadBackup()" [href]="sanitize('data:text/json;charset=utf-8,'+model.file)">
 							<i class="fa fa-download"></i>
 							<span translate>Download backup</span>
 						</a>

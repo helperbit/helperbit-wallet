@@ -1,16 +1,16 @@
 import { CreateWallet } from '../create-wallet';
-import { BitcoinService, BitcoinKeys } from '../bitcoin.service/mnemonic';
-import { encryptKeys, BackupFile } from '../bitcoin.service/bitcoin-service';
+import { BitcoinService, mnemonicToKeys } from '../bitcoin.service/mnemonic';
+import { encryptKeys, BackupFile, randomKeys, BitcoinKeys } from '../bitcoin.service/bitcoin-helper';
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { DashboardService } from 'app/models/dashboard';
 import { BrowserHelperService } from 'app/services/browser-helper';
 import { TranslateService } from '@ngx-translate/core';
 import { BitcoinLedgerService } from '../bitcoin.service/ledger';
 import { WalletService } from 'app/models/wallet';
-import { CookieService } from "ngx-cookie-service";
 import { WizardComponent } from 'angular-archwizard';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { getLocalStorage } from 'app/shared/helpers/utils';
 
 @Component({
 	selector: 'me-wallet-new-component',
@@ -18,12 +18,11 @@ import { ActivatedRoute } from '@angular/router';
 	styleUrls: ['new.scss']
 })
 export class MeWalletNewComponent extends CreateWallet implements OnInit, AfterViewInit {
-	@ViewChild(WizardComponent, { static: false }) public wizardHandler: WizardComponent;
+	@ViewChild(WizardComponent) public wizardHandler: WizardComponent;
 
 	constructor(
 		private sanitizer: DomSanitizer,
 		protected walletService: WalletService,
-		protected cookieService: CookieService,
 		protected route: ActivatedRoute,
 		protected bitcoinService: BitcoinService,
 		protected bitcoinLedgerService: BitcoinLedgerService,
@@ -31,7 +30,7 @@ export class MeWalletNewComponent extends CreateWallet implements OnInit, AfterV
 		protected browserHelperService: BrowserHelperService,
 		protected dashboardService: DashboardService
 	) {
-		super(walletService, cookieService, route, bitcoinService, bitcoinLedgerService, translate, browserHelperService, dashboardService);
+		super(walletService, route, bitcoinService, bitcoinLedgerService, translate, browserHelperService, dashboardService);
 
 		this.pageHeader = {
 			description: {
@@ -53,11 +52,11 @@ export class MeWalletNewComponent extends CreateWallet implements OnInit, AfterV
 		if (this.model.hardwareWallet) {
 			key1 = { public: this.model.hardwareWalletPublicKey, private: null, pair: null };
 		} else {
-			key1 = this.bitcoinService.mnemonicToKeys(this.model.mnemonic);
+			key1 = mnemonicToKeys(this.model.mnemonic);
 		}
 
 		// Second key, randomly created
-		const key2: BitcoinKeys = this.bitcoinService.randomKeys();
+		const key2: BitcoinKeys = randomKeys();
 
 		// Create the wallet		
 		this.walletService.create(this.model.scripttype, [key1.public, key2.public], this.model.hardwareWallet, this.model.hardwareWalletType).subscribe(wallet => {
@@ -85,7 +84,7 @@ export class MeWalletNewComponent extends CreateWallet implements OnInit, AfterV
 	}
 
 	ngOnInit() {
-		this.username = this.cookieService.get('username');
+		this.username = getLocalStorage().getItem('username');
 	}
 
 	ngAfterViewInit() {

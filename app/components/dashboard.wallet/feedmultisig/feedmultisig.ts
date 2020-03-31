@@ -1,17 +1,17 @@
 import { Wallet } from '../../../models/wallet';
 import { CreateWallet } from '../create-wallet';
-import { BitcoinService, BitcoinKeys, generateMnemonicPhrase } from '../bitcoin.service/mnemonic';
-import { encryptKeys, BackupFile } from '../bitcoin.service/bitcoin-service';
+import { BitcoinService, generateMnemonicPhrase, mnemonicToKeys } from '../bitcoin.service/mnemonic';
+import { encryptKeys, BackupFile, BitcoinKeys } from '../bitcoin.service/bitcoin-helper';
 import { Component, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 import { DashboardService } from 'app/models/dashboard';
 import { BrowserHelperService } from 'app/services/browser-helper';
 import { TranslateService } from '@ngx-translate/core';
 import { BitcoinLedgerService } from '../bitcoin.service/ledger';
 import { WalletService } from 'app/models/wallet';
-import { CookieService } from "ngx-cookie-service";
 import { WizardComponent } from 'angular-archwizard';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { getLocalStorage } from 'app/shared/helpers/utils';
 
 
 @Component({
@@ -20,21 +20,20 @@ import { ActivatedRoute } from '@angular/router';
 	styleUrls: ['feedmultisig.scss']
 })
 export class MeWalletFeedMultisigComponent extends CreateWallet implements OnInit, AfterViewInit {
-	@ViewChild(WizardComponent, { static: false }) public wizardHandler: WizardComponent;
+	@ViewChild(WizardComponent) public wizardHandler: WizardComponent;
 	wallet: Wallet;
 
 	constructor(
 		protected route: ActivatedRoute,
 		private sanitizer: DomSanitizer,
 		protected walletService: WalletService,
-		protected cookieService: CookieService,
 		protected bitcoinService: BitcoinService,
 		protected bitcoinLedgerService: BitcoinLedgerService,
 		protected translate: TranslateService,
 		protected browserHelperService: BrowserHelperService,
 		protected dashboardService: DashboardService
 	) {
-		super(walletService, cookieService, route, bitcoinService, bitcoinLedgerService, translate, browserHelperService, dashboardService);
+		super(walletService, route, bitcoinService, bitcoinLedgerService, translate, browserHelperService, dashboardService);
 
 		this.pageHeader = {
 			description: {
@@ -59,7 +58,7 @@ export class MeWalletFeedMultisigComponent extends CreateWallet implements OnIni
 		if (this.model.hardwareWallet) {
 			key1 = { public: this.model.hardwareWalletPublicKey, private: null, pair: null };
 		} else {
-			key1 = this.bitcoinService.mnemonicToKeys(this.model.mnemonic);
+			key1 = mnemonicToKeys(this.model.mnemonic);
 		}
 
 		// Feed the wallet
@@ -92,7 +91,7 @@ export class MeWalletFeedMultisigComponent extends CreateWallet implements OnIni
 	}
 
 	ngOnInit() {
-		this.username = this.cookieService.get('username');
+		this.username = getLocalStorage().getItem('username');
 		this.model = {
 			ledgerSupport: this.browserHelperService.isLedgerSupported(),
 			invalid: false,
@@ -119,7 +118,7 @@ export class MeWalletFeedMultisigComponent extends CreateWallet implements OnIni
 
 			if (this.wallet == undefined) {
 				this.model.invalid = true;
-			} else if (this.wallet.active || this.wallet.multisig.doneadmins.indexOf(this.cookieService.get('email')) != -1) {
+			} else if (this.wallet.active || this.wallet.multisig.doneadmins.indexOf(getLocalStorage().getItem('email')) != -1) {
 				this.model.invalid = true;
 			}
 		});

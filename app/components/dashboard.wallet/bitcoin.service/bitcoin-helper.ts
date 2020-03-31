@@ -1,5 +1,12 @@
-import { Payment, payments, ECPair, Network } from 'bitcoinjs-lib';
-import { AES } from 'crypto-js';
+import { Payment, payments, ECPair, Network, ECPairInterface, address } from 'bitcoinjs-lib';
+import AES from 'crypto-js/aes';
+import AppSettings from 'app/app.settings';
+
+export interface BitcoinSignService {
+	sign(txhex: string, options: BitcoinSignOptions, callback?): Promise<string>;
+}
+
+export type BitcoinKeys = { private: string; public: string; pair: ECPairInterface };
 
 export type BackupFileMultisig = {
 	pubkeysrv: string;
@@ -35,6 +42,62 @@ export type BitcoinSignOptions = {
 };
 
 
+
+export function checkBitcoinAddress(addr: string, network = AppSettings.network): boolean {
+	try {
+		address.toOutputScript(addr, network);
+		return true;
+	} catch (e) {
+		return false;
+	}
+}
+
+
+/* Decrypt key */
+export function decryptKeys(encpriv: string, password: string): BitcoinKeys | null {
+	const hex2a = function (hex) {
+		let str = '';
+		for (let i = 0; i < hex.length; i += 2)
+			str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+		return str;
+	};
+
+	const privkeye = AES.decrypt(encpriv, password, { iv: password });
+	const privkey = hex2a(privkeye.toString());
+
+	let upair = null;
+	try {
+		upair = ECPair.fromWIF(privkey, AppSettings.network);
+	} catch (e) {
+		return null;
+	}
+
+	const priv = upair.toWIF();
+	const pub = upair.publicKey.toString('hex');
+
+	return { private: priv, public: pub, pair: upair };
+}
+
+export function decryptBackup(backup: BackupFile, password: string, multisig: boolean = false): BitcoinKeys {
+	if (backup === null)
+		throw "XNJ";
+
+	if (!('encprivkey' in backup) || !('pubkey' in backup))
+		throw "XNJ";
+	if (!multisig && !('address' in backup))
+		throw "XNJ";
+	if (multisig && !('walletid' in backup))
+		throw "XNJ";
+
+	const keys: BitcoinKeys = decryptKeys(backup.encprivkey, password);
+	if (keys == null)
+		throw "XWP";
+
+	if (keys.public != backup.pubkey)
+		throw "XWP";
+
+	return keys
+}
 
 /* Encrypt key */
 export function encryptKeys(privateKey: string, password: string): string {
@@ -79,11 +142,11 @@ export function randomBytes(size: number): Buffer {
 	return Buffer.from(rawBytes);
 }
 
-export function toHexString(buffer: Buffer) {
+export function toHexString(buffer: Buffer): string {
 	return Array.prototype.map.call(new Uint8Array(buffer), x => ('00' + x.toString(16)).slice(-2)).join('');
 }
 
-export function toByteArray(hexString: string) {
+export function toByteArray(hexString: string): Buffer {
 	const Buffer = require('safe-buffer').Buffer
 	const result = Buffer.alloc(hexString.length / 2);
 	let i = 0;
@@ -146,10 +209,15 @@ export function prepareScripts(scripttype: BitcoinScriptType, n: number, pubkeys
 }
 
 
-export interface BitcoinSignService {
-	sign(txhex: string, options: BitcoinSignOptions, callback?): Promise<string>;
-}
 
+/* Random keypair */
+export function randomKeys(): BitcoinKeys {
+	const pair2 = ECPair.makeRandom({ network: AppSettings.network, rng: randomBytes });
+	const priv2 = pair2.toWIF();
+	const pub2 = pair2.publicKey.toString('hex');
+
+	return { private: priv2, public: pub2, pair: pair2 };
+}
 
 export function scriptTypeOfBitcoinScriptType(st: BitcoinScriptType) {
 	switch (st) {
@@ -160,4 +228,11 @@ export function scriptTypeOfBitcoinScriptType(st: BitcoinScriptType) {
 		case 'p2wsh':
 			return 'p2wsh-p2pkh';
 	}
+}
+
+export function evaluteFee(fees, inputs, outputs, fast) {
+	let speed = 'halfHourFee';
+	if (fast) speed = 'fastestFee';
+
+	return (outputs * 34 + inputs * 180 + 10) * fees[speed] / 100000000.0;
 }

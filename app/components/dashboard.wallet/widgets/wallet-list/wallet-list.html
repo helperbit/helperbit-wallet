@@ -5,7 +5,7 @@
 <div *ngIf="config.wallets[0] === undefined && error != 'EBC5' && (config.adminof && config.adminof[0] === undefined)"
 	align="center" style="font-size: 120%">
 	<p translate>You do not have a wallet yet!</p>
-	<a *ngIf="config.selector !== undefinied" routerLink="/me/wallet" class="btn btn-danger" translate>Create a wallet</a>
+	<a *ngIf="config.selector !== undefined" routerLink="/me/wallet" class="btn btn-danger" translate>Create a wallet</a>
 </div>
 
 <div *ngIf="config.wallets[0] === undefined && config.wallets.length > 0" translate>You have {{config.wallets.length}} of 10
@@ -16,7 +16,7 @@
 		<tr>
 			<th class="text-center hidden-xs" translate>Address</th>
 			<th class="text-center" translate>Label</th>
-			<th class="text-center" *ngIf="config.selector === undefinied">
+			<th class="text-center" *ngIf="config.selector === undefined">
 				<span translate>Default</span>
 				<i class="fa fa-question-circle-o" [tooltip]="'Donations are received in this address'|translate"
 					data-template='<div class="tooltip" role="tooltip" style="padding-bottom: 1em;"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'></i>
@@ -32,14 +32,14 @@
 					[copyToClipboard]="w.address">{{w.address}}</a>
 			</td>
 			<td class="text-center text-ellipsis">{{w.label|crop:35}}</td>
-			<td class="text-center" *ngIf="config.selector === undefinied">
+			<td class="text-center" *ngIf="config.selector === undefined">
 				<input type="radio" name="wdefault" [(ngModel)]="config.receiveaddress"
 					(change)="defaultChange.emit(w.address)" [value]="w.address" />
 			</td>
 			<td class="text-center">
 				<address-balance [address]="w.address"></address-balance>
 			</td>
-			<td class="text-center" *ngIf="config.selector === undefinied">
+			<td class="text-center" *ngIf="config.selector === undefined">
 				<div class="margin-bottom-5 label-container"
 					*ngIf="w.scripttype != 'p2sh-p2wsh' || w.hardware != 'none'">
 					<span class="label label-warning " *ngIf="w.scripttype == 'p2sh'" translate>Legacy</span>
@@ -63,7 +63,7 @@
 					</a>
 				</div>
 			</td>
-			<td class="text-center" *ngIf="config.selector !== undefinied">
+			<td class="text-center" *ngIf="config.selector !== undefined">
 				<input type="radio" name="address" [(ngModel)]="selectedWallet"
 					(change)="selected.emit(w)" value="{{w}}" />
 			</td>
@@ -81,15 +81,15 @@
 					[copyToClipboard]="w.address" *ngIf="w.multisig.active">{{w.address}}</a>
 			</td>
 			<td class="text-center text-ellipsis">{{w.label|crop:35}}</td>
-			<td class="text-center" *ngIf="config.selector === undefinied">
-				<input type="radio" name="wdefault" [attr.disabled]="!w.multisig.active"
-					[(ngModel)]="config.receiveaddress" (change)="config.receive(w.address)"
+			<td class="text-center" *ngIf="config.selector === undefined">
+				<input type="radio" name="wdefault" [attr.disabled]="!w.multisig.active ? 'true' : null"
+					[(ngModel)]="config.receiveaddress" (change)="defaultChange.emit(w.address)"
 					[value]="w.address" />
 			</td>
 			<td class="text-center">
 				<address-balance [address]="w.address" *ngIf="w.multisig.active"></address-balance>
 			</td>
-			<td class="text-center" *ngIf="config.selector === undefinied">
+			<td class="text-center" *ngIf="config.selector === undefined">
 				<div class="margin-bottom-5 label-container" *ngIf="w.scriptype != 'p2sh-p2wsh'">
 					<span class="label label-info margin-bottom-5" *ngIf="w.scripttype == 'p2wsh'"
 						translate>Bech32</span>
@@ -97,11 +97,11 @@
 						translate>Legacy</span>
 				</div>
 				<div [ngClass]="{ 'btn-group' : currentResolution != 'xs' }">
-					<a [attr.disabled]="!w.multisig.active" [tooltip]="'Send funds' | translate"
+					<a [attr.disabled]="!w.multisig.active ? 'true' : null" [tooltip]="'Send funds' | translate"
 						href="javascript:void(0)" (click)="withdrawClick(w)" class="btn btn-danger margin-xs-5">
 						<i class="fa fa-sign-out"></i>
 					</a>
-					<a [attr.disabled]="!w.multisig.active" [tooltip]="'Receive funds' | translate"
+					<a [attr.disabled]="!w.multisig.active ? 'true' : null" [tooltip]="'Receive funds' | translate"
 						href="javascript:void(0)" (click)="depositClick(w)" class="btn btn-default margin-xs-5">
 						<i class="fa fa-sign-in"></i>
 					</a>
@@ -112,7 +112,7 @@
 				</div>
 			</td>
 
-			<td class="text-center" *ngIf="config.selector !== undefinied">
+			<td class="text-center" *ngIf="config.selector !== undefined">
 				<input type="radio" name="address" [(ngModel)]="selectedWallet" (change)="selected.emit(w)" [value]="w" />
 			</td>
 		</tr>
@@ -129,7 +129,7 @@
 					[copyToClipboard]="w.address" *ngIf="w.multisig.active">{{w.address}}</a>
 			</td>
 			<td class="text-center text-ellipsis">{{w.label|crop:35}}</td>
-			<td *ngIf="config.selector === undefinied"></td>
+			<td *ngIf="config.selector === undefined"></td>
 			<td class="text-center">
 				<address-balance [address]="w.address" *ngIf="w.multisig.active"></address-balance>
 			</td>

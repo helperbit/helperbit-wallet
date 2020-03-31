@@ -1,4 +1,4 @@
-import { BitcoinSignOptions, BitcoinSignService } from "./bitcoin-service";
+import { BitcoinSignOptions, BitcoinSignService } from "./bitcoin-helper";
 import { Injectable } from '@angular/core';
 
 @Injectable()

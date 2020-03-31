@@ -4,16 +4,25 @@
         "outDir": "./out-tsc/spec",
         "types": [
             "jasmine",
-            "node"
+			"node"
         ]
     },
     "files": [
         "app/test.ts",
-        "app/polyfills.ts"
+		"app/polyfills.ts",
     ],
     "include": [
-        "app/**/*.spec.ts",
+        "app/components/**/**/**/**/*.spec.ts",
+        "app/components/**/**/**/*.spec.ts",
+        "app/components/**/**/*.spec.ts",
+        "app/components/**/*.spec.ts",
+        "app/shared/**/**/**/**/*.spec.ts",
+        "app/shared/**/**/**/*.spec.ts",
+        "app/shared/**/**/*.spec.ts",
+        "app/shared/**/*.spec.ts",
         "app/services/*.spec.ts",
+        "app/models/*.spec.ts",
+        "app/**/*.spec.ts",
         "app/**/*.d.ts"
     ]
 }

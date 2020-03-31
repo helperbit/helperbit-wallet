@@ -5,6 +5,9 @@ import { PageHeaderConfig } from "app/shared/components/page-header/page-header"
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MeWalletVerifyCreationComponent } from "./creation/creation";
 import { MeWalletVerifySignComponent } from './sign/sign';
+import { InfoBoxConfig } from 'app/shared/components/info-box/info-box';
+import { UserPrivate, DashboardService } from 'app/models/dashboard';
+import { ModalsConfig } from 'app/shared/components/modal/oldModal/modal';
 
 interface AccordationStatus {
 	class?: { label: string; icon: string };
@@ -31,9 +34,13 @@ export class MeWalletVerificationComponent implements OnInit {
 	pageHeader: PageHeaderConfig;
 	wallets: WalletVerificationEx[];
 	pending: WalletPendingVerification[];
+	infoBox: InfoBoxConfig;
+	user: UserPrivate;
+	modals: ModalsConfig;
 
 	constructor(
 		private walletService: WalletService,
+		private dashboardService: DashboardService,
 		private translate: TranslateService,
 		private modalService: NgbModal,
 	) {
@@ -43,6 +50,20 @@ export class MeWalletVerificationComponent implements OnInit {
 				subTitle: translate.instant('Check your wallets verification status')
 			}
 		}
+
+		this.modals = {
+			signSuccess: {
+				id: 'modalVerifySigned',
+				modalClass: 'modal-md',
+				hideCloseButton: true,
+				title: translate.instant('Wallet Verification')
+			}
+		};
+
+		this.infoBox = {
+			title: translate.instant('Key verification and backup transaction'),
+			description: translate.instant('At any time it is possible to check the correctness of your wallet keys and to automatically create time-locked backup transactions in case of key loss.')
+		};
 	}
 
 	updateWallets() {
@@ -73,6 +94,10 @@ export class MeWalletVerificationComponent implements OnInit {
 
 		this.walletService.getWalletVerificationPending().subscribe((res: WalletPendingVerificationsResponse) => {
 			this.pending = res.pending;
+		});
+
+		this.dashboardService.get().subscribe(user => {
+			this.user = user;
 		});
 	}
 
@@ -138,6 +163,7 @@ export class MeWalletVerificationComponent implements OnInit {
 		});
 		modalRef.componentInstance.pending = pending;
 		modalRef.result.then((v) => {
+			$('#modalVerifySigned').modal('show');			
 			this.updateWallets();
 		}, () => {
 			this.updateWallets();

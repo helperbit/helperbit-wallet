@@ -15,8 +15,8 @@ import { ResponseMessageConfig, buildErrorResponseMessage } from 'app/shared/com
 export class MeWalletSignMultisigModal {
 	@Input() transactions: Transaction[];
 	@Input() rors: { [id: string]: Ror };
-	@ViewChild(WizardComponent, { static: false }) public wizardHandler: WizardComponent;
-	@ViewChild(WalletSignComponent, { static: false }) public signComponent: WalletSignComponent;
+	@ViewChild(WizardComponent) public wizardHandler: WizardComponent;
+	@ViewChild(WalletSignComponent) public signComponent: WalletSignComponent;
 
 	responseMessage: ResponseMessageConfig;
 	isLoading: boolean;

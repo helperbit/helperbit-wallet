@@ -70,10 +70,18 @@
 						],
 						"scripts": [
 							"node_modules/intl-tel-input/build/js/intlTelInput.min.js"
-						]
+						],
+						"serviceWorker": true,
+						"ngswConfigPath": "app/ngsw-config.json"
 					},
 					"configurations": {
 						"mainnet": {
+							"budgets": [
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "6kb"
+								}
+							],
 							"fileReplacements": [
 								{
 									"replace": "app/config.js",
@@ -91,6 +99,12 @@
 							"buildOptimizer": true
 						},
 						"testnet": {
+							"budgets": [
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "6kb"
+								}
+							],
 							"fileReplacements": [
 								{
 									"replace": "app/config.js",
@@ -109,6 +123,12 @@
 							"buildOptimizer": true
 						},
 						"mainnet-staging": {
+							"budgets": [
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "6kb"
+								}
+							],
 							"fileReplacements": [
 								{
 									"replace": "app/config.js",
@@ -125,7 +145,37 @@
 							"vendorChunk": true,
 							"buildOptimizer": true
 						},
+						"e2e": {
+							"budgets": [
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "6kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "app/config.js",
+									"with": "app/config/e2e.js"
+								}
+							],
+							"optimization": false,
+							"outputHashing": "all",
+							"sourceMap": false,
+							"extractCss": false,
+							"vendorSourceMap": false,
+							"namedChunks": true,
+							"aot": true,
+							"extractLicenses": false,
+							"vendorChunk": true,
+							"buildOptimizer": false
+						},
 						"dev": {
+							"budgets": [
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "6kb"
+								}
+							],
 							"fileReplacements": [
 								{
 									"replace": "app/config.js",
@@ -153,6 +203,9 @@
 					"configurations": {
 						"dev": {
 							"browserTarget": "helperbit:build:dev"
+						},
+						"e2e": {
+							"browserTarget": "helperbit:build:e2e"
 						}
 					}
 				},
@@ -197,11 +250,11 @@
 					"builder": "@angular-devkit/build-angular:protractor",
 					"options": {
 						"protractorConfig": "e2e/protractor.conf.js",
-						"devServerTarget": "helperbit:serve"
+						"devServerTarget": "helperbit:serve:e2e"
 					},
 					"configurations": {
 						"production": {
-							"devServerTarget": "helperbit:serve:production"
+							"devServerTarget": "helperbit:serve:e2e"
 						}
 					}
 				},
@@ -215,10 +268,7 @@
 					"configurations": {
 						"dev": {
 							"sourceMap": false,
-							"optimization": {
-								"scripts": false,
-								"styles": true
-							}
+							"optimization": true
 						}
 					}
 				}

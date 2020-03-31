@@ -8,7 +8,6 @@ const sass = require('gulp-sass');
 const uglifycss = require('gulp-uglifycss');
 const gettext = require('gulp-angular-gettext');
 const browserify = require('browserify');
-const rename = require('gulp-rename');
 const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
 const sourcemaps = require('gulp-sourcemaps');
@@ -21,7 +20,7 @@ const execSync = require('child_process').execSync;
 const jeditor = require("gulp-json-editor");
 
 /**************** WEBPACK START*/
-gulp.task('widget:button', [], () => {
+gulp.task('widget:button', gulp.series(() => {
 	let b = browserify({
 		entries: './app/widgets/donate-button/button.js',
 		debug: process.env.NODE_ENV !== 'production',
@@ -39,32 +38,42 @@ gulp.task('widget:button', [], () => {
 		.on('error', gutil.log)
 		.pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest('app/widgets/donate-button/'));
-});
+}));
 
-gulp.task('webpack:widget', [], (cb) => {
+gulp.task('webpack:widget', gulp.series((cb) => {
 	exec('cd app/widgets && npm run build', function (err, stdout, stderr) {
 		console.log(stdout);
 		console.log(stderr);
 		cb(err);
 	});
-});
+}));
 
-gulp.task('lib:distribution', [], (cb) => {
+gulp.task('lib:distribution', gulp.series((cb) => {
 	exec('./node_modules/.bin/tsc app/lib/distribution.ts', function (err, stdout, stderr) {
 		console.log(stdout);
 		console.log(stderr);
 		cb(err);
 	});
-});
+}));
+
+gulp.task('sass:widget', gulp.series(() => {
+	return gulp.src([
+		'app/sass/const.scss', 'app/sass/donate-button.scss', 'app/assets/fonts/fonts.css'
+	])
+		.pipe(sass().on('error', sass.logError))
+		.pipe(concat('widget.css'))
+		.pipe(uglifycss({ "maxLineLen": 80, "uglyComments": true }))
+		.pipe(gulp.dest('app'));
+}));
 
 // 'lib:distribution', 
-gulp.task('webpack', ['sass:widget', 'lib:distribution', 'webpack:widget', 'widget:button']);
+gulp.task('webpack', gulp.series('sass:widget', 'lib:distribution', 'webpack:widget', 'widget:button'));
 /**************** WEBPACK END*/
 
 
 
 /**************** TRANSLATE START*/
-gulp.task('translate:extract', () => {
+gulp.task('translate:extract', gulp.series(() => {
 	return gulp.src([
 		'app/components/**/*.html', 'app/components/**/*.ts',
 		'app/shared/components/**/*.html', 'app/shared/components/**/*.ts',
@@ -89,35 +98,36 @@ gulp.task('translate:extract', () => {
 			"requirejs": false
 		}))
 		.pipe(gulp.dest('po/'));
-});
+}));
 
-gulp.task('translate:compile', () => {
+gulp.task('translate:compile', gulp.series(() => {
 	return gulp.src('po/**/*.po')
 		.pipe(gettext.compile({ format: 'json' }))
 		.pipe(jeditor(json => {
-			return json[Object.keys(json)[0]];
+			/* This procedure gets inner context value, linearizing it for 
+				the gettext transformer */
+			const res = {};
+			json = json[Object.keys(json)[0]];
+
+			for (let o of Object.keys(json)) {
+				let value = json[o];
+				if (typeof(value) == 'object')
+					value = json[o][Object.keys(json[o])[0]];
+				res[o] = value;
+			}
+			
+			return res;
 		}))
 		.pipe(gulp.dest('app/assets/lang/'));
-});
+}));
 
-gulp.task('translate', ['translate:extract', 'translate:compile']);
+gulp.task('translate', gulp.series('translate:extract', 'translate:compile'));
 /**************** TRANSLATE END*/
 
 
 
 
-gulp.task('sass:widget', () => {
-	return gulp.src([
-		'app/sass/const.scss', 'app/sass/donate-button.scss', 'app/assets/fonts/fonts.css'
-	])
-		.pipe(sass().on('error', sass.logError))
-		.pipe(concat('widget.css'))
-		.pipe(uglifycss({ "maxLineLen": 80, "uglyComments": true }))
-		.pipe(gulp.dest('app'));
-});
-
-
-gulp.task('compress-images', () => {
+gulp.task('compress-images', gulp.series(() => {
 	return gulp.src(['app/assets/media/**/*'])
 		.pipe(imagemin([
 			// imagemin.gifsicle({interlaced: true}),
@@ -131,5 +141,5 @@ gulp.task('compress-images', () => {
 			})*/
 		]))
 		.pipe(gulp.dest('app/assets/media/'));
-});
+}));
 

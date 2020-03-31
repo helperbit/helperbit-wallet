@@ -110,7 +110,7 @@
 						<td>{{model.value + model.fee|money:'full'}}</td>
 					</tr>
 				</table>
-				<fee-selector *ngIf="fees" [fees]="fees" (change)="changedFeeProfile($event)"></fee-selector>
+				<fee-selector *ngIf="model.fees" [fees]="model.fees" (changedProfile)="changedFeeProfile($event)"></fee-selector>
 				<hr>
 				<div class="row">
 					<div
@@ -183,7 +183,7 @@
 							<td>{{model.value + model.fee|money:'full'}}</td>
 						</tr>
 					</table>
-					<fee-selector *ngIf="fees" [fees]="fees" (change)="changedFeeProfile($event)"></fee-selector>
+					<fee-selector *ngIf="model.fees" [fees]="model.fees" (changedProfile)="changedFeeProfile($event)"></fee-selector>
 
 					<br>
 					<wallet-sign [config]="signConfig"></wallet-sign>
@@ -191,7 +191,7 @@
 					<hr>
 					<div class="text-lg-right text-md-right text-sm-right text-xs-center">
 						<button type="button" class="btn btn-default btn-xs-block" loading="singleWizard.step1.loading"
-							(click)="singleWizard.step1.eventDonate ();" translate>Next</button>
+							(click)="eventDonate ();" translate>Next</button>
 					</div>
 				</div>
 
@@ -258,7 +258,7 @@
 						<td>{{model.value + model.fee|money:'full'}}</td>
 					</tr>
 				</table>
-				<fee-selector *ngIf="fees" [fees]="fees" (change)="changedFeeProfile($event)"></fee-selector>
+				<fee-selector *ngIf="model.fees" [fees]="model.fees" (changedProfile)="changedFeeProfile($event)"></fee-selector>
 
 				<br>
 				<wallet-sign [config]="signConfig"></wallet-sign>

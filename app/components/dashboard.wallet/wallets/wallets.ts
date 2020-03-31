@@ -11,8 +11,8 @@ import { Component, OnInit } from '@angular/core';
 import { WalletSettingsModal } from '../widgets/wallet-list/settings';
 import { RorService, Ror } from 'app/models/ror';
 import { MeWalletSignMultisigModal } from '../signmultisig/signmultisig';
-import { CookieService } from 'ngx-cookie-service';
 import { MeWalletWithdrawComponent } from '../withdraw/withdraw';
+import { getLocalStorage } from 'app/shared/helpers/utils';
 
 @Component({
 	selector: 'me-wallet-component',
@@ -29,7 +29,7 @@ export class MeWalletComponent implements OnInit {
 	qr: string;
 	selected: string;
 	transactions: WalletTransaction[];
-	defaultwallet: Wallet;
+	defaultwallet: Wallet & { balance?: number; qr?: string };
 	backup: any;
 	multisigPending: { transactions: Transaction[]; rors: { [id: string]: Ror } };
 
@@ -38,8 +38,7 @@ export class MeWalletComponent implements OnInit {
 		private dashboardService: DashboardService,
 		private rorService: RorService,
 		private modalService: NgbModal,
-		translate: TranslateService,
-		private cookieService: CookieService
+		translate: TranslateService
 	) {
 		this.multisigPending = {
 			transactions: [],
@@ -81,13 +80,13 @@ export class MeWalletComponent implements OnInit {
 	createDonationButton() {
 		$('#modalCreateDonationButton').modal('show');
 	}
-	
+
 	reloadWallet() {
 		this.walletService.onReload.emit();
 
 		this.walletService.getMultisigTransactions().subscribe(txs => {
-			const username = this.cookieService.get('username');
-			const email = this.cookieService.get('email');
+			const username = getLocalStorage().getItem('username');
+			const email = getLocalStorage().getItem('email');
 
 			this.multisigPending.rors = {};
 

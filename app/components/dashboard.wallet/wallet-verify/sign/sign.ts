@@ -15,7 +15,7 @@ export class MeWalletVerifySignComponent implements OnInit {
 	signConfig: SignConfig;
 	isLoading: boolean;
 	@Input() pending: WalletPendingVerification;
-	@ViewChild(WalletSignComponent, { static: false }) public signComponent: WalletSignComponent;
+	@ViewChild(WalletSignComponent) public signComponent: WalletSignComponent;
 
 	constructor(
 		public activeModal: NgbActiveModal,

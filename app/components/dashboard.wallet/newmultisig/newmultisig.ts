@@ -1,7 +1,7 @@
 import * as $ from 'jquery';
 import { PageHeaderConfig } from '../../../shared/components/page-header/page-header';
 import { WizardComponent } from 'angular-archwizard';
-import { BitcoinScriptType } from '../bitcoin.service/bitcoin-service';
+import { BitcoinScriptType } from '../bitcoin.service/bitcoin-helper';
 import { DashboardService } from '../../../models/dashboard';
 import { WalletService } from '../../../models/wallet';
 import { UtilsService } from 'app/services/utils';
@@ -15,7 +15,7 @@ import { ResponseMessageConfig, buildErrorResponseMessage } from 'app/shared/com
 	templateUrl: 'newmultisig.html'
 })
 export class MeWalletNewMultisigComponent implements OnInit {
-	@ViewChild(WizardComponent, { static: false }) public wizardHandler: WizardComponent;
+	@ViewChild(WizardComponent) public wizardHandler: WizardComponent;
 
 	responseMessage: ResponseMessageConfig;
 	pageHeader: PageHeaderConfig;
@@ -93,13 +93,13 @@ export class MeWalletNewMultisigComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.dashboardService.getAdminList().subscribe(admins => {
-			if (admins.length === 0)
+		this.dashboardService.getAdminList().subscribe(adminsinfo => {
+			if (adminsinfo.admins.length === 0)
 				return $('#modalNoAdmin').modal('show');
 
-			this.model.admins = admins;
-			for (let i = 0; i < admins.length; i++)
-				this.model.adminscheck[admins[i]] = true;
+			this.model.admins = adminsinfo.admins;
+			for (let i = 0; i < adminsinfo.admins.length; i++)
+				this.model.adminscheck[adminsinfo.admins[i]] = true;
 
 			this.dashboardService.emitNotificationUpdate('wallet');
 		});
