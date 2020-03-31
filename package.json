@@ -149,7 +149,7 @@
     "hash-base": "^3.0.4",
     "html2canvas": "^1.0.0-rc.5",
     "intl-tel-input": "^14.1.0",
-    "jquery": "~2.2.4",
+    "jquery": "~3.4.0",
     "json-loader": "^0.5.7",
     "leaflet": "^1.6.0",
     "leaflet-usermarker": "^1.0.0",
