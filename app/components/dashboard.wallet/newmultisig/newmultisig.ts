@@ -12,7 +12,8 @@ import { ResponseMessageConfig, buildErrorResponseMessage } from 'app/shared/com
 
 @Component({
 	selector: 'me-wallet-new-multisig-component',
-	templateUrl: 'newmultisig.html'
+	templateUrl: 'newmultisig.html',
+	styleUrls: ['../../../sass/main/custom/page.scss']
 })
 export class MeWalletNewMultisigComponent implements OnInit {
 	@ViewChild(WizardComponent) public wizardHandler: WizardComponent;

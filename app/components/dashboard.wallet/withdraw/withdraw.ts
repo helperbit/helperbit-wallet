@@ -1,7 +1,7 @@
 import { WalletService, Wallet, WalletTransaction, Transaction } from '../../../models/wallet';
 import { NotificationService } from '../../../models/notifications';
 import { WalletSignComponent, SignConfig } from '../sign/sign';
-import { checkBitcoinAddress } from '../bitcoin.service/bitcoin-helper';
+import { checkBitcoinAddress, ONESATOSHI } from '../bitcoin.service/bitcoin-helper';
 import AppSettings from '../../../app.settings';
 import { TranslateService } from '@ngx-translate/core';
 import { Component, Input, ViewChild, OnInit } from '@angular/core';
@@ -62,11 +62,11 @@ export class MeWalletWithdrawComponent implements OnInit {
 	balance: { balance: number; unconfirmed: number };
 
 	model: {
+		entireBalance: boolean;
 		destination: string;
 		fee: number;
 		feeprofile: string;
 		value: number;
-		vvalue: number;
 		description?: string;
 		txid?: any;
 		fees?: any;
@@ -86,11 +86,11 @@ export class MeWalletWithdrawComponent implements OnInit {
 	) {
 		this.mtype = 'withdraw';
 		this.model = {
+			entireBalance: false,
 			destination: '',
 			fee: 0.0,
 			feeprofile: 'fastest',
-			value: AppSettings.minDonation,
-			vvalue: 0.0,
+			value: AppSettings.minDonation
 		};
 
 		this.signConfig = {
@@ -125,7 +125,7 @@ export class MeWalletWithdrawComponent implements OnInit {
 
 		const wreq = {
 			fee: this.model.fee,
-			value: this.model.vvalue,
+			value: this.model.value,
 			destination: this.model.destination,
 			description: this.model.description,
 		};
@@ -163,7 +163,7 @@ export class MeWalletWithdrawComponent implements OnInit {
 
 		const wreq = {
 			fee: this.model.fee,
-			value: this.model.vvalue,
+			value: this.model.value,
 			destination: this.model.destination
 		};
 
@@ -253,9 +253,7 @@ export class MeWalletWithdrawComponent implements OnInit {
 				slowest: fees.slowest / 100000000
 			};
 
-			this.model.vvalue = this.model.value;
-			if ((this.model.vvalue + this.model.fee) > this.balance.balance + this.balance.unconfirmed)
-				this.model.vvalue = this.balance.balance + this.balance.unconfirmed - this.model.fee;
+			this.changedFeeProfile(this.model.feeprofile);
 		}, (res) => {
 			// this.$timeout(() => { 
 			currentStep.setResponse('error', res.error);
@@ -265,15 +263,22 @@ export class MeWalletWithdrawComponent implements OnInit {
 	}
 
 	changedFeeProfile(value: string) {
-		console.log(value);
 		this.model.feeprofile = value;
 		this.model.fee = this.model.fees[this.model.feeprofile];
 
 		if (this.mtype != 'eventdonation') {
-			this.model.vvalue = this.model.value;
-			if ((this.model.vvalue + this.model.fee) > this.balance.balance + this.balance.unconfirmed)
-				this.model.vvalue = this.balance.balance + this.balance.unconfirmed - this.model.fee;
+			if (this.model.entireBalance)
+				this.model.value = this.balance.balance;
+
+			if ((this.model.value + this.model.fee) > this.balance.balance + this.balance.unconfirmed) {
+				this.model.value = this.balance.balance + this.balance.unconfirmed - this.model.fee - ONESATOSHI;
+			}
 		}
+	}
+
+	selectEntireBalance() {
+		this.model.entireBalance = true;
+		this.model.value = this.balance.balance - ONESATOSHI; // this satoshi fixes the ew1
 	}
 
 	removeMultisigTransaction(txid) {
@@ -285,7 +290,7 @@ export class MeWalletWithdrawComponent implements OnInit {
 	rorTrigger() {
 		const wreq = {
 			fee: this.model.fee,
-			value: this.model.vvalue,
+			value: this.model.value,
 			destination: this.model.destination,
 			description: this.model.description,
 		};
@@ -352,7 +357,7 @@ export class MeWalletWithdrawComponent implements OnInit {
 
 			if (this.wallet.ismultisig) {
 				this.walletService.getMultisigTransactions().subscribe(txs => {
-					this.wallet.pendingtxs = txs;
+					this.wallet.pendingtxs = txs.filter(t => t.wallet.id == this.wallet._id && t.status == 'signing');
 				});
 			}
 

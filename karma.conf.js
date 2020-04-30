@@ -3,6 +3,12 @@
 
 module.exports = function (config) {
   config.set({
+	proxies: {
+		'/media/': '/base/app/assets/media/'
+	},
+	files: [
+		{ pattern: './app/assets/media/**', watched: false, included:false, nocache:false, served:true }
+	],
     basePath: '',
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [

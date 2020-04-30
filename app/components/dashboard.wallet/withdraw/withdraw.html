@@ -47,9 +47,9 @@
 
 				<span translate>Amount to send</span> ({{null|money}}):
 				<input pattern="^[0-9]+(\.[0-9]{1,8})?$" type="text" class="form-control" [disabled]="fixedValue"
-					name="amount" [(ngModel)]="model.value" moneyInput/>
+					name="amount" [(ngModel)]="model.value" (change)="model.entireBalance=false" moneyInput/>
 				<br>
-				<button class="btn-link" *ngIf="balance && balance.balance > 0" [hidden]="fixedValue" style="font-size: 90%" (click)="model.value = balance.balance">
+				<button class="btn-link" *ngIf="balance && balance.balance > 0" [hidden]="fixedValue" style="font-size: 90%" (click)="selectEntireBalance()">
 					<span translate>Click here to select all the available balance of</span>{{balance.balance|money}}.</button>
 				<br>
 				<br>
@@ -212,8 +212,8 @@
 
 					<span translate>Amount to send</span> ({{null|money}}):
 					<input pattern="^[0-9]+(\.[0-9]{1,8})?$" type="text" class="form-control" name="amount"
-						[(ngModel)]="model.value" [disabled]="fixedValue" moneyInput/>
-					<button class="btn-link" *ngIf="balance && balance.balance > 0" [hidden]="fixedValue" style="font-size: 80%" (click)="model.value = balance.balance">
+						[(ngModel)]="model.value" [disabled]="fixedValue" (change)="model.entireBalance=false" moneyInput/>
+					<button class="btn-link" *ngIf="balance && balance.balance > 0" [hidden]="fixedValue" style="font-size: 80%" (click)="selectEntireBalance()">
 						<span translate>Click here to select all the available balance of</span>{{balance.balance|money}}.</button>
 					<br>
 					<span translate>Destination address</span>:
@@ -307,12 +307,12 @@
 	</div>
 	<!-- Multisig pending -->
 	<div role="tabpanel" class="tab-pane" id="withdraw-pendingsign" *ngIf="wallet.ismultisig">
-		<div class="modal-body">
-			<div class="text-center" *ngIf="wallet.pendingtxs.length == 0">
+		<div class="modal-body" style="padding: 0">
+			<div class="text-center" *ngIf="wallet.pendingtxs?.length == 0">
 				<i translate>There are no transactions pending signing</i>
 			</div>
 
-			<table *ngIf="wallet.pendingtxs.length != 0" class="table table-compressed">
+			<table *ngIf="wallet.pendingtxs?.length != 0" class="table table-striped table-compressed">
 				<thead class="separator">
 					<tr>
 						<th class="text-center" translate>Description</th>
@@ -322,13 +322,13 @@
 						<th></th>
 					</tr>
 				</thead>
-				<tr *ngFor="let tx of wallet.pendingtxs" [hidden]="tx.status == 'signing'">
-					<td class="text-center">{{tx.description}}</td>
+				<tr *ngFor="let tx of wallet.pendingtxs">
+					<td class="text-center"><a href="" [tooltip]="tx.description"><i class="fa fa-info-circle"></i></a></td>
 					<td class="text-center">{{tx.signers.length}} of {{tx.n}}</td>
 					<td class="text-center">{{tx.value|money:'full'}}</td>
 					<td class="text-center">{{tx.time|date}}</td>
 					<td class="text-center">
-						<button class="btn btn-default btn-sm" (click)="removeMultisigTransaction (tx._id)"
+						<button class="btn btn-danger btn-sm" (click)="removeMultisigTransaction (tx._id)"
 							translate>Cancel</button>
 						<!-- 
 							request-confirmation

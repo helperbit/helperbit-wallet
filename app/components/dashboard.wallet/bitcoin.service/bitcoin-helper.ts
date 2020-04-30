@@ -2,6 +2,8 @@ import { Payment, payments, ECPair, Network, ECPairInterface, address } from 'bi
 import AES from 'crypto-js/aes';
 import AppSettings from 'app/app.settings';
 
+export const ONESATOSHI = 0.00000001;
+
 export interface BitcoinSignService {
 	sign(txhex: string, options: BitcoinSignOptions, callback?): Promise<string>;
 }

@@ -17,7 +17,7 @@ import { getLocalStorage } from 'app/shared/helpers/utils';
 @Component({
 	selector: 'me-wallet-feed-multisig-component',
 	templateUrl: 'feedmultisig.html',
-	styleUrls: ['feedmultisig.scss']
+	styleUrls: ['../../../sass/main/custom/page.scss', 'feedmultisig.scss']
 })
 export class MeWalletFeedMultisigComponent extends CreateWallet implements OnInit, AfterViewInit {
 	@ViewChild(WizardComponent) public wizardHandler: WizardComponent;

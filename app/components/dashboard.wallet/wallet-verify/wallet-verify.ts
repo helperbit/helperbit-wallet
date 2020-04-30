@@ -28,7 +28,7 @@ interface WalletVerificationEx extends WalletVerification {
 @Component({
 	selector: 'me-wallet-verify',
 	templateUrl: 'wallet-verify.html',
-	styleUrls: ['wallet-verify.scss']
+	styleUrls: ['../../../sass/main/custom/page.scss', 'wallet-verify.scss']
 })
 export class MeWalletVerificationComponent implements OnInit {
 	pageHeader: PageHeaderConfig;

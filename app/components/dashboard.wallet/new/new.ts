@@ -15,7 +15,7 @@ import { getLocalStorage } from 'app/shared/helpers/utils';
 @Component({
 	selector: 'me-wallet-new-component',
 	templateUrl: 'new.html',
-	styleUrls: ['new.scss']
+	styleUrls: ['../../../sass/main/custom/page.scss', 'new.scss']
 })
 export class MeWalletNewComponent extends CreateWallet implements OnInit, AfterViewInit {
 	@ViewChild(WizardComponent) public wizardHandler: WizardComponent;

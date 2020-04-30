@@ -1,6 +1,6 @@
 import { BrowserHelperService } from '../../../../services/browser-helper';
 import { WalletService, Wallet } from '../../../../models/wallet';
-import { Subscription } from 'rxjs/internal/Subscription';
+import { Subscription } from 'rxjs';
 import { Component, Output, Input, EventEmitter, OnDestroy, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { WalletDepositModal } from './deposit';

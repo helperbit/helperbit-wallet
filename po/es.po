@@ -2,17 +2,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-25 11:43+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2020-04-29 08:47+0000\n"
+"PO-Revision-Date: 2020-04-29 06:47+0000\n"
+"Last-Translator: dakk <gessa@helperbit.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 2.2.5\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.8\n"
 "X-Pootle-Revision: 2554\n"
 "X-Pootle-Path: /es/frontend/es.po\n"
+"X-POOTLE-MTIME: 1588142848.556734\n"
 
 #: dashboard.wallet/widgets/ledger-wait/ledger-wait.html:3
 msgctxt "Ledger-Pair-Procedure"
@@ -1456,7 +1458,7 @@ msgstr "Islas \\u00c5land"
 msgid "(Signature of the person in ​charge of the fundraising sector)"
 msgstr "(Firma del responsabile de las recogidas de fondos)"
 
-#: auth/signup/signup.ts:257
+#: auth/signup/signup.ts:262
 msgid "(optional)"
 msgstr "(Opcional)"
 
@@ -1476,8 +1478,8 @@ msgstr "(Para aceptar, baja y lee la política de privacidad)"
 msgid "(scroll and read the terms of service to accept)"
 msgstr "(Para aceptar, baja y lee los términos del servicio)"
 
-#: auth/signup/signup.ts:314
-#: auth/signup/signup.ts:327
+#: auth/signup/signup.ts:319
+#: auth/signup/signup.ts:332
 msgid "100% free"
 msgstr "100 % gratis."
 
@@ -1498,7 +1500,6 @@ msgstr ""
 "archivo de backup."
 
 #: about/cookie/cookie.html:13
-#, fuzzy
 msgid ""
 "A cookie is a small text file that a website saves on your computer or mobile device when you visit the\n"
 "\t\tsite. It enables the website to remember your actions and preferences (such as login, language, font size and\n"
@@ -1543,30 +1544,25 @@ msgstr ""
 "y estuvieran expuestas a todo tipo de amenazas naturales y extremos "
 "climáticos."
 
-#: auth/login/login.ts:74
+#: auth/login/login.ts:79
 msgid "Account activation"
 msgstr "Activación de la cuenta"
 
-#: response-messages/response-messages.ts:136
+#: response-messages/response-messages.ts:140
 msgid "Account not active"
 msgstr "Cuenta no activa"
 
-#: dashboard/admin/admin.html:24
-msgid "Account not active."
-msgstr "Cuenta no activa"
-
-#: dashboard/socialedit/socialedit.ts:38
-#, fuzzy
+#: dashboard/socialedit/socialedit.ts:39
 msgid "Account settings"
 msgstr "Impostaciones de la cuenta"
 
-#: campaign/create/create.ts:115
+#: campaign/create/create.ts:117
 #: charity/proposednpo/proposednpo.ts:145
 #: dashboard/rors/rors.html:245
-#: dashboard/verify/verify.html:105
+#: dashboard/verify/verify.html:103
 #: dashboard/verify/verify.html:33
-#: project/create/create.ts:153
-#: project/edit/edit.html:106
+#: project/create/create.ts:155
+#: project/edit/edit.html:107
 msgid "Actions"
 msgstr "Acciones"
 
@@ -1581,13 +1577,13 @@ msgstr ""
 msgid "Active Projects"
 msgstr ""
 
-#: project/edit/edit.ts:273
-#: project/project/project.html:139
+#: project/edit/edit.ts:286
+#: project/project/project.html:157
 msgid "Activities"
 msgstr "Actividades"
 
 #: project/edit/activity/activity.html:5
-#: project/edit/edit.ts:108
+#: project/edit/edit.ts:121
 msgid "Activity"
 msgstr "Actividades"
 
@@ -1595,15 +1591,7 @@ msgstr "Actividades"
 msgid "Actual Bitcoin value"
 msgstr "Valor actual en Bitcoin"
 
-#: dashboard/admin/admin.html:50
-msgid "Add"
-msgstr "Añade"
-
-#: dashboard/admin/admin.ts:29
-msgid "Add and remove organization administrators"
-msgstr "Añada y elimine administradores de la organización"
-
-#: auth/signup/signup.ts:335
+#: auth/signup/signup.ts:340
 msgid "Add donation button on your website"
 msgstr "Añada el botón donaciones en su página web"
 
@@ -1624,17 +1612,13 @@ msgstr "Administradores"
 msgid "Admin 1"
 msgstr ""
 
-#: wizard-procedure/procedures/npo.ts:90
+#: wizard-procedure/procedures/npo.ts:91
 msgid "Admin 2"
 msgstr ""
 
-#: wizard-procedure/procedures/npo.ts:95
+#: wizard-procedure/procedures/npo.ts:97
 msgid "Admin 3"
 msgstr ""
-
-#: dashboard/admin/admin.ts:38
-msgid "Admin add"
-msgstr "Añada administrador"
 
 #: shared/templates/translate-force.html:130
 msgid "Administration"
@@ -1651,7 +1635,7 @@ msgstr "Administradores"
 msgid "Admins Document"
 msgstr "Documento que nomina a los Administradores"
 
-#: dashboard.wallet/newmultisig/newmultisig.ts:47
+#: dashboard.wallet/newmultisig/newmultisig.ts:48
 msgid "Admins not verified"
 msgstr "Administradores no verificados"
 
@@ -1662,19 +1646,17 @@ msgstr "Administradores no verificados"
 msgid "Advanced Donations"
 msgstr "Donaciones Avanzadas"
 
-#: event/table/table.ts:103
-#, fuzzy
+#: event/table/table.ts:97
 msgid "Affected Countries"
-msgstr "Estados afectados"
+msgstr "Estados Afectados"
 
-#: event/table/table.ts:124
-#: event/table/table.ts:45
-#, fuzzy
+#: event/table/table.ts:118
+#: event/table/table.ts:39
 msgid "Affected Population"
-msgstr "Población afectada"
+msgstr "Población Afectada"
 
 #: event/event/event.html:52
-#: project/project/project.html:84
+#: project/project/project.html:107
 msgid "Affected population"
 msgstr "Población afectada"
 
@@ -1688,12 +1670,8 @@ msgstr "Desde el principio"
 msgid "All rights reserved"
 msgstr "Todos los derechos reservados"
 
-#: response-messages/response-messages.ts:206
+#: response-messages/response-messages.ts:211
 msgid "Already present"
-msgstr "Ya presente"
-
-#: dashboard/admin/admin.html:20
-msgid "Already present."
 msgstr "Ya presente"
 
 #: auth/signup/signup.html:67
@@ -1712,8 +1690,8 @@ msgstr "¡Premios increibles!"
 #: shared/templates/translate-force.html:181
 #: shared/templates/translate-force.html:182
 #: sidebar/sidebar.html:37
-#: staticpages/ambassador.ts:38
-#: staticpages/ambassador.ts:64
+#: staticpages/ambassador.ts:45
+#: staticpages/ambassador.ts:66
 msgid "Ambassador"
 msgstr "Ambassador"
 
@@ -1735,7 +1713,7 @@ msgstr ""
 msgid "Amount"
 msgstr "Cantidad "
 
-#: project/project/project.html:104
+#: project/project/project.html:88
 msgid "Amount already used"
 msgstr "Cantidad ya utilizada"
 
@@ -1747,7 +1725,7 @@ msgstr "Cantidad recogida"
 msgid "Amount from {{amountLimits[0]}}"
 msgstr ""
 
-#: project/project/project.html:108
+#: project/project/project.html:92
 msgid "Amount pending usage"
 msgstr "Cantidad a la espera de ser usada"
 
@@ -1777,7 +1755,7 @@ msgid "An Helperbit staff member will verify your documents soon."
 msgstr ""
 "Un miembro del staff de Helperbit verificará sus documentos lo antes posible."
 
-#: response-messages/response-messages.ts:135
+#: response-messages/response-messages.ts:139
 msgid "An account is already associated to this social id"
 msgstr ""
 
@@ -1808,8 +1786,8 @@ msgstr ""
 msgid "Anniversary"
 msgstr "Aniversario"
 
-#: project/create/create.ts:189
-#: wizard-procedure/procedures/npo.ts:139
+#: project/create/create.ts:191
+#: wizard-procedure/procedures/npo.ts:142
 msgid "Approved"
 msgstr "Aprobado"
 
@@ -1825,21 +1803,17 @@ msgstr "¿Está listo para la revolución descentralizada de la transparencia?"
 msgid "Are you sure to cancel this pending transaction?"
 msgstr "¿está seguro de que quiere eliminar esta transacción pendiente?"
 
-#: campaign/create/create.ts:231
+#: campaign/create/create.ts:233
 #: dashboard/rors/rors.ts:117
 #: dashboard/verify/verify.ts:319
-#: project/create/create.ts:312
-#: project/edit/edit.ts:716
+#: project/create/create.ts:314
+#: project/edit/edit.ts:743
 msgid "Are you sure to delete"
 msgstr "Estás seguro de eliminar"
 
 #: dashboard/edit/edit.ts:105
 msgid "Are you sure to delete your avatar image?"
 msgstr ""
-
-#: dashboard/admin/admin.html:35
-msgid "Are you sure to remove this?"
-msgstr "¿está seguro de quererlo eliminar?"
 
 #: dashboard/edit/modals/not-saved/not-saved.html:5
 msgid "Are you sure?"
@@ -1851,7 +1825,6 @@ msgid "Art"
 msgstr "Arte"
 
 #: home/home/home.html:2
-#, fuzzy
 msgid ""
 "As single user you cannot create a project. At the moment only companies, organizations and\n"
 "\t\tmunicipalities can create it"
@@ -1936,7 +1909,7 @@ msgstr "Contraseña de archivo de backup"
 msgid "Backup password"
 msgstr "Contraseña de backup"
 
-#: response-messages/response-messages.ts:198
+#: response-messages/response-messages.ts:203
 msgid "Bad address"
 msgstr "Dirección no valida"
 
@@ -1968,7 +1941,6 @@ msgid "Bech32"
 msgstr "Bech32"
 
 #: dashboard/socialedit/socialedit.html:37
-#, fuzzy
 msgid ""
 "Before you can login again, you have to activate your account with the code\n"
 "                        sent to your email address. If you did not receive this email, please check your\n"
@@ -2039,16 +2011,16 @@ msgstr ""
 msgid "Bitcoin Trezor Wallet"
 msgstr ""
 
-#: project/project/project.html:52
+#: project/project/project.html:53
 #, fuzzy
 msgid "Bitcoin address:"
 msgstr "Direcciones bitcoin"
 
-#: profile/profile.ts:65
+#: profile/profile.ts:64
 msgid "Bitcoin addresses"
 msgstr "Direcciones bitcoin"
 
-#: auth/signup/signup.ts:334
+#: auth/signup/signup.ts:339
 msgid "Bitcoin and over 24+ Altcoins supported"
 msgstr "Bitcoin y otras 24+ Altcoin soportadas"
 
@@ -2099,15 +2071,15 @@ msgstr "¿campaña?"
 msgid "Campaign Donation"
 msgstr "Donación Campaña"
 
-#: response-messages/response-messages.ts:175
+#: response-messages/response-messages.ts:180
 msgid "Can't create a refund claim with this user"
 msgstr "Imposible crear una petición de reembolso con este usuario"
 
-#: response-messages/response-messages.ts:150
+#: response-messages/response-messages.ts:154
 msgid "Can't edit a concluded campaign"
 msgstr ""
 
-#: response-messages/response-messages.ts:176
+#: response-messages/response-messages.ts:181
 msgid "Can't remove this refund claim"
 msgstr "Imposible eliminar esta petición de reembolso"
 
@@ -2122,6 +2094,11 @@ msgstr "Cancelar"
 #: auth/login/login.html:11
 msgid "Cannot authenticate with your social account."
 msgstr "Used no se puede autentificar con su cuenta social."
+
+#: project/edit/activity/activity.ts:130
+#: project/edit/edit.html:99
+msgid "Category"
+msgstr ""
 
 #: campaign/create/create.html:22
 msgid "Celebrate an important occasion like a birthday, a festivity or a personal milestone and promote it through a"
@@ -2146,15 +2123,15 @@ msgstr "Cambia tu contraseña por una más segura y protege tu cuenta de ataques
 msgid "Charities that accept bitcoin and crypto donations"
 msgstr "No profit que aceptan donaciones en bitcoin y cripto"
 
-#: auth/signup/signup.ts:385
+#: auth/signup/signup.ts:390
 msgid "Check company advantages!"
 msgstr "¡Mira las ventajas para las empresas!"
 
-#: auth/signup/signup.ts:375
+#: auth/signup/signup.ts:380
 msgid "Check non-profit advantages!"
 msgstr ""
 
-#: auth/signup/signup.ts:370
+#: auth/signup/signup.ts:375
 msgid "Check singleuser advantages!"
 msgstr "¡Mira las ventajas para los usuarios particulares!"
 
@@ -2173,9 +2150,8 @@ msgid "Check your wallets verification status"
 msgstr ""
 
 #: donation/charity-pot/charity-pot.html:36
-#, fuzzy
 msgid "Choose a Project"
-msgstr "Cree un nuevo proyecto"
+msgstr "Cree un Proyecto"
 
 #: campaign/edit/edit.ts:219
 #: campaign/edit/edit.ts:222
@@ -2261,7 +2237,7 @@ msgstr ""
 #: profile/profile.html:179
 #: profile/profile.html:433
 #: profile/profile.html:801
-#: project/project/project.html:54
+#: project/project/project.html:55
 msgid "Click to copy the address"
 msgstr "Pulse para copiar la dirección"
 
@@ -2269,31 +2245,31 @@ msgstr "Pulse para copiar la dirección"
 msgid "Click to copy the address URL"
 msgstr "Pulsa para copia la dirección"
 
-#: campaign/create/create.ts:210
+#: campaign/create/create.ts:212
 msgid "Click to delete this fundraising campaign."
 msgstr "Pulse aquí para eliminar esta Campaña Fundraising"
 
-#: project/create/create.ts:266
+#: project/create/create.ts:268
 msgid "Click to delete this project."
 msgstr "Clica para eliminar este proyecto"
 
-#: campaign/create/create.ts:200
+#: campaign/create/create.ts:202
 msgid "Click to edit this fundraising campaign."
 msgstr "Clica aquí para modificar esta Campaña Fundraising."
 
-#: project/create/create.ts:256
+#: project/create/create.ts:258
 msgid "Click to edit this project."
 msgstr "Clica para modificar este proyecto"
 
-#: project/create/create.ts:216
+#: project/create/create.ts:218
 msgid "Click to generate the donation button code of this project."
 msgstr ""
 
-#: campaign/create/create.ts:190
+#: campaign/create/create.ts:192
 msgid "Click to go to this fundraising campaign."
 msgstr "Clica aquí para ir a la página de la Campaña Fundraising."
 
-#: project/create/create.ts:206
+#: project/create/create.ts:208
 msgid "Click to go to this project."
 msgstr "Clica aquí para ir a la página del proyecto"
 
@@ -2320,7 +2296,7 @@ msgstr "Clica para ver los archivos"
 msgid "Close"
 msgstr "Cerrar"
 
-#: campaign/create/create.ts:178
+#: campaign/create/create.ts:180
 msgid "Closed"
 msgstr "Cerrado"
 
@@ -2350,14 +2326,14 @@ msgstr "Empresa Documentos"
 msgid "Company Full Name"
 msgstr ""
 
-#: auth/signup/signup.ts:386
+#: auth/signup/signup.ts:391
 msgid "Company advantages"
 msgstr "Ventajas empesariales"
 
 #: dashboard/verify/verify.html:45
 #: dashboard/verify/verify.html:58
 msgid "Complete"
-msgstr ""
+msgstr "Completo"
 
 #: dashboard/privacy/privacy.ts:38
 msgid "Complete all fields"
@@ -2391,9 +2367,11 @@ msgstr ""
 "Completa la información de tu perfil base para proceder al próximo paso de "
 "verificación."
 
+#: dashboard/admin/admin.ts:53
 #: wizard-procedure/wizard-procedure.ts:44
+#, fuzzy
 msgid "Completed!"
-msgstr ""
+msgstr "Completo"
 
 #: choose-elements/choose-elements.html:66
 #: dashboard.wallet/create-wallet.ts:118
@@ -2416,7 +2394,7 @@ msgstr "Confirma Dirección"
 msgid "Confirm Position"
 msgstr "Confirma Posición"
 
-#: project/edit/edit.ts:114
+#: project/edit/edit.ts:127
 msgid "Confirm delete activity"
 msgstr "Confirma la eliminación de la actividad "
 
@@ -2425,11 +2403,11 @@ msgstr "Confirma la eliminación de la actividad "
 msgid "Confirm delete avatar"
 msgstr "Confirma la eliminación de la ror"
 
-#: campaign/create/create.ts:230
+#: campaign/create/create.ts:232
 msgid "Confirm delete campaign"
 msgstr "Confirma la eliminación de la campaña"
 
-#: project/create/create.ts:311
+#: project/create/create.ts:313
 msgid "Confirm delete project"
 msgstr "Confirma la eliminación del proyecto"
 
@@ -2482,11 +2460,10 @@ msgid "Cookies"
 msgstr "Cookies"
 
 #: shared/templates/translate-force.html:160
-#, fuzzy
 msgid "Cookies Policy"
-msgstr "Politica cookie"
+msgstr "Politica Cookie"
 
-#: about/cookie/cookie.ts:16
+#: about/cookie/cookie.ts:17
 msgid "Cookies policy"
 msgstr "Politica cookie"
 
@@ -2514,7 +2491,7 @@ msgstr ""
 #: dashboard/geolocalization/modals/address/address.ts:218
 #: dashboard/verify/verify.ts:135
 #: profile/profile.html:752
-#: project/edit/edit.ts:240
+#: project/edit/edit.ts:253
 #: project/table/table.ts:69
 msgid "Countries"
 msgstr "Estados"
@@ -2532,7 +2509,7 @@ msgstr "Estados"
 #: dashboard/verify/providers/otc/otc.html:26
 #: dashboard/verify/verify.ts:136
 #: profile/profile.html:115
-#: proposednpo-insert/proposednpo-insert.ts:125
+#: proposednpo-insert/proposednpo-insert.ts:123
 #: stats/top-donors/top-donors.ts:39
 #: stats/top-donors/top-donors.ts:63
 msgid "Country"
@@ -2551,8 +2528,8 @@ msgid "Coverflow photo updated successfully"
 msgstr ""
 
 #: dashboard.wallet/newmultisig/newmultisig.html:59
-#: wizard-procedure/procedures/npo.ts:111
-#: wizard-procedure/procedures/npo.ts:133
+#: wizard-procedure/procedures/npo.ts:114
+#: wizard-procedure/procedures/npo.ts:136
 msgid "Create"
 msgstr "Crea"
 
@@ -2573,7 +2550,7 @@ msgstr ""
 msgid "Create a campaign"
 msgstr ""
 
-#: dashboard.wallet/newmultisig/newmultisig.ts:41
+#: dashboard.wallet/newmultisig/newmultisig.ts:42
 msgid "Create a new multisig wallet to send and receive Bitcoin"
 msgstr "Cree una nueva cartera multifirma para enviar y recibir Bitcoin"
 
@@ -2581,7 +2558,7 @@ msgstr "Cree una nueva cartera multifirma para enviar y recibir Bitcoin"
 msgid "Create a new wallet to send and receive Bitcoin"
 msgstr "Cree una nueva cartera para enviar y recibir Bitcoin"
 
-#: project/edit/edit.ts:99
+#: project/edit/edit.ts:112
 msgid "Create a project"
 msgstr "Cree un nuevo proyecto"
 
@@ -2621,25 +2598,25 @@ msgstr ""
 msgid "Create new wallet"
 msgstr "Crea una cartera"
 
-#: wizard-procedure/procedures/npo.ts:134
+#: wizard-procedure/procedures/npo.ts:137
 #, fuzzy
 msgid "Create now a project."
 msgstr "Cree un nuevo proyecto"
 
-#: wizard-procedure/procedures/npo.ts:112
+#: wizard-procedure/procedures/npo.ts:115
 msgid "Create now a wallet for receiving donations."
 msgstr "Crea una nueva cartera para recibir donaciones."
 
-#: campaign/create/create.ts:49
+#: campaign/create/create.ts:50
 msgid "Create or edit a fundraising campaign"
 msgstr "Crea o modifica una Campaña Fundraising"
 
-#: project/create/create.ts:56
+#: project/create/create.ts:57
 msgid "Create or edit a project"
 msgstr "Cree o modifique un proyecto"
 
-#: auth/signup/signup.ts:121
-#: auth/signup/signup.ts:99
+#: auth/signup/signup.ts:104
+#: auth/signup/signup.ts:126
 msgid "Create your account"
 msgstr "Cree un perfil"
 
@@ -2647,11 +2624,11 @@ msgstr "Cree un perfil"
 msgid "Create your multisignature wallet and use it to send and receive donations."
 msgstr "Crea una cartera multifirma y úsala para enviar y recibir donaciones."
 
-#: auth/signup/signup.ts:348
+#: auth/signup/signup.ts:353
 msgid "Create your own High Secure Bitcoin Wallet"
 msgstr "Cree su cartera segura Bitcoin"
 
-#: project/project/project.html:47
+#: project/project/project.html:48
 msgid "Created by:"
 msgstr "Realizado por:"
 
@@ -2675,7 +2652,7 @@ msgstr ""
 
 #: campaign/edit/edit.ts:182
 #: dashboard/rors/create/create.ts:242
-#: project/edit/edit.ts:214
+#: project/edit/edit.ts:227
 msgid "Currency"
 msgstr "Moneda"
 
@@ -2698,10 +2675,11 @@ msgstr "Imagen de Portada Personalizada "
 #: donation/donation/donation.html:69
 #: donation/gift/gift.html:101
 #: donation/transaction/transaction.html:62
-#: event/table/table.ts:154
-#: event/table/table.ts:47
+#: event/table/table.ts:148
+#: event/table/table.ts:41
 #: profile/profile.html:568
 #: profile/profile.html:601
+#: project/edit/edit.html:103
 msgid "Date"
 msgstr "fecha"
 
@@ -2760,17 +2738,16 @@ msgstr "Define el importe que deseas alcanzar con esta Campaña"
 msgid "Degree"
 msgstr "Grado"
 
-#: campaign/create/create.ts:205
-#: dashboard/verify/verify.html:118
-#: dashboard/verify/verify.html:140
-#: project/create/create.ts:261
+#: campaign/create/create.ts:207
+#: dashboard/verify/verify.html:116
+#: dashboard/verify/verify.html:138
+#: project/create/create.ts:263
 msgid "Delete"
 msgstr "Eliminar"
 
 #: shared/templates/translate-force.html:114
-#, fuzzy
 msgid "Delete Account"
-msgstr "Elimina cuenta"
+msgstr "Elimina Cuenta"
 
 #: home/policy/modal.html:55
 msgid "Delete account"
@@ -2803,13 +2780,13 @@ msgstr "Describe tu Campaña Fundraising"
 #: dashboard.wallet/withdraw/withdraw.html:318
 #: dashboard/rors/create/create.ts:258
 #: dashboard/rors/modals/details/details.html:50
-#: dashboard/verify/verify.html:103
+#: dashboard/verify/verify.html:101
 #: donation/transaction/transaction.html:67
 #: parts/widgets/feedback/feedback.ts:58
 #: profile/profile.html:566
 #: profile/profile.html:599
-#: project/edit/activity/activity.ts:116
-#: project/edit/edit.ts:170
+#: project/edit/activity/activity.ts:118
+#: project/edit/edit.ts:183
 msgid "Description"
 msgstr "Descripción"
 
@@ -2853,13 +2830,13 @@ msgstr "Geoverificación con Dispositivo"
 msgid "Discard changes"
 msgstr "Ignore modificaciones"
 
-#: response-messages/response-messages.ts:183
+#: response-messages/response-messages.ts:188
 msgid "Disposable email domains are not allowed"
 msgstr "Los emails provisionales no están permitidos "
 
 #: dashboard/verify/providers/company/company.ts:95
 #: dashboard/verify/providers/document/document.ts:210
-#: dashboard/verify/providers/npo/admins/admins.ts:691
+#: dashboard/verify/providers/npo/admins/admins.ts:689
 msgid "Do you confirm your submission?"
 msgstr "¿Desea confirmar el procedimiento?"
 
@@ -2924,7 +2901,7 @@ msgstr "Tipo de documentación"
 msgid "Donate"
 msgstr "Done "
 
-#: auth/signup/signup.ts:316
+#: auth/signup/signup.ts:321
 msgid "Donate directly to humanitarian causes"
 msgstr "Done directamente a causas humanitarias"
 
@@ -2948,8 +2925,8 @@ msgstr "Donado a"
 #: donation/gift/gift.ts:51
 #: event/eventdonate/eventdonate.html:188
 #: event/eventdonate/eventdonate.html:76
-#: event/table/table.ts:139
-#: event/table/table.ts:46
+#: event/table/table.ts:133
+#: event/table/table.ts:40
 #: shared/templates/translate-force.html:100
 #: shared/templates/translate-force.html:95
 #: shared/templates/translate-force.html:96
@@ -2964,16 +2941,14 @@ msgid ""
 "\t\t\t\t\t\t\t\tgraph"
 msgstr ""
 
-#: project/create/create.ts:211
-#, fuzzy
+#: project/create/create.ts:213
 msgid "Donation Button"
-msgstr "Botón de donación"
+msgstr "Botón de Donación"
 
 #: shared/templates/translate-force.html:52
 #: shared/templates/translate-force.html:54
-#, fuzzy
 msgid "Donation Graph"
-msgstr "Grafo donación"
+msgstr "Grafo Donación"
 
 #: donation/donation/donation.html:57
 #: donation/gift/gift.html:78
@@ -3019,7 +2994,7 @@ msgstr "Gráfico donaciones del proyecto"
 msgid "Donation graph for the user"
 msgstr "Gráfico-donaciones del usuario"
 
-#: dashboard/invoiceable/invoiceable.ts:27
+#: dashboard/invoiceable/invoiceable.ts:28
 msgid "Donation invoices for tax deduction"
 msgstr "Recibo fiscal para la deducibilidad de impuestos"
 
@@ -3056,14 +3031,14 @@ msgstr "Donación a través de tarjeta de crédito o débito"
 #: campaign/campaign/campaign.html:64
 #: event/event/event.html:11
 #: event/event/event.html:59
-#: home/home/home.html:117
+#: home/home/home.html:139
 #: parts/seofooter/seofooter.html:27
 #: profile/profile.html:471
 #: profile/profile.html:546
 #: profile/profile.html:841
 #: profile/profile.html:916
-#: project/project/project.html:152
-#: project/project/project.html:90
+#: project/project/project.html:172
+#: project/project/project.html:74
 #: project/table/table.ts:96
 #: shared/templates/translate-force.html:165
 #: shared/templates/translate-force.html:166
@@ -3072,10 +3047,10 @@ msgstr "Donación a través de tarjeta de crédito o débito"
 msgid "Donations"
 msgstr "Donaciones"
 
-#: campaign/create/create.ts:97
+#: campaign/create/create.ts:99
 #: profile/profile.html:497
 #: profile/profile.html:867
-#: project/create/create.ts:141
+#: project/create/create.ts:143
 msgid "Donations Received"
 msgstr "Donaciones Recibidas"
 
@@ -3091,7 +3066,7 @@ msgid "Donations are received in this address"
 msgstr "Las donaciones se recibirán en esta dirección"
 
 #: event/event/event.html:56
-#: project/project/project.html:94
+#: project/project/project.html:78
 msgid "Donations volume"
 msgstr "Volumen de donaciones"
 
@@ -3104,7 +3079,6 @@ msgstr "Volumen de donaciones"
 #: dashboard.wallet/signmultisig/signmultisig.html:122
 #: dashboard.wallet/withdraw/withdraw.ts:109
 #: dashboard.wallet/withdraw/withdraw.ts:119
-#: dashboard/admin/admin.html:59
 #: dashboard/geolocalization/modals/address/address.html:130
 #: dashboard/verify/providers/company/company.html:80
 #: dashboard/verify/providers/document/document.html:115
@@ -3112,7 +3086,7 @@ msgstr "Volumen de donaciones"
 #: dashboard/verify/providers/npo/admins/admins.html:188
 #: dashboard/verify/providers/npo/memorandum/memorandum.html:44
 #: dashboard/verify/providers/npo/statute/statute.html:44
-#: dashboard/verify/providers/otc/otc.html:109
+#: dashboard/verify/providers/otc/otc.html:111
 #: dashboard/verify/providers/residency/residency.html:44
 #: home/policy/modal.html:59
 #: home/policy/modal.html:60
@@ -3151,8 +3125,8 @@ msgstr ""
 msgid "Download backup"
 msgstr "Descargue backup"
 
-#: campaign/create/create.ts:180
-#: project/create/create.ts:197
+#: campaign/create/create.ts:182
+#: project/create/create.ts:199
 msgid "Draft"
 msgstr "Boceto"
 
@@ -3175,11 +3149,11 @@ msgstr ""
 "modifique los cursores para conocer su potencial reembolso."
 
 #: dashboard/alert/alert.html:23
-#: event/table/table.ts:86
+#: event/table/table.ts:80
 msgid "Drought"
 msgstr "Carestía"
 
-#: response-messages/response-messages.ts:204
+#: response-messages/response-messages.ts:209
 msgid "Duplicated publickey: you can't use the same hardware wallet of another admin"
 msgstr ""
 "Publikey duplicada: no se puede usar la misma cartera hardware de otro "
@@ -3190,16 +3164,16 @@ msgid "Each time that a new referred friend completes the ID verification proced
 msgstr ""
 
 #: dashboard/alert/alert.html:18
-#: event/table/table.ts:51
+#: event/table/table.ts:45
 #: shared/templates/translate-force.html:31
 msgid "Earthquake"
 msgstr "Terremoto "
 
-#: campaign/create/create.ts:195
-#: dashboard/verify/verify.html:115
-#: dashboard/verify/verify.html:137
-#: project/create/create.ts:251
-#: project/edit/edit.html:114
+#: campaign/create/create.ts:197
+#: dashboard/verify/verify.html:113
+#: dashboard/verify/verify.html:135
+#: project/create/create.ts:253
+#: project/edit/edit.html:117
 msgid "Edit"
 msgstr "Modificar"
 
@@ -3212,11 +3186,10 @@ msgid "Edit campaign"
 msgstr ""
 
 #: dashboard/geolocalization/modals/address/address.html:5
-#, fuzzy
 msgid "Edit geolocalization"
-msgstr "Modifica geolocalización"
+msgstr "Modifica Geolocalización"
 
-#: project/edit/edit.ts:483
+#: project/edit/edit.ts:510
 msgid "Edit project"
 msgstr ""
 
@@ -3245,14 +3218,13 @@ msgstr "Modifica la información de seguridad"
 msgid "Education"
 msgstr "Educación"
 
-#: auth/recovery/recovery.ts:82
-#: auth/recovery/recovery.ts:83
-#: auth/signup/signup.ts:158
-#: auth/signup/signup.ts:159
-#: dashboard/admin/admin.html:46
+#: auth/recovery/recovery.ts:87
+#: auth/recovery/recovery.ts:88
+#: auth/signup/signup.ts:163
+#: auth/signup/signup.ts:164
 #: dashboard/edit/edit.ts:177
-#: dashboard/socialedit/socialedit.ts:62
 #: dashboard/socialedit/socialedit.ts:63
+#: dashboard/socialedit/socialedit.ts:64
 #: dashboard/verify/providers/npo/admins/admins.html:65
 #: dashboard/verify/providers/npo/admins/admins.ts:392
 #: formly-init2.ts:218
@@ -3265,27 +3237,27 @@ msgstr "Educación"
 msgid "Email"
 msgstr "Email"
 
-#: response-messages/response-messages.ts:181
+#: response-messages/response-messages.ts:186
 msgid "Email already registered"
 msgstr "Email ya registrado"
 
-#: response-messages/response-messages.ts:211
+#: response-messages/response-messages.ts:216
 msgid "Empty description"
 msgstr "Descripción vacía"
 
-#: response-messages/response-messages.ts:90
+#: response-messages/response-messages.ts:94
 msgid "Empty description not allowed"
 msgstr "Descripción vacía no permitida"
 
-#: response-messages/response-messages.ts:212
+#: response-messages/response-messages.ts:217
 msgid "Empty email"
 msgstr "Email vacía"
 
-#: response-messages/response-messages.ts:208
+#: response-messages/response-messages.ts:213
 msgid "Empty proof list"
 msgstr "Lista pruebas vacía"
 
-#: response-messages/response-messages.ts:87
+#: response-messages/response-messages.ts:91
 msgid "Empty title not allowed"
 msgstr "Título vacío no permitido"
 
@@ -3293,13 +3265,13 @@ msgstr "Título vacío no permitido"
 msgid "End"
 msgstr ""
 
-#: campaign/create/create.ts:103
+#: campaign/create/create.ts:105
 #: campaign/edit/edit.ts:197
 msgid "End Date"
 msgstr "Fecha final"
 
-#: charity/proposednpo/proposednpo.html:161
-#: charity/proposednpo/proposednpo.html:98
+#: charity/proposednpo/proposednpo.html:158
+#: charity/proposednpo/proposednpo.html:97
 msgid "Endorse"
 msgstr ""
 
@@ -3313,13 +3285,13 @@ msgstr "Promueva una organicación"
 msgid "Endorsments"
 msgstr "informes"
 
-#: auth/signup/signup.ts:265
+#: auth/signup/signup.ts:270
 #: dashboard/edit/edit.ts:305
 #: dashboard/edit/edit.ts:453
 msgid "English"
 msgstr "Inglés "
 
-#: project/edit/edit.html:102
+#: project/edit/edit.html:95
 msgid "English Title"
 msgstr "Título en inglés"
 
@@ -3340,7 +3312,7 @@ msgid "Error"
 msgstr "Error"
 
 #: dashboard/alert/alert.html:20
-#: event/table/table.ts:71
+#: event/table/table.ts:65
 msgid "Eruption"
 msgstr "Erupción "
 
@@ -3385,7 +3357,7 @@ msgstr ""
 
 #: dashboard/geolocalization/geolocalization.html:100
 #: profile/profile.html:203
-#: project/project/project.html:76
+#: project/project/project.html:99
 msgid "Event type"
 msgstr "Tipo evento"
 
@@ -3403,7 +3375,7 @@ msgstr "Estás saliendo de Helperbit.com"
 msgid "Expiration Date"
 msgstr "Fecha de caducidad"
 
-#: response-messages/response-messages.ts:171
+#: response-messages/response-messages.ts:176
 msgid "Expired reset link"
 msgstr "Link de reset caducado "
 
@@ -3437,7 +3409,7 @@ msgstr "Víctimas"
 
 #: date-selector/date-selector.ts:91
 msgid "February"
-msgstr ""
+msgstr "Febrero"
 
 #: dashboard.wallet/signmultisig/signmultisig.html:67
 msgid "Fee"
@@ -3472,13 +3444,13 @@ msgid "Filters"
 msgstr "Filtros"
 
 #: campaign/edit/edit.html:97
-#: proposednpo-insert/proposednpo-insert.ts:140
+#: proposednpo-insert/proposednpo-insert.ts:135
 #: shared/helpers/ng-wizard-step.ts:75
 msgid "Finish"
 msgstr "Fin"
 
-#: about/about/sections/contact.ts:37
 #: about/about/sections/contact.ts:38
+#: about/about/sections/contact.ts:39
 #: dashboard/edit/edit.ts:193
 #: dashboard/edit/edit.ts:577
 #: dashboard/privacy/privacy.ts:42
@@ -3489,9 +3461,8 @@ msgid "First Name"
 msgstr "Nombre"
 
 #: dashboard/alert/alert.html:19
-#: event/table/table.ts:56
+#: event/table/table.ts:50
 #: magnitude.ts:12
-#: magnitude.ts:17
 msgid "Flood"
 msgstr "Inundación"
 
@@ -3582,7 +3553,7 @@ msgstr "Fundraiser Badge Bloqueado"
 
 #: campaign/campaign/campaign.ts:146
 #: campaign/create/create.html:22
-#: campaign/create/create.ts:48
+#: campaign/create/create.ts:49
 #: shared/templates/translate-force.html:48
 #: sidebar/sidebar.html:41
 msgid "Fundraising Campaign"
@@ -3631,7 +3602,7 @@ msgstr "Informaciones genéricas"
 msgid "Generate a random passphrase"
 msgstr "Genera una passphrase casual"
 
-#: response-messages/response-messages.ts:77
+#: response-messages/response-messages.ts:81
 msgid "Generic error"
 msgstr "Error genérico"
 
@@ -3650,7 +3621,7 @@ msgid "Geolocalization"
 msgstr "Geolocalización"
 
 #: dashboard/verify/providers/gps/gps.html:24
-#: response-messages/response-messages.ts:220
+#: response-messages/response-messages.ts:225
 msgid "Geolocalization not supported by your browser"
 msgstr "Geolocalización no soportada por tu browser"
 
@@ -3688,9 +3659,8 @@ msgid "Get full control of your donation"
 msgstr "Obtenga control total de su donación"
 
 #: shared/templates/translate-force.html:98
-#, fuzzy
 msgid "Gift Donation"
-msgstr "Donación regalo"
+msgstr "Donación Regalo"
 
 #: dashboard.wallet/feedmultisig/feedmultisig.html:119
 #: dashboard.wallet/feedmultisig/feedmultisig.html:87
@@ -3703,8 +3673,8 @@ msgstr "Donación regalo"
 msgid "Go back"
 msgstr "Vuelva atrás"
 
-#: campaign/create/create.ts:185
-#: project/create/create.ts:201
+#: campaign/create/create.ts:187
+#: project/create/create.ts:203
 msgid "Go to"
 msgstr "Vete a"
 
@@ -3729,13 +3699,13 @@ msgid "Got it"
 msgstr "Entendido"
 
 #: profile/profile.html:619
-#: project/project/project.html:159
+#: project/project/project.html:179
 msgid "Graph"
 msgstr ""
 
 #: charity/proposednpo/proposednpo.ts:157
 #: charity/table/table.ts:119
-#: event/table/table.ts:175
+#: event/table/table.ts:169
 #: project/table/table.ts:138
 #: stats/top-ambassadors/top-ambassadors.ts:79
 #: stats/top-donors/top-donors.ts:108
@@ -3757,16 +3727,6 @@ msgstr "Media hora"
 #: dashboard.wallet/wallets/wallets.ts:61
 msgid "Handle your Bitcoin accounts"
 msgstr "Gestione sus carteras Bitcoin"
-
-#: dashboard/admin/admin.html:28
-#, fuzzy
-msgid ""
-"Handle your administrators. To insert a new admin, you should provide the email address of a registered and\n"
-"\t\t\t\tverified account in Helperbit."
-msgstr ""
-"Gestione a los administradores. Para introducir un nuevo administrador, debe "
-"facilitar la dirección email de una cuenta registrada y verificada en "
-"Helperbit."
 
 #: dashboard/ambassador/ambassador.ts:57
 msgid "Handle your invites"
@@ -3838,7 +3798,6 @@ msgstr "Helperbit: el modo más innovador para recoger fondos."
 
 #: shared/templates/translate-force.html:161
 #: shared/templates/translate-force.html:162
-#, fuzzy
 msgid "Helperbit\\'s Manifesto"
 msgstr "El Manifiesto de Helperbit"
 
@@ -3846,7 +3805,7 @@ msgstr "El Manifiesto de Helperbit"
 msgid "Here"
 msgstr "Aquí"
 
-#: project/edit/edit.ts:351
+#: project/edit/edit.ts:364
 msgid "Here you can insert additional information of your project"
 msgstr "Aquí puedes introducir más información relativa a tu proyecto"
 
@@ -3859,7 +3818,7 @@ msgstr "Patrimonio"
 msgid "Hide passphrase"
 msgstr "Esconder frase de acceso"
 
-#: auth/signup/signup.ts:319
+#: auth/signup/signup.ts:324
 msgid "High Secure Bitcoin Wallet"
 msgstr "Cartera Bitcoin Segura"
 
@@ -3913,7 +3872,7 @@ msgid "Human Rights"
 msgstr "Derechos Humanos"
 
 #: dashboard/alert/alert.html:21
-#: event/table/table.ts:81
+#: event/table/table.ts:75
 msgid "Hurricane"
 msgstr "Huracán"
 
@@ -3953,13 +3912,13 @@ msgid "I recommend"
 msgstr "Yo recomiendo"
 
 #: campaign/campaign/campaign.ts:65
-#: campaign/create/create.ts:74
+#: campaign/create/create.ts:75
 #: campaign/edit/edit.ts:100
 #: campaign/edit/edit.ts:454
 msgid "I started a crowdfunding campaign"
 msgstr "He empezado una campaña crowdfunding"
 
-#: project/project/project.ts:92
+#: project/project/project.ts:97
 msgid "I supported the project"
 msgstr "He apoyado el proyecto"
 
@@ -4048,25 +4007,25 @@ msgstr ""
 msgid "In progress"
 msgstr "Procesando"
 
-#: response-messages/response-messages.ts:127
+#: response-messages/response-messages.ts:131
 msgid "Incomplete social profile"
 msgstr ""
 
-#: auth/signup/signup.ts:331
+#: auth/signup/signup.ts:336
 msgid "Increase your donor base"
 msgstr "Aumente su base de donantes"
 
 #: campaign/edit/edit.ts:129
 #: home/home/home.ts:46
-#: project/project/project.html:41
+#: project/project/project.html:42
 msgid "Info"
 msgstr "Información"
 
 #: dashboard/verify/providers/document/document.ts:153
 #: profile/profile.html:276
 #: profile/profile.html:657
-#: project/edit/activity/activity.ts:96
-#: project/edit/edit.ts:150
+#: project/edit/activity/activity.ts:98
+#: project/edit/edit.ts:163
 msgid "Information"
 msgstr "Informaciones"
 
@@ -4083,16 +4042,19 @@ msgstr "Habitantes"
 msgid "Insert Admins"
 msgstr "Introduce a los Administradores"
 
+#: dashboard/verify/verify.html:114
+msgid "Insert Code"
+msgstr ""
+
 #: dashboard/geolocalization/modals/address/address.ts:235
 #: dashboard/geolocalization/modals/address/address.ts:236
-#: project/edit/edit.ts:257
-#: project/edit/edit.ts:258
+#: project/edit/edit.ts:270
+#: project/edit/edit.ts:271
 msgid "Insert Country"
 msgstr "Introduce País"
 
 #: dashboard/verify/providers/otc/otc.ts:88
-#: dashboard/verify/verify.html:116
-#: dashboard/verify/verify.html:138
+#: dashboard/verify/verify.html:136
 msgid "Insert OTC"
 msgstr "Introduce OTC"
 
@@ -4139,11 +4101,11 @@ msgstr "Introduce un número de teléfono válido"
 msgid "Insert at least 3 organization admins. These admins will be required to manage received donations. The admins must sign up with the emails provided in the verification process."
 msgstr ""
 
-#: project/edit/activity/activity.ts:97
+#: project/edit/activity/activity.ts:99
 msgid "Insert default information for this activity"
 msgstr "Introduce la información para esta actividad"
 
-#: project/edit/edit.ts:151
+#: project/edit/edit.ts:164
 msgid "Insert default information for this project"
 msgstr "Introduce la información para este proyecto"
 
@@ -4151,7 +4113,7 @@ msgstr "Introduce la información para este proyecto"
 msgid "Insert here the code received through snail mail"
 msgstr "Introduzca aquí el código recibido mediante correo postal"
 
-#: project/edit/edit.ts:275
+#: project/edit/edit.ts:288
 msgid "Insert one or more activities for this project. One activity with english title is required. Activities are list of goals, products, services that make up your project. Please try to be as accurate as possible. We suggest to upload a document (quote / agreement or other) for each activity. More detailed projects have a greater chance to be approved and receive more donations."
 msgstr ""
 "Introduce una o más actividades para este proyecto. Se pide, por lo menos, "
@@ -4162,15 +4124,15 @@ msgstr ""
 "proyectos más detallados cuentan con una mayor posibilidad de aprobarse y de "
 "recibir donaciones."
 
-#: project/edit/activity/activity.ts:133
+#: project/edit/activity/activity.ts:163
 msgid "Insert some media for this activity"
 msgstr "Introduce algunas imágenes para esta actividad"
 
-#: project/edit/edit.ts:274
+#: project/edit/edit.ts:287
 msgid "Insert the activities related with your project"
 msgstr "Introduce las actividades relativas a tu proyecto"
 
-#: project/edit/edit.ts:241
+#: project/edit/edit.ts:254
 msgid "Insert the countries related with your project"
 msgstr "Introduce los paises relativos a tu proyecto"
 
@@ -4208,7 +4170,7 @@ msgstr ""
 msgid "Insert the media of your fundraising campaign"
 msgstr "Introduce el material multimedia de tu Campaña Fundraising"
 
-#: project/edit/edit.ts:303
+#: project/edit/edit.ts:316
 msgid "Insert the media of your project"
 msgstr "Introduce el material multimedia de tu proyecto"
 
@@ -4240,7 +4202,7 @@ msgstr "Introduce tu Prueba de Residencia"
 msgid "Insert your Statute Document"
 msgstr "Introduce tu Estatuto"
 
-#: project/edit/activity/activity.ts:149
+#: project/edit/activity/activity.ts:179
 msgid "Insert your activity media"
 msgstr "Introduce el material multimedia de las actividades"
 
@@ -4261,7 +4223,7 @@ msgstr "Introduce la información sobre la dirección de tu empresa"
 msgid "Insert your coverflow photo (max height 150 px)"
 msgstr ""
 
-#: auth/recovery/recovery.ts:109
+#: auth/recovery/recovery.ts:114
 msgid "Insert your new password."
 msgstr "Introduce tu nueva contraseña"
 
@@ -4269,7 +4231,7 @@ msgstr "Introduce tu nueva contraseña"
 msgid "Insert your passphrase (or click"
 msgstr "Introduzca su passphrase (o pulse)"
 
-#: project/edit/edit.ts:324
+#: project/edit/edit.ts:337
 msgid "Insert your project media"
 msgstr "Introduce el material multimedia de tu proyecto"
 
@@ -4284,11 +4246,11 @@ msgstr ""
 "papel de la tecnología blockchain en la plataforma de trazabilidad de las "
 "donaciones y las ambiciones de la startup."
 
-#: response-messages/response-messages.ts:134
+#: response-messages/response-messages.ts:138
 msgid "Invalid activation url"
 msgstr "Link de activación no válido"
 
-#: response-messages/response-messages.ts:187
+#: response-messages/response-messages.ts:192
 msgid "Invalid address"
 msgstr "Dirección no válida"
 
@@ -4297,15 +4259,15 @@ msgstr "Dirección no válida"
 msgid "Invalid amount"
 msgstr "Cantidad no válida"
 
-#: response-messages/response-messages.ts:224
+#: response-messages/response-messages.ts:229
 msgid "Invalid amount value"
 msgstr "Valor no válido"
 
-#: response-messages/response-messages.ts:129
+#: response-messages/response-messages.ts:133
 msgid "Invalid captcha"
 msgstr "Captcha no válido"
 
-#: response-messages/response-messages.ts:192
+#: response-messages/response-messages.ts:197
 msgid "Invalid code"
 msgstr "Código no válido"
 
@@ -4313,40 +4275,31 @@ msgstr "Código no válido"
 msgid "Invalid country code"
 msgstr ""
 
-#: dashboard/admin/admin.html:25
-msgid "Invalid email."
-msgstr "Email no válido"
-
-#: response-messages/response-messages.ts:153
+#: response-messages/response-messages.ts:157
 msgid "Invalid email/password combination"
 msgstr "Combinación email/contraseña no válida"
 
-#: response-messages/response-messages.ts:160
+#: response-messages/response-messages.ts:164
 msgid "Invalid file"
 msgstr "Archivo no válido"
 
-#: response-messages/response-messages.ts:83
+#: response-messages/response-messages.ts:87
 msgid "Invalid parameters"
 msgstr "Parámetros no válidos"
 
-#: response-messages/response-messages.ts:216
+#: response-messages/response-messages.ts:221
 msgid "Invalid passphrase"
 msgstr "Frase de acceso no válida"
 
-#: response-messages/response-messages.ts:170
+#: response-messages/response-messages.ts:175
 msgid "Invalid reset link"
 msgstr "Link de reset no válido"
 
-#: response-messages/response-messages.ts:79
+#: response-messages/response-messages.ts:83
 msgid "Invalid user"
 msgstr "Usuario no válido"
 
-#: dashboard/admin/admin.html:21
-#: dashboard/admin/admin.html:22
-msgid "Invalid user."
-msgstr "Usuario no válido"
-
-#: auth/signup/signup.ts:225
+#: auth/signup/signup.ts:230
 msgid "Invitation Code (optional)"
 msgstr "Código de invitación (opcional)"
 
@@ -4354,7 +4307,7 @@ msgstr "Código de invitación (opcional)"
 msgid "Invitation link"
 msgstr "Link de invitación"
 
-#: auth/signup/signup.ts:320
+#: auth/signup/signup.ts:325
 msgid "Invite friends and win amazing prizes!"
 msgstr "¡Invita a tus amigos y gana increibles Premios!"
 
@@ -4381,6 +4334,11 @@ msgstr "Donaciones con factura"
 #: sidebar/sidebar.html:49
 msgid "Invoiceable donations"
 msgstr "Donaciones con factura"
+
+#: project/edit/activity/activity.ts:138
+#: project/edit/edit.ts:390
+msgid "Invoices"
+msgstr ""
 
 #: dashboard/rors/modals/details/details.html:54
 msgid "Invoicing company VAT"
@@ -4417,7 +4375,7 @@ msgstr ""
 "enviará a esa dirección una carta con un código, cuando recibas tu código "
 "podrás rescatarlo online."
 
-#: auth/signup/signup.ts:261
+#: auth/signup/signup.ts:266
 #: dashboard/edit/edit.ts:301
 #: dashboard/edit/edit.ts:449
 msgid "Italian"
@@ -4454,7 +4412,7 @@ msgid "John Smith"
 msgstr "Mario García"
 
 #: dashboard/ambassador/ambassador.ts:81
-#: staticpages/ambassador.ts:47
+#: staticpages/ambassador.ts:54
 msgid "Join with me on helperbit.com! Use this link to register"
 msgstr "¡Únete a mí en Helperbit.com! Usa este link para registrarte"
 
@@ -4478,7 +4436,7 @@ msgstr ""
 msgid "Label"
 msgstr "Etiqueta"
 
-#: auth/signup/signup.ts:257
+#: auth/signup/signup.ts:262
 #: dashboard/edit/edit.ts:295
 #: dashboard/edit/edit.ts:443
 msgid "Language"
@@ -4488,7 +4446,7 @@ msgstr "Idioma"
 msgid "Last 3 Months"
 msgstr "Últimos 3 meses"
 
-#: home/home/home.html:158
+#: home/home/home.html:180
 msgid "Last Badges"
 msgstr "Últimos badge"
 
@@ -4496,8 +4454,8 @@ msgstr "Últimos badge"
 msgid "Last Month"
 msgstr "Último mes"
 
-#: about/about/sections/contact.ts:53
 #: about/about/sections/contact.ts:54
+#: about/about/sections/contact.ts:55
 #: dashboard/edit/edit.ts:209
 #: dashboard/edit/edit.ts:593
 #: dashboard/privacy/privacy.ts:43
@@ -4507,11 +4465,11 @@ msgstr "Último mes"
 msgid "Last Name"
 msgstr "Apellidos"
 
-#: home/policy/privacy.ts:24
+#: home/policy/privacy.ts:25
 msgid "Last Revised: May 24, 2018"
 msgstr "Última Revisión: 24 de Mayo de 2018"
 
-#: home/policy/terms.ts:24
+#: home/policy/terms.ts:25
 msgid "Last Revised: November 15, 2017"
 msgstr "Última modificación: 15 noviembre 2017"
 
@@ -4523,7 +4481,7 @@ msgstr "Última semana"
 msgid "Last Year"
 msgstr "Último año"
 
-#: home/home/home.html:16
+#: home/home/home.html:37
 msgid "Latest projects"
 msgstr "Últimos proyectos"
 
@@ -4545,7 +4503,7 @@ msgstr "Ledger Nano"
 msgid "Legacy"
 msgstr "Legacy"
 
-#: auth/signup/signup.ts:347
+#: auth/signup/signup.ts:352
 msgid "Leverage your CSR strategy"
 msgstr "Potencie su estrategia CSR"
 
@@ -4572,22 +4530,27 @@ msgstr ""
 "Lista de organizaciones no Profit que los usuarios querrían ver en "
 "Helperbit. Puedes votar a tu organización preferida."
 
-#: auth/signup/signup.ts:338
+#: auth/signup/signup.ts:343
 msgid "Live support 24/7"
 msgstr "Soporte live 24/7"
 
-#: charity/proposednpo/proposednpo.html:104
+#: charity/proposednpo/proposednpo.html:103
 msgid ""
 "Load\n"
 "\t\t\t\t\t\tMore"
 msgstr ""
 
-#: charity/table/table.html:60
-#: event/table/table.html:63
-#: project/table/table.html:51
-#: stats/top-ambassadors/top-ambassadors.html:67
-#: stats/top-donors/top-donors.html:43
+#: charity/table/table.html:59
+#: event/table/table.html:50
+#: project/table/table.html:49
+#: stats/top-ambassadors/top-ambassadors.html:66
+#: stats/top-donors/top-donors.html:57
 msgid "Load More"
+msgstr "Leer más"
+
+#: project/project/timeline/timeline.html:30
+#, fuzzy
+msgid "Load more"
 msgstr "Leer más"
 
 #: dashboard.wallet/sign/sign.html:23
@@ -4598,11 +4561,11 @@ msgstr ""
 msgid "Loading"
 msgstr ""
 
-#: response-messages/response-messages.ts:191
+#: response-messages/response-messages.ts:196
 msgid "Locked fields are't editable"
 msgstr "Los campos bloqueados no se pueden modificar"
 
-#: auth/login/login.ts:59
+#: auth/login/login.ts:64
 msgid "Log into your account"
 msgstr "Acceda a su cuenta"
 
@@ -4610,7 +4573,6 @@ msgstr "Acceda a su cuenta"
 #: donation/graph/graph.ts:160
 #: event/eventdonate/eventdonate.html:21
 #: insurance/simulation/simulation.html:11
-#: parts/header/header.html:88
 #: shared/templates/translate-force.html:103
 msgid "Login"
 msgstr "Login"
@@ -4653,9 +4615,9 @@ msgstr "Lorem ipsum dolor sit amet"
 msgid "Low risk"
 msgstr "Bajo riesgo"
 
-#: event/table/table.ts:109
-#: event/table/table.ts:44
-#: project/project/project.html:80
+#: event/table/table.ts:103
+#: event/table/table.ts:38
+#: project/project/project.html:103
 msgid "Magnitude"
 msgstr "Magnitud"
 
@@ -4669,7 +4631,7 @@ msgstr "Magnitud del evento simulado"
 msgid "Main Event List"
 msgstr "Lista de eventos principales"
 
-#: home/home/home.html:59
+#: home/home/home.html:81
 msgid "Main events"
 msgstr "Eventos principales"
 
@@ -4682,13 +4644,17 @@ msgstr "Efectuar una Donación en Helperbit"
 msgid "Make a donation without fee!"
 msgstr ""
 
-#: auth/signup/signup.ts:332
+#: auth/signup/signup.ts:337
 msgid "Make stronger the relationship with your supporters"
 msgstr "Refuerce la relación con sus apoyos"
 
 #: dashboard/edit/edit.ts:241
 msgid "Male"
 msgstr "Hombre"
+
+#: dashboard/admin/admin.ts:30
+msgid "Manage non-profit administrators"
+msgstr ""
 
 #: dashboard/verify/verify.ts:126
 msgid "Mandate period"
@@ -4730,11 +4696,11 @@ msgstr ""
 msgid "Mark all as read"
 msgstr "Establecer como leído "
 
-#: auth/signup/signup.ts:346
+#: auth/signup/signup.ts:351
 msgid "Match your brand with a cause"
 msgstr "Conecte a su brand con una causa"
 
-#: response-messages/response-messages.ts:199
+#: response-messages/response-messages.ts:204
 msgid "Max 10 addresses allowed"
 msgstr "Máximo 10 direcciones consentidas"
 
@@ -4759,10 +4725,12 @@ msgid "Mayor full name"
 msgstr "Nombre completo del alcalde"
 
 #: campaign/edit/edit.ts:240
-#: project/edit/activity/activity.ts:132
-#: project/edit/activity/activity.ts:142
-#: project/edit/edit.ts:302
-#: project/project/project.html:129
+#: project/edit/activity/activity.ts:146
+#: project/edit/activity/activity.ts:162
+#: project/edit/activity/activity.ts:172
+#: project/edit/edit.ts:315
+#: project/edit/edit.ts:394
+#: project/project/project.html:147
 msgid "Media"
 msgstr "Media"
 
@@ -4780,8 +4748,8 @@ msgstr "Acta"
 msgid "Memorandum of the last assembly that voted for the governing bodies."
 msgstr "Memoria de la última asamblea que ha elegido a los órganos directivos"
 
-#: about/about/sections/contact.ts:92
 #: about/about/sections/contact.ts:93
+#: about/about/sections/contact.ts:94
 #: donation/gift/gift.html:15
 msgid "Message"
 msgstr "Mensaje"
@@ -4809,7 +4777,7 @@ msgstr "Teléfono Móvil"
 msgid "Moderate Flood"
 msgstr "Inundación Moderada"
 
-#: auth/signup/signup.ts:317
+#: auth/signup/signup.ts:322
 msgid "Monitor in real time the path of your donations"
 msgstr "Controla en tiempo real el recorrido de sus donaciones"
 
@@ -4826,15 +4794,15 @@ msgstr "Creación de una cartera multi-firma"
 msgid "Multisig transaction to sign"
 msgstr "Transacción multifirma para firmar"
 
-#: response-messages/response-messages.ts:202
+#: response-messages/response-messages.ts:207
 msgid "Multisig wallets can have maximum 10 admins"
 msgstr "Carteras multifirmas pueden tener máximo 10 administradores"
 
-#: response-messages/response-messages.ts:201
+#: response-messages/response-messages.ts:206
 msgid "Multisig wallets need at least 3 admins"
 msgstr "Carteras multifirma piden, por lo menos, 3 administradores"
 
-#: response-messages/response-messages.ts:200
+#: response-messages/response-messages.ts:205
 msgid "Multisig wallets need at least n+1 admins"
 msgstr "Las carteras multifirma piden, por lo menos, n+1 administradores"
 
@@ -4899,7 +4867,7 @@ msgstr "Administradores No Profit"
 msgid "NPO Memorandum"
 msgstr "Memoria ONP"
 
-#: response-messages/response-messages.ts:130
+#: response-messages/response-messages.ts:134
 msgid "NPO Profile not complete"
 msgstr ""
 
@@ -4940,12 +4908,12 @@ msgstr ""
 msgid "Network fees"
 msgstr ""
 
-#: dashboard/verify/verify.html:119
-#: dashboard/verify/verify.html:141
+#: dashboard/verify/verify.html:117
+#: dashboard/verify/verify.html:139
 msgid "New"
 msgstr ""
 
-#: auth/recovery/recovery.ts:108
+#: auth/recovery/recovery.ts:113
 #: dashboard/security/security.ts:51
 #: dashboard/security/security.ts:52
 msgid "New Password"
@@ -4956,7 +4924,7 @@ msgstr "Nueva Contraseña"
 msgid "New Password Confirm"
 msgstr "Confirma Nueva Contraseña"
 
-#: project/edit/edit.html:86
+#: project/edit/edit.html:127
 msgid "New activity"
 msgstr "Nueva actividad"
 
@@ -4970,12 +4938,28 @@ msgstr "Nueva campaña"
 msgid "New fundraising campaign"
 msgstr "Nueva Campaña Fundraising"
 
-#: project/create/create.html:62
-#: project/create/create.html:65
-#: project/create/create.html:68
-#: project/edit/edit.ts:98
+#: project/project/timeline/timeline.ts:58
+msgid "New invoices have been published"
+msgstr ""
+
+#: project/project/timeline/timeline.ts:62
+msgid "New media have been published"
+msgstr ""
+
+#: project/create/create.html:106
+#: project/create/create.html:109
+#: project/create/create.html:112
+#: project/edit/edit.ts:111
 msgid "New project"
 msgstr "Nuevo proyecto"
+
+#: project/project/timeline/timeline.ts:66
+msgid "New quotes have been published"
+msgstr ""
+
+#: project/project/timeline/timeline.ts:70
+msgid "New updates have been published"
+msgstr ""
 
 #: dashboard.wallet/feedmultisig/feedmultisig.html:122
 #: dashboard.wallet/feedmultisig/feedmultisig.html:150
@@ -4992,16 +4976,16 @@ msgstr "Nuevo proyecto"
 msgid "Next"
 msgstr "Próximo"
 
-#: project/edit/edit.html:93
+#: project/edit/edit.html:87
 msgid "No activities found"
 msgstr "Ninguna actividad presente"
 
-#: response-messages/response-messages.ts:221
+#: response-messages/response-messages.ts:226
 msgid "No backup file selected"
 msgstr "Ningún archivo de backup seleccionado"
 
-#: auth/signup/signup.ts:330
-#: auth/signup/signup.ts:345
+#: auth/signup/signup.ts:335
+#: auth/signup/signup.ts:350
 msgid "No contracts"
 msgstr "Ningún contrato"
 
@@ -5009,7 +4993,7 @@ msgstr "Ningún contrato"
 msgid "No donations yet"
 msgstr ""
 
-#: event/table/table.html:137
+#: event/table/table.html:121
 msgid "No events found"
 msgstr ""
 
@@ -5017,11 +5001,11 @@ msgstr ""
 msgid "No fee!"
 msgstr ""
 
-#: response-messages/response-messages.ts:222
+#: response-messages/response-messages.ts:227
 msgid "No image selected"
 msgstr "Ninguna imagen seleccionada"
 
-#: auth/signup/signup.ts:329
+#: auth/signup/signup.ts:334
 msgid "No intermediaries"
 msgstr "Ningún intermediario"
 
@@ -5029,15 +5013,15 @@ msgstr "Ningún intermediario"
 msgid "No lightning donations yet"
 msgstr ""
 
-#: auth/signup/signup.ts:344
+#: auth/signup/signup.ts:349
 msgid "No membership fee"
 msgstr "Ninguna cuota de inscripción"
 
-#: charity/table/table.html:116
+#: charity/table/table.html:112
 msgid "No organizations found"
 msgstr ""
 
-#: project/create/create.html:74
+#: project/create/create.html:59
 msgid "No project found"
 msgstr "Ningún proyecto encontrado"
 
@@ -5045,11 +5029,11 @@ msgstr "Ningún proyecto encontrado"
 msgid "No project selected"
 msgstr ""
 
-#: project/table/table.html:99
+#: project/table/table.html:96
 msgid "No projects found"
 msgstr "Ningún proyecto encontrado"
 
-#: charity/proposednpo/proposednpo.html:168
+#: charity/proposednpo/proposednpo.html:165
 msgid "No proposed NPO found"
 msgstr ""
 
@@ -5067,7 +5051,7 @@ msgid "No users"
 msgstr "Ningún usuario"
 
 #: stats/top-ambassadors/top-ambassadors.html:99
-#: stats/top-donors/top-donors.html:74
+#: stats/top-donors/top-donors.html:98
 msgid "No users found"
 msgstr "Ningún usuario encontrado"
 
@@ -5076,7 +5060,7 @@ msgid "No users selected"
 msgstr "Ningún usuario seleccionado"
 
 #: event/eventdonate/eventdonate.ts:104
-#: project/create/create.ts:65
+#: project/create/create.ts:66
 msgid "No wallet"
 msgstr "Ninguna cartera "
 
@@ -5121,7 +5105,7 @@ msgstr "No Verificado"
 msgid "Not Verified Friends"
 msgstr "Amigos no Verificados"
 
-#: response-messages/response-messages.ts:223
+#: response-messages/response-messages.ts:228
 msgid "Not a backup file"
 msgstr "No un archivo de backup"
 
@@ -5140,7 +5124,7 @@ msgstr ""
 msgid "Not declared"
 msgstr "No declarado"
 
-#: response-messages/response-messages.ts:197
+#: response-messages/response-messages.ts:202
 msgid "Not enough funds"
 msgstr "No tiene bastantes fondos"
 
@@ -5157,8 +5141,16 @@ msgstr "No registrado"
 msgid "Not registered yet?"
 msgstr "¿No estás aún registrado?"
 
-#: response-messages/response-messages.ts:126
+#: response-messages/response-messages.ts:130
 msgid "Not yet implemented"
+msgstr ""
+
+#: dashboard/admin/admin.html:19
+msgid "Not yet signed up"
+msgstr ""
+
+#: dashboard/admin/admin.html:18
+msgid "Not yet verified"
 msgstr ""
 
 #: dashboard/invoiceable/invoiceable.html:16
@@ -5229,7 +5221,7 @@ msgstr "Oficina"
 msgid "Offline Node"
 msgstr ""
 
-#: dashboard/verify/providers/otc/otc.html:72
+#: dashboard/verify/providers/otc/otc.html:74
 msgid "Ok"
 msgstr ""
 
@@ -5242,12 +5234,12 @@ msgstr "Vieja contraseña"
 msgid "Only"
 msgstr "Solo"
 
-#: about/jobs/jobs.ts:24
+#: about/jobs/jobs.ts:25
 #: shared/templates/translate-force.html:197
 msgid "Open job positions"
 msgstr "posiciones de trabajo abiertas"
 
-#: about/jobs/jobs.ts:25
+#: about/jobs/jobs.ts:26
 msgid "Open job positions: job opportunity to work in Helperbit as a backend developer, frontend developer, designer or sales manager."
 msgstr ""
 "Posiciones de trabajo abiertas: oportunidades de trabajo en Helperbit como "
@@ -5267,7 +5259,7 @@ msgstr ""
 
 #: profile/modals/operating-countries/operating-countries.html:5
 #: profile/profile.html:384
-#: profile/profile.ts:71
+#: profile/profile.ts:70
 msgid "Operating Countries"
 msgstr "Paises donde opera"
 
@@ -5290,7 +5282,6 @@ msgstr "O"
 msgid "Org."
 msgstr "Org."
 
-#: auth/signup/signup.html:26
 #: dashboard.wallet/signmultisig/signmultisig.html:11
 #: project/table/table.ts:29
 #: project/table/table.ts:54
@@ -5308,7 +5299,7 @@ msgstr "Lista organizaciones"
 
 #: charity/table/table.ts:29
 #: charity/table/table.ts:35
-#: proposednpo-insert/proposednpo-insert.ts:97
+#: proposednpo-insert/proposednpo-insert.ts:98
 #, fuzzy
 msgid "Organization Name"
 msgstr "Nombre organización"
@@ -5318,11 +5309,11 @@ msgstr "Nombre organización"
 msgid "Organization Type"
 msgstr "Tipo organizaciones"
 
-#: auth/signup/signup.ts:376
+#: auth/signup/signup.ts:381
 msgid "Organization advantages"
 msgstr "Ventajas para la organización"
 
-#: response-messages/response-messages.ts:163
+#: response-messages/response-messages.ts:167
 msgid "Organization already submitted"
 msgstr "Organización ya enviada"
 
@@ -5356,7 +5347,7 @@ msgid "Origin country"
 msgstr "País de origen"
 
 #: dashboard/alert/alert.html:27
-#: project/edit/edit.ts:349
+#: project/edit/edit.ts:362
 msgid "Other"
 msgstr "Otros"
 
@@ -5366,9 +5357,13 @@ msgstr "Otros"
 msgid "Other Information"
 msgstr "Otra Información"
 
-#: project/edit/edit.ts:350
+#: project/edit/edit.ts:363
 msgid "Other information"
 msgstr "Otra información"
+
+#: project/project/project.html:136
+msgid "Other relevant projects created by this charity"
+msgstr ""
 
 #: dashboard.wallet/wallets/wallets.html:155
 msgid "Other wallets"
@@ -5382,7 +5377,7 @@ msgstr "En caso contrario, carga una traducción certificada en inglés"
 msgid "Our lightning server is unavailable at the moment, please try again later"
 msgstr ""
 
-#: auth/signup/signup.ts:318
+#: auth/signup/signup.ts:323
 msgid "Over 24+ Altcoins accepted here"
 msgstr ""
 
@@ -5410,35 +5405,35 @@ msgstr "Frase de acceso"
 msgid "Passport"
 msgstr "Pasaporte"
 
-#: auth/recovery/recovery.ts:107
-#: auth/recovery/recovery.ts:117
-#: auth/recovery/recovery.ts:118
-#: auth/signup/signup.ts:171
-#: auth/signup/signup.ts:172
-#: dashboard/socialedit/socialedit.ts:75
+#: auth/recovery/recovery.ts:112
+#: auth/recovery/recovery.ts:122
+#: auth/recovery/recovery.ts:123
+#: auth/signup/signup.ts:176
+#: auth/signup/signup.ts:177
 #: dashboard/socialedit/socialedit.ts:76
+#: dashboard/socialedit/socialedit.ts:77
 #: formly-init2.ts:235
 #: formly-init2.ts:236
 #: formly-init2.ts:251
 msgid "Password"
 msgstr "Contraseña "
 
-#: auth/recovery/recovery.ts:140
-#: auth/recovery/recovery.ts:141
-#: auth/signup/signup.ts:202
-#: auth/signup/signup.ts:203
-#: dashboard/socialedit/socialedit.ts:88
+#: auth/recovery/recovery.ts:145
+#: auth/recovery/recovery.ts:146
+#: auth/signup/signup.ts:207
+#: auth/signup/signup.ts:208
 #: dashboard/socialedit/socialedit.ts:89
+#: dashboard/socialedit/socialedit.ts:90
 msgid "Password Confirm"
 msgstr "Confirma contraseña "
 
-#: auth/signup/signup.ts:192
+#: auth/signup/signup.ts:197
 #, fuzzy
 msgid "Password cannot contains email"
 msgstr "La contraseña no puede contener el nombre del usuario"
 
-#: auth/recovery/recovery.ts:130
-#: auth/signup/signup.ts:184
+#: auth/recovery/recovery.ts:135
+#: auth/signup/signup.ts:189
 msgid "Password cannot contains username"
 msgstr "La contraseña no puede contener el nombre del usuario"
 
@@ -5447,7 +5442,7 @@ msgstr "La contraseña no puede contener el nombre del usuario"
 msgid "Password recovery"
 msgstr ""
 
-#: response-messages/response-messages.ts:182
+#: response-messages/response-messages.ts:187
 msgid "Password should be at least 8 character long"
 msgstr "La contraseña debe contener al menos 8 caracteres"
 
@@ -5455,15 +5450,15 @@ msgstr "La contraseña debe contener al menos 8 caracteres"
 msgid "Password update with success"
 msgstr "Contraseña actualizada con éxito"
 
-#: response-messages/response-messages.ts:226
+#: response-messages/response-messages.ts:231
 msgid "Passwords mismatch"
 msgstr "Las contraseñas no coinciden"
 
-#: project/create/create.ts:241
+#: project/create/create.ts:243
 msgid "Pause"
 msgstr "En pausa"
 
-#: project/create/create.ts:191
+#: project/create/create.ts:193
 msgid "Paused"
 msgstr "En pausa"
 
@@ -5517,11 +5512,11 @@ msgstr ""
 "Recuerda que la donación mínima con Helperbit es de 0.001 Bitcoin, te "
 "rogamos que lo recuerdes cuando cargues tu cartera."
 
-#: response-messages/response-messages.ts:131
+#: response-messages/response-messages.ts:135
 msgid "Please use a correct email"
 msgstr "Introduce un email válido"
 
-#: event/table/table.ts:91
+#: event/table/table.ts:85
 #, fuzzy
 msgid "Populated Events"
 msgstr "Eventos populares"
@@ -5570,14 +5565,14 @@ msgstr "Pulse en el icono benefict para visualizar los detalles"
 #: dashboard/verify/providers/npo/admins/admins.html:128
 #: dashboard/verify/providers/npo/admins/admins.html:159
 #: project/edit/activity/activity.html:42
-#: project/edit/edit.html:126
-#: project/edit/edit.html:157
-#: project/edit/edit.html:189
+#: project/edit/edit.html:134
+#: project/edit/edit.html:165
+#: project/edit/edit.html:197
 #: project/edit/edit.html:56
 msgid "Previous"
 msgstr "Precedente"
 
-#: home/policy/privacy-history.ts:17
+#: home/policy/privacy-history.ts:18
 msgid "Previous versions of the privacy policy"
 msgstr "Versiones precedentes de la política de privacidad"
 
@@ -5682,12 +5677,12 @@ msgstr ""
 #: donation/charity-pot/charity-pot.html:77
 #: donation/donation/donation.html:117
 #: donation/gift/gift.html:126
-#: project/project/project.ts:178
+#: project/project/project.ts:183
 #: shared/templates/translate-force.html:43
 #: shared/templates/translate-force.html:44
 #: shared/templates/translate-force.html:45
 #: shared/templates/translate-force.html:46
-#: wizard-procedure/procedures/npo.ts:126
+#: wizard-procedure/procedures/npo.ts:129
 msgid "Project"
 msgstr "Proyecto"
 
@@ -5695,7 +5690,7 @@ msgstr "Proyecto"
 msgid "Project List"
 msgstr "Lista proyectos"
 
-#: project/edit/edit.ts:317
+#: project/edit/edit.ts:330
 msgid "Project Media"
 msgstr "Material del proyecto"
 
@@ -5704,7 +5699,7 @@ msgstr "Material del proyecto"
 msgid "Project Title"
 msgstr "Título Proyecto"
 
-#: project/edit/edit.html:212
+#: project/edit/edit.html:220
 msgid "Project created!"
 msgstr "¡Proyecto Creado!"
 
@@ -5725,7 +5720,7 @@ msgstr ""
 msgid "Project table"
 msgstr "Título Proyecto"
 
-#: project/edit/edit.html:213
+#: project/edit/edit.html:221
 msgid "Project updated!"
 msgstr "¡Proyecto Actualizado!"
 
@@ -5747,7 +5742,7 @@ msgstr "Prueba de residencia"
 msgid "Proof of Residency Document"
 msgstr "Documento Prueba de Residencia"
 
-#: proposednpo-insert/proposednpo-insert.ts:86
+#: proposednpo-insert/proposednpo-insert.ts:88
 msgid "Propose"
 msgstr ""
 
@@ -5763,12 +5758,12 @@ msgstr "Propón Organizaciones No-Profit"
 msgid "Propose Your Non-Profit and Encourage it to Accept Crypto Donations"
 msgstr "Propón tu No Profit y Anímala a Aceptar Criptomonedas"
 
-#: charity/proposednpo/proposednpo.html:69
+#: charity/proposednpo/proposednpo.html:68
 msgid "Propose an NPO"
 msgstr ""
 
-#: proposednpo-insert/proposednpo-insert.ts:70
-#: proposednpo-insert/proposednpo-insert.ts:87
+#: proposednpo-insert/proposednpo-insert.ts:72
+#: proposednpo-insert/proposednpo-insert.ts:89
 #, fuzzy
 msgid "Propose an Organization"
 msgstr "Proponga una organización"
@@ -5796,6 +5791,11 @@ msgstr "Demuestra que has escrito tu passphrase"
 msgid "Public Key"
 msgstr "Llave Pública"
 
+#: project/edit/activity/activity.ts:142
+#: project/edit/edit.ts:388
+msgid "Quotes"
+msgstr ""
+
 #: dashboard/rors/rors.ts:57
 #, fuzzy
 msgid "RORS means Request Of Refunds. With this page you can request funds to an NPO. A refund claim can be requested by a company or NPO to an NPO."
@@ -5809,9 +5809,14 @@ msgstr ""
 msgid "Raised volume"
 msgstr ""
 
-#: home/home/home.html:142
+#: home/home/home.html:164
 #: parts/widgets/cookie-consent/cookie-consent.html:6
 msgid "Read More"
+msgstr "Leer más"
+
+#: project/project/timeline/timeline.html:21
+#, fuzzy
+msgid "Read more"
 msgstr "Leer más"
 
 #: dashboard/notifications/notifications.ts:25
@@ -5833,7 +5838,7 @@ msgstr "Reciba"
 msgid "Receive Address"
 msgstr "Dirección de recepción"
 
-#: auth/signup/signup.ts:315
+#: auth/signup/signup.ts:320
 msgid "Receive donations if you are in need"
 msgstr "Reciba donaciones si lo necesita"
 
@@ -5846,9 +5851,9 @@ msgstr "Reciba fondos"
 msgid "Receive money"
 msgstr ""
 
-#: campaign/create/create.ts:97
+#: campaign/create/create.ts:99
 #: profile/profile.html:8
-#: project/create/create.ts:141
+#: project/create/create.ts:143
 #: stats/world/world.html:39
 #: stats/world/world.html:55
 msgid "Received"
@@ -5881,7 +5886,7 @@ msgstr "Receptores"
 msgid "Record your preferences (like currency and language)"
 msgstr "Guardar sus preferencias (moneda e idioma)"
 
-#: auth/recovery/recovery.ts:59
+#: auth/recovery/recovery.ts:64
 msgid "Recover your account credentials"
 msgstr "Recupere sus credenciales de acceso"
 
@@ -5967,7 +5972,7 @@ msgstr "Rechazar"
 msgid "Region"
 msgstr "Región"
 
-#: auth/signup/signup.ts:120
+#: auth/signup/signup.ts:125
 msgid "Register"
 msgstr "Registrados"
 
@@ -5999,7 +6004,7 @@ msgstr "Motivo del rechazo"
 
 #: dashboard/rors/modals/details/details.html:16
 #: dashboard/rors/rors.html:262
-#: project/create/create.ts:193
+#: project/create/create.ts:195
 msgid "Rejected"
 msgstr "Rechazada"
 
@@ -6007,11 +6012,11 @@ msgstr "Rechazada"
 msgid "Reload"
 msgstr "Recargar"
 
-#: project/edit/edit.html:115
+#: project/edit/edit.html:118
 msgid "Remove"
 msgstr "Eliminar"
 
-#: dashboard/delete/delete.ts:16
+#: dashboard/delete/delete.ts:17
 msgid "Remove your account from Helperbit"
 msgstr "Elimina tu cuenta de Helperbit"
 
@@ -6029,14 +6034,14 @@ msgstr "Pide recibo"
 msgid "Request Of Refunds"
 msgstr "Petición de reembolso"
 
-#: wizard-procedure/procedures/npo.ts:69
-msgid "Request an one-time-code via physical mail to verify your physical location. After this, we will send you an OTC code via physical mail. After receiving it, insert it in the verification process."
-msgstr ""
-
 #: dashboard/rors/rors.ts:51
 #, fuzzy
 msgid "Request of refund"
 msgstr "Petición de reembolso"
+
+#: wizard-procedure/procedures/npo.ts:69
+msgid "Request your code via snail mail, to verify your headquarter's position. We will send you a code to your postal address. When you receive it, insert the code in the geoverification process."
+msgstr ""
 
 #: dashboard/invoiceable/invoiceable.html:37
 #: profile/profile.html:579
@@ -6048,19 +6053,19 @@ msgstr "Pedido"
 msgid "Requests of refund"
 msgstr "Petición de reembolso"
 
-#: auth/login/login.ts:80
+#: auth/login/login.ts:85
 msgid "Resend Account activation"
 msgstr "Reenvía la activación de la cuenta"
 
-#: auth/recovery/recovery.ts:72
+#: auth/recovery/recovery.ts:77
 msgid "Reset"
 msgstr "Resetea"
 
-#: auth/recovery/recovery.ts:98
+#: auth/recovery/recovery.ts:103
 msgid "Reset Link Sent"
 msgstr "Link de reseteo enviado"
 
-#: auth/recovery/recovery.ts:73
+#: auth/recovery/recovery.ts:78
 msgid "Reset Password"
 msgstr "Resetea contraseña"
 
@@ -6080,7 +6085,7 @@ msgstr ""
 msgid "Restore Wallet Procedure"
 msgstr "Procedimiento de Restauración Cartera"
 
-#: dashboard.wallet/restore/restore.ts:40
+#: dashboard.wallet/restore/restore.ts:43
 msgid "Restore a wallet from backup file"
 msgstr "Restaura una cartera desde file de backup"
 
@@ -6096,7 +6101,7 @@ msgstr "Transacción de restauración enviada"
 msgid "Restore your funds"
 msgstr "Restaura tus fondos"
 
-#: project/create/create.ts:231
+#: project/create/create.ts:233
 msgid "Resume"
 msgstr "Reanuda"
 
@@ -6138,11 +6143,11 @@ msgstr ""
 msgid "Search ambassador"
 msgstr "Busca Ambassador"
 
-#: stats/top-donors/top-donors.html:8
+#: stats/top-donors/top-donors.html:9
 msgid "Search donor"
 msgstr ""
 
-#: event/table/table.html:12
+#: event/widgets/country-filter/country-filter.html:2
 msgid "Search event by country"
 msgstr ""
 
@@ -6215,7 +6220,7 @@ msgstr ""
 "mes "
 
 #: about/about/sections/contact.html:14
-#: auth/recovery/recovery.ts:97
+#: auth/recovery/recovery.ts:102
 #: dashboard.wallet/restore/restore.html:28
 #: dashboard.wallet/withdraw/withdraw.html:123
 #: dashboard.wallet/withdraw/withdraw.html:274
@@ -6227,7 +6232,7 @@ msgstr ""
 msgid "Send"
 msgstr "Enviar"
 
-#: project/edit/edit.html:136
+#: project/edit/edit.html:144
 msgid "Send Activities"
 msgstr "Envía Actividad"
 
@@ -6256,7 +6261,7 @@ msgstr "Envía Información"
 
 #: campaign/edit/edit.html:66
 #: project/edit/activity/activity.html:52
-#: project/edit/edit.html:167
+#: project/edit/edit.html:175
 msgid "Send Media"
 msgstr "Envía Media"
 
@@ -6264,11 +6269,11 @@ msgstr "Envía Media"
 msgid "Send OTC"
 msgstr "Envía Código OTC "
 
-#: dashboard/verify/providers/otc/otc.html:88
+#: dashboard/verify/providers/otc/otc.html:90
 msgid "Send Otc Code"
 msgstr "Envía Código OTC "
 
-#: project/edit/edit.html:199
+#: project/edit/edit.html:207
 msgid "Send Other Information"
 msgstr "Envía Otra Información "
 
@@ -6331,7 +6336,7 @@ msgstr ""
 msgid "Service unreachable"
 msgstr "Servicio no disponible "
 
-#: dashboard/socialedit/socialedit.ts:39
+#: dashboard/socialedit/socialedit.ts:40
 msgid "Set an email and password for your account"
 msgstr "Establezca una dirección email y una contraseña para su cuenta"
 
@@ -6344,11 +6349,11 @@ msgid "Settings"
 msgstr "Impostaciones"
 
 #: dashboard/rors/create/create.ts:122
-#: dashboard/socialedit/socialedit.ts:52
+#: dashboard/socialedit/socialedit.ts:53
 msgid "Setup"
 msgstr ""
 
-#: campaign/create/create.ts:109
+#: campaign/create/create.ts:111
 #: campaign/edit/edit.ts:355
 #: charity/proposednpo/proposednpo.ts:133
 msgid "Share"
@@ -6367,7 +6372,7 @@ msgstr "¡Comparte con tus amigos!"
 
 #: donation-list/donation-list.ts:524
 #: donation/graph/graph.html:129
-#: shared/helpers/table.ts:222
+#: shared/helpers/table.ts:220
 msgid "Show"
 msgstr "Mostrar"
 
@@ -6420,7 +6425,7 @@ msgstr "Firma"
 #: dashboard.wallet/signmultisig/signmultisig.html:91
 #: dashboard.wallet/wallet-verify/sign/sign.html:30
 #: dashboard.wallet/withdraw/withdraw.html:319
-#: wizard-procedure/procedures/npo.ts:117
+#: wizard-procedure/procedures/npo.ts:120
 msgid "Signatures"
 msgstr "Firmas"
 
@@ -6483,7 +6488,7 @@ msgstr "Donor Badge Plata"
 msgid "Silver Fundraiser Badge"
 msgstr "Fundraiser Badge Plata"
 
-#: auth/signup/signup.ts:337
+#: auth/signup/signup.ts:342
 msgid "Simplify internal audit and procedure"
 msgstr "Simplifique la verificación interna y los procedimientos"
 
@@ -6495,12 +6500,12 @@ msgstr "Usuario individual"
 msgid "Single users"
 msgstr "Usuarios individuales"
 
-#: auth/signup/signup.ts:371
+#: auth/signup/signup.ts:376
 msgid "Singleuser advantages"
 msgstr "Ventajas para usuarios particulares"
 
 #: dashboard/alert/alert.html:25
-#: event/table/table.ts:76
+#: event/table/table.ts:70
 msgid "Slide"
 msgstr "Slide "
 
@@ -6513,7 +6518,7 @@ msgstr "Más lenta"
 msgid "Smith"
 msgstr "García"
 
-#: auth/login/login.ts:68
+#: auth/login/login.ts:73
 msgid "Social Login"
 msgstr "Acceso con las redes sociales"
 
@@ -6541,7 +6546,7 @@ msgstr ""
 msgid "Source of information"
 msgstr "Fuente de información"
 
-#: auth/signup/signup.ts:269
+#: auth/signup/signup.ts:274
 #: dashboard/edit/edit.ts:309
 #: dashboard/edit/edit.ts:457
 msgid "Spanish"
@@ -6552,8 +6557,8 @@ msgstr "Español"
 msgid "Sport"
 msgstr "Deporte"
 
-#: dashboard/verify/verify.html:113
-#: dashboard/verify/verify.html:135
+#: dashboard/verify/verify.html:111
+#: dashboard/verify/verify.html:133
 #: donation/charity-pot/charity-pot.html:59
 #: project/table/table.ts:30
 #: project/table/table.ts:81
@@ -6577,11 +6582,11 @@ msgstr ""
 msgid "Start procedure"
 msgstr "Inicia el procedimiento"
 
-#: auth/signup/signup.ts:328
+#: auth/signup/signup.ts:333
 msgid "Start receive bitcoin donations"
 msgstr "Empiece a recibir donaciones en bitcoin"
 
-#: campaign/create/create.ts:176
+#: campaign/create/create.ts:178
 msgid "Started"
 msgstr "Iniciado"
 
@@ -6591,14 +6596,14 @@ msgstr "Iniciado"
 msgid "Statistics"
 msgstr ""
 
-#: campaign/create/create.ts:91
+#: campaign/create/create.ts:93
 #: dashboard.wallet/wallet-verify/wallet-verify.html:111
 #: dashboard/ambassador/ambassador.html:65
 #: dashboard/rors/modals/details/details.html:13
 #: dashboard/rors/rors.html:244
-#: dashboard/verify/verify.html:104
-#: dashboard/verify/verify.html:130
-#: project/create/create.ts:135
+#: dashboard/verify/verify.html:102
+#: dashboard/verify/verify.html:128
+#: project/create/create.ts:137
 msgid "Status"
 msgstr "Estado"
 
@@ -6630,16 +6635,16 @@ msgstr "Número postal"
 msgid "Strong Flood"
 msgstr "Fuerte inundación"
 
-#: about/about/sections/contact.ts:77
 #: about/about/sections/contact.ts:78
+#: about/about/sections/contact.ts:79
 msgid "Subject"
 msgstr "Sujeto"
 
-#: project/create/create.ts:221
+#: project/create/create.ts:223
 msgid "Submit"
 msgstr "Enviar"
 
-#: project/create/create.ts:195
+#: project/create/create.ts:197
 msgid "Submitted"
 msgstr "Enviado"
 
@@ -6653,7 +6658,7 @@ msgstr ""
 msgid "Subscribe to Newsletter"
 msgstr "Inscríbete a la newsletter"
 
-#: auth/signup/signup.ts:295
+#: auth/signup/signup.ts:300
 msgid "Subscribe to newsletter"
 msgstr "Inscríbete a la newsletter"
 
@@ -6665,7 +6670,7 @@ msgstr "Sugiera una organización"
 #: dashboard.wallet/withdraw/withdraw.ts:116
 #: dashboard/verify/providers/company/company.ts:94
 #: dashboard/verify/providers/document/document.ts:209
-#: dashboard/verify/providers/npo/admins/admins.ts:690
+#: dashboard/verify/providers/npo/admins/admins.ts:688
 msgid "Summary"
 msgstr "Sumario"
 
@@ -6678,8 +6683,8 @@ msgstr "Soporte Badge"
 msgid "Supporter Badge Locked"
 msgstr "Soporte Badge Bloqueado"
 
-#: project/create/create.ts:147
-#: project/project/project.html:115
+#: project/create/create.ts:149
+#: project/project/project.html:124
 #: project/table/table.ts:111
 msgid "Supporters"
 msgstr "Apoyos"
@@ -6692,8 +6697,8 @@ msgstr ""
 msgid "T-shirt"
 msgstr ""
 
-#: wizard-procedure/procedures/npo.ts:105
-#: wizard-procedure/procedures/npo.ts:127
+#: wizard-procedure/procedures/npo.ts:108
+#: wizard-procedure/procedures/npo.ts:130
 #: wizard-procedure/procedures/npo.ts:44
 #: wizard-procedure/procedures/npo.ts:79
 msgid "TODO"
@@ -6707,7 +6712,7 @@ msgstr ""
 
 #: charity/proposednpo/proposednpo.ts:158
 #: charity/table/table.ts:120
-#: event/table/table.ts:176
+#: event/table/table.ts:170
 #: project/table/table.ts:139
 #: stats/top-ambassadors/top-ambassadors.ts:80
 #: stats/top-donors/top-donors.ts:109
@@ -6718,18 +6723,18 @@ msgstr "Visualización en la tabla"
 #: dashboard/edit/edit.ts:555
 #: dashboard/verify/verify.ts:127
 #: profile/profile.html:371
-#: project/edit/edit.ts:182
+#: project/edit/edit.ts:195
 msgid "Tags"
 msgstr "Categorías"
 
 #: campaign/edit/edit.ts:165
 #: donation/charity-pot/charity-pot.html:28
-#: project/edit/edit.ts:201
-#: project/project/project.html:98
+#: project/edit/edit.ts:214
+#: project/project/project.html:82
 msgid "Target"
 msgstr "Objetivo"
 
-#: response-messages/response-messages.ts:93
+#: response-messages/response-messages.ts:97
 msgid "Target must be greater than 0.01 BTC"
 msgstr "El objetivo tiene que ser más grande que 0,01 BTC"
 
@@ -6799,7 +6804,7 @@ msgstr ""
 "abajo. Estas 12 palabras le permitirán firmar las transacciones creadas por "
 "la organización."
 
-#: staticpages/ambassador.ts:65
+#: staticpages/ambassador.ts:67
 msgid "The Ambassador Program has been designed to reward the virtuous community of Helperbit. Your help is essential to spread our initiative and for this reason we are happy to thank you with unique prizes!"
 msgstr ""
 "El Programa Ambassador se ha ideado para premiar a la virtuosa comunidad de "
@@ -6815,7 +6820,12 @@ msgstr ""
 "La política de Helperbit se ha actualizado; te rogamos que leas y aceptes la "
 "nueva política,o procede a la eliminación de la cuenta."
 
-#: wizard-procedure/procedures/npo.ts:207
+#: dashboard/admin/admin.ts:57
+msgid "The admin {{firstname}} {{lastname}} should complete the ID verification!"
+msgstr ""
+
+#: dashboard/admin/admin.ts:63
+#: wizard-procedure/procedures/npo.ts:210
 msgid "The admin {{firstname}} {{lastname}} should register as single user on Helperbit using the email {{email}} and should complete the ID verification"
 msgstr ""
 
@@ -6839,7 +6849,7 @@ msgstr "El ente/ asociación/ fundación"
 msgid "The contourn map is a Beta Helperbit elaboration"
 msgstr "El mapa de acompañamiento es una elaboración Beta de Helperbit"
 
-#: response-messages/response-messages.ts:131
+#: response-messages/response-messages.ts:135
 msgid "The domain @"
 msgstr "El dominio @"
 
@@ -6855,11 +6865,11 @@ msgstr ""
 "redistribución de los fondos, haciendo así que las personas no se fíen de "
 "las organizaciones sin animo de lucro y eviten donar."
 
-#: response-messages/response-messages.ts:158
+#: response-messages/response-messages.ts:162
 msgid "The file has an invalid format. Supported formats are:"
 msgstr "El archivo tiene un formato no válido. Los formatos soportados son:"
 
-#: response-messages/response-messages.ts:159
+#: response-messages/response-messages.ts:163
 msgid "The file is above the maximum file size of"
 msgstr "El archivo supera la dimensión máxima de"
 
@@ -6924,6 +6934,14 @@ msgstr ""
 
 #: formly-init2.ts:153
 msgid "The phone number is too short"
+msgstr ""
+
+#: project/project/timeline/timeline.ts:51
+msgid "The project has been created"
+msgstr ""
+
+#: project/project/timeline/timeline.ts:46
+msgid "The project has reached the fundraising goal"
 msgstr ""
 
 #: proposednpo-insert/proposednpo-insert.html:46
@@ -7012,7 +7030,7 @@ msgstr ""
 "los usuarios particulares inscritos en Helperbit permite ayudar a los "
 "ciudadanos en caso de calamidad natural, recibiendo donaciones directas."
 
-#: wizard-procedure/procedures/npo.ts:118
+#: wizard-procedure/procedures/npo.ts:121
 #, fuzzy
 msgid "The wallet has been created; you should wait for admins signatures."
 msgstr "La cartera se ha creado; tienes que esperar a los Administradores"
@@ -7029,11 +7047,11 @@ msgstr ""
 "¡Se ha creado la cartera! Recuerde memorizar la passphrase de la dirección, "
 "esta será necesaria para usar la cartera."
 
-#: response-messages/response-messages.ts:209
+#: response-messages/response-messages.ts:214
 msgid "The wallet is empty"
 msgstr "La cartera esta vacía"
 
-#: response-messages/response-messages.ts:174
+#: response-messages/response-messages.ts:179
 msgid "There are already refund claims pending"
 msgstr "Ya hay peticiones de reembolso a la espera"
 
@@ -7121,12 +7139,8 @@ msgstr "Ha habido un error durante el procedimiento"
 msgid "These are Bitcoin addresses owned by the user."
 msgstr "Estas son las direcciones Bitcoin que pertenecen al usuario"
 
-#: response-messages/response-messages.ts:203
+#: response-messages/response-messages.ts:208
 msgid "This admin belongs to a multisig wallet"
-msgstr "Este administrador pertenece a una cartera multifirma"
-
-#: dashboard/admin/admin.html:26
-msgid "This admin belongs to a multisig wallet."
 msgstr "Este administrador pertenece a una cartera multifirma"
 
 #: donation/transaction/transaction.html:73
@@ -7137,11 +7151,11 @@ msgstr "El administrador ha firmado la transacción"
 msgid "This admin hasn't signed the transaction"
 msgstr "El administrador no ha firmado la transacción"
 
-#: response-messages/response-messages.ts:169
+#: response-messages/response-messages.ts:174
 msgid "This email is not associated to any account"
 msgstr "Este email no esta asociada a ninguna cuenta"
 
-#: response-messages/response-messages.ts:166
+#: response-messages/response-messages.ts:171
 msgid "This event is already associated with one of your projects"
 msgstr "Este evento ya se ha asociado a uno de sus proyectos"
 
@@ -7153,7 +7167,7 @@ msgstr "Esta función está disponible solo para los usuarios verificados"
 msgid "This field can contain letters and/or number"
 msgstr "Este campo puede contener letras y/o números"
 
-#: auth/signup/signup.ts:147
+#: auth/signup/signup.ts:152
 msgid "This field can contain lowercase characters, number and underscore symbol"
 msgstr "Este campo puede contener carácteres minúsculos, números y guión bajo"
 
@@ -7165,9 +7179,9 @@ msgstr "Este campo es obligatorio"
 msgid "This field must be equal to New Password"
 msgstr "Este campo tiene que ser igual a Nueva Contraseña"
 
-#: auth/recovery/recovery.ts:149
-#: auth/signup/signup.ts:213
-#: dashboard/socialedit/socialedit.ts:99
+#: auth/recovery/recovery.ts:154
+#: auth/signup/signup.ts:218
+#: dashboard/socialedit/socialedit.ts:100
 #: formly-init2.ts:159
 msgid "This field must be equal to password"
 msgstr "Este campo tiene que ser igual a Nueva Contraseña"
@@ -7252,16 +7266,10 @@ msgstr "Esta página usa cookies para ofrecer sus servicios."
 msgid "This transaction is a Request of Refund transaction for"
 msgstr "Esta transacción es una petición de reembolso"
 
-#: response-messages/response-messages.ts:137
+#: response-messages/response-messages.ts:141
 msgid "This user is not in the allowed admin list you submitted during verification"
 msgstr ""
 "Este usuario no está en la lista de Administradores permitidos enviada "
-"durante la verificación."
-
-#: dashboard/admin/admin.html:23
-msgid "This user is not in the allowed admin list you submitted during verification."
-msgstr ""
-"Este usuario no está en la lista de administradores permitidos enviada "
 "durante la verificación."
 
 #: campaign/campaign/campaign.html:43
@@ -7278,6 +7286,11 @@ msgstr ""
 "Esta cartera pertenece a esta organización en la que es usted un "
 "administrador"
 
+#: response-messages/response-messages.ts:170
+#, fuzzy
+msgid "This wallet is already associated with one of your projects"
+msgstr "Este evento ya se ha asociado a uno de sus proyectos"
+
 #: about/cookie/cookie.html:22
 msgid "This web platform uses cookies to:"
 msgstr "Esta plataforma web usa cookies para:"
@@ -7287,7 +7300,7 @@ msgid "This website may not work correctly"
 msgstr "Esta página web podría no funcionar correctamente"
 
 #: dashboard/alert/alert.html:10
-#: response-messages/response-messages.ts:141
+#: response-messages/response-messages.ts:145
 msgid "This week you have already sent an alert"
 msgstr "Esta semana ya ha enviado una advertencia."
 
@@ -7307,11 +7320,11 @@ msgstr "Tiempo"
 msgid "Time expired!"
 msgstr ""
 
-#: campaign/create/create.ts:85
+#: campaign/create/create.ts:87
 #: campaign/edit/edit.ts:139
-#: project/create/create.ts:129
-#: project/edit/activity/activity.ts:105
-#: project/edit/edit.ts:159
+#: project/create/create.ts:131
+#: project/edit/activity/activity.ts:107
+#: project/edit/edit.ts:172
 msgid "Title"
 msgstr "Título"
 
@@ -7323,7 +7336,7 @@ msgstr "Título"
 msgid "To"
 msgstr "A"
 
-#: project/create/create.ts:226
+#: project/create/create.ts:228
 msgid "To make the project visible in the platform you need to submit it; an Helperbit admin will validate the project and will approve or reject the project. Click to submit."
 msgstr ""
 "Para hacer visible el proyecto en la plataforma, es necesario enviarlo; un "
@@ -7432,7 +7445,7 @@ msgstr "Número total de usuarios del servicio de seguros"
 msgid "Total value"
 msgstr ""
 
-#: auth/signup/signup.ts:336
+#: auth/signup/signup.ts:341
 msgid "Track donations on blockchain"
 msgstr ""
 
@@ -7482,7 +7495,7 @@ msgstr "Transacciones"
 msgid "Transactions"
 msgstr "Transacciones"
 
-#: home/home/home.html:37
+#: home/home/home.html:16
 msgid "Trending projects"
 msgstr "Proyectos de tendencia"
 
@@ -7505,7 +7518,7 @@ msgid "Trust level threshold"
 msgstr "Umbral del nivel de confianza"
 
 #: dashboard/alert/alert.html:22
-#: event/table/table.ts:66
+#: event/table/table.ts:60
 msgid "Tsunami"
 msgstr "Tsunami"
 
@@ -7536,12 +7549,12 @@ msgstr ""
 "Digitar aquí las palabras indicadas de la passphrase visualizadas en la "
 "ventana precedente."
 
-#: auth/recovery/recovery.ts:74
+#: auth/recovery/recovery.ts:79
 msgid "Type your email address, a reset link will be sent to that address."
 msgstr ""
 "Escriba su dirección email, un link de reset se mandará a aquella dirección "
 
-#: response-messages/response-messages.ts:214
+#: response-messages/response-messages.ts:219
 msgid "Unable to get information from the hardware wallet"
 msgstr "Imposible obtener información de la cartera hardware"
 
@@ -7557,7 +7570,7 @@ msgstr "No confirmada"
 msgid "Update"
 msgstr "Actualizar"
 
-#: project/edit/edit.html:137
+#: project/edit/edit.html:145
 msgid "Update Activities"
 msgstr "Actualiza Actividades"
 
@@ -7585,11 +7598,11 @@ msgstr "Actualiza Información"
 
 #: campaign/edit/edit.html:67
 #: project/edit/activity/activity.html:53
-#: project/edit/edit.html:168
+#: project/edit/edit.html:176
 msgid "Update Media"
 msgstr "Actualiza Material"
 
-#: project/edit/edit.html:200
+#: project/edit/edit.html:208
 msgid "Update Other Information"
 msgstr "Actualiza Otras Informaciones"
 
@@ -7597,6 +7610,12 @@ msgstr "Actualiza Otras Informaciones"
 #: dashboard/socialedit/socialedit.html:23
 msgid "Update Profile"
 msgstr "Actualizar Perfil"
+
+#: project/edit/activity/activity.ts:134
+#: project/edit/edit.ts:392
+#, fuzzy
+msgid "Updates"
+msgstr "Actualizar"
 
 #: dashboard/verify/providers/company/company.ts:65
 #: dashboard/verify/providers/document/document.ts:86
@@ -7615,7 +7634,7 @@ msgstr ""
 "cargar una imagen de portata para tu campaña fundraising. Elige entre una de "
 "las imágenes predefinidas o carga una personalizada. "
 
-#: project/edit/edit.ts:304
+#: project/edit/edit.ts:317
 msgid "Upload photos and images linked with your project. Media materials generate powerful emotional reactions in donors and improve your fundraising"
 msgstr ""
 "Carga fotos e imágenes relacionadas con tu proyecto. Los materiales "
@@ -7669,7 +7688,7 @@ msgstr ""
 "Usa tu dispositivo Ledger Nano para crear una nueva cartera Helperbit para "
 "la organización."
 
-#: profile/profile.ts:146
+#: profile/profile.ts:145
 #: shared/templates/translate-force.html:91
 #, fuzzy
 msgid "User"
@@ -7685,7 +7704,7 @@ msgstr "Usuario:"
 msgid "User Information"
 msgstr "Información del Usuario"
 
-#: auth/signup/signup.ts:98
+#: auth/signup/signup.ts:103
 #: profile/profile.html:102
 msgid "User Type"
 msgstr "Tipología usuario"
@@ -7710,8 +7729,8 @@ msgstr ""
 msgid "User recipient"
 msgstr "Usuario receptor"
 
-#: auth/signup/signup.ts:133
-#: auth/signup/signup.ts:134
+#: auth/signup/signup.ts:138
+#: auth/signup/signup.ts:139
 #: dashboard/edit/edit.ts:166
 #: donation/graph/graph.html:151
 #: profile/profile.html:298
@@ -7723,15 +7742,15 @@ msgstr "Usuario receptor"
 msgid "Username"
 msgstr "Nombre usuario"
 
-#: response-messages/response-messages.ts:180
+#: response-messages/response-messages.ts:185
 msgid "Username already registered"
 msgstr "Nombre de usuario ya registrado"
 
-#: auth/login/login.ts:98
+#: auth/login/login.ts:103
 msgid "Username or Email"
 msgstr "Nombre usuario o Email"
 
-#: response-messages/response-messages.ts:230
+#: response-messages/response-messages.ts:235
 msgid "Username should be a string with only alphanumeric characters"
 msgstr ""
 "El nombre del usuario tiene que ser una cadena de caracteres alfanuméricos"
@@ -7794,7 +7813,7 @@ msgstr "Verificación y Trust Level de un usuario particular"
 msgid "Verification completed."
 msgstr "Verificación no completada"
 
-#: response-messages/response-messages.ts:194
+#: response-messages/response-messages.ts:199
 msgid "Verification not completed"
 msgstr "Verificación no completada"
 
@@ -7841,7 +7860,7 @@ msgstr "Verifica tu posición con la geoverificación del dispositivo"
 msgid "Very Strong Flood"
 msgstr "Tromba de agua Muy Fuerte"
 
-#: magnitude.ts:24
+#: magnitude.ts:23
 msgid "Very Widespread Wildfire"
 msgstr "Incendio Muy Extendido"
 
@@ -7857,11 +7876,11 @@ msgstr "Riesgo muy alto"
 msgid "Very low risk"
 msgstr "Riesgo muy bajo"
 
-#: home/home/home.html:120
-#: home/home/home.html:131
+#: home/home/home.html:142
+#: home/home/home.html:153
 #: home/home/home.html:19
 #: home/home/home.html:40
-#: home/home/home.html:62
+#: home/home/home.html:84
 msgid "View all"
 msgstr "Visualice todo"
 
@@ -7898,7 +7917,7 @@ msgstr "Volumen"
 msgid "Wait the OTC"
 msgstr "Espera el código OTC"
 
-#: wizard-procedure/procedures/npo.ts:140
+#: wizard-procedure/procedures/npo.ts:143
 msgid "Wait until the project will be approved."
 msgstr ""
 
@@ -7908,10 +7927,10 @@ msgid "Waiting"
 msgstr "En espera"
 
 #: dashboard.wallet/wallet-verify/sign/sign.html:18
-#: project/edit/edit.ts:229
+#: project/edit/edit.ts:242
 #: shared/templates/translate-force.html:145
 #: shared/templates/translate-force.html:146
-#: wizard-procedure/procedures/npo.ts:104
+#: wizard-procedure/procedures/npo.ts:107
 msgid "Wallet"
 msgstr "Cartera"
 
@@ -7943,10 +7962,6 @@ msgid ""
 "Wallet not\n"
 "                    empty"
 msgstr ""
-
-#: about/about/sections/team.html:112
-msgid "We Are Hiring, have a look to the open positions"
-msgstr "Estamos contratando gente, puede ojear las posiciones abiertas."
 
 #: dashboard/edit/edit.ts:686
 msgid "We are a Company that operate in these fields..."
@@ -7988,14 +8003,13 @@ msgstr ""
 "cartera multifirma n-di-m para las organizaciones. Esto reduce, de manera "
 "drástica, el riesgo de robo y uso impropio de las donaciones."
 
-#: auth/signup/signup.ts:296
+#: auth/signup/signup.ts:301
 msgid "We will provide you news and updates about 1 time per month. You may unsubscribe any time by clicking the unsubscribe-link in our newsletter."
 msgstr ""
 "Os daremos noticias y actualizaciones alrededor de una vez al mes. Puedes "
 "anular la inscripción en cualquier momento clicando en el link de "
 "cancelación de nuestra newsletter."
 
-#: dashboard/verify/providers/npo/admins/admins.ts:676
 #: dashboard/verify/providers/npo/statute/statute.ts:75
 msgid "We will verify that your NPO is a non profit and the principles are compatible with our TOS"
 msgstr ""
@@ -8032,7 +8046,7 @@ msgstr "¿Qué son los badge?"
 msgid "What are cookies?"
 msgstr "¿Qué son las cookies?"
 
-#: campaign/create/create.ts:67
+#: campaign/create/create.ts:68
 msgid "What is a fundraising campaign?"
 msgstr "¿Qué es una campaña fundraising?"
 
@@ -8057,15 +8071,15 @@ msgstr "Por qué Helperbit"
 msgid "Why signup"
 msgstr "Por qué registrarse"
 
-#: magnitude.ts:23
+#: magnitude.ts:22
 msgid "Widespread Wildfire"
 msgstr "Incendio Extendido"
 
 #: dashboard/alert/alert.html:24
-#: event/table/table.ts:61
+#: event/table/table.ts:55
+#: magnitude.ts:19
 #: magnitude.ts:20
 #: magnitude.ts:21
-#: magnitude.ts:22
 msgid "Wildfire"
 msgstr "Incendio"
 
@@ -8078,11 +8092,11 @@ msgstr "Naturaleza"
 msgid "Win amazing prizes! - Helperbit"
 msgstr ""
 
-#: auth/signup/signup.ts:333
+#: auth/signup/signup.ts:338
 msgid "Withdraw local currency (EUR,USD)"
 msgstr "Retire moneda local (EUR, USD)"
 
-#: models/dashboard.ts:319
+#: models/dashboard.ts:330
 #, fuzzy
 msgid "World"
 msgstr "Mundo"
@@ -8097,7 +8111,7 @@ msgstr ""
 "¿Querrías tener el control total de tus donaciones y ver como se usa tu "
 "dinero?<br>¿Vives en una zona afectada por desastres naturales?"
 
-#: proposednpo-insert/proposednpo-insert.ts:72
+#: proposednpo-insert/proposednpo-insert.ts:74
 msgid "Would you like to make a transparent donation to a specific organization but it is not in Helperbit? Please tell us about this organization and we will try to contact its team."
 msgstr ""
 "¿Le gustaría hacer una donación transparente a una organización específica "
@@ -8117,7 +8131,7 @@ msgstr ""
 "¿Te gustaría ver tu proyecto humanitario a nivel global?<br> ¿Te gustaría "
 "eliminar cualquier problema de chargeback?"
 
-#: auth/signup/signup.ts:228
+#: auth/signup/signup.ts:233
 msgid "Write here the code of the user that invite you to signup on Helperbit and get the badge!"
 msgstr ""
 "Escribe aquí el código del usuario que te ha invitado a registrarte en "
@@ -8132,15 +8146,15 @@ msgstr "Selecciona los paises donde opera tu organización"
 msgid "Write your passphrase down and keep it safe"
 msgstr "Escriba su passphrase y consérvela en lugar seguro."
 
-#: response-messages/response-messages.ts:233
+#: response-messages/response-messages.ts:238
 msgid "Wrong backup file or backup password"
 msgstr "Archivo de backup erróneo o contraseña de backup errónea"
 
-#: response-messages/response-messages.ts:232
+#: response-messages/response-messages.ts:237
 msgid "Wrong backup file: address mismatch"
 msgstr "Archivo de backup erróneo: la dirección no corresponde"
 
-#: response-messages/response-messages.ts:234
+#: response-messages/response-messages.ts:239
 msgid "Wrong backup password"
 msgstr "Contraseña de backup errónea "
 
@@ -8148,7 +8162,7 @@ msgstr "Contraseña de backup errónea "
 msgid "You achieved a new badge: {{badge}}"
 msgstr "Has desbloqueado un nuevo badge: {{badge}}"
 
-#: response-messages/response-messages.ts:138
+#: response-messages/response-messages.ts:142
 msgid "You are banned from Helperbit"
 msgstr "Se te ha expulsado de Helperbit"
 
@@ -8161,7 +8175,7 @@ msgid "You are leaving the page but there are unsaved changes"
 msgstr "Está dejando la página pero hay modificaciones que no se han guardado"
 
 #: dashboard/alert/alert.html:11
-#: response-messages/response-messages.ts:142
+#: response-messages/response-messages.ts:146
 msgid "You are not geolocalized"
 msgstr "No está usted geolocalizado"
 
@@ -8217,7 +8231,7 @@ msgstr ""
 "Puedes llegar a ser también un embajador Helperbit en pocos y simples pasos, "
 "pulsa"
 
-#: project/edit/edit.ts:242
+#: project/edit/edit.ts:255
 msgid "You can associate the project to an existing event. This is not compulsory, you can create a project that is not associated with an event. If the event you want to associate is not in the list this means that your verified position is far from it. Alternatively select a set of countries where your project will operate."
 msgstr ""
 "Se puede asociar el proyecto a un evento ya existente. Esto no es "
@@ -8230,7 +8244,7 @@ msgstr ""
 msgid "You can become an Ambassador by inviting your friends to join Helperbit. Share the invitation link and expand your network!"
 msgstr ""
 
-#: dashboard/verify/verify.html:80
+#: dashboard/verify/verify.html:78
 msgid "You can complete all methods to reach the highest level of verification."
 msgstr ""
 "Puedes completar todos los métodos para alcanzar el máximo nivel de "
@@ -8258,7 +8272,7 @@ msgstr ""
 "Podrás crear una nueva Campaña Fundraising cuando termine la última Campaña "
 "activa"
 
-#: dashboard/verify/verify.html:79
+#: dashboard/verify/verify.html:77
 msgid "You can improve your profile verification proceeding with one of the available methods."
 msgstr ""
 "Puedes mejorar la verificación de tu perfil procediendo con uno de los "
@@ -8292,7 +8306,7 @@ msgstr ""
 msgid "You can suggest an organization and we will contact them."
 msgstr ""
 
-#: response-messages/response-messages.ts:186
+#: response-messages/response-messages.ts:191
 msgid "You can't geolocalize in the sea"
 msgstr "No puedes geolocalizarte en mar"
 
@@ -8307,7 +8321,7 @@ msgstr ""
 msgid "You do not have a wallet yet!"
 msgstr "¡No tiene todavía una cartera!"
 
-#: response-messages/response-messages.ts:177
+#: response-messages/response-messages.ts:182
 msgid "You don't have a wallet to receive funds. Create one"
 msgstr "No tienes una cartera para recibir los fondos. Crea una"
 
@@ -8380,7 +8394,7 @@ msgstr ""
 msgid "You haven't yet created a wallet; start to receive and donate by creating one"
 msgstr "No ha creado aún una cartera; cree una para empezar a recibir y donar"
 
-#: response-messages/response-messages.ts:228
+#: response-messages/response-messages.ts:233
 msgid "You just typed your VAT number, you need to type the VAT number of the company that have emitted the invoice"
 msgstr ""
 "Acaba de introducir su número de IVA, tiene que introducir el número de IVA "
@@ -8390,13 +8404,13 @@ msgstr ""
 msgid "You must choose at least one tag"
 msgstr "Tienes que seleccionar, por lo menos, un tag"
 
-#: dashboard/verify/verify.html:82
+#: dashboard/verify/verify.html:80
 msgid "You must complete all verifications to start rising funds."
 msgstr ""
 "Tienes que completar todas las verificaciones para empezar una recogida de "
 "fondos."
 
-#: project/create/create.html:64
+#: project/create/create.html:108
 msgid "You need a new wallet to create another project"
 msgstr "Necesita una cartera para crear otro proyecto"
 
@@ -8420,7 +8434,7 @@ msgstr ""
 "Tiene que haber efectuado el acceso y estar geolocalizado para poder acceder "
 "al instrumento de simulación"
 
-#: project/create/create.html:67
+#: project/create/create.html:111
 msgid "You need to be verified before creating a project (minimum trust level required is 40)"
 msgstr ""
 "Tienes que estar verificado antes de poder crear un proyecto (el nivel "
@@ -8439,7 +8453,7 @@ msgstr "Tienes que tener una cartera para poder publicar un proyecto."
 msgid "You need to login to use this feature."
 msgstr "Tiene que efectuar el acceso para usar esta función"
 
-#: dashboard/socialedit/socialedit.ts:53
+#: dashboard/socialedit/socialedit.ts:54
 msgid "You need to setup your account email and password to use all the functionalities of Helperbit."
 msgstr ""
 "Tiene que configurar el email y la contraseña de su cuenta para usar todas "
@@ -8458,17 +8472,17 @@ msgstr ""
 msgid "You received a gift donation from"
 msgstr "Has recibido una donación regalo de"
 
-#: response-messages/response-messages.ts:149
+#: response-messages/response-messages.ts:153
 msgid "You set a target above the max permitted. The selected project needs"
 msgstr ""
 "Has establecido un obiettivo por encima del máximo consentido. El proyecto "
 "seleccionado necesita"
 
-#: response-messages/response-messages.ts:218
+#: response-messages/response-messages.ts:223
 msgid "You typed the wrong words"
 msgstr "Ha introducido palabras erróneas"
 
-#: response-messages/response-messages.ts:154
+#: response-messages/response-messages.ts:158
 msgid "You typed wrong credentials too many times. Your account will be unlocked"
 msgstr ""
 "Has introducido las credenciales de manera errónea demasiadas veces. Tu "
@@ -8492,6 +8506,7 @@ msgstr ""
 "Tendrás que subir una prueba de residencia, una factura a tu nombre y con tu "
 "dirección; el documento no tiene que tener más de 6 meses [15 puntos trust]"
 
+#: dashboard/verify/providers/npo/admins/admins.ts:674
 #: dashboard/verify/verify.ts:449
 msgid "You will have to upload the Certification of a Manager who appoints the Administrators of the funds. Helperbit provides you the document with the information; you have to print it, ask the Manager to sign it and then upload the signed document"
 msgstr ""
@@ -8508,23 +8523,19 @@ msgstr "¡Has ganado un premio comercial!"
 msgid "You're admin of:"
 msgstr "Eres administrador de:"
 
-#: response-messages/response-messages.ts:78
+#: response-messages/response-messages.ts:82
 msgid "You're not authenticated. Please log-in first"
 msgstr "No te has autentificado. Accede"
 
-#: response-messages/response-messages.ts:128
+#: response-messages/response-messages.ts:132
 msgid "You're not authorized"
 msgstr ""
-
-#: dashboard/verify/providers/npo/admins/admins.ts:675
-msgid "Your Admins."
-msgstr "Tus administradores."
 
 #: insurance/simulation/simulation.html:67
 msgid "Your Bitcoin deposit in the pool of funds"
 msgstr "Su deposito Bitcoin en el servicio de seguros"
 
-#: response-messages/response-messages.ts:193
+#: response-messages/response-messages.ts:198
 msgid "Your GPS position doesn't match with your geolocalization inputs"
 msgstr "Su posición GPS no corresponde a la posición de su geolocalización"
 
@@ -8553,7 +8564,7 @@ msgstr "Su cuenta no esta activada, controle su email o "
 msgid "Your address is now verified"
 msgstr "¡Tu dirección ahora se ha verificado!"
 
-#: dashboard/verify/providers/otc/otc.html:102
+#: dashboard/verify/providers/otc/otc.html:104
 msgid "Your address is now verified!"
 msgstr "¡Su dirección ahora se ha verificado!"
 
@@ -8604,7 +8615,7 @@ msgstr "Tus documentos han sido rechazados"
 msgid "Your donation has been sent"
 msgstr "Su donación &egrave; se ha enviado"
 
-#: response-messages/response-messages.ts:155
+#: response-messages/response-messages.ts:159
 msgid "Your email address is not verified"
 msgstr "Tu dirección email no se ha verificado"
 
@@ -8624,7 +8635,7 @@ msgstr "Tu posición está en un área clasificada como:"
 msgid "Your memorandum document is now verified"
 msgstr "Tu Acta ahora está verificada"
 
-#: about/about/sections/contact.ts:119
+#: about/about/sections/contact.ts:120
 msgid "Your message was sent succesfully"
 msgstr ""
 
@@ -8659,11 +8670,12 @@ msgstr "Su contraseña se ha restablecido"
 msgid "Your password has been reset"
 msgstr "Su contraseña se ha restablecido"
 
-#: dashboard/verify/verify.html:76
-msgid "Your profile is"
-msgstr ""
+#: dashboard/verify/verify.html:75
+#, fuzzy
+msgid "Your profile is <b>{{verify.trustlevel}}%</b>complete"
+msgstr "Su perfil se ha completado al {{verify.trustlevel}}%"
 
-#: response-messages/response-messages.ts:190
+#: response-messages/response-messages.ts:195
 msgid "Your profile is not complete (missing"
 msgstr "Tu perfil no está completo (faltan"
 
@@ -8681,13 +8693,13 @@ msgstr ""
 "Tu proyecto \\\"{{title}}\\\" ha sido rechazado por los administradores de "
 "Helperbit"
 
-#: project/create/create.ts:246
+#: project/create/create.ts:248
 msgid "Your project is accepting donations; click to pause it if you want to stop donations for a period."
 msgstr ""
 "Tu proyecto está aceptando donaciones; ponlo en pausa si deseas interrumpir "
 "las donaciones durante un periodo."
 
-#: project/create/create.ts:236
+#: project/create/create.ts:238
 msgid "Your project is paused, so it doesn't accept donations; click to resume it to receive donations."
 msgstr ""
 "Tu proyecto está en pausa; así no acepta ya donaciones; retómalo para "
@@ -8789,7 +8801,7 @@ msgstr ""
 "Tu verificación ha sido rechazada por este motivo: \"__REPLACE__\" ¿Quieres "
 "enviar una nueva?"
 
-#: project/edit/edit.ts:359
+#: project/edit/edit.ts:372
 msgid "Youtube Video URL"
 msgstr "Dirección Video Youtube"
 
@@ -8813,15 +8825,15 @@ msgstr "Un superficial"
 msgid "accepted"
 msgstr "aceptado"
 
-#: auth/recovery/recovery.ts:58
+#: auth/recovery/recovery.ts:63
 msgid "account recovery"
 msgstr "Recuperación cuenta"
 
-#: project/edit/edit.ts:716
+#: project/edit/edit.ts:743
 msgid "activity?"
 msgstr "¿actividad?"
 
-#: dashboard/admin/admin.ts:28
+#: dashboard/admin/admin.ts:29
 msgid "administrators"
 msgstr "Administradores"
 
@@ -8842,8 +8854,8 @@ msgid "after an admin validation"
 msgstr "Después de la verificación de un administrador"
 
 #: dashboard/ambassador/ambassador.ts:82
-#: staticpages/ambassador.ts:43
-#: staticpages/ambassador.ts:48
+#: staticpages/ambassador.ts:50
+#: staticpages/ambassador.ts:55
 msgid "ambassador"
 msgstr "ambassador"
 
@@ -8902,11 +8914,11 @@ msgstr "beneficios"
 msgid "browse charity projects"
 msgstr "Ojea los proyectos"
 
-#: response-messages/response-messages.ts:147
+#: response-messages/response-messages.ts:151
 msgid "campaign info are not yet completed"
 msgstr ""
 
-#: campaign/create/create.ts:231
+#: campaign/create/create.ts:233
 msgid "campaign?"
 msgstr "¿campaña?"
 
@@ -8914,7 +8926,7 @@ msgstr "¿campaña?"
 msgid "can be added"
 msgstr "Puede añadirse"
 
-#: response-messages/response-messages.ts:146
+#: response-messages/response-messages.ts:150
 msgid "can't delete a running campaign"
 msgstr ""
 
@@ -8955,10 +8967,6 @@ msgstr "Colecciona badges"
 msgid "company"
 msgstr "Empresa"
 
-#: dashboard/verify/verify.html:76
-msgid "complete"
-msgstr ""
-
 #: dashboard/controlpanel/controlpanel.ts:100
 msgid "complete your profile"
 msgstr "Completa tu perfil"
@@ -8967,7 +8975,7 @@ msgstr "Completa tu perfil"
 msgid "contact us"
 msgstr "contacte con nosotros"
 
-#: about/cookie/cookie.ts:15
+#: about/cookie/cookie.ts:16
 msgid "cookie"
 msgstr "Cookie"
 
@@ -8980,24 +8988,23 @@ msgstr "cultural"
 msgid "date"
 msgstr "Fecha"
 
-#: dashboard/delete/delete.ts:15
+#: dashboard/delete/delete.ts:16
 msgid "delete account"
 msgstr "Elimina cuenta"
 
 #: campaign/campaign/campaign.ts:66
-#: campaign/create/create.ts:75
+#: campaign/create/create.ts:76
 #: campaign/edit/edit.ts:101
 #: campaign/edit/edit.ts:455
 #: project-landscape/project-landscape.html:42
 #: project-landscape/project-landscape.html:43
-#: project/project.html:43
 #: project/project.html:44
-#: project/project/project.ts:93
+#: project/project/project.ts:98
 msgid "donate"
 msgstr "Done"
 
-#: profile/profile.ts:123
-#: profile/profile.ts:138
+#: profile/profile.ts:122
+#: profile/profile.ts:137
 msgid "donated"
 msgstr "Donados"
 
@@ -9018,7 +9025,7 @@ msgstr ""
 
 #: event/event/event.html:116
 #: home-stats/home-stats.ts:37
-#: profile/profile.ts:118
+#: profile/profile.ts:117
 #: staticpages/donations.ts:20
 msgid "donations"
 msgstr "Donaciones"
@@ -9078,12 +9085,8 @@ msgstr "File o menos"
 msgid "for the wallet"
 msgstr "Para la cartera"
 
-#: home-stats/home-stats.ts:53
-msgid "fundraising"
-msgstr ""
-
 #: campaign/campaign/campaign.ts:66
-#: campaign/create/create.ts:75
+#: campaign/create/create.ts:76
 #: campaign/edit/edit.ts:101
 #: campaign/edit/edit.ts:455
 msgid "fundraising campaign"
@@ -9092,6 +9095,10 @@ msgstr "Campaña Fundraising"
 #: staticpages/fundraising-campaigns.ts:20
 msgid "fundraising campaigns"
 msgstr "Campaña Fundraising"
+
+#: home-stats/home-stats.ts:53
+msgid "fundraisings"
+msgstr ""
 
 #: dashboard/controlpanel/controlpanel.ts:67
 msgid "gather money for charities"
@@ -9119,15 +9126,21 @@ msgstr ""
 msgid "gift donation"
 msgstr "Donación regalo"
 
+#: project/table/table.html:88
+msgid ""
+"go to\n"
+"\t\t\t\t\t\t\t\tproject"
+msgstr ""
+
 #: event/event.html:49
-#: event/table/table.html:129
+#: event/table/table.html:113
+#: project/project/project.html:112
 #, fuzzy
 msgid "go to event"
 msgstr "Ir al evento"
 
 #: project-landscape/project-landscape.html:31
 #: project/project.html:31
-#: project/table/table.html:92
 msgid "go to project"
 msgstr "Vete al proyecto"
 
@@ -9136,7 +9149,7 @@ msgstr "Vete al proyecto"
 msgid "got it"
 msgstr "Entendido"
 
-#: response-messages/response-messages.ts:98
+#: response-messages/response-messages.ts:102
 msgid "has an invalid value or is incomplete"
 msgstr "Tiene un valor no válido o incompleto"
 
@@ -9146,7 +9159,7 @@ msgid "help and get helped"
 msgstr "ayude y déjese ayudar"
 
 #: campaign/campaign/campaign.ts:66
-#: campaign/create/create.ts:75
+#: campaign/create/create.ts:76
 #: campaign/edit/edit.ts:101
 #: campaign/edit/edit.ts:455
 #: charity/proposednpo/proposednpo.ts:60
@@ -9154,8 +9167,8 @@ msgstr "ayude y déjese ayudar"
 #: dashboard/geolocalization/geolocalization.html:128
 #: event/event/event.ts:76
 #: profile/profile.html:228
-#: project/project/project.ts:93
-#: staticpages/ambassador.ts:48
+#: project/project/project.ts:98
+#: staticpages/ambassador.ts:55
 msgid "helperbit"
 msgstr "Helperbit"
 
@@ -9196,19 +9209,19 @@ msgstr "Por la mañana"
 msgid "in the night"
 msgstr "De madrugada"
 
-#: response-messages/response-messages.ts:148
+#: response-messages/response-messages.ts:152
 msgid "invalid resource"
 msgstr ""
 
-#: dashboard/invoiceable/invoiceable.ts:26
+#: dashboard/invoiceable/invoiceable.ts:27
 msgid "invoiceable donations"
 msgstr "donaciones facturables"
 
-#: response-messages/response-messages.ts:101
+#: response-messages/response-messages.ts:105
 msgid "is empty"
 msgstr "Esta vacío"
 
-#: response-messages/response-messages.ts:131
+#: response-messages/response-messages.ts:135
 msgid "is not equal to the organization domain @"
 msgstr "No es igual al dominio de la organización"
 
@@ -9220,7 +9233,8 @@ msgstr "juangarcía@email.com"
 msgid "last donations"
 msgstr "Últimas donaciones"
 
-#: auth/login/login.ts:58
+#: auth/login/login.ts:63
+#: parts/header/header.html:88
 msgid "login"
 msgstr "Acceder"
 
@@ -9254,7 +9268,7 @@ msgid "multisig wallet"
 msgstr "cartera multifirma"
 
 #: dashboard.wallet/newmultisig/newmultisig.html:11
-#: dashboard.wallet/newmultisig/newmultisig.ts:40
+#: dashboard.wallet/newmultisig/newmultisig.ts:41
 msgid "multisig wallet creation"
 msgstr "Creación de una cartera multi-firma"
 
@@ -9294,11 +9308,11 @@ msgstr ""
 msgid "non-profit organization"
 msgstr "organización no profit"
 
-#: response-messages/response-messages.ts:116
+#: response-messages/response-messages.ts:120
 msgid "not match the value"
 msgstr "No coincide con el valor "
 
-#: response-messages/response-messages.ts:119
+#: response-messages/response-messages.ts:123
 msgid "not valid"
 msgstr "No válido"
 
@@ -9313,14 +9327,14 @@ msgid "npo"
 msgstr "no profit"
 
 #: campaign/campaign/campaign.ts:65
-#: campaign/create/create.ts:74
+#: campaign/create/create.ts:75
 #: campaign/edit/edit.ts:100
 #: campaign/edit/edit.ts:454
-#: project/project/project.ts:92
+#: project/project/project.ts:97
 msgid "on Helperbit.com"
 msgstr "En Helperbit.com"
 
-#: about/jobs/jobs.ts:17
+#: about/jobs/jobs.ts:18
 msgid "open job positions"
 msgstr "posiciones de trabajo abiertas"
 
@@ -9366,13 +9380,13 @@ msgstr "prensa"
 msgid "privacy"
 msgstr "Privacidad"
 
-#: home/policy/privacy-history.ts:22
-#: home/policy/privacy.ts:23
-#: home/policy/privacy.ts:29
+#: home/policy/privacy-history.ts:23
+#: home/policy/privacy.ts:24
+#: home/policy/privacy.ts:30
 msgid "privacy policy"
 msgstr "Política de privacidad"
 
-#: home/policy/privacy-history.ts:16
+#: home/policy/privacy-history.ts:17
 msgid "privacy policy history"
 msgstr "Historial política privacidad "
 
@@ -9380,12 +9394,12 @@ msgstr "Historial política privacidad "
 msgid "profile security"
 msgstr "Seguridad del perfil"
 
-#: project/create/create.ts:55
-#: project/project/project.ts:93
+#: project/create/create.ts:56
+#: project/project/project.ts:98
 msgid "project"
 msgstr "Proyecto"
 
-#: project/create/create.ts:312
+#: project/create/create.ts:314
 msgid "project?"
 msgstr "¿proyecto?"
 
@@ -9395,13 +9409,13 @@ msgstr "Proyectos"
 
 #: campaign/campaign/campaign.ts:104
 #: event/event/event.ts:137
-#: profile/profile.ts:128
-#: profile/profile.ts:141
-#: project/project/project.ts:144
+#: profile/profile.ts:127
+#: profile/profile.ts:140
+#: project/project/project.ts:149
 msgid "received"
 msgstr "Recibidos"
 
-#: profile/profile.ts:133
+#: profile/profile.ts:132
 msgid "received donations"
 msgstr "Donaciones recibidas"
 
@@ -9411,7 +9425,7 @@ msgstr "Donaciones recibidas"
 msgid "referred friends to receive the"
 msgstr "Amigos invitados para recibir el"
 
-#: auth/signup/signup.ts:74
+#: auth/signup/signup.ts:79
 msgid "registration form"
 msgstr "Formulario de acceso"
 
@@ -9428,7 +9442,7 @@ msgid "restore"
 msgstr "Restaurar"
 
 #: donation-list/donation-list.ts:524
-#: shared/helpers/table.ts:222
+#: shared/helpers/table.ts:220
 msgid "results"
 msgstr "Resultados"
 
@@ -9445,19 +9459,19 @@ msgstr "escuela"
 msgid "settings"
 msgstr "Configuración"
 
-#: response-messages/response-messages.ts:107
+#: response-messages/response-messages.ts:111
 msgid "should be higher than"
 msgstr "Debería ser más alto que"
 
-#: response-messages/response-messages.ts:113
+#: response-messages/response-messages.ts:117
 msgid "should be longer than"
 msgstr "Debería ser más largo que "
 
-#: response-messages/response-messages.ts:104
+#: response-messages/response-messages.ts:108
 msgid "should be lower than"
 msgstr "Debería ser más bajo que"
 
-#: response-messages/response-messages.ts:110
+#: response-messages/response-messages.ts:114
 msgid "should be shorter than"
 msgstr "Debería ser más corto que"
 
@@ -9486,7 +9500,7 @@ msgstr ""
 msgid "speed"
 msgstr "velocidad"
 
-#: project/project/project.ts:159
+#: project/project/project.ts:164
 msgid "start date"
 msgstr "Fecha de inicio"
 
@@ -9496,12 +9510,12 @@ msgstr ""
 
 #: campaign/campaign/campaign.ts:109
 #: event/event/event.ts:142
-#: project/project/project.ts:149
+#: project/project/project.ts:154
 msgid "supporters"
 msgstr "Apoyos "
 
 #: campaign/campaign/campaign.ts:114
-#: project/project/project.ts:154
+#: project/project/project.ts:159
 msgid "target"
 msgstr "Objetivo"
 
@@ -9509,8 +9523,8 @@ msgstr "Objetivo"
 msgid "team"
 msgstr "Equipo"
 
-#: home/policy/terms.ts:23
-#: home/policy/terms.ts:29
+#: home/policy/terms.ts:24
+#: home/policy/terms.ts:30
 msgid "terms of service"
 msgstr "Terminos del servicio"
 
@@ -9594,7 +9608,7 @@ msgstr "transparencia"
 msgid "user"
 msgstr "Usuarios"
 
-#: event/table/table.html:111
+#: event/table/table.html:96
 #: home-stats/home-stats.ts:61
 #: stats/world/world.html:6
 msgid "users"
@@ -9633,11 +9647,11 @@ msgstr "Cartera"
 msgid "wallet creation"
 msgstr "Creación de cartera"
 
-#: dashboard.wallet/restore/restore.ts:39
+#: dashboard.wallet/restore/restore.ts:42
 msgid "wallet restore"
 msgstr "Restauración de la cartera"
 
-#: about/jobs/jobs.ts:16
+#: about/jobs/jobs.ts:17
 msgid "we are hiring!"
 msgstr "¡estamos contratando a nuevas personas!"
 
@@ -9658,9 +9672,56 @@ msgstr ""
 msgid "www.example.com"
 msgstr "www.ejemplo.com"
 
-#: response-messages/response-messages.ts:145
+#: response-messages/response-messages.ts:149
 msgid "you already have a running campaign"
 msgstr ""
+
+#~ msgid "Account not active."
+#~ msgstr "Cuenta no activa"
+
+#~ msgid "Add"
+#~ msgstr "Añade"
+
+#~ msgid "Add and remove organization administrators"
+#~ msgstr "Añada y elimine administradores de la organización"
+
+#~ msgid "Admin add"
+#~ msgstr "Añada administrador"
+
+#~ msgid "Already present."
+#~ msgstr "Ya presente"
+
+#~ msgid "Are you sure to remove this?"
+#~ msgstr "¿está seguro de quererlo eliminar?"
+
+#, fuzzy
+#~ msgid ""
+#~ "Handle your administrators. To insert a new admin, you should provide the email address of a registered and\n"
+#~ "\t\t\t\tverified account in Helperbit."
+#~ msgstr ""
+#~ "Gestione a los administradores. Para introducir un nuevo administrador, debe "
+#~ "facilitar la dirección email de una cuenta registrada y verificada en "
+#~ "Helperbit."
+
+#~ msgid "Invalid email."
+#~ msgstr "Email no válido"
+
+#~ msgid "Invalid user."
+#~ msgstr "Usuario no válido"
+
+#~ msgid "This admin belongs to a multisig wallet."
+#~ msgstr "Este administrador pertenece a una cartera multifirma"
+
+#~ msgid "This user is not in the allowed admin list you submitted during verification."
+#~ msgstr ""
+#~ "Este usuario no está en la lista de administradores permitidos enviada "
+#~ "durante la verificación."
+
+#~ msgid "We Are Hiring, have a look to the open positions"
+#~ msgstr "Estamos contratando gente, puede ojear las posiciones abiertas."
+
+#~ msgid "Your Admins."
+#~ msgstr "Tus administradores."
 
 #~ msgid "(Signature of the Board of Directors)"
 #~ msgstr "(Firma del Presidente del Consejo Directivo)"
@@ -10770,9 +10831,6 @@ msgstr ""
 
 #~ msgid "Your email address"
 #~ msgstr "Dirección email"
-
-#~ msgid "Your profile is {{$ctrl.verify.trustlevel}}% complete"
-#~ msgstr "Su perfil se ha completado al {{verify.trustlevel}}%"
 
 #~ msgid "Your proposal has been submitted. The proposal will be visible on this"
 #~ msgstr "Su propuesta ha sido enviada. Será visible en este"

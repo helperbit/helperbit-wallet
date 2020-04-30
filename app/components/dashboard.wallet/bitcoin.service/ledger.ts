@@ -10,8 +10,7 @@ import { unwrap } from '../../../models/common';
 import AppSettings from '../../../app.settings';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/internal/Observable';
-
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class BitcoinLedgerService implements BitcoinSignService {

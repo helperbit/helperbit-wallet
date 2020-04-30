@@ -17,7 +17,7 @@ import { getLocalStorage } from 'app/shared/helpers/utils';
 @Component({
 	selector: 'me-wallet-component',
 	templateUrl: 'wallets.html',
-	styleUrls: ['wallets.scss']
+	styleUrls: ['../../../sass/main/custom/page.scss', 'wallets.scss']
 })
 export class MeWalletComponent implements OnInit {
 	baseUrl: string = AppSettings.baseUrl;

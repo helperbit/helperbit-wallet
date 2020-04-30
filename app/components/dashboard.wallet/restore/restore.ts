@@ -8,11 +8,12 @@ import { ResponseMessageConfig, buildErrorResponseMessage } from 'app/shared/com
 import { WizardComponent } from 'angular-archwizard';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CurrencyService } from 'app/services/currency';
-import { evaluteFee } from '../bitcoin.service/bitcoin-helper';
+import { evaluteFee, ONESATOSHI } from '../bitcoin.service/bitcoin-helper';
 
 @Component({
 	selector: 'me-wallet-restore-component',
 	templateUrl: 'restore.html',
+	styleUrls: ['../../../sass/main/custom/page.scss']
 })
 export class MeWalletRestoreComponent implements OnInit {
 	@ViewChild(WizardComponent) public wizardHandler: WizardComponent;
@@ -72,7 +73,7 @@ export class MeWalletRestoreComponent implements OnInit {
 			destination: this.model.destination
 		};
 
-		wreq.value = wreq.value - wreq.fee - 0.00000001;
+		wreq.value = wreq.value - wreq.fee - ONESATOSHI;
 
 		/* Send the refund transaction */
 		this.walletService.withdraw(this.wallet.address, wreq).subscribe(data => {
